@@ -3,28 +3,28 @@
 # This file is distributed under the same license as the oneTBB package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: oneTBB \n"
+"Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-02-23 15:45+0300\n"
+"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ../../oneTBB/doc/main/reference/constructors_for_nodes.rst:4
 msgid "Constructors for Flow Graph nodes"
-msgstr ""
+msgstr "Конструкторы для узлов Flow Graph"
 
 #: ../../oneTBB/doc/main/reference/constructors_for_nodes.rst:7
-msgid ""
-"To enable this feature, define the ``TBB_PREVIEW_FLOW_GRAPH_FEATURES`` "
-"macro to 1."
+msgid "To enable this feature, define the ``TBB_PREVIEW_FLOW_GRAPH_FEATURES`` macro to 1."
 msgstr ""
 
 #: ../../oneTBB/doc/main/reference/constructors_for_nodes.rst:14
@@ -32,16 +32,11 @@ msgid "Description"
 msgstr ""
 
 #: ../../oneTBB/doc/main/reference/constructors_for_nodes.rst:16
-msgid ""
-"The \"Helper Functions for Expressing Graphs\" feature adds a set of new "
-"constructors that can be used to construct a node that ``follows`` or "
-"``precedes`` a set of nodes."
+msgid "The \"Helper Functions for Expressing Graphs\" feature adds a set of new constructors that can be used to construct a node that ``follows`` or ``precedes`` a set of nodes."
 msgstr ""
 
 #: ../../oneTBB/doc/main/reference/constructors_for_nodes.rst:19
-msgid ""
-"Where possible, the constructors support Class Template Argument "
-"Deduction (since C++17)."
+msgid "Where possible, the constructors support Class Template Argument Deduction (since C++17)."
 msgstr ""
 
 #: ../../oneTBB/doc/main/reference/constructors_for_nodes.rst:22
@@ -66,15 +61,12 @@ msgid ""
 "continue_node(follows(...), Body body, Policy = Policy());\n"
 "continue_node(precedes(...), Body body, Policy = Policy());\n"
 "\n"
-"continue_node(follows(...), int number_of_predecessors, Body body, Policy"
-" = Policy());\n"
-"continue_node(precedes(...), int number_of_predecessors, Body body, "
-"Policy = Policy());\n"
+"continue_node(follows(...), int number_of_predecessors, Body body, Policy = Policy());\n"
+"continue_node(precedes(...), int number_of_predecessors, Body body, Policy = Policy());\n"
 "\n"
 "// function_node\n"
 "function_node(follows(...), std::size_t concurrency, Policy = Policy());\n"
-"function_node(precedes(...), std::size_t concurrency, Policy = Policy());"
-"\n"
+"function_node(precedes(...), std::size_t concurrency, Policy = Policy());\n"
 "\n"
 "// input_node\n"
 "input_node(precedes(...), body);\n"
@@ -104,10 +96,8 @@ msgid ""
 "explicit queue_node(precedes(...));\n"
 "\n"
 "// priority_queue_node\n"
-"explicit priority_queue_node(follows(...), const Compare& comp = "
-"Compare());\n"
-"explicit priority_queue_node(precedes(...), const Compare& compare = "
-"Compare());\n"
+"explicit priority_queue_node(follows(...), const Compare& comp = Compare());\n"
+"explicit priority_queue_node(precedes(...), const Compare& compare = Compare());\n"
 "\n"
 "// sequencer_node\n"
 "sequencer_node(follows(...), const Sequencer& s);\n"
@@ -141,4 +131,3 @@ msgstr ""
 #: ../../oneTBB/doc/main/reference/constructors_for_nodes.rst:104
 msgid ":ref:`follows_precedes`"
 msgstr ""
-

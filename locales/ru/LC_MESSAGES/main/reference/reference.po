@@ -3,81 +3,66 @@
 # This file is distributed under the same license as the oneTBB package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: oneTBB \n"
+"Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-02-23 15:28+0300\n"
+"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ../../oneTBB/doc/main/reference/reference.rst:4
 msgid "|short_name| API Reference"
-msgstr ""
+msgstr "Справочник по API |short_name|"
 
 #: ../../oneTBB/doc/main/reference/reference.rst:6
-msgid ""
-"For oneTBB API Reference, refer to `oneAPI Specification "
-"<https://spec.oneapi.com/>`_. The current supported version of oneAPI "
-"Specification is 1.0."
-msgstr ""
+msgid "For oneTBB API Reference, refer to `oneAPI Specification <https://spec.oneapi.com/>`_. The current supported version of oneAPI Specification is 1.0."
+msgstr "Справочник по API oneTBB приведен в `oneAPI Specification <https://spec.oneapi.com/>`_. Текущая поддерживаемая версия спецификации oneAPI - 1.0."
 
 #: ../../oneTBB/doc/main/reference/reference.rst:10
 msgid "Specification extensions"
-msgstr ""
+msgstr "Расширения спецификации"
 
 #: ../../oneTBB/doc/main/reference/reference.rst:12
-msgid ""
-"|full_name| implements the `oneTBB specification "
-"<https://spec.oneapi.com/versions/latest/elements/oneTBB/source/nested-"
-"index.html>`_. This document provides additional details or restrictions "
-"where necessary. It also describes features that are not included in the "
-"oneTBB specification."
-msgstr ""
+msgid "|full_name| implements the `oneTBB specification <https://spec.oneapi.com/versions/latest/elements/oneTBB/source/nested-index.html>`_. This document provides additional details or restrictions where necessary. It also describes features that are not included in the oneTBB specification."
+msgstr "|full_name| реализует спецификацию `oneTBB <https://spec.oneapi.com/versions/latest/elements/oneTBB/source/nested-index.html>`_. Этот документ содержит дополнительные детали или ограничения, где это необходимо. Он также описывает возможности, которые не включены в спецификацию oneTBB."
 
 #: ../../oneTBB/doc/main/reference/reference.rst:24
 msgid "Preview features"
-msgstr ""
+msgstr "Особенности предпросмотра"
 
 #: ../../oneTBB/doc/main/reference/reference.rst:26
-msgid ""
-"A preview feature is a component of oneTBB introduced to receive early "
-"feedback from users."
-msgstr ""
+msgid "A preview feature is a component of oneTBB introduced to receive early feedback from users."
+msgstr "Функция предварительного просмотра - это компонент oneTBB, введенный для получения ранних отзывов от пользователей."
 
 #: ../../oneTBB/doc/main/reference/reference.rst:29
 msgid "The key properties of a preview feature are:"
-msgstr ""
+msgstr "Основными свойствами функции предварительного просмотра являются:"
 
 #: ../../oneTBB/doc/main/reference/reference.rst:31
 msgid "It is off by default and must be explicitly enabled."
-msgstr ""
+msgstr "По умолчанию он выключен и должен быть явно включен."
 
 #: ../../oneTBB/doc/main/reference/reference.rst:32
 msgid "It is intended to have a high quality implementation."
-msgstr ""
+msgstr "Предполагается высокое качество реализации."
 
 #: ../../oneTBB/doc/main/reference/reference.rst:33
 msgid "There is no guarantee of future existence or compatibility."
-msgstr ""
+msgstr "Нет никакой гарантии существования или совместимости в будущем."
 
 #: ../../oneTBB/doc/main/reference/reference.rst:34
-msgid ""
-"It may have limited or no support in tools such as correctness analyzers,"
-" profilers and debuggers."
-msgstr ""
+msgid "It may have limited or no support in tools such as correctness analyzers, profilers and debuggers."
+msgstr "Он может иметь ограниченную поддержку или не иметь поддержки в таких инструментах, как анализаторы корректности, профилировщики и отладчики."
 
 #: ../../oneTBB/doc/main/reference/reference.rst:38
-msgid ""
-"A preview feature is subject to change in future. It might be removed or "
-"significantly altered in future releases. Changes to a preview feature do"
-" NOT require usual deprecation and removal process. Therefore, using "
-"preview features in production code is strongly discouraged."
-msgstr ""
-
+msgid "A preview feature is subject to change in future. It might be removed or significantly altered in future releases. Changes to a preview feature do NOT require usual deprecation and removal process. Therefore, using preview features in production code is strongly discouraged."
+msgstr "Функция предварительного просмотра может быть изменена в будущем. Она может быть удалена или значительно изменена в будущих выпусках. Изменения в функциях предварительного просмотра НЕ требуют обычного процесса устаревания и удаления. Поэтому использовать функции предварительного просмотра в производственном коде настоятельно не рекомендуется."

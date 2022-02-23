@@ -3,28 +3,28 @@
 # This file is distributed under the same license as the oneTBB package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: oneTBB \n"
+"Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-02-23 15:47+0300\n"
+"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ../../oneTBB/doc/main/reference/info_namespace_extensions.rst:4
 msgid "oneapi::tbb::info namespace extensions"
-msgstr ""
+msgstr "Расширения пространства имен oneapi::tbb::info"
 
 #: ../../oneTBB/doc/main/reference/info_namespace_extensions.rst:7
-msgid ""
-"To enable this feature, set the "
-"``TBB_PREVIEW_TASK_ARENA_CONSTRAINTS_EXTENSION`` macro to 1."
+msgid "To enable this feature, set the ``TBB_PREVIEW_TASK_ARENA_CONSTRAINTS_EXTENSION`` macro to 1."
 msgstr ""
 
 #: ../../oneTBB/doc/main/reference/info_namespace_extensions.rst:14
@@ -77,16 +77,11 @@ msgid "Functions"
 msgstr ""
 
 #: ../../oneTBB/doc/main/reference/info_namespace_extensions.rst:57
-msgid ""
-"Returns the vector of integral indexes that indicate available core "
-"types. The indexes are sorted from the least performant to the most "
-"performant core type."
+msgid "Returns the vector of integral indexes that indicate available core types. The indexes are sorted from the least performant to the most performant core type."
 msgstr ""
 
 #: ../../oneTBB/doc/main/reference/info_namespace_extensions.rst:61
-msgid ""
-"If error occurs during system topology parsing, returns vector containing"
-" single element that equals to ``task_arena::automatic``."
+msgid "If error occurs during system topology parsing, returns vector containing single element that equals to ``task_arena::automatic``."
 msgstr ""
 
 #: ../../oneTBB/doc/main/reference/info_namespace_extensions.rst:66
@@ -98,14 +93,9 @@ msgid "See also:"
 msgstr ""
 
 #: ../../oneTBB/doc/main/reference/info_namespace_extensions.rst:70
-msgid ""
-":doc:`task_arena::constraints class preview extensions "
-"<constraints_extensions>`"
+msgid ":doc:`task_arena::constraints class preview extensions <constraints_extensions>`"
 msgstr ""
 
 #: ../../oneTBB/doc/main/reference/info_namespace_extensions.rst:71
-msgid ""
-"`info namespace specification "
-"<https://spec.oneapi.com/versions/latest/elements/oneTBB/source/info_namespace.html>`_"
+msgid "`info namespace specification <https://spec.oneapi.com/versions/latest/elements/oneTBB/source/info_namespace.html>`_"
 msgstr ""
-

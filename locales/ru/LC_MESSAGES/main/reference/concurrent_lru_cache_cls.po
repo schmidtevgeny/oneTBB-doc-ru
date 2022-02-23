@@ -3,96 +3,79 @@
 # This file is distributed under the same license as the oneTBB package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: oneTBB \n"
+"Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-02-23 15:25+0300\n"
+"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:4
 msgid "concurrent_lru_cache"
-msgstr ""
+msgstr "concurrent_lru_cache"
 
 #: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:7
-msgid ""
-"To enable this feature, define the ``TBB_PREVIEW_CONCURRENT_LRU_CACHE`` "
-"macro to 1."
-msgstr ""
+msgid "To enable this feature, define the ``TBB_PREVIEW_CONCURRENT_LRU_CACHE`` macro to 1."
+msgstr "Чтобы включить эту функцию, установите макрос ``TBB_PREVIEW_CONCURRENT_LRU_CACHE`` в 1."
 
 #: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:9
 msgid "A Class Template for Least Recently Used cache with concurrent operations."
-msgstr ""
+msgstr "Шаблон класса для кэша Least Recently Used с одновременными операциями."
 
 #: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:16
 msgid "Description"
-msgstr ""
+msgstr "Описание"
 
 #: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:18
-msgid ""
-"A ``concurrent_lru_cache`` container maps keys to values with the ability"
-" to limit the number of stored unused values. For each key, there is at "
-"most one item stored in the container."
-msgstr ""
+msgid "A ``concurrent_lru_cache`` container maps keys to values with the ability to limit the number of stored unused values. For each key, there is at most one item stored in the container."
+msgstr "Контейнер ``concurrent_lru_cache`` отображает ключи на значения с возможностью ограничения количества хранимых неиспользуемых значений. Для каждого ключа в контейнере хранится не более одного элемента."
 
 #: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:22
-msgid ""
-"The container permits multiple threads to concurrently retrieve items "
-"from it."
-msgstr ""
+msgid "The container permits multiple threads to concurrently retrieve items from it."
+msgstr "Контейнер позволяет нескольким потокам одновременно извлекать из него элементы."
 
 #: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:24
-msgid ""
-"The container tracks which items are in use by returning a proxy "
-"``concurrent_lru_cache::handle`` object that refers to an item instead of"
-" its value. Once there are no ``handle`` objects holding reference to an "
-"item, it is considered unused."
-msgstr ""
+msgid "The container tracks which items are in use by returning a proxy ``concurrent_lru_cache::handle`` object that refers to an item instead of its value. Once there are no ``handle`` objects holding reference to an item, it is considered unused."
+msgstr "Контейнер отслеживает, какие элементы используются, возвращая прокси-объект ``concurrent_lru_cache::handle``, который ссылается на элемент вместо его значения. Если нет объектов ``handle``, ссылающихся на элемент, он считается неиспользуемым."
 
 #: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:28
-msgid ""
-"The container stores all the items that are currently in use plus a "
-"limited number of unused items. Excessive unused items are erased "
-"according to least recently used policy."
-msgstr ""
+msgid "The container stores all the items that are currently in use plus a limited number of unused items. Excessive unused items are erased according to least recently used policy."
+msgstr "В контейнере хранятся все используемые в данный момент элементы плюс ограниченное количество неиспользуемых элементов. Избыток неиспользуемых элементов стирается в соответствии с политикой наименьшего последнего использования."
 
 #: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:32
-msgid ""
-"When no item is found for a given key, the container calls the user-"
-"specified ``value_function_type`` object to construct a value for the "
-"key, and stores that value. The ``value_function_type`` object must be "
-"thread-safe."
-msgstr ""
+msgid "When no item is found for a given key, the container calls the user-specified ``value_function_type`` object to construct a value for the key, and stores that value. The ``value_function_type`` object must be thread-safe."
+msgstr "Если для данного ключа не найдено ни одного элемента, контейнер вызывает указанный пользователем объект ``value_function_type`` для построения значения для ключа и сохраняет это значение. Объект ``value_function_type`` должен быть потокобезопасным."
 
 #: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:37
 msgid "API"
-msgstr ""
+msgstr "API"
 
 #: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:40
 msgid "Header"
-msgstr ""
+msgstr "Заголовок"
 
 #: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:42
 msgid "#include \"oneapi/tbb/concurrent_lru_cache.h\""
-msgstr ""
+msgstr "#include \"oneapi/tbb/concurrent_lru_cache.h\""
 
 #: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:47
 msgid "Synopsis"
-msgstr ""
+msgstr "Описание"
 
 #: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:49
 msgid ""
 "namespace oneapi {\n"
 "    namespace tbb {\n"
-"        template <typename Key, typename Value, typename "
-"ValueFunctionType = Value (*)(Key)>\n"
+"        template <typename Key, typename Value, typename ValueFunctionType = Value (*)(Key)>\n"
 "        class concurrent_lru_cache {\n"
 "        public:\n"
 "            using key_type = Key;\n"
@@ -117,8 +100,7 @@ msgid ""
 "                value_type& value();\n"
 "            }; // class handle\n"
 "\n"
-"            concurrent_lru_cache( value_function_type f, std::size_t "
-"number_of_lru_history_items );\n"
+"            concurrent_lru_cache( value_function_type f, std::size_t number_of_lru_history_items );\n"
 "            ~concurrent_lru_cache();\n"
 "\n"
 "            handle operator[]( key_type key );\n"
@@ -126,100 +108,109 @@ msgid ""
 "    } // namespace tbb\n"
 "} // namespace oneapi"
 msgstr ""
+"namespace oneapi {\n"
+"    namespace tbb {\n"
+"        template <typename Key, typename Value, typename ValueFunctionType = Value (*)(Key)>\n"
+"        class concurrent_lru_cache {\n"
+"        public:\n"
+"            using key_type = Key;\n"
+"            using value_type = Value;\n"
+"            using pointer = value_type*;\n"
+"            using const_pointer = const value_type*;\n"
+"            using reference = value_type&;\n"
+"            using const_reference = const value_type&;\n"
+"\n"
+"            using value_function_type = ValueFunctionType;\n"
+"\n"
+"            class handle {\n"
+"            public:\n"
+"                handle();\n"
+"                handle( handle&& other );\n"
+"\n"
+"                ~handle();\n"
+"\n"
+"                handle& operator=( handle&& other );\n"
+"\n"
+"                operator bool() const;\n"
+"                value_type& value();\n"
+"            }; // class handle\n"
+"\n"
+"            concurrent_lru_cache( value_function_type f, std::size_t number_of_lru_history_items );\n"
+"            ~concurrent_lru_cache();\n"
+"\n"
+"            handle operator[]( key_type key );\n"
+"        }; // class concurrent_lru_cache\n"
+"    } // namespace tbb\n"
+"} // namespace oneapi"
 
 #: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:87
 msgid "Member Functions"
-msgstr ""
+msgstr "Функции-члены"
 
 #: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:91
-msgid ""
-"**Effects**: Constructs an empty cache that can keep up to "
-"``number_of_lru_history_items`` unused values, with a function object "
-"``f`` for constructing new values."
-msgstr ""
+msgid "**Effects**: Constructs an empty cache that can keep up to ``number_of_lru_history_items`` unused values, with a function object ``f`` for constructing new values."
+msgstr "**Эффекты**: Создает пустой кэш, который может хранить до ``number_of_lru_history_items`` неиспользованных значений, с функтором ``f`` для создания новых значений."
 
 #: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:98
-msgid ""
-"**Effects**: Destroys the ``concurrent_lru_cache``. Calls the destructors"
-" of the stored elements and deallocates the used storage."
-msgstr ""
+msgid "**Effects**: Destroys the ``concurrent_lru_cache``. Calls the destructors of the stored elements and deallocates the used storage."
+msgstr "**Эффекты**: Уничтожает ``concurrent_lru_cache``. Вызывает деструкторы сохраненных элементов и деаллоцирует использованное хранилище."
 
 #: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:101
 msgid "The behavior is undefined in case of concurrent operations with ``*this``."
-msgstr ""
+msgstr "Поведение не определено в случае одновременных операций с ``*this``."
 
 #: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:107
-msgid ""
-"**Effects**: Searches the container for an item that corresponds to the "
-"given key. If such an item is not found, the user-specified function "
-"object is called to construct a value that is inserted into the "
-"container."
-msgstr ""
+msgid "**Effects**: Searches the container for an item that corresponds to the given key. If such an item is not found, the user-specified function object is called to construct a value that is inserted into the container."
+msgstr "**Эффекты**: Поиск в контейнере элемента, соответствующего заданному ключу. Если такой элемент не найден, вызывается указанный пользователем функтор для создания значения, которое вставляется в контейнер."
 
 #: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:111
 msgid "**Returns**: a ``handle`` object holding reference to the matching value."
-msgstr ""
+msgstr "**Возвращает**: объект ``handle``, содержащий ссылку на соответствующее значение."
 
 #: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:114
 msgid "Member Objects"
-msgstr ""
+msgstr "Объекты-члены"
 
 #: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:117
 msgid "``handle`` class"
-msgstr ""
+msgstr "класс ``handle`` "
 
 #: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:119
 msgid "**Member Functions**"
-msgstr ""
+msgstr "**Функции-члены**"
 
 #: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:123
-msgid ""
-"**Effects**: Constructs a ``handle`` object that does not refer to any "
-"value."
-msgstr ""
+msgid "**Effects**: Constructs a ``handle`` object that does not refer to any value."
+msgstr "**Эффекты**: Создает объект ``handle``, который не ссылается ни на какое значение."
 
 #: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:129
-msgid ""
-"**Effects**: Transfers the reference to the value stored in "
-"``concurrent_lru_cache`` from ``other`` to the newly constructed object. "
-"Upon completion, ``other`` no longer refers to any value."
-msgstr ""
+msgid "**Effects**: Transfers the reference to the value stored in ``concurrent_lru_cache`` from ``other`` to the newly constructed object. Upon completion, ``other`` no longer refers to any value."
+msgstr "**Эффекты**: Передает ссылку на значение, хранящееся в ``concurrent_lru_cache``, из ``other`` в новый построенный объект. После завершения ``other`` больше не ссылается ни на какое значение."
 
 #: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:137
-msgid ""
-"**Effects**: Releases the reference (if it exists) to a value stored in "
-"``concurrent_lru_cache``."
-msgstr ""
+msgid "**Effects**: Releases the reference (if it exists) to a value stored in ``concurrent_lru_cache``."
+msgstr "**Эффекты**: Освобождает ссылку (если она существует) на значение, хранящееся в ``concurrent_lru_cache``."
 
 #: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:139
 msgid "The behavior is undefined for concurrent operations with ``*this``."
-msgstr ""
+msgstr "Поведение не определено для одновременных операций с ``*this``."
 
 #: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:145
-msgid ""
-"**Effects**: Transfers the reference to a value stored in "
-"``concurrent_lru_cache`` from ``other`` to ``*this``. If existed, the "
-"previous reference held by ``*this`` is released. Upon completion "
-"``other`` no longer refers to any value."
-msgstr ""
+msgid "**Effects**: Transfers the reference to a value stored in ``concurrent_lru_cache`` from ``other`` to ``*this``. If existed, the previous reference held by ``*this`` is released. Upon completion ``other`` no longer refers to any value."
+msgstr "**Эффекты**: Передает ссылку на значение, хранящееся в ``concurrent_lru_cache``, от ``other`` к ``*this``. Если существовала, предыдущая ссылка, хранившаяся в ``*this``, освобождается. После завершения ``other`` больше не ссылается ни на какое значение."
 
 #: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:149
 msgid "**Returns**: a reference to ``*this``."
-msgstr ""
+msgstr "**Возвращает**: ссылку на ``*this``."
 
 #: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:155
-msgid ""
-"**Returns**: ``true`` if ``*this`` holds reference to a value, ``false`` "
-"otherwise."
-msgstr ""
+msgid "**Returns**: ``true`` if ``*this`` holds reference to a value, ``false`` otherwise."
+msgstr "**Возвращает**: ``true``, если ``*this`` содержит ссылку на значение, ``false`` в противном случае."
 
 #: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:161
-msgid ""
-"**Returns**: a reference to a ``value_type`` object stored in "
-"``concurrent_lru_cache``."
-msgstr ""
+msgid "**Returns**: a reference to a ``value_type`` object stored in ``concurrent_lru_cache``."
+msgstr "**Возвращает**: ссылку на объект ``value_type``, хранящийся в ``concurrent_lru_cache``."
 
 #: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:163
 msgid "The behavior is undefined if ``*this`` does not refer to any value."
-msgstr ""
-
+msgstr "Поведение не определено, если ``*this`` не ссылается на какое-либо значение."

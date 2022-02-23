@@ -3,34 +3,28 @@
 # This file is distributed under the same license as the oneTBB package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: oneTBB \n"
+"Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-02-23 15:54+0300\n"
+"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Concurrent_Queue_Classes.rst:4
 msgid "Concurrent Queue Classes"
-msgstr ""
+msgstr "Конкурентные очереди"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Concurrent_Queue_Classes.rst:7
-msgid ""
-"Template class ``concurrent_queue<T,Alloc>`` implements a concurrent "
-"queue with values of type ``T``. Multiple threads may simultaneously push"
-" and pop elements from the queue. The queue is unbounded and has no "
-"blocking operations. The fundamental operations on it are ``push`` and "
-"``try_pop``. The ``push`` operation works just like ``push`` for a "
-"std::queue. The operation ``try_pop`` pops an item if it is available. "
-"The check and popping have to be done in a single operation for sake of "
-"thread safety."
+msgid "Template class ``concurrent_queue<T,Alloc>`` implements a concurrent queue with values of type ``T``. Multiple threads may simultaneously push and pop elements from the queue. The queue is unbounded and has no blocking operations. The fundamental operations on it are ``push`` and ``try_pop``. The ``push`` operation works just like ``push`` for a std::queue. The operation ``try_pop`` pops an item if it is available. The check and popping have to be done in a single operation for sake of thread safety."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Concurrent_Queue_Classes.rst:17
@@ -49,12 +43,7 @@ msgid ""
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Concurrent_Queue_Classes.rst:32
-msgid ""
-"Even if each std::queue method were implemented in a thread-safe manner, "
-"the composition of those methods as shown in the example would not be "
-"thread safe if there were other threads also popping from the same queue."
-" For example, ``MySerialQueue.empty()`` might return true just before "
-"another thread snatches the last item from ``MySerialQueue``."
+msgid "Even if each std::queue method were implemented in a thread-safe manner, the composition of those methods as shown in the example would not be thread safe if there were other threads also popping from the same queue. For example, ``MySerialQueue.empty()`` might return true just before another thread snatches the last item from ``MySerialQueue``."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Concurrent_Queue_Classes.rst:39
@@ -71,28 +60,15 @@ msgid ""
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Concurrent_Queue_Classes.rst:52
-msgid ""
-"In a single-threaded program, a queue is a first-in first-out structure. "
-"But if multiple threads are pushing and popping concurrently, the "
-"definition of \"first\" is uncertain. Use of ``concurrent_queue`` "
-"guarantees that if a thread pushes two values, and another thread pops "
-"those two values, they will be popped in the same order that they were "
-"pushed."
+msgid "In a single-threaded program, a queue is a first-in first-out structure. But if multiple threads are pushing and popping concurrently, the definition of \"first\" is uncertain. Use of ``concurrent_queue`` guarantees that if a thread pushes two values, and another thread pops those two values, they will be popped in the same order that they were pushed."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Concurrent_Queue_Classes.rst:60
-msgid ""
-"Template class ``concurrent_queue`` is unbounded and has no methods that "
-"wait. It is up to the user to provide synchronization to avoid overflow, "
-"or to wait for the queue to become non-empty. Typically this is "
-"appropriate when the synchronization has to be done at a higher level."
+msgid "Template class ``concurrent_queue`` is unbounded and has no methods that wait. It is up to the user to provide synchronization to avoid overflow, or to wait for the queue to become non-empty. Typically this is appropriate when the synchronization has to be done at a higher level."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Concurrent_Queue_Classes.rst:66
-msgid ""
-"Template class ``concurrent_bounded_queue<T,Alloc>`` is a variant that "
-"adds blocking operations and the ability to specify a capacity. The "
-"methods of particular interest on it are:"
+msgid "Template class ``concurrent_bounded_queue<T,Alloc>`` is a variant that adds blocking operations and the ability to specify a capacity. The methods of particular interest on it are:"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Concurrent_Queue_Classes.rst:71
@@ -100,15 +76,11 @@ msgid "``pop(item)`` waits until it can succeed."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Concurrent_Queue_Classes.rst:74
-msgid ""
-"``push(item)`` waits until it can succeed without exceeding the queue's "
-"capacity."
+msgid "``push(item)`` waits until it can succeed without exceeding the queue's capacity."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Concurrent_Queue_Classes.rst:78
-msgid ""
-"``try_push(item)`` pushes ``item`` only if it would not exceed the "
-"queue's capacity."
+msgid "``try_push(item)`` pushes ``item`` only if it would not exceed the queue's capacity."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Concurrent_Queue_Classes.rst:82
@@ -116,26 +88,9 @@ msgid "size() returns a *signed* integer."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Concurrent_Queue_Classes.rst:85
-msgid ""
-"The value of concurrent_queue::size() is defined as the number of push "
-"operations started minus the number of pop operations started. If pops "
-"outnumber pushes, ``size()`` becomes negative. For example, if a "
-"``concurrent_queue`` is empty, and there are ``n`` pending pop "
-"operations, ``size()`` returns -\\ ``n``. This provides an easy way for "
-"producers to know how many consumers are waiting on the queue. Method "
-"``empty()`` is defined to be true if and only if ``size()`` is not "
-"positive."
+msgid "The value of concurrent_queue::size() is defined as the number of push operations started minus the number of pop operations started. If pops outnumber pushes, ``size()`` becomes negative. For example, if a ``concurrent_queue`` is empty, and there are ``n`` pending pop operations, ``size()`` returns -\\ ``n``. This provides an easy way for producers to know how many consumers are waiting on the queue. Method ``empty()`` is defined to be true if and only if ``size()`` is not positive."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Concurrent_Queue_Classes.rst:95
-msgid ""
-"By default, a ``concurrent_bounded_queue`` is unbounded. It may hold any "
-"number of values, until memory runs out. It can be bounded by setting the"
-" queue capacity with method ``set_capacity``.Setting the capacity causes "
-"``push`` to block until there is room in the queue. Bounded queues are "
-"slower than unbounded queues, so if there is a constraint elsewhere in "
-"your program that prevents the queue from becoming too large, it is "
-"better not to set the capacity. If you do not need the bounds or the "
-"blocking pop, consider using ``concurrent_queue`` instead."
+msgid "By default, a ``concurrent_bounded_queue`` is unbounded. It may hold any number of values, until memory runs out. It can be bounded by setting the queue capacity with method ``set_capacity``.Setting the capacity causes ``push`` to block until there is room in the queue. Bounded queues are slower than unbounded queues, so if there is a constraint elsewhere in your program that prevents the queue from becoming too large, it is better not to set the capacity. If you do not need the bounds or the blocking pop, consider using ``concurrent_queue`` instead."
 msgstr ""
-

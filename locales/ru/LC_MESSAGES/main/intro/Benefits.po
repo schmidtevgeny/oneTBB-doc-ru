@@ -3,122 +3,66 @@
 # This file is distributed under the same license as the oneTBB package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: oneTBB \n"
+"Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-02-23 15:09+0300\n"
+"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ../../oneTBB/doc/main/intro/Benefits.rst:4
 msgid "|short_name| Benefits"
-msgstr ""
+msgstr "Преимущества |short_name|"
 
 #: ../../oneTBB/doc/main/intro/Benefits.rst:7
-msgid ""
-"|full_name| is a library that helps you leverage multi-core performance "
-"without having to be a threading expert. Typically you can improve "
-"performance for multi-core processors by implementing the key points "
-"explained in the early sections of the Developer Guide. As your expertise"
-" grows, you may want to dive into more complex subjects that are covered "
-"in advanced sections."
-msgstr ""
+msgid "|full_name| is a library that helps you leverage multi-core performance without having to be a threading expert. Typically you can improve performance for multi-core processors by implementing the key points explained in the early sections of the Developer Guide. As your expertise grows, you may want to dive into more complex subjects that are covered in advanced sections."
+msgstr "|full_name| - это библиотека, которая поможет вам использовать производительность многоядерных процессоров без необходимости быть экспертом в области потоков. Как правило, вы можете повысить производительность многоядерных процессоров, выполнив ключевые моменты, описанные в первых разделах руководства разработчика. По мере роста вашего опыта вы можете захотеть погрузиться в более сложные темы, которые рассматриваются в продвинутых разделах."
 
 #: ../../oneTBB/doc/main/intro/Benefits.rst:15
-msgid ""
-"There are a variety of approaches to parallel programming, ranging from "
-"using platform-dependent threading primitives to exotic new languages. "
-"The advantage of oneTBB is that it works at a higher level than raw "
-"threads, yet does not require exotic languages or compilers. You can use "
-"it with any compiler supporting ISO C++. The library differs from typical"
-" threading packages in the following ways:"
-msgstr ""
+msgid "There are a variety of approaches to parallel programming, ranging from using platform-dependent threading primitives to exotic new languages. The advantage of oneTBB is that it works at a higher level than raw threads, yet does not require exotic languages or compilers. You can use it with any compiler supporting ISO C++. The library differs from typical threading packages in the following ways:"
+msgstr "Существует множество подходов к параллельному программированию, начиная от использования примитивов потоков, зависящих от платформы, и заканчивая экзотическими новыми языками. Преимущество oneTBB в том, что он работает на более высоком уровне, чем сырые потоки, но при этом не требует экзотических языков или компиляторов. Вы можете использовать ее с любым компилятором, поддерживающим ISO C++. Библиотека отличается от типичных пакетов для работы с потоками следующим образом:"
 
 #: ../../oneTBB/doc/main/intro/Benefits.rst:23
-msgid ""
-"**oneTBB enables you to specify logical paralleism instead of threads**. "
-"Most threading packages require you to specify threads. Programming "
-"directly in terms of threads can be tedious and lead to inefficient "
-"programs, because threads are low-level, heavy constructs that are close "
-"to the hardware. Direct programming with threads forces you to "
-"efficiently map logical tasks onto threads. In contrast, the oneTBB run-"
-"time library automatically maps logical parallelism onto threads in a way"
-" that makes efficient use of processor resources."
-msgstr ""
+msgid "**oneTBB enables you to specify logical paralleism instead of threads**. Most threading packages require you to specify threads. Programming directly in terms of threads can be tedious and lead to inefficient programs, because threads are low-level, heavy constructs that are close to the hardware. Direct programming with threads forces you to efficiently map logical tasks onto threads. In contrast, the oneTBB run-time library automatically maps logical parallelism onto threads in a way that makes efficient use of processor resources."
+msgstr "**oneTBB позволяет вам указывать логический параллелизм вместо потоков**. Большинство пакетов для работы с потоками требуют указания потоков. Программирование непосредственно в терминах потоков может быть утомительным и приводить к неэффективным программам, поскольку потоки - это низкоуровневые, тяжелые конструкции, близкие к аппаратным средствам. Прямое программирование с использованием потоков заставляет вас эффективно отображать логические задачи на потоки. В отличие от этого, библиотека времени выполнения oneTBB автоматически сопоставляет логический параллелизм с потоками таким образом, чтобы эффективно использовать ресурсы процессора."
 
 #: ../../oneTBB/doc/main/intro/Benefits.rst:34
-msgid ""
-"**oneTBB targets threading for performance**. Most general-purpose "
-"threading packages support many different kinds of threading, such as "
-"threading for asynchronous events in graphical user interfaces. As a "
-"result, general-purpose packages tend to be low-level tools that provide "
-"a foundation, not a solution. Instead, oneTBB focuses on the particular "
-"goal of parallelizing computationally intensive work, delivering higher-"
-"level, simpler solutions."
-msgstr ""
+msgid "**oneTBB targets threading for performance**. Most general-purpose threading packages support many different kinds of threading, such as threading for asynchronous events in graphical user interfaces. As a result, general-purpose packages tend to be low-level tools that provide a foundation, not a solution. Instead, oneTBB focuses on the particular goal of parallelizing computationally intensive work, delivering higher-level, simpler solutions."
+msgstr "**oneTBB нацелен на потоковую обработку для повышения производительности**. Большинство пакетов потоков общего назначения поддерживают множество различных видов потоков, например, потоки для асинхронных событий в графических пользовательских интерфейсах. В результате пакеты общего назначения, как правило, являются низкоуровневыми инструментами, которые обеспечивают основу, а не решение. Вместо этого oneTBB фокусируется на конкретной цели распараллеливания интенсивных вычислений, предоставляя более высокоуровневые и простые решения."
 
 #: ../../oneTBB/doc/main/intro/Benefits.rst:43
-msgid ""
-"**oneTBB is compatible with other threading packages.** Because the "
-"library is not designed to address all threading problems, it can coexist"
-" seamlessly with other threading packages."
-msgstr ""
+msgid "**oneTBB is compatible with other threading packages.** Because the library is not designed to address all threading problems, it can coexist seamlessly with other threading packages."
+msgstr "**oneTBB совместима с другими потоковыми пакетами.** Поскольку библиотека не предназначена для решения всех проблем потоковой обработки, она может органично сосуществовать с другими потоковыми пакетами."
 
 #: ../../oneTBB/doc/main/intro/Benefits.rst:48
-msgid ""
-"**oneTBB emphasizes scalable, data parallel programming**. Breaking a "
-"program up into separate functional blocks, and assigning a separate "
-"thread to each block is a solution that typically does not scale well "
-"since typically the number of functional blocks is fixed. In contrast, "
-"oneTBB emphasizes *data-parallel* programming, enabling multiple threads "
-"to work on different parts of a collection. Data-parallel programming "
-"scales well to larger numbers of processors by dividing the collection "
-"into smaller pieces. With data-parallel programming, program performance "
-"increases as you add processors."
-msgstr ""
+msgid "**oneTBB emphasizes scalable, data parallel programming**. Breaking a program up into separate functional blocks, and assigning a separate thread to each block is a solution that typically does not scale well since typically the number of functional blocks is fixed. In contrast, oneTBB emphasizes *data-parallel* programming, enabling multiple threads to work on different parts of a collection. Data-parallel programming scales well to larger numbers of processors by dividing the collection into smaller pieces. With data-parallel programming, program performance increases as you add processors."
+msgstr "**oneTBB делает упор на масштабируемое, параллельное программирование по данным**. Разбиение программы на отдельные функциональные блоки и назначение отдельного потока для каждого блока - это решение, которое обычно плохо масштабируется, поскольку обычно количество функциональных блоков фиксировано. В отличие от этого, oneTBB делает упор на *параллельное программирование по данным*, позволяя нескольким потокам работать над различными частями коллекции. Параллельное программирование данных хорошо масштабируется на большее количество процессоров за счет разделения коллекции на более мелкие части. При параллельном программировании данных производительность программы увеличивается по мере добавления процессоров."
 
 #: ../../oneTBB/doc/main/intro/Benefits.rst:59
-msgid ""
-"**oneTBB relies on generic programming**. Traditional libraries specify "
-"interfaces in terms of specific types or base classes. Instead, oneAPI "
-"Threading Building Blocks uses generic programming. The essence of "
-"generic programming is writing the best possible algorithms with the "
-"fewest constraints. The C++ Standard Template Library (STL) is a good "
-"example of generic programming in which the interfaces are specified by "
-"*requirements* on types. For example, C++ STL has a template function "
-"``sort`` that sorts a sequence abstractly defined in terms of iterators "
-"on the sequence. The requirements on the iterators are:"
-msgstr ""
+msgid "**oneTBB relies on generic programming**. Traditional libraries specify interfaces in terms of specific types or base classes. Instead, oneAPI Threading Building Blocks uses generic programming. The essence of generic programming is writing the best possible algorithms with the fewest constraints. The C++ Standard Template Library (STL) is a good example of generic programming in which the interfaces are specified by *requirements* on types. For example, C++ STL has a template function ``sort`` that sorts a sequence abstractly defined in terms of iterators on the sequence. The requirements on the iterators are:"
+msgstr "**oneTBB полагается на общее программирование**. Традиционные библиотеки определяют интерфейсы в терминах конкретных типов или базовых классов. Вместо этого oneAPI Threading Building Blocks использует обобщенное программирование. Суть обобщенного программирования заключается в написании наилучших возможных алгоритмов с наименьшими ограничениями. Библиотека стандартных шаблонов C++ (STL) является хорошим примером обобщенного программирования, в котором интерфейсы задаются *требованиями* к типам. Например, в C++ STL есть шаблонная функция ``sort``, которая сортирует последовательность, абстрактно определенную в терминах итераторов последовательности. Требования к итераторам таковы:"
 
 #: ../../oneTBB/doc/main/intro/Benefits.rst:71
 msgid "Provide random access"
-msgstr ""
+msgstr "Обеспечить произвольный доступ"
 
 #: ../../oneTBB/doc/main/intro/Benefits.rst:74
-msgid ""
-"The expression ``*i<*j`` is true if the item pointed to by iterator ``i``"
-" should precede the item pointed to by iterator ``j``, and false "
-"otherwise."
-msgstr ""
+msgid "The expression ``*i<*j`` is true if the item pointed to by iterator ``i`` should precede the item pointed to by iterator ``j``, and false otherwise."
+msgstr "Выражение ``*i<*j`` истинно, если элемент, на который указывает итератор ``i``, должен предшествовать элементу, на который указывает итератор ``j``, и ложно в противном случае."
 
 #: ../../oneTBB/doc/main/intro/Benefits.rst:79
 msgid "The expression ``swap(*i,*j)`` swaps two elements."
-msgstr ""
+msgstr "Выражение ``swap(*i,*j)`` меняет местами два элемента."
 
 #: ../../oneTBB/doc/main/intro/Benefits.rst:82
-msgid ""
-"Specification in terms of requirements on types enables the template to "
-"sort many different representations of sequences, such as vectors and "
-"deques. Similarly, the oneTBB templates specify requirements on types, "
-"not particular types, and thus adapt to different data representations. "
-"Generic programming enables oneTBB to deliver high performance algorithms"
-" with broad applicability."
-msgstr ""
-
+msgid "Specification in terms of requirements on types enables the template to sort many different representations of sequences, such as vectors and deques. Similarly, the oneTBB templates specify requirements on types, not particular types, and thus adapt to different data representations. Generic programming enables oneTBB to deliver high performance algorithms with broad applicability."
+msgstr "Спецификация в терминах требований к типам позволяет шаблону сортировать множество различных представлений последовательностей, таких как векторы и двусвязные списки. Аналогично, шаблоны oneTBB определяют требования к типам, а не к конкретным типам, и таким образом адаптируются к различным представлениям данных. Общее программирование позволяет oneTBB создавать высокопроизводительные алгоритмы с широким применением."

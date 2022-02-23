@@ -3,153 +3,129 @@
 # This file is distributed under the same license as the oneTBB package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: oneTBB \n"
+"Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-02-23 15:18+0300\n"
+"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ../../oneTBB/doc/main/intro/notation.rst:4
 msgid "Notational Conventions"
-msgstr ""
+msgstr "Условные обозначения"
 
 #: ../../oneTBB/doc/main/intro/notation.rst:7
 msgid "The following conventions may be used in this document."
-msgstr ""
+msgstr "В данном документе могут использоваться следующие условные обозначения."
 
 #: ../../oneTBB/doc/main/intro/notation.rst:16
 msgid "Convention"
-msgstr ""
+msgstr "Соглашение"
 
 #: ../../oneTBB/doc/main/intro/notation.rst:17
 msgid "Explanation"
-msgstr ""
+msgstr "Пояснение"
 
 #: ../../oneTBB/doc/main/intro/notation.rst:18
 msgid "Example"
-msgstr ""
+msgstr "Пример"
 
 #: ../../oneTBB/doc/main/intro/notation.rst:19
 msgid "\\ *Italic*"
-msgstr ""
+msgstr "\\ *курсив*"
 
 #: ../../oneTBB/doc/main/intro/notation.rst:20
-msgid ""
-"Used for introducing new terms, denotation of terms,    placeholders, or "
-"titles of manuals."
-msgstr ""
+msgid "Used for introducing new terms, denotation of terms,    placeholders, or titles of manuals."
+msgstr "Используется для введения новых терминов, обозначения терминов, обозначений или названий пособий."
 
 #: ../../oneTBB/doc/main/intro/notation.rst:21
 msgid "The filename consists of the *basename* and the *extension*."
-msgstr ""
+msgstr "Имя файла состоит из *базового имени* и *расширения*."
 
 #: ../../oneTBB/doc/main/intro/notation.rst:22
 msgid "\\ ``Monospace``"
-msgstr ""
+msgstr "\\ ``моноширинный``"
 
 #: ../../oneTBB/doc/main/intro/notation.rst:23
-msgid ""
-"Indicates directory paths and filenames, commands and    command line"
-"        options, function names, methods,   classes, data structures in "
-"body text, source code."
-msgstr ""
+msgid "Indicates directory paths and filenames, commands and    command line        options, function names, methods,   classes, data structures in body text, source code."
+msgstr "Указывает пути к каталогам и имена файлов, команды и опции командной строки, имена функций, методов, классов, структур данных в основном тексте, исходном коде."
 
 #: ../../oneTBB/doc/main/intro/notation.rst:24
-msgid ""
-"\\ ``ippsapi.h``        \\ ``\\alt\\include``           Use the "
-"okCreateObjs() function to...          \\ ``printf(\"hello, "
-"world\\n\");``"
-msgstr ""
+msgid "\\ ``ippsapi.h``        \\ ``\\alt\\include``           Use the okCreateObjs() function to...          \\ ``printf(\"hello, world\\n\");``"
+msgstr "\\ ``ippsapi.h``        \\ ``\alt\\include``           Используйте функцию okCreateObjs(), чтобы...          \\ ``printf(\"hello, world\\n\");``"
 
 #: ../../oneTBB/doc/main/intro/notation.rst:25
 msgid "[ ]"
-msgstr ""
+msgstr "[ ]"
 
 #: ../../oneTBB/doc/main/intro/notation.rst:26
 msgid "Items enclosed in brackets are optional."
-msgstr ""
+msgstr "Элементы, заключенные в скобки, являются необязательными."
 
 #: ../../oneTBB/doc/main/intro/notation.rst:27
 msgid "Fa[c]        Indicates Fa or Fac."
-msgstr ""
+msgstr "Fa[c]        Указывает на Fa или Fac."
 
 #: ../../oneTBB/doc/main/intro/notation.rst:28
 msgid "{ \\| }"
-msgstr ""
+msgstr "{ \\| }"
 
 #: ../../oneTBB/doc/main/intro/notation.rst:29
-msgid ""
-"Braces and vertical bars indicate the choice of one item    from a "
-"selection of two or more items."
-msgstr ""
+msgid "Braces and vertical bars indicate the choice of one item    from a selection of two or more items."
+msgstr "Скобки и вертикальные полосы указывают на выбор одного предмета из двух или более предметов."
 
 #: ../../oneTBB/doc/main/intro/notation.rst:30
 msgid "X{K \\| W \\| P}        Indicates XK, XW, or XP."
-msgstr ""
+msgstr "X{K \\| W \\| P}        Указывает на XK, XW или XP."
 
 #: ../../oneTBB/doc/main/intro/notation.rst:31
 msgid "\"[\" \"]\" \"{\"    | \" }\" \"|\""
-msgstr ""
+msgstr "\"[\" \"]\" \"{\"    | \" }\" \"|\""
 
 #: ../../oneTBB/doc/main/intro/notation.rst:32
-msgid ""
-"Writing a metacharacter in quotation marks negates the      syntactical "
-"meaning stated above;   | the character is taken as a literal."
-msgstr ""
+msgid "Writing a metacharacter in quotation marks negates the      syntactical meaning stated above;   | the character is taken as a literal."
+msgstr "Запись метасимвола в кавычках отрицает синтаксическое значение, указанное выше; символ | воспринимается как литерал."
 
 #: ../../oneTBB/doc/main/intro/notation.rst:33
-msgid ""
-"\"[\" X \"]\" [ Y ]        Denotes the letter X    enclosed in brackets, "
-"optionally followed by the letter Y."
-msgstr ""
+msgid "\"[\" X \"]\" [ Y ]        Denotes the letter X    enclosed in brackets, optionally followed by the letter Y."
+msgstr "\"[\" X \"]\" [ Y ]        Обозначает букву X, заключенную в скобки, за которой по желанию следует буква Y."
 
 #: ../../oneTBB/doc/main/intro/notation.rst:34
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: ../../oneTBB/doc/main/intro/notation.rst:35
-msgid ""
-"The ellipsis indicates that the previous item can be    repeated several "
-"times."
-msgstr ""
+msgid "The ellipsis indicates that the previous item can be    repeated several times."
+msgstr "Многоточие означает, что предыдущий пункт может быть повторен несколько раз."
 
 #: ../../oneTBB/doc/main/intro/notation.rst:36
-msgid ""
-"\\ ``filename`` ...        Indicates that one or    more filenames can be"
-" specified."
-msgstr ""
+msgid "\\ ``filename`` ...        Indicates that one or    more filenames can be specified."
+msgstr "\\ ``filename`` ...        Указывает, что может быть указано одно или несколько имен файлов."
 
 #: ../../oneTBB/doc/main/intro/notation.rst:37
 msgid ",..."
-msgstr ""
+msgstr ",..."
 
 #: ../../oneTBB/doc/main/intro/notation.rst:38
-msgid ""
-"The ellipsis preceded by a comma indicates that the      previous item "
-"can be repeated several times,   | separated by commas."
-msgstr ""
+msgid "The ellipsis preceded by a comma indicates that the      previous item can be repeated several times,   | separated by commas."
+msgstr "Многоточие перед запятой означает, что предыдущий пункт может быть повторен несколько раз,| разделенных запятыми."
 
 #: ../../oneTBB/doc/main/intro/notation.rst:39
-msgid ""
-"\\ ``word`` ,...        Indicates that one or    more words can be "
-"specified. If more than one word is specified, the   words are comma-"
-"separated."
-msgstr ""
+msgid "\\ ``word`` ,...        Indicates that one or    more words can be specified. If more than one word is specified, the   words are comma-separated."
+msgstr "\\ ``word`` ,...        Указывает, что может быть указано одно или несколько слов. Если указано более одного слова, слова разделяются запятыми."
 
 #: ../../oneTBB/doc/main/intro/notation.rst:47
-msgid ""
-"Class members are summarized by informal class declarations that describe"
-" the class as it seems to clients, not how it is actually implemented. "
-"For example, here is an informal declaration of class ``Foo``:"
-msgstr ""
+msgid "Class members are summarized by informal class declarations that describe the class as it seems to clients, not how it is actually implemented. For example, here is an informal declaration of class ``Foo``:"
+msgstr "Члены класса обобщаются неформальными объявлениями класса, которые описывают класс так, как он представляется клиентам, а не так, как он реализован на самом деле. Например, вот неформальное объявление класса ``Foo'':"
 
 #: ../../oneTBB/doc/main/intro/notation.rst:56
 msgid ""
@@ -160,10 +136,16 @@ msgid ""
 "    ~Foo();\n"
 "};"
 msgstr ""
+"class Foo {\n"
+"public:\n"
+"    int x();\n"
+"    int y;\n"
+"    ~Foo();\n"
+"};"
 
 #: ../../oneTBB/doc/main/intro/notation.rst:64
 msgid "The actual implementation might look like:"
-msgstr ""
+msgstr "Фактическая реализация может выглядеть следующим образом:"
 
 #: ../../oneTBB/doc/main/intro/notation.rst:70
 msgid ""
@@ -186,29 +168,41 @@ msgid ""
 "\n"
 "typedef internal::Foo_v3 Foo;"
 msgstr ""
+"namespace internal {\n"
+"    class FooBase  {\n"
+"    protected:\n"
+"        int x();\n"
+"    };\n"
+"\n"
+"\n"
+"    class Foo_v3: protected FooBase {\n"
+"    private:\n"
+"        int internal_stuff;\n"
+"    public:\n"
+"        using FooBase::x;\n"
+"        int y;\n"
+"    };\n"
+"}\n"
+"\n"
+"\n"
+"typedef internal::Foo_v3 Foo;"
 
 #: ../../oneTBB/doc/main/intro/notation.rst:90
-msgid ""
-"The example shows two cases where the actual implementation departs from "
-"the informal declaration:"
-msgstr ""
+msgid "The example shows two cases where the actual implementation departs from the informal declaration:"
+msgstr "В примере показаны два случая, когда фактическая реализация отличается от неформальной декларации:"
 
 #: ../../oneTBB/doc/main/intro/notation.rst:94
 msgid "``Foo`` is actually a typedef to ``Foo_v3``."
-msgstr ""
+msgstr "``Foo`` на самом деле является определением типа ``Foo_v3``."
 
 #: ../../oneTBB/doc/main/intro/notation.rst:97
 msgid "Method ``x()`` is inherited from a protected base class."
-msgstr ""
+msgstr "Метод ``x()`` унаследован от защищенного базового класса."
 
 #: ../../oneTBB/doc/main/intro/notation.rst:100
 msgid "The destructor is an implicit method generated by the compiler."
-msgstr ""
+msgstr "Деструктор - это неявный метод, генерируемый компилятором."
 
 #: ../../oneTBB/doc/main/intro/notation.rst:103
-msgid ""
-"The informal declarations are intended to show you what you need to know "
-"to use the class without the distraction of irrelevant clutter particular"
-" to the implementation."
-msgstr ""
-
+msgid "The informal declarations are intended to show you what you need to know to use the class without the distraction of irrelevant clutter particular to the implementation."
+msgstr "Неформальные объявления предназначены для того, чтобы показать вам все, что нужно знать для использования класса, не отвлекаясь на несущественный беспорядок, характерный для реализации."

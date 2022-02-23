@@ -3,63 +3,50 @@
 # This file is distributed under the same license as the oneTBB package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: oneTBB \n"
+"Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-02-23 15:38+0300\n"
+"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ../../oneTBB/doc/main/reference/info_namespace.rst:4
 msgid "oneapi::tbb::info namespace"
-msgstr ""
+msgstr "Пространство имен oneapi::tbb::info"
 
 #: ../../oneTBB/doc/main/reference/info_namespace.rst:6
-msgid ""
-"The ``oneapi::tbb::info`` namespace satisfies `the corresponding oneTBB "
-"specification section "
-"<https://spec.oneapi.com/versions/latest/elements/oneTBB/source/info_namespace.html>`_."
-msgstr ""
+msgid "The ``oneapi::tbb::info`` namespace satisfies `the corresponding oneTBB specification section <https://spec.oneapi.com/versions/latest/elements/oneTBB/source/info_namespace.html>`_."
+msgstr "Пространство имен ``oneapi::tbb::info`` удовлетворяет `соответствующему разделу спецификации oneTBB <https://spec.oneapi.com/versions/latest/elements/oneTBB/source/info_namespace.html>`_."
 
 #: ../../oneTBB/doc/main/reference/info_namespace.rst:9
-msgid ""
-"The |full_name| implementation requires `the hwloc library <https://www-"
-"lb.open-mpi.org/projects/hwloc>`_ to query NUMA(version >= 1.11) and "
-"Hybrid CPUs(version >= 2.4) topology information."
-msgstr ""
+msgid "The |full_name| implementation requires `the hwloc library <https://www-lb.open-mpi.org/projects/hwloc>`_ to query NUMA(version >= 1.11) and Hybrid CPUs(version >= 2.4) topology information."
+msgstr "Для реализации |full_name| требуется `библиотека hwloc <https://www-lb.open-mpi.org/projects/hwloc>`_ для запроса информации о топологии NUMA(версия >= 1.11) и Hybrid CPU(версия >= 2.4)."
 
 #: ../../oneTBB/doc/main/reference/info_namespace.rst:12
 msgid "See also:"
-msgstr ""
+msgstr "См. также"
 
 #: ../../oneTBB/doc/main/reference/info_namespace.rst:14
-msgid ""
-"`info namespace specification "
-"<https://spec.oneapi.com/versions/latest/elements/oneTBB/source/info_namespace.html>`_"
-msgstr ""
+msgid "`info namespace specification <https://spec.oneapi.com/versions/latest/elements/oneTBB/source/info_namespace.html>`_"
+msgstr "`спецификация информационного пространства имен <https://spec.oneapi.com/versions/latest/elements/oneTBB/source/info_namespace.html>`_"
 
 #: ../../oneTBB/doc/main/reference/info_namespace.rst:15
-msgid ""
-"`oneapi::tbb::task_arena specification "
-"<https://spec.oneapi.com/versions/latest/elements/oneTBB/source/task_scheduler/task_arena/task_arena_cls.html>`_"
-msgstr ""
+msgid "`oneapi::tbb::task_arena specification <https://spec.oneapi.com/versions/latest/elements/oneTBB/source/task_scheduler/task_arena/task_arena_cls.html>`_"
+msgstr "`спецификация oneapi::tbb::task_arena <https://spec.oneapi.com/versions/latest/elements/oneTBB/source/task_scheduler/task_arena/task_arena_cls.html>`_"
 
 #: ../../oneTBB/doc/main/reference/info_namespace.rst:16
-msgid ""
-":doc:`oneapi::tbb::info namespace preview extensions "
-"<info_namespace_extensions>`"
-msgstr ""
+msgid ":doc:`oneapi::tbb::info namespace preview extensions <info_namespace_extensions>`"
+msgstr ":doc:`расширения пространства имен предварительного просмотра oneapi::tbb::info <info_namespace_extensions>`"
 
 #: ../../oneTBB/doc/main/reference/info_namespace.rst:17
-msgid ""
-":doc:`task_arena::constraints class preview extensions "
-"<constraints_extensions>`"
-msgstr ""
-
+msgid ":doc:`task_arena::constraints class preview extensions <constraints_extensions>`"
+msgstr ":doc:`расширения для классов предварительного просмотра task_arena::constraints <constraints_extensions>`"
