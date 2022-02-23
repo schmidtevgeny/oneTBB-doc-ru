@@ -1,0 +1,151 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Intel Corporation
+# This file is distributed under the same license as the oneTBB package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: oneTBB \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 14:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Single_Vs_Broadcast.rst:4
+msgid "Flow Graph Basics: Single-push vs. Broadcast-push"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Single_Vs_Broadcast.rst:7
+msgid ""
+"Nodes in the |full_name| flow graph communicate by pushing and pulling "
+"messages. Two policies for pushing messages are used, depending on the "
+"type of the node:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Single_Vs_Broadcast.rst:12
+msgid ""
+"**single-push**: No matter how many successors to the node exist and are "
+"able to accept a message, each message will be only sent to one "
+"successor."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Single_Vs_Broadcast.rst:15
+msgid ""
+"**broadcast-push**: A message will be pushed to every successor which is "
+"connected to the node by an edge in push mode, and which accepts the "
+"message."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Single_Vs_Broadcast.rst:20
+msgid "The following code demonstrates this difference:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Single_Vs_Broadcast.rst:26
+#, python-format
+msgid ""
+"using namespace oneapi::tbb::flow;\n"
+"\n"
+"\n"
+"std::atomic<size_t> g_cnt;\n"
+"\n"
+"\n"
+"struct fn_body1 {\n"
+"    std::atomic<size_t> &body_cnt;\n"
+"    fn_body1(std::atomic<size_t> &b_cnt) : body_cnt(b_cnt) {}\n"
+"    continue_msg operator()( continue_msg /*dont_care*/) {\n"
+"        ++g_cnt;\n"
+"        ++body_cnt;\n"
+"        return continue_msg();\n"
+"    }\n"
+"};\n"
+"\n"
+"\n"
+"void run_example1() {  // example for Flow_Graph_Single_Vs_Broadcast.xml\n"
+"    graph g;\n"
+"    std::atomic<size_t> b1;  // local counts\n"
+"    std::atomic<size_t> b2;  // for each function _node body\n"
+"    std::atomic<size_t> b3;  //\n"
+"    function_node<continue_msg> f1(g,serial,fn_body1(b1));\n"
+"    function_node<continue_msg> f2(g,serial,fn_body1(b2));\n"
+"    function_node<continue_msg> f3(g,serial,fn_body1(b3));\n"
+"    buffer_node<continue_msg> buf1(g);\n"
+"    //\n"
+"    // single-push policy\n"
+"    //\n"
+"    g_cnt = b1 = b2 = b3 = 0;\n"
+"    make_edge(buf1,f1);\n"
+"    make_edge(buf1,f2);\n"
+"    make_edge(buf1,f3);\n"
+"    buf1.try_put(continue_msg());\n"
+"    buf1.try_put(continue_msg());\n"
+"    buf1.try_put(continue_msg());\n"
+"    g.wait_for_all();\n"
+"    printf( \"after single-push test, g_cnt == %d, b1==%d, b2==%d, "
+"b3==%d\\n\", (int)g_cnt, (int)b1, (int)b2, (int)b3);\n"
+"    remove_edge(buf1,f1);\n"
+"    remove_edge(buf1,f2);\n"
+"    remove_edge(buf1,f3);\n"
+"    //\n"
+"    // broadcast-push policy\n"
+"    //\n"
+"    broadcast_node<continue_msg> bn(g);\n"
+"    g_cnt = b1 = b2 = b3 = 0;\n"
+"    make_edge(bn,f1);\n"
+"    make_edge(bn,f2);\n"
+"    make_edge(bn,f3);\n"
+"    bn.try_put(continue_msg());\n"
+"    bn.try_put(continue_msg());\n"
+"    bn.try_put(continue_msg());\n"
+"    g.wait_for_all();\n"
+"    printf( \"after broadcast-push test, g_cnt == %d, b1==%d, b2==%d, "
+"b3==%d\\n\", (int)g_cnt, (int)b1, (int)b2, (int)b3);\n"
+"}"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Single_Vs_Broadcast.rst:83
+msgid "The output of this code is"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Single_Vs_Broadcast.rst:89
+msgid ""
+"after single-push test, g_cnt == 3, b1==3, b2==0, b3==0\n"
+"after broadcast-push test, g_cnt == 9, b1==3, b2==3, b3==3"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Single_Vs_Broadcast.rst:93
+msgid ""
+"The single-push test uses a ``buffer_node``, which has a \"single-push\" "
+"policy for forwarding messages. Putting three messages to the "
+"``buffer_node`` results in three messages being pushed. Notice also only "
+"the first ``function_node`` is sent to; in general there is no policy for"
+" which node is pushed to if more than one successor can accept."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Single_Vs_Broadcast.rst:100
+msgid ""
+"The broadcast-push test uses a ``broadcast_node``, which will push any "
+"message it receives to all accepting successors. Putting three messages "
+"to the ``broadcast_node`` results in a total of nine messages pushed to "
+"the ``function_nodes``."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Single_Vs_Broadcast.rst:106
+msgid ""
+"Only nodes designed to buffer (hold and forward received messages) have a"
+" \"single-push\" policy; all other nodes have a \"broadcast-push\" "
+"policy."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Single_Vs_Broadcast.rst:109
+msgid ""
+"Please see the :ref:`broadcast_or_send` section of "
+":ref:`Flow_Graph_Tips`, and :ref:`Flow_Graph_Buffering_in_Nodes` for more"
+" information."
+msgstr ""
+

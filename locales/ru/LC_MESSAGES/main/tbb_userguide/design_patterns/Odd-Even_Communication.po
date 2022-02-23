@@ -1,0 +1,81 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Intel Corporation
+# This file is distributed under the same license as the oneTBB package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: oneTBB \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 14:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Odd-Even_Communication.rst:4
+msgid "Odd-Even Communication"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Odd-Even_Communication.rst
+msgid "Problem"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Odd-Even_Communication.rst:13
+msgid ""
+"Operations on data cannot be done entirely independently, but data can be"
+" partitioned into two subsets such that all operations on a subset can "
+"run in parallel."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Odd-Even_Communication.rst
+msgid "Context"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Odd-Even_Communication.rst:24
+msgid ""
+"Solvers for partial differential equations can often be modified to "
+"follow this pattern. For example, for a 2D grid with only nearest-"
+"neighbor communication, it may be possible to treat the grid as a "
+"checkerboard, and alternate between updating red squares and black "
+"squares."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Odd-Even_Communication.rst:31
+msgid ""
+"Another context is staggered grid (\"leap frog\") Finite Difference Time "
+"Domain (FDTD solvers, which naturally fit the pattern."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Odd-Even_Communication.rst
+msgid "Forces"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Odd-Even_Communication.rst:41
+msgid "Dependencies between items form a bipartite graph."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Odd-Even_Communication.rst
+msgid "Solution"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Odd-Even_Communication.rst:50
+msgid ""
+"Alternate between updating one subset and then the other subset. Apply "
+"the elementwise pattern to each subset."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Odd-Even_Communication.rst
+msgid "References"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Odd-Even_Communication.rst:59
+msgid ""
+"Eun-Gyu Kim and Mark Snir, \"Odd-Even Communication Group\", "
+"http://snir.cs.illinois.edu/patterns/oddeven.pdf"
+msgstr ""
+

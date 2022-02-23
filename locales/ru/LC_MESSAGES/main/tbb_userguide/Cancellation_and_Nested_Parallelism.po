@@ -1,0 +1,179 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Intel Corporation
+# This file is distributed under the same license as the oneTBB package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: oneTBB \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 14:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../oneTBB/doc/main/tbb_userguide/Cancellation_and_Nested_Parallelism.rst:4
+msgid "Cancellation and Nested Parallelism"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Cancellation_and_Nested_Parallelism.rst:7
+msgid ""
+"The discussion so far was simplified by assuming non-nested parallelism "
+"and skipping details of ``task_group_context``. This topic explains both."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Cancellation_and_Nested_Parallelism.rst:12
+msgid ""
+"An |full_name| algorithm executes by creating ``task`` objects that "
+"execute the snippets of code that you supply to the algorithm template. "
+"By default, these ``task`` objects are associated with a "
+"``task_group_context`` created by the algorithm. Nested oneTBB algorithms"
+" create a tree of these ``task_group_context`` objects. Cancelling a "
+"``task_group_context`` cancels all of its child ``task_group_context`` "
+"objects, and transitively all its descendants. Hence an algorithm and all"
+" algorithms it called can be cancelled with a single request."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Cancellation_and_Nested_Parallelism.rst:23
+msgid ""
+"Exceptions propagate upwards. Cancellation propagates downwards. The "
+"opposition interplays to cleanly stop a nested computation when an "
+"exception occurs. For example, consider the tree in the following figure."
+" Imagine that each node represents an algorithm and its "
+"``task_group_context``."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Cancellation_and_Nested_Parallelism.rst:34
+msgid "Tree of task_group_context |image0|"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Cancellation_and_Nested_Parallelism.rst:133
+msgid "image0"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Cancellation_and_Nested_Parallelism.rst:133
+msgid ".. image:: main/tbb_userguide/Images/image013.jpg"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Cancellation_and_Nested_Parallelism.rst:38
+msgid ""
+"Suppose that the algorithm in C throws an exception and no node catches "
+"the exception. oneTBB propagates the exception upwards, cancelling "
+"related subtrees downwards, as follows:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Cancellation_and_Nested_Parallelism.rst:43
+msgid "Handle exception in C:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Cancellation_and_Nested_Parallelism.rst:46
+msgid "Capture exception in C."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Cancellation_and_Nested_Parallelism.rst:49
+msgid "Cancel tasks in C."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Cancellation_and_Nested_Parallelism.rst:52
+msgid "Throw exception from C to B."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Cancellation_and_Nested_Parallelism.rst:55
+msgid "Handle exception in B:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Cancellation_and_Nested_Parallelism.rst:58
+msgid "Capture exception in B."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Cancellation_and_Nested_Parallelism.rst:61
+msgid "Cancel tasks in B and, by downwards propagation, in D."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Cancellation_and_Nested_Parallelism.rst:64
+msgid "Throw an exception out of B to A."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Cancellation_and_Nested_Parallelism.rst:67
+msgid "Handle exception in A:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Cancellation_and_Nested_Parallelism.rst:70
+msgid "Capture exception in A."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Cancellation_and_Nested_Parallelism.rst:73
+msgid "Cancel tasks in A and, by downwards propagation, in E, F, and G."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Cancellation_and_Nested_Parallelism.rst:76
+msgid "Throw an exception upwards out of A."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Cancellation_and_Nested_Parallelism.rst:79
+msgid ""
+"If your code catches the exception at any level, then oneTBB does not "
+"propagate it any further. For example, an exception that does not escape "
+"outside the body of a ``parallel_for`` does not cause cancellation of "
+"other iterations."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Cancellation_and_Nested_Parallelism.rst:85
+msgid ""
+"To prevent downwards propagation of cancellation into an algorithm, "
+"construct an 'isolated' ``task_group_context`` on the stack and pass it "
+"to the algorithm explicitly. The example uses C++11 lambda expressions "
+"for brevity."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Cancellation_and_Nested_Parallelism.rst:93
+msgid ""
+"#include \"oneapi/tbb.h\"\n"
+"\n"
+"\n"
+"bool Data[1000][1000];\n"
+"\n"
+"\n"
+"int main() {\n"
+"    try {\n"
+"        parallel_for( 0, 1000, 1,\n"
+"            []( int i ) {\n"
+"                task_group_context root(task_group_context::isolated);\n"
+"                parallel_for( 0, 1000, 1,\n"
+"                   []( int  ) {\n"
+"                       Data[i][j] = true;\n"
+"                   },\n"
+"                   root);\n"
+"                throw \"oops\";\n"
+"            });\n"
+"    } catch(...) {\n"
+"    }\n"
+"    return 0;\n"
+"}"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Cancellation_and_Nested_Parallelism.rst:117
+msgid ""
+"The example performs two parallel loops: an outer loop over ``i`` and "
+"inner loop over ``j``. The creation of the isolated "
+"``task_group_context`` ``root`` protects the inner loop from downwards "
+"propagation of cancellation from the ``i`` loop. When the exception "
+"propagates to the outer loop, any pending ``outer`` iterations are "
+"cancelled, but not inner iterations for an outer iteration that started. "
+"Hence when the program completes, each row of ``Data`` may be different, "
+"depending upon whether its iteration ``i`` ran at all, but within a row, "
+"the elements will be homogeneously ``false`` or ``true``, not a mixture."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Cancellation_and_Nested_Parallelism.rst:128
+msgid ""
+"Removing the blue text would permit cancellation to propagate down into "
+"the inner loop. In that case, a row of ``Data`` might end up with both "
+"``true`` and ``false`` values."
+msgstr ""
+

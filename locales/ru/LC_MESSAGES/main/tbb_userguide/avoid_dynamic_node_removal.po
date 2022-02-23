@@ -1,0 +1,51 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Intel Corporation
+# This file is distributed under the same license as the oneTBB package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: oneTBB \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 14:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../oneTBB/doc/main/tbb_userguide/avoid_dynamic_node_removal.rst:4
+msgid "Avoid Dynamic Node Removal"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/avoid_dynamic_node_removal.rst:7
+msgid "These are the basic guidelines regarding nodes and edges:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/avoid_dynamic_node_removal.rst:10
+msgid "Avoid dynamic node removal"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/avoid_dynamic_node_removal.rst:13
+msgid "Adding edges and nodes is supported"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/avoid_dynamic_node_removal.rst:16
+msgid "Removing edges is supported"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/avoid_dynamic_node_removal.rst:19
+msgid ""
+"It is possible to add new nodes and edges and to remove old edges from a "
+"flow graph as nodes are actively processing messages in the graph. "
+"However, removing nodes is discouraged. Destroying a graph or any of its "
+"nodes while there are messages being processed in the graph can lead to "
+"premature deletion of memory that will be later touched by tasks in the "
+"graph causing program failure. Removal of nodes when the graph is not "
+"idle may lead to intermittent failures and hard to find failures, so it "
+"should be avoided."
+msgstr ""
+

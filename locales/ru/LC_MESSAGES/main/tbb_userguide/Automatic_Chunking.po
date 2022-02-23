@@ -1,0 +1,46 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Intel Corporation
+# This file is distributed under the same license as the oneTBB package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: oneTBB \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 14:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../oneTBB/doc/main/tbb_userguide/Automatic_Chunking.rst:4
+msgid "Automatic Chunking"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Automatic_Chunking.rst:7
+msgid ""
+"A parallel loop construct incurs overhead cost for every chunk of work "
+"that it schedules. |full_name| chooses chunk sizes automatically, "
+"depending upon load balancing needs. The heuristic attempts to limit "
+"overheads while still providing ample opportunities for load balancing."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Automatic_Chunking.rst:15
+msgid ""
+"Typically a loop needs to take at least a million clock cycles to make it"
+" worth using ``parallel_for``. For example, a loop that takes at least "
+"500 microseconds on a 2 GHz processor might benefit from "
+"``parallel_for``."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Automatic_Chunking.rst:21
+msgid ""
+"The default automatic chunking is recommended for most uses. As with most"
+" heuristics, however, there are situations where controlling the chunk "
+"size more precisely might yield better performance."
+msgstr ""
+

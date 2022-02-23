@@ -1,0 +1,77 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Intel Corporation
+# This file is distributed under the same license as the oneTBB package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: oneTBB \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 14:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../oneTBB/doc/main/tbb_userguide/Cancellation_Without_An_Exception.rst:4
+msgid "Cancellation Without An Exception"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Cancellation_Without_An_Exception.rst:7
+msgid ""
+"To cancel an algorithm but not throw an exception, use the expression "
+"``current_context()->cancel_group_execution()``. The part "
+"``current_context()`` references the ``task_group_context*`` of the "
+"currently executing task if any on the current thread. Calling "
+"``cancel_group_execution()`` cancels all tasks in its "
+"``task_group_context``, which is explained in more detail in "
+":ref:`Cancellation_and_Nested_Parallelism`. The method returns ``true`` "
+"if it actually causes cancellation, ``false`` if the "
+"``task_group_context`` was already cancelled."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Cancellation_Without_An_Exception.rst:12
+msgid ""
+"The example below shows how to use "
+"``current_context()->cancel_group_execution()``."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Cancellation_Without_An_Exception.rst:16
+msgid ""
+"#include \"oneapi/tbb.h\"\n"
+"\n"
+"#include <vector>\n"
+"#include <iostream>\n"
+"\n"
+"using namespace oneapi::tbb;\n"
+"using namespace std;\n"
+"\n"
+"vector<int> Data;\n"
+"\n"
+"struct Update {\n"
+"    void operator()( const blocked_range<int>& r ) const {\n"
+"        for( int i=r.begin(); i!=r.end(); ++i )\n"
+"            if( i<Data.size() ) {\n"
+"                ++Data[i];\n"
+"            } else {\n"
+"                // Cancel related tasks.\n"
+"                if( current_context()->cancel_group_execution() )\n"
+"                    cout << \"Index \" << i << \" caused "
+"cancellation\\n\";\n"
+"                return;\n"
+"            }\n"
+"    }\n"
+"};\n"
+"\n"
+"\n"
+"int main() {\n"
+"    Data.resize(1000);\n"
+"    parallel_for( blocked_range<int>(0, 2000), Update());\n"
+"    return 0;\n"
+"}"
+msgstr ""
+

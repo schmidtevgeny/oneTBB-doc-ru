@@ -1,0 +1,79 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Intel Corporation
+# This file is distributed under the same license as the oneTBB package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: oneTBB \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 14:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Buffering_in_Nodes.rst:4
+msgid "Flow Graph Basics: Buffering and Forwarding"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Buffering_in_Nodes.rst:7
+msgid ""
+"|full_name| flow graph nodes use messages to communicate data and to "
+"enforce dependencies. If a node passes a message successfully to any "
+"successor, no further action is taken with the message by that node. As "
+"noted in the section on Single-push vs. Broadcast-push, a message may be "
+"passed to one or to multiple successors, depending on the type of the "
+"node, how many successors are connected to the node, and whether the "
+"message is pushed or pulled."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Buffering_in_Nodes.rst:16
+msgid ""
+"There are times when a node cannot successfully push a message to any "
+"successor. In this case what happens to the message depends on the type "
+"of the node. The two possibilities are:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Buffering_in_Nodes.rst:21
+msgid "The node stores the message to be forwarded later."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Buffering_in_Nodes.rst:22
+msgid "The node discards the message."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Buffering_in_Nodes.rst:25
+msgid ""
+"If a node discards messages that are not forwarded, and this behavior is "
+"not desired, the node should be connected to a buffering node that does "
+"store messages that cannot be pushed."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Buffering_in_Nodes.rst:30
+msgid ""
+"If a message has been stored by a node, there are two ways it can be "
+"passed to another node:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Buffering_in_Nodes.rst:34
+msgid ""
+"A successor to the node can pull the message using ``try_get()`` or "
+"``try_reserve()``."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Buffering_in_Nodes.rst:36
+msgid "A successor can be connected using ``make_edge()``."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Buffering_in_Nodes.rst:39
+msgid ""
+"If a ``try_get()`` successfully forwards a message, it is removed from "
+"the node that stored it. If a node is connected using ``make_edge`` the "
+"node will attempt to push a stored message to the new successor."
+msgstr ""
+

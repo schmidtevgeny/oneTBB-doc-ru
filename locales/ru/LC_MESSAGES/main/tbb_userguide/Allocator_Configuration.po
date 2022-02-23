@@ -1,0 +1,75 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Intel Corporation
+# This file is distributed under the same license as the oneTBB package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: oneTBB \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 14:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../oneTBB/doc/main/tbb_userguide/Allocator_Configuration.rst:4
+msgid "Configuring the Memory Allocator"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Allocator_Configuration.rst:7
+msgid ""
+"The oneTBB memory allocator provides the following API functions and "
+"environment variables to configure its behavior:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Allocator_Configuration.rst:11
+msgid ""
+"the ``scalable_allocation_command`` function instructs the allocator to "
+"perform a certain action, such as cleaning up its internal memory "
+"buffers."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Allocator_Configuration.rst:16
+msgid ""
+"the ``scalable_allocation_mode`` function allows an application to set "
+"certain parameters for the memory allocator, such as an option to map "
+"memory in huge pages or define a recommended heap size. These settings "
+"take effect until modified by another call to "
+"``scalable_allocation_mode``."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Allocator_Configuration.rst:23
+msgid ""
+"Some of the memory allocator parameters can also be set via system "
+"environment variables. It can be useful to adjust the behavior without "
+"modifying application source code, to ensure that a setting takes effect "
+"as early as possible, or to avoid explicit dependency on the oneTBB "
+"allocator binaries. The following environment variables are recognized:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Allocator_Configuration.rst:30
+msgid ""
+"``TBB_MALLOC_USE_HUGE_PAGES`` controls usage of huge pages for memory "
+"mapping."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Allocator_Configuration.rst:34
+msgid ""
+"``TBB_MALLOC_SET_HUGE_OBJECT_THRESHOLD`` defines the lower bound for the "
+"size (bytes), that is interpreted as huge and not released during regular"
+" cleanup operations."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Allocator_Configuration.rst:39
+msgid ""
+"These variables only take effect at the time the memory manager is "
+"initialized; later environment changes are ignored. A call to "
+"``scalable_allocation_mode`` overrides the effect of the corresponding "
+"environment variable."
+msgstr ""
+

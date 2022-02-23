@@ -1,0 +1,83 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Intel Corporation
+# This file is distributed under the same license as the oneTBB package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: oneTBB \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 14:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../oneTBB/doc/main/reference/reference.rst:4
+msgid "|short_name| API Reference"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/reference.rst:6
+msgid ""
+"For oneTBB API Reference, refer to `oneAPI Specification "
+"<https://spec.oneapi.com/>`_. The current supported version of oneAPI "
+"Specification is 1.0."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/reference.rst:10
+msgid "Specification extensions"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/reference.rst:12
+msgid ""
+"|full_name| implements the `oneTBB specification "
+"<https://spec.oneapi.com/versions/latest/elements/oneTBB/source/nested-"
+"index.html>`_. This document provides additional details or restrictions "
+"where necessary. It also describes features that are not included in the "
+"oneTBB specification."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/reference.rst:24
+msgid "Preview features"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/reference.rst:26
+msgid ""
+"A preview feature is a component of oneTBB introduced to receive early "
+"feedback from users."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/reference.rst:29
+msgid "The key properties of a preview feature are:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/reference.rst:31
+msgid "It is off by default and must be explicitly enabled."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/reference.rst:32
+msgid "It is intended to have a high quality implementation."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/reference.rst:33
+msgid "There is no guarantee of future existence or compatibility."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/reference.rst:34
+msgid ""
+"It may have limited or no support in tools such as correctness analyzers,"
+" profilers and debuggers."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/reference.rst:38
+msgid ""
+"A preview feature is subject to change in future. It might be removed or "
+"significantly altered in future releases. Changes to a preview feature do"
+" NOT require usual deprecation and removal process. Therefore, using "
+"preview features in production code is strongly discouraged."
+msgstr ""
+

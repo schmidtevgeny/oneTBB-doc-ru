@@ -1,0 +1,31 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Intel Corporation
+# This file is distributed under the same license as the oneTBB package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: oneTBB \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 14:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../oneTBB/doc/main/tbb_userguide/Parallelizing_Complex_Loops.rst:4
+msgid "Parallelizing Complex Loops"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Parallelizing_Complex_Loops.rst:7
+msgid ""
+"You can successfully parallelize many applications using only the "
+"constructs in the **Parallelizing Simple Loops** section. However, some "
+"situations call for other parallel patterns. This section describes the "
+"support for some of these alternate patterns."
+msgstr ""
+

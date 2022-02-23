@@ -1,0 +1,103 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Intel Corporation
+# This file is distributed under the same license as the oneTBB package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: oneTBB \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 14:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../oneTBB/doc/main/reference/parallel_sort_ranges_extension.rst:4
+msgid "parallel_sort ranges interface extension"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/parallel_sort_ranges_extension.rst:11
+msgid "Description"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/parallel_sort_ranges_extension.rst:13
+msgid ""
+"|full_name| implementation extends the `oneapi::tbb::parallel_sort "
+"specification "
+"<https://spec.oneapi.io/versions/latest/elements/oneTBB/source/algorithms/functions/parallel_sort_func.html>`_"
+" with overloads that takes the container by forwarding reference."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/parallel_sort_ranges_extension.rst:18
+msgid "API"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/parallel_sort_ranges_extension.rst:21
+msgid "Header"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/parallel_sort_ranges_extension.rst:23
+msgid "#include <oneapi/tbb/parallel_sort.h>"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/parallel_sort_ranges_extension.rst:28
+msgid "Syntax"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/parallel_sort_ranges_extension.rst:30
+msgid ""
+"namespace oneapi {\n"
+"    namespace tbb {\n"
+"\n"
+"        template <typename Container>\n"
+"        void parallel_sort( Container&& c );\n"
+"        template <typename Container, typename Compare>\n"
+"        void parallel_sort( Container&& c, const Compare& comp );\n"
+"\n"
+"    } // namespace tbb\n"
+"} // namespace oneapi"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/parallel_sort_ranges_extension.rst:44
+msgid "Functions"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/parallel_sort_ranges_extension.rst:48
+msgid ""
+"Equivalent to ``parallel_sort( std::begin(c), std::end(c), comp )``, "
+"where `comp` uses `operator<` to determine relative orderings."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/parallel_sort_ranges_extension.rst:52
+msgid "Equivalent to ``parallel_sort( std::begin(c), std::end(c), comp )``."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/parallel_sort_ranges_extension.rst:55
+msgid "Example"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/parallel_sort_ranges_extension.rst:57
+msgid "This interface may be used for sorting rvalue or constant views:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/parallel_sort_ranges_extension.rst:59
+msgid ""
+"#include <array>\n"
+"#include <span> // requires C++20\n"
+"#include <oneapi/tbb/parallel_sort.h>\n"
+"\n"
+"std::span<int> get_span() {\n"
+"    static std::array<int, 3> arr = {3, 2, 1};\n"
+"    return std::span<int>(arr);\n"
+"}\n"
+"\n"
+"int main() {\n"
+"    tbb::parallel_sort(get_span());\n"
+"}"
+msgstr ""
+

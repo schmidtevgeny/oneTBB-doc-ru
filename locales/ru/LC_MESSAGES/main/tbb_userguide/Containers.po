@@ -1,0 +1,79 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Intel Corporation
+# This file is distributed under the same license as the oneTBB package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: oneTBB \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 14:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../oneTBB/doc/main/tbb_userguide/Containers.rst:4
+msgid "Containers"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Containers.rst:7
+msgid ""
+"|full_name| provides highly concurrent container classes. These "
+"containers can be used with raw Windows\\* OS or Linux\\* OS threads, or "
+"in conjunction with task-based programming."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Containers.rst:12
+msgid ""
+"A concurrent container allows multiple threads to concurrently access and"
+" update items in the container. Typical C++ STL containers do not permit "
+"concurrent update; attempts to modify them concurrently often result in "
+"corrupting the container. STL containers can be wrapped in a mutex to "
+"make them safe for concurrent access, by letting only one thread operate "
+"on the container at a time, but that approach eliminates concurrency, "
+"thus restricting parallel speedup."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Containers.rst:21
+msgid ""
+"Containers provided by oneTBB offer a much higher level of concurrency, "
+"via one or both of the following methods:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Containers.rst:25
+msgid ""
+"**Fine-grained locking:** Multiple threads operate on the container by "
+"locking only those portions they really need to lock. As long as "
+"different threads access different portions, they can proceed "
+"concurrently."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Containers.rst:31
+msgid ""
+"**Lock-free techniques:** Different threads account and correct for the "
+"effects of other interfering threads."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Containers.rst:35
+msgid ""
+"Notice that highly-concurrent containers come at a cost. They typically "
+"have higher overheads than regular STL containers. Operations on highly-"
+"concurrent containers may take longer than for STL containers. Therefore,"
+" use highly-concurrent containers when the speedup from the additional "
+"concurrency that they enable outweighs their slower sequential "
+"performance."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Containers.rst:44
+msgid ""
+"As with most objects in C++, the constructor or destructor of a container"
+" object must not be invoked concurrently with another operation on the "
+"same object. Otherwise the resulting race may cause the operation to be "
+"executed on an undefined object."
+msgstr ""
+

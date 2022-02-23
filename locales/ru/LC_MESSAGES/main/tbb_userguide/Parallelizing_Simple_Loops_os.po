@@ -1,0 +1,70 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Intel Corporation
+# This file is distributed under the same license as the oneTBB package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: oneTBB \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 14:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../oneTBB/doc/main/tbb_userguide/Parallelizing_Simple_Loops_os.rst:4
+msgid "Parallelizing Simple Loops"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Parallelizing_Simple_Loops_os.rst:7
+msgid ""
+"The simplest form of scalable parallelism is a loop of iterations that "
+"can each run simultaneously without interfering with each other. The "
+"following sections demonstrate how to parallelize simple loops."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Parallelizing_Simple_Loops_os.rst:13
+msgid ""
+"|full_name| components are defined in namespace ``tbb``. For brevity’s "
+"sake, the namespace is explicit in the first mention of a component, but "
+"implicit afterwards."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Parallelizing_Simple_Loops_os.rst:19
+msgid ""
+"When compiling oneTBB programs, be sure to link in the oneTBB shared "
+"library, otherwise undefined references will occur. The following table "
+"shows compilation commands that use the debug version of the library. "
+"Remove the \"``_debug``\" portion to link against the production version "
+"of the library."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Parallelizing_Simple_Loops_os.rst:32
+msgid "Operating System"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Parallelizing_Simple_Loops_os.rst:33
+msgid "Command line"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Parallelizing_Simple_Loops_os.rst:34
+msgid "Windows\\* OS"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Parallelizing_Simple_Loops_os.rst:35
+msgid "``icl /MD example.cpp tbb_debug.lib``"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Parallelizing_Simple_Loops_os.rst:36
+msgid "Linux\\* OS"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Parallelizing_Simple_Loops_os.rst:37
+msgid "``icc example.cpp -ltbb_debug``"
+msgstr ""
+

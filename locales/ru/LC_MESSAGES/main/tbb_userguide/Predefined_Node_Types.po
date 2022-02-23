@@ -1,0 +1,212 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Intel Corporation
+# This file is distributed under the same license as the oneTBB package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: oneTBB \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 14:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:4
+msgid "Predefined Node Types"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:7
+msgid ""
+"You can define your own node types by inheriting from class graph_node, "
+"class sender and class receiver but it is likely that you can create your"
+" graph with the predefined node types already available in flow_graph.h. "
+"Below is a table that lists all of the predefined types with a basic "
+"description. See the Developer Reference for a more detailed description "
+"of each node."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:22
+msgid "Predefined Node Type"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:23
+msgid "Description"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:24
+msgid "input_node"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:25
+msgid ""
+"A single-output node, with a generic output type. When activated, it "
+"executes a user body to generate its output. Its body is invoked if "
+"downstream nodes have accepted the previous generated output. Otherwise, "
+"the previous output is temporarily buffered until it is accepted "
+"downstream and then the body is again invoked."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:28
+msgid "function_node"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:29
+msgid ""
+"A single-input single-output node that broadcasts its output to all "
+"successors. Has generic input and output types. Executes a user body, and"
+" has controllable concurrency level and buffering policy.   For each "
+"input exactly one output is returned."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:30
+msgid "continue_node"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:31
+msgid ""
+"A single-input, single-output node that broadcasts its output to    all "
+"successors. It has a single input that requires 1 or more inputs   of "
+"type continue_msg and has a generic output type. It executes a   user "
+"body when it receives N continue_msg objects at its input. N is   equal "
+"to the number of predecessors plus any additional offset   assigned at "
+"construction time."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:32
+msgid "multifunction_node"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:33
+msgid ""
+"A single-input multi-output node. It has a generic input type and    "
+"several generic output types. It executes a user body, and has   "
+"controllable concurrency level and buffering policy. The body can   "
+"output zero or more messages on each output port."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:34
+msgid "broadcast_node"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:35
+msgid ""
+"A single-input, single-output node that broadcasts each message    "
+"received to all successors. Its input and output are of the same   "
+"generic type. It does not buffer messages."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:36
+msgid "buffer_node, queue_node, priority_queue_node, and sequencer_node."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:37
+msgid ""
+"Single-input, single-output nodes that buffer messages and send    their "
+"output to one successor. The order in which the messages are   sent are "
+"node specific (see the Developer Reference). These nodes are   unique in "
+"that they send to only a single successor and not all   successors."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:38
+msgid "join_node"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:39
+msgid ""
+"A multi-input, single-output node. There are several generic    input "
+"types and the output type is a tuple of these generic types.   The node "
+"combines one message from each input port to create a tuple   that is "
+"broadcast to all successors. The policy used to combine   messages is "
+"selectable as queueing, reserving or tag-matching."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:40
+msgid "split_node"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:41
+msgid ""
+"A single-input, multi-output node. The input type is a tuple of    "
+"generic types and there is one output port for each of the types in   the"
+" tuple. The node receives a tuple of values and outputs each   element of"
+" the tuple on a corresponding output port."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:42
+msgid "write_once_node, overwrite_node"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:43
+msgid ""
+"Single-input, single-output nodes that buffer a single message    and "
+"broadcast their outputs to all successors. After broadcast, the   nodes "
+"retain the last message received, so it is available to any   future "
+"successor. A write_once_node will only accept the first   message it "
+"receives, while the overwrite_node will accept all   messages, "
+"broadcasting them to all successors, and replacing the old   value with "
+"the new."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:44
+msgid "limiter_node"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:45
+msgid ""
+"A multi-input, single output node that broadcasts its output to    all "
+"successors. The main input type and output type are of the same   generic"
+" type. The node increments an internal counter when it   broadcasts a "
+"message. If the increment causes it to reach its   user-assigned "
+"threshold, it will broadcast no more messages. A   special input port can"
+" be used to adjust the internal count, allowing   further messages to be "
+"broadcast. The node does not buffer messages."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:46
+msgid "indexer_node"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:47
+msgid ""
+"A multi-input, single-output node that broadcasts its output    message "
+"to all of its successors. The input type is a list of generic   types and"
+" the output type is a tagged_msg. The message is of one of   the types "
+"listed in the input and the tag identifies the port on   which the "
+"message was received. Messages are broadcast individually   as they "
+"arrive at the input ports."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:48
+msgid "composite_node"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:49
+msgid ""
+"A node that might have 0, 1 or multiple ports for both input and    "
+"output. The composite_node packages a group of other nodes together   and"
+" maintains a tuple of references to ports that border it. This   allows "
+"for the corresponding ports of the composite_node to be used   to make "
+"edges which hitherto would have been made from the actual   nodes in the "
+"composite_node."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:50
+msgid "async_node (preview feature)"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:51
+msgid ""
+"A node that allows a flow graph to communicate with an external    "
+"activity managed by the user or another runtime. This node receives   "
+"messages of generic type, invokes the user-provided body to submit a   "
+"message to an external activity. The external activity can use a   "
+"special interface to return a generic type and put it to all   successors"
+" of async_node."
+msgstr ""
+

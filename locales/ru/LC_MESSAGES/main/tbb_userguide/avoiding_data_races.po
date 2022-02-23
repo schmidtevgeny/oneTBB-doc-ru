@@ -1,0 +1,83 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Intel Corporation
+# This file is distributed under the same license as the oneTBB package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: oneTBB \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 14:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../oneTBB/doc/main/tbb_userguide/avoiding_data_races.rst:4
+msgid "Avoiding Data Races"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/avoiding_data_races.rst:7
+msgid ""
+"The edges in a flow graph make explicit the dependence relationships that"
+" you want the library to enforce. Similarly, the concurrency limits on "
+"``function_node`` and ``multifunction_node`` objects limit the maximum "
+"number of concurrent invocations that the runtime library will allow. "
+"These are the limits that are enforced by the library; the library does "
+"not automatically protect you from data races. You must explicitly "
+"prevent data races by using these mechanisms."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/avoiding_data_races.rst:16
+msgid ""
+"For example, the follow code has a data race because there is nothing to "
+"prevent concurrent accesses to the global count object referenced by node"
+" f:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/avoiding_data_races.rst:24
+msgid ""
+"graph g;\n"
+"int src_count = 1;\n"
+"int global_sum = 0;\n"
+"int limit = 100000;\n"
+"\n"
+"input_node< int > src( g, [&]( oneapi::tbb::flow_control& fc ) -> int {\n"
+"  if ( src_count <= limit ) {\n"
+"    return src_count++;\n"
+"  } else {\n"
+"    fc.stop();\n"
+"    return int();\n"
+"  }\n"
+"} );\n"
+"src.activate();\n"
+"\n"
+"function_node< int, int > f( g, unlimited, [&]( int i ) -> int {\n"
+"  global_sum += i;  // data race on global_sum\n"
+"  return i;\n"
+"} );\n"
+"\n"
+"\n"
+"make_edge( src, f );\n"
+"g.wait_for_all();\n"
+"\n"
+"\n"
+"cout << \"global sum = \" << global_sum\n"
+"     << \" and closed form = \" << limit*(limit+1)/2 << \"\\n\";"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/avoiding_data_races.rst:53
+msgid ""
+"If you run the above example, it will likely calculate a global sum that "
+"is a bit smaller than the expected solution due to the data race. The "
+"data race could be avoided in this simple example by changing the allowed"
+" concurrency in ``f`` from unlimited to 1, forcing each value to be "
+"processed sequentially by ``f``. You may also note that the "
+"``input_node`` also updates a global value, ``src_count``. However, since"
+" an ``input_node`` always executes serially, there is no race possible."
+msgstr ""
+

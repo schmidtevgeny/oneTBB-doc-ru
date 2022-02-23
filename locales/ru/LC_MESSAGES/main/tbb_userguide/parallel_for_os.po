@@ -1,0 +1,160 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Intel Corporation
+# This file is distributed under the same license as the oneTBB package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: oneTBB \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 14:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../oneTBB/doc/main/tbb_userguide/parallel_for_os.rst:4
+msgid "parallel_for"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/parallel_for_os.rst:7
+msgid ""
+"Suppose you want to apply a function ``Foo`` to each element of an array,"
+" and it is safe to process each element concurrently. Here is the "
+"sequential code to do this:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/parallel_for_os.rst:15
+msgid ""
+"void SerialApplyFoo( float a[], size_t n ) {\n"
+"    for( size_t i=0; i!=n; ++i )\n"
+"        Foo(a[i]);\n"
+"}"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/parallel_for_os.rst:21
+msgid ""
+"The iteration space here is of type ``size_t``, and goes from ``0`` to "
+"``n-1``. The template function ``oneapi::tbb::parallel_for`` breaks this "
+"iteration space into chunks, and runs each chunk on a separate thread. "
+"The first step in parallelizing this loop is to convert the loop body "
+"into a form that operates on a chunk. The form is an STL-style function "
+"object, called the *body* object, in which ``operator()`` processes a "
+"chunk. The following code declares the body object."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/parallel_for_os.rst:31
+msgid ""
+"#include \"oneapi/tbb.h\"\n"
+"\n"
+"using namespace oneapi::tbb;\n"
+"\n"
+"class ApplyFoo {\n"
+"    float *const my_a;\n"
+"public:\n"
+"    void operator()( const blocked_range<size_t>& r ) const {\n"
+"        float *a = my_a;\n"
+"        for( size_t i=r.begin(); i!=r.end(); ++i )\n"
+"           Foo(a[i]);\n"
+"    }\n"
+"    ApplyFoo( float a[] ) :\n"
+"        my_a(a)\n"
+"    {}\n"
+"};"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/parallel_for_os.rst:49
+msgid ""
+"The ``using`` directive in the example enables you to use the library "
+"identifiers without having to write out the namespace prefix "
+"``oneapi::tbb`` before each identifier. The rest of the examples assume "
+"that such a ``using`` directive is present."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/parallel_for_os.rst:55
+msgid ""
+"Note the argument to ``operator()``. A ``blocked_range<T>`` is a template"
+" class provided by the library. It describes a one-dimensional iteration "
+"space over type ``T``. Class ``parallel_for`` works with other kinds of "
+"iteration spaces too. The library provides ``blocked_range2d`` for two-"
+"dimensional spaces. You can define your own spaces as explained in "
+":ref:`Advanced_Topic_Other_Kinds_of_Iteration_Spaces`."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/parallel_for_os.rst:63
+msgid ""
+"An instance of ``ApplyFoo`` needs member fields that remember all the "
+"local variables that were defined outside the original loop but used "
+"inside it. Usually, the constructor for the body object will initialize "
+"these fields, though ``parallel_for`` does not care how the body object "
+"is created. Template function ``parallel_for`` requires that the body "
+"object have a copy constructor, which is invoked to create a separate "
+"copy (or copies) for each worker thread. It also invokes the destructor "
+"to destroy these copies. In most cases, the implicitly generated copy "
+"constructor and destructor work correctly. If they do not, it is almost "
+"always the case (as usual in C++) that you must define *both* to be "
+"consistent."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/parallel_for_os.rst:76
+msgid ""
+"Because the body object might be copied, its ``operator()`` should not "
+"modify the body. Otherwise the modification might or might not become "
+"visible to the thread that invoked ``parallel_for``, depending upon "
+"whether ``operator()`` is acting on the original or a copy. As a reminder"
+" of this nuance, ``parallel_for`` requires that the body object's "
+"``operator()`` be declared ``const``."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/parallel_for_os.rst:84
+msgid ""
+"The example ``operator()`` loads ``my_a`` into a local variable ``a``. "
+"Though not necessary, there are two reasons for doing this in the "
+"example:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/parallel_for_os.rst:89
+msgid "**Style**. It makes the loop body look more like the original."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/parallel_for_os.rst:92
+msgid ""
+"**Performance**. Sometimes putting frequently accessed values into local "
+"variables helps the compiler optimize the loop better, because local "
+"variables are often easier for the compiler to track."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/parallel_for_os.rst:97
+msgid ""
+"Once you have the loop body written as a body object, invoke the template"
+" function ``parallel_for``, as follows:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/parallel_for_os.rst:104
+msgid ""
+"#include \"oneapi/tbb.h\"\n"
+"\n"
+"\n"
+"void ParallelApplyFoo( float a[], size_t n ) {\n"
+"    parallel_for(blocked_range<size_t>(0,n), ApplyFoo(a));\n"
+"}"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/parallel_for_os.rst:112
+msgid ""
+"The ``blocked_range`` constructed here represents the entire iteration "
+"space from 0 to n-1, which ``parallel_for`` divides into subspaces for "
+"each processor. The general form of the constructor is "
+"``blocked_range<T>(begin,end,grainsize)``. The ``T`` specifies the value "
+"type. The arguments ``begin`` and ``end`` specify the iteration space "
+"STL-style as a half-open interval [``begin``,\\ ``end``). The argument "
+"*grainsize* is explained in the :ref:`Controlling_Chunking` section. The "
+"example uses the default grainsize of 1 because by default "
+"``parallel_for`` applies a heuristic that works well with the default "
+"grainsize."
+msgstr ""
+

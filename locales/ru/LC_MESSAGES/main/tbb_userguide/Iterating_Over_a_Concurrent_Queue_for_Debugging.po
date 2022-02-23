@@ -1,0 +1,50 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Intel Corporation
+# This file is distributed under the same license as the oneTBB package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: oneTBB \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 14:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../oneTBB/doc/main/tbb_userguide/Iterating_Over_a_Concurrent_Queue_for_Debugging.rst:4
+msgid "Iterating Over a Concurrent Queue for Debugging"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Iterating_Over_a_Concurrent_Queue_for_Debugging.rst:7
+msgid ""
+"The template classes ``concurrent_queue`` and "
+"``concurrent_bounded_queue`` support STL-style iteration. This support is"
+" intended only for debugging, when you need to dump a queue. The "
+"iterators go forwards only, and are too slow to be very useful in "
+"production code. If a queue is modified, all iterators pointing to it "
+"become invalid and unsafe to use. The following snippet dumps a queue. "
+"The ``operator<<`` is defined for a ``Foo``."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Iterating_Over_a_Concurrent_Queue_for_Debugging.rst:19
+msgid ""
+"concurrent_queue<Foo> q;\n"
+"...\n"
+"typedef concurrent_queue<Foo>::const_iterator iter;\n"
+"for(iter i(q.unsafe_begin()); i!=q.unsafe_end(); ++i ) {\n"
+"    cout << *i;\n"
+"}"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Iterating_Over_a_Concurrent_Queue_for_Debugging.rst:27
+msgid ""
+"The prefix ``unsafe_`` on the methods is a reminder that they are not "
+"concurrency safe."
+msgstr ""
+

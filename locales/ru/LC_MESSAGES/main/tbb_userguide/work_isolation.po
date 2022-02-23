@@ -1,0 +1,175 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Intel Corporation
+# This file is distributed under the same license as the oneTBB package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: oneTBB \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 14:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../oneTBB/doc/main/tbb_userguide/work_isolation.rst:4
+msgid "Work Isolation"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/work_isolation.rst:10
+msgid ""
+"In |full_name|, a thread waiting for a group of tasks to complete might "
+"execute other available tasks. In particular, when a parallel construct "
+"calls another parallel construct, a thread can obtain a task from the "
+"outer-level construct while waiting for completion of the inner-level "
+"one."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/work_isolation.rst:17
+msgid ""
+"In the following example with two ``parallel_for`` calls, the call to the"
+" second (nested) parallel loop blocks execution of the first (outer) loop"
+" iteration:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/work_isolation.rst:25
+msgid ""
+"// The first parallel loop.\n"
+"oneapi::tbb::parallel_for( 0, N1, []( int i ) {\n"
+"    // The second parallel loop.\n"
+"    oneapi::tbb::parallel_for( 0, N2, []( int j ) { /* Some work */ } );\n"
+"} );"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/work_isolation.rst:32
+msgid ""
+"The blocked thread is allowed to take tasks belonging to the first "
+"parallel loop. As a result, two or more iterations of the outer loop "
+"might be simultaneously assigned to the same thread. In other words, in "
+"oneTBB execution of functions constituting a parallel construct is "
+"*unsequenced* even within a single thread. In most cases, this behavior "
+"is harmless or even beneficial because it does not restrict parallelism "
+"available for the thread."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/work_isolation.rst:41
+msgid ""
+"However, in some cases such unsequenced execution may result in errors. "
+"For example, a thread-local variable might unexpectedly change its value "
+"after a nested parallel construct:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/work_isolation.rst:49
+msgid ""
+"oneapi::tbb::enumerable_thread_specific<int> ets;\n"
+"oneapi::tbb::parallel_for( 0, N1, [&ets]( int i ) {\n"
+"    // Set a thread specific value\n"
+"    ets.local() = i;\n"
+"    oneapi::tbb::parallel_for( 0, N2, []( int j ) { /* Some work */ } );\n"
+"    // While executing the above parallel_for, the thread might have run "
+"iterations\n"
+"    // of the outer parallel_for, and so might have changed the thread "
+"specific value.\n"
+"    assert( ets.local()==i ); // The assertion may fail!\n"
+"} );"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/work_isolation.rst:60
+msgid ""
+"In other scenarios, the described behavior might lead to deadlocks and "
+"other issues. In these cases, a stronger guarantee of execution being "
+"sequenced within a thread is desired. For that, oneTBB provides ways to "
+"*isolate* execution of a parallel construct, for its tasks to not "
+"interfere with other simultaneously running tasks."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/work_isolation.rst:67
+msgid ""
+"One of these ways is to execute the inner level loop in a separate "
+"``task_arena``:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/work_isolation.rst:74
+msgid ""
+"oneapi::tbb::enumerable_thread_specific<int> ets;\n"
+"oneapi::tbb::task_arena nested;\n"
+"oneapi::tbb::parallel_for( 0, N1, [&]( int i ) {\n"
+"    // Set a thread specific value\n"
+"    ets.local() = i;\n"
+"    nested.execute( []{\n"
+"        // Run the inner parallel_for in a separate arena to prevent the "
+"thread\n"
+"        // from taking tasks of the outer parallel_for.\n"
+"        oneapi::tbb::parallel_for( 0, N2, []( int j ) { /* Some work */ }"
+" );\n"
+"    } );\n"
+"    assert( ets.local()==i ); // Valid assertion\n"
+"} );"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/work_isolation.rst:88
+msgid ""
+"However, using a separate arena for work isolation is not always "
+"convenient, and might have noticeable overheads. To address these "
+"shortcomings, oneTBB provides ``this_task_arena::isolate`` function which"
+" runs a user-provided functor in isolation by restricting the calling "
+"thread to process only tasks scheduled in the scope of the functor (also "
+"called the isolation region)."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/work_isolation.rst:96
+msgid ""
+"When entered a task waiting call or a blocking parallel construct inside "
+"an isolated region, a thread can only execute tasks spawned within the "
+"region and their child tasks spawned by other threads. The thread is "
+"prohibited from executing any outer level tasks or tasks belonging to "
+"other isolated regions."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/work_isolation.rst:103
+msgid ""
+"The isolation region imposes restrictions only upon the thread that "
+"called it. Other threads running in the same task arena have no "
+"restrictions on task selection unless isolated by a distinct call to "
+"``this_task_arena::isolate``."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/work_isolation.rst:109
+msgid ""
+"The following example demonstrates the use of "
+"``this_task_arena::isolate`` to ensure that a thread-local variable is "
+"not changed unexpectedly during the call to a nested parallel construct."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/work_isolation.rst:118
+msgid ""
+"#include \"oneapi/tbb/task_arena.h\"\n"
+"#include \"oneapi/tbb/parallel_for.h\"\n"
+"#include \"oneapi/tbb/enumerable_thread_specific.h\"\n"
+"#include <cassert>\n"
+"\n"
+"\n"
+"int main() {\n"
+"    const int N1 = 1000, N2 = 1000;\n"
+"    oneapi::tbb::enumerable_thread_specific<int> ets;\n"
+"    oneapi::tbb::parallel_for( 0, N1, [&ets]( int i ) {\n"
+"        // Set a thread specific value\n"
+"        ets.local() = i;\n"
+"        // Run the second parallel loop in an isolated region to prevent "
+"the current thread\n"
+"        // from taking tasks related to the outer parallel loop.\n"
+"        oneapi::tbb::this_task_arena::isolate( []{\n"
+"            oneapi::tbb::parallel_for( 0, N2, []( int j ) { /* Some work "
+"*/ } );\n"
+"        } );\n"
+"        assert( ets.local()==i ); // Valid assertion\n"
+"    } );\n"
+"    return 0;\n"
+"}"
+msgstr ""
+

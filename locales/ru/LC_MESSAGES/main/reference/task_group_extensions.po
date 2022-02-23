@@ -1,0 +1,141 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Intel Corporation
+# This file is distributed under the same license as the oneTBB package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: oneTBB \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 14:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../oneTBB/doc/main/reference/task_group_extensions.rst:4
+msgid "task_group extensions"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/task_group_extensions.rst:7
+msgid ""
+"To enable these extensions, set the ``TBB_PREVIEW_TASK_GROUP_EXTENSIONS``"
+" macro to 1."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/task_group_extensions.rst:14
+msgid "Description"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/task_group_extensions.rst:16
+msgid ""
+"|full_name| implementation extends the `tbb::task_group specification "
+"<https://spec.oneapi.com/versions/latest/elements/oneTBB/source/task_scheduler/task_group/task_group_cls.html>`_"
+" with the following members:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/task_group_extensions.rst:18
+msgid "requirements for a user-provided function object"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/task_group_extensions.rst:22
+msgid "API"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/task_group_extensions.rst:25
+msgid "Header"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/task_group_extensions.rst:27
+msgid "#include <oneapi/tbb/task_group.h>"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/task_group_extensions.rst:32
+msgid "Synopsis"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/task_group_extensions.rst:34
+msgid ""
+"namespace oneapi {\n"
+"    namespace tbb {\n"
+"\n"
+"       class task_group {\n"
+"       public:\n"
+"\n"
+"           //only the requirements for the return type of function F are "
+"changed\n"
+"           template<typename F>\n"
+"           task_handle defer(F&& f);\n"
+"\n"
+"           //only the requirements for the return type of function F are "
+"changed\n"
+"           template<typename F>\n"
+"           task_group_status run_and_wait(const F& f);\n"
+"\n"
+"           //only the requirements for the return type of function F are "
+"changed\n"
+"           template<typename F>\n"
+"           void run(F&& f);\n"
+"       };\n"
+"\n"
+"    } // namespace tbb\n"
+"} // namespace oneapi"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/task_group_extensions.rst:61
+msgid "Member Functions"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/task_group_extensions.rst:65
+#: ../../oneTBB/doc/main/reference/task_group_extensions.rst:72
+#: ../../oneTBB/doc/main/reference/task_group_extensions.rst:80
+msgid ""
+"As an optimization hint, ``F`` might return a ``task_handle``, which task"
+" object can be executed next."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/task_group_extensions.rst:68
+#: ../../oneTBB/doc/main/reference/task_group_extensions.rst:75
+msgid ""
+"The ``task_handle`` returned by the function must be created using "
+"``*this`` ``task_group``. That is, the one for which the run method is "
+"called, otherwise it is undefined behavior."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/task_group_extensions.rst:83
+msgid ""
+"The ``task_handle`` returned by the function must be created with "
+"``*this`` ``task_group``. It means, with the one for which run method is "
+"called, otherwise it is an undefined behavior."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/task_group_extensions.rst:87
+msgid "See also"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/task_group_extensions.rst:88
+msgid ""
+"`oneapi::tbb::task_group specification "
+"<https://spec.oneapi.com/versions/latest/elements/oneTBB/source/task_scheduler/task_group/task_group_cls.html>`_"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/task_group_extensions.rst:89
+msgid ""
+"`oneapi::tbb::task_group_context specification "
+"<https://spec.oneapi.com/versions/latest/elements/oneTBB/source/task_scheduler/scheduling_controls/task_group_context_cls.html>`_"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/task_group_extensions.rst:90
+msgid ""
+"`oneapi::tbb::task_group_status specification "
+"<https://spec.oneapi.com/versions/latest/elements/oneTBB/source/task_scheduler/task_group/task_group_status_enum.html>`_"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/task_group_extensions.rst:91
+msgid ":doc:`oneapi::tbb::task_handle class <task_group_extensions/task_handle>`"
+msgstr ""
+

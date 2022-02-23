@@ -1,0 +1,322 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Intel Corporation
+# This file is distributed under the same license as the oneTBB package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: oneTBB \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 14:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reduction.rst:4
+msgid "Reduction"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reduction.rst
+msgid "Problem"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reduction.rst:13
+msgid "Perform an associative reduction operation across a data set."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reduction.rst
+msgid "Context"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reduction.rst:22
+msgid ""
+"Many serial algorithms sweep over a set of items to collect summary "
+"information."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reduction.rst
+msgid "Forces"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reduction.rst:32
+msgid ""
+"The summary can be expressed as an associative operation over the data "
+"set, or at least is close enough to associative that reassociation does "
+"not matter."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reduction.rst
+msgid "Solution"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reduction.rst:43
+msgid ""
+"Two solutions exist in |full_name|. The choice on which to use depends "
+"upon several considerations:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reduction.rst:47
+msgid "Is the operation commutative as well as associative?"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reduction.rst:50
+msgid ""
+"Are instances of the reduction type expensive to construct and destroy. "
+"For example, a floating point number is inexpensive to construct. A "
+"sparse floating-point matrix might be very expensive to construct."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reduction.rst:56
+msgid ""
+"Use ``oneapi::tbb::parallel_reduce`` when the objects are inexpensive to "
+"construct. It works even if the reduction operation is not commutative."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reduction.rst:61
+msgid ""
+"Use ``oneapi::tbb::parallel_for`` and ``oneapi::tbb::combinable`` if the "
+"reduction operation is commutative and instances of the type are "
+"expensive."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reduction.rst:65
+msgid ""
+"If the operation is not precisely associative but a precisely "
+"deterministic result is required, use recursive reduction and parallelize"
+" it using ``oneapi::tbb::parallel_invoke``."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reduction.rst
+msgid "Examples"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reduction.rst:76
+msgid ""
+"The examples presented here illustrate the various solutions and some "
+"tradeoffs."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reduction.rst:80
+msgid ""
+"The first example uses ``oneapi::tbb::parallel_reduce`` to do a + "
+"reduction over sequence of type ``T``. The sequence is defined by a half-"
+"open interval [first,last)."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reduction.rst:88
+msgid ""
+"T AssociativeReduce( const T* first, const T* last, T identity ) {\n"
+"   return oneapi::tbb::parallel_reduce(\n"
+"       // Index range for reduction\n"
+"       oneapi::tbb::blocked_range<const T*>(first,last),\n"
+"       // Identity element\n"
+"       identity,\n"
+"       // Reduce a subrange and partial sum\n"
+"       [&]( oneapi::tbb::blocked_range<const T*> r, T partial_sum "
+")->float {\n"
+"           return std::accumulate( r.begin(), r.end(), partial_sum );\n"
+"       },\n"
+"       // Reduce two partial sums\n"
+"       std::plus<T>()\n"
+"   );\n"
+"}"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reduction.rst:104
+msgid ""
+"The third and fourth arguments to this form of ``parallel_reduce`` are a "
+"built in form of the agglomeration pattern. If there is an elementwise "
+"action to be performed before the reduction, incorporating it into the "
+"third argument (reduction of a subrange) may improve performance because "
+"of better locality of reference. Note that the block size for "
+"agglomeration is not explicitly specified; ``parallel_reduce`` defines "
+"blocks automatically with the help of implicitly used "
+"``oneapi::tbb::auto_partitioner``."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reduction.rst:114
+msgid ""
+"The second example assumes the + is commutative on ``T``. It is a good "
+"solution when ``T`` objects are expensive to construct."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reduction.rst:121
+msgid ""
+"T CombineReduce( const T* first, const T* last, T identity ) {\n"
+"   oneapi::tbb::combinable<T> sum(identity);\n"
+"   oneapi::tbb::parallel_for(\n"
+"       oneapi::tbb::blocked_range<const T*>(first,last),\n"
+"       [&]( oneapi::tbb::blocked_range<const T*> r ) {\n"
+"           sum.local() += std::accumulate(r.begin(), r.end(), identity);\n"
+"       }\n"
+"   );\n"
+"   return sum.combine( []( const T& x, const T& y ) {return x+y;} );\n"
+"}"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reduction.rst:133
+msgid ""
+"Sometimes it is desirable to destructively use the partial results to "
+"generate the final result. For example, if the partial results are lists,"
+" they can be spliced together to form the final result. In that case use "
+"class ``oneapi::tbb::enumerable_thread_specific`` instead of "
+"``combinable``. The ``ParallelFindCollisions`` example in "
+":ref:`Divide_and_Conquer` demonstrates the technique."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reduction.rst:141
+msgid ""
+"Floating-point addition and multiplication are almost associative. "
+"Reassociation can cause changes because of rounding effects. The "
+"techniques shown so far reassociate terms non-deterministically. Fully "
+"deterministic parallel reduction for a not quite associative operation "
+"requires using deterministic reassociation. The code below demonstrates "
+"this in the form of a template that does a + reduction over a sequence of"
+" values of type ``T``."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reduction.rst:153
+msgid ""
+"template<typename T>\n"
+"T RepeatableReduce( const T* first, const T* last, T identity ) {\n"
+"   if( last-first<=1000 ) {\n"
+"       // Use serial reduction\n"
+"       return std::accumulate( first, last, identity );\n"
+"   } else {\n"
+"       // Do parallel divide-and-conquer reduction\n"
+"       const T* mid = first+(last-first)/2;\n"
+"       T left, right;\n"
+"       oneapi::tbb::parallel_invoke(\n"
+"           [&]{left=RepeatableReduce(first,mid,identity);},\n"
+"           [&]{right=RepeatableReduce(mid,last,identity);}\n"
+"       );\n"
+"       return left+right;\n"
+"   }\n"
+"}"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reduction.rst:171
+msgid ""
+"The outer if-else is an instance of the agglomeration pattern for "
+"recursive computations. The reduction graph, though not a strict binary "
+"tree, is fully deterministic. Thus the result will always be the same for"
+" a given input sequence, assuming all threads do identical floating-point"
+" rounding."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reduction.rst:178
+msgid ""
+"``oneapi::tbb::parallel_deterministic_reduce`` is a simpler and more "
+"efficient way to get reproducible non-associative reduction. It is very "
+"similar to ``oneapi::tbb::parallel_reduce`` but, unlike the latter, "
+"builds a deterministic reduction graph. With it, the ``RepeatableReduce``"
+" sample can be almost identical to ``AssociativeReduce``:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reduction.rst:189
+msgid ""
+"template<typename T>\n"
+"T RepeatableReduce( const T* first, const T* last, T identity ) {\n"
+"   return oneapi::tbb::parallel_deterministic_reduce(\n"
+"       // Index range for reduction\n"
+"       oneapi::tbb::blocked_range<const T*>(first,last,1000),\n"
+"       // Identity element\n"
+"       identity,\n"
+"       // Reduce a subrange and partial sum\n"
+"       [&]( oneapi::tbb::blocked_range<const T*> r, T partial_sum "
+")->float {\n"
+"           return std::accumulate( r.begin(), r.end(), partial_sum );\n"
+"       },\n"
+"       // Reduce two partial sums\n"
+"       std::plus<T>()\n"
+"   );\n"
+"}"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reduction.rst:206
+msgid ""
+"Besides the function name change, note the grain size of 1000 specified "
+"for ``oneapi::tbb::blocked_range``. It defines the desired block size for"
+" agglomeration; automatic block size selection is not used due to non-"
+"determinism."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reduction.rst:212
+msgid ""
+"The final example shows how a problem that typically is not viewed as a "
+"reduction can be parallelized by viewing it as a reduction. The problem "
+"is retrieving floating-point exception flags for a computation across a "
+"data set. The serial code might look something like:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reduction.rst:222
+msgid ""
+"feclearexcept(FE_ALL_EXCEPT);\n"
+"for( int i=0; i<N; ++i )\n"
+"    C[i]=A[i]*B[i];\n"
+"int flags = fetestexcept(FE_ALL_EXCEPT);\n"
+"if (flags & FE_DIVBYZERO) ...;\n"
+"if (flags & FE_OVERFLOW) ...;\n"
+"..."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reduction.rst:231
+msgid ""
+"The code can be parallelized by computing chunks of the loop separately, "
+"and merging floating-point flags from each chunk. To do this with "
+"``tbb:parallel_reduce``, first define a \"body\" type, as shown below."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reduction.rst:240
+msgid ""
+"struct ComputeChunk {\n"
+"   int flags;          // Holds floating-point exceptions seen so far.\n"
+"   void reset_fpe() {\n"
+"       flags=0;\n"
+"       feclearexcept(FE_ALL_EXCEPT);\n"
+"   }\n"
+"   ComputeChunk () {\n"
+"       reset_fpe();\n"
+"   }\n"
+"   // \"Splitting constructor\"called by parallel_reduce when splitting a"
+" range into subranges.\n"
+"   ComputeChunk ( const ComputeChunk&, oneapi::tbb::split ) {\n"
+"       reset_fpe();\n"
+"   }\n"
+"   // Operates on a chunk and collects floating-point exception state "
+"into flags member.\n"
+"   void operator()( oneapi::tbb::blocked_range<int> r ) {\n"
+"       int end=r.end();\n"
+"       for( int i=r.begin(); i!=end; ++i )\n"
+"           C[i] = A[i]/B[i];\n"
+"       // It is critical to do |= here, not =, because otherwise we\n"
+"       // might lose earlier exceptions from the same thread.\n"
+"       flags |= fetestexcept(FE_ALL_EXCEPT);\n"
+"   }\n"
+"   // Called by parallel_reduce when joining results from two subranges.\n"
+"   void join( Body& other ) {\n"
+"       flags |= other.flags;\n"
+"   }\n"
+"};"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reduction.rst:269
+msgid "Then invoke it as follows:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reduction.rst:275
+msgid ""
+"// Construction of cc implicitly resets FP exception state.\n"
+"   ComputeChunk cc;\n"
+"   oneapi::tbb::parallel_reduce( oneapi::tbb::blocked_range<int>(0,N), cc"
+" );\n"
+"   if (cc.flags & FE_DIVBYZERO) ...;\n"
+"   if (cc.flags & FE_OVERFLOW) ...;\n"
+"   ..."
+msgstr ""
+

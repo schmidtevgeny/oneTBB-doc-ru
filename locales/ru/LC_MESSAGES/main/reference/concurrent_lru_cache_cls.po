@@ -1,0 +1,225 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Intel Corporation
+# This file is distributed under the same license as the oneTBB package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: oneTBB \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 14:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:4
+msgid "concurrent_lru_cache"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:7
+msgid ""
+"To enable this feature, define the ``TBB_PREVIEW_CONCURRENT_LRU_CACHE`` "
+"macro to 1."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:9
+msgid "A Class Template for Least Recently Used cache with concurrent operations."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:16
+msgid "Description"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:18
+msgid ""
+"A ``concurrent_lru_cache`` container maps keys to values with the ability"
+" to limit the number of stored unused values. For each key, there is at "
+"most one item stored in the container."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:22
+msgid ""
+"The container permits multiple threads to concurrently retrieve items "
+"from it."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:24
+msgid ""
+"The container tracks which items are in use by returning a proxy "
+"``concurrent_lru_cache::handle`` object that refers to an item instead of"
+" its value. Once there are no ``handle`` objects holding reference to an "
+"item, it is considered unused."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:28
+msgid ""
+"The container stores all the items that are currently in use plus a "
+"limited number of unused items. Excessive unused items are erased "
+"according to least recently used policy."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:32
+msgid ""
+"When no item is found for a given key, the container calls the user-"
+"specified ``value_function_type`` object to construct a value for the "
+"key, and stores that value. The ``value_function_type`` object must be "
+"thread-safe."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:37
+msgid "API"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:40
+msgid "Header"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:42
+msgid "#include \"oneapi/tbb/concurrent_lru_cache.h\""
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:47
+msgid "Synopsis"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:49
+msgid ""
+"namespace oneapi {\n"
+"    namespace tbb {\n"
+"        template <typename Key, typename Value, typename "
+"ValueFunctionType = Value (*)(Key)>\n"
+"        class concurrent_lru_cache {\n"
+"        public:\n"
+"            using key_type = Key;\n"
+"            using value_type = Value;\n"
+"            using pointer = value_type*;\n"
+"            using const_pointer = const value_type*;\n"
+"            using reference = value_type&;\n"
+"            using const_reference = const value_type&;\n"
+"\n"
+"            using value_function_type = ValueFunctionType;\n"
+"\n"
+"            class handle {\n"
+"            public:\n"
+"                handle();\n"
+"                handle( handle&& other );\n"
+"\n"
+"                ~handle();\n"
+"\n"
+"                handle& operator=( handle&& other );\n"
+"\n"
+"                operator bool() const;\n"
+"                value_type& value();\n"
+"            }; // class handle\n"
+"\n"
+"            concurrent_lru_cache( value_function_type f, std::size_t "
+"number_of_lru_history_items );\n"
+"            ~concurrent_lru_cache();\n"
+"\n"
+"            handle operator[]( key_type key );\n"
+"        }; // class concurrent_lru_cache\n"
+"    } // namespace tbb\n"
+"} // namespace oneapi"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:87
+msgid "Member Functions"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:91
+msgid ""
+"**Effects**: Constructs an empty cache that can keep up to "
+"``number_of_lru_history_items`` unused values, with a function object "
+"``f`` for constructing new values."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:98
+msgid ""
+"**Effects**: Destroys the ``concurrent_lru_cache``. Calls the destructors"
+" of the stored elements and deallocates the used storage."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:101
+msgid "The behavior is undefined in case of concurrent operations with ``*this``."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:107
+msgid ""
+"**Effects**: Searches the container for an item that corresponds to the "
+"given key. If such an item is not found, the user-specified function "
+"object is called to construct a value that is inserted into the "
+"container."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:111
+msgid "**Returns**: a ``handle`` object holding reference to the matching value."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:114
+msgid "Member Objects"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:117
+msgid "``handle`` class"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:119
+msgid "**Member Functions**"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:123
+msgid ""
+"**Effects**: Constructs a ``handle`` object that does not refer to any "
+"value."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:129
+msgid ""
+"**Effects**: Transfers the reference to the value stored in "
+"``concurrent_lru_cache`` from ``other`` to the newly constructed object. "
+"Upon completion, ``other`` no longer refers to any value."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:137
+msgid ""
+"**Effects**: Releases the reference (if it exists) to a value stored in "
+"``concurrent_lru_cache``."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:139
+msgid "The behavior is undefined for concurrent operations with ``*this``."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:145
+msgid ""
+"**Effects**: Transfers the reference to a value stored in "
+"``concurrent_lru_cache`` from ``other`` to ``*this``. If existed, the "
+"previous reference held by ``*this`` is released. Upon completion "
+"``other`` no longer refers to any value."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:149
+msgid "**Returns**: a reference to ``*this``."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:155
+msgid ""
+"**Returns**: ``true`` if ``*this`` holds reference to a value, ``false`` "
+"otherwise."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:161
+msgid ""
+"**Returns**: a reference to a ``value_type`` object stored in "
+"``concurrent_lru_cache``."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/concurrent_lru_cache_cls.rst:163
+msgid "The behavior is undefined if ``*this`` does not refer to any value."
+msgstr ""
+

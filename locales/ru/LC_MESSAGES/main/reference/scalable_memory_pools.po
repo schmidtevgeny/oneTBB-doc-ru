@@ -1,0 +1,93 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Intel Corporation
+# This file is distributed under the same license as the oneTBB package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: oneTBB \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 14:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools.rst:4
+msgid "Scalable Memory Pools"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools.rst:7
+msgid "To enable this feature, set the ``TBB_PREVIEW_MEMORY_POOL`` macro to 1."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools.rst:9
+msgid ""
+"Memory pools allocate and free memory from a specified region or an "
+"underlying allocator using thread-safe, scalable operations. The  "
+"following table summarizes the Memory Pool named requirement. Here, ``P``"
+" represents an instance of the memory pool class."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools.rst:18
+msgid "Pseudo-Signature"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools.rst:19
+msgid "Semantics"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools.rst:20
+msgid "\\ ``~P() throw();``"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools.rst:21
+msgid "Destructor. Frees all the allocated memory."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools.rst:22
+msgid "\\ ``void P::recycle();``"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools.rst:23
+msgid "Frees all the allocated memory."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools.rst:24
+msgid "\\ ``void* P::malloc(size_t n);``"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools.rst:25
+msgid "Returns a pointer to ``n`` bytes allocated from the memory pool."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools.rst:26
+msgid "\\ ``void P::free(void* ptr);``"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools.rst:27
+msgid "Frees the memory object specified via ``ptr`` pointer."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools.rst:28
+msgid "\\ ``void* P::realloc(void* ptr, size_t n);``"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools.rst:29
+msgid "Reallocates the memory object pointed by ``ptr`` to ``n`` bytes."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools.rst
+msgid "Model Types"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools.rst:36
+msgid ""
+"The ``memory_pool`` template class and the ``fixed_pool`` class meet the "
+"Memory Pool named requirement."
+msgstr ""
+

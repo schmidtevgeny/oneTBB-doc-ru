@@ -1,0 +1,45 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Intel Corporation
+# This file is distributed under the same license as the oneTBB package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: oneTBB \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 14:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../oneTBB/doc/main/tbb_userguide/Using_Circular_Buffers.rst:4
+msgid "Using Circular Buffers"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Using_Circular_Buffers.rst:7
+msgid ""
+"Circular buffers can sometimes be used to minimize the overhead of "
+"allocating and freeing the items passed between pipeline filters. If the "
+"first filter to create an item and last filter to consume an item are "
+"both ``serial_in_order``, the items can be allocated and freed via a "
+"circular buffer of size at least ``ntoken``, where ``ntoken`` is the "
+"first parameter to ``parallel_pipeline``. Under these conditions, no "
+"checking of whether an item is still in use is necessary."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Using_Circular_Buffers.rst:16
+msgid ""
+"The reason this works is that at most ``ntoken`` items can be in flight, "
+"and items will be freed in the order that they were allocated. Hence by "
+"the time the circular buffer wraps around to reallocate an item, the item"
+" must have been freed from its previous use in the pipeline. If the first"
+" and last filter are *not* ``serial_in_order``, then you have to keep "
+"track of which buffers are currently in use, because buffers might not be"
+" retired in the same order they were allocated."
+msgstr ""
+

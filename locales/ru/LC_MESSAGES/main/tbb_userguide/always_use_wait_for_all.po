@@ -1,0 +1,66 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Intel Corporation
+# This file is distributed under the same license as the oneTBB package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: oneTBB \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 14:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../oneTBB/doc/main/tbb_userguide/always_use_wait_for_all.rst:4
+msgid "Always Use wait_for_all()"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/always_use_wait_for_all.rst:7
+msgid ""
+"One of the most common mistakes made in flow graph programming is to "
+"forget to call wait_for_all. The function graph::wait_for_all blocks "
+"until all tasks spawned by the graph are complete. This is not only "
+"useful when you want to wait until the computation is done, but it is "
+"necessary to call wait_for_all before destroying the graph, or any of its"
+" nodes. For example, the following function will lead to a program "
+"failure:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/always_use_wait_for_all.rst:19
+msgid ""
+"void no_wait_for_all() {\n"
+"    graph g;\n"
+"    function_node< int, int > f( g, 1, []( int i ) -> int {\n"
+"        return spin_for(i);\n"
+"    } );\n"
+"    f.try_put(1);\n"
+"\n"
+"\n"
+"    // program will fail when f and g are destroyed at the\n"
+"    // end of the scope, since the body of f is not complete\n"
+"}"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/always_use_wait_for_all.rst:32
+msgid ""
+"In the function above, the graph g and its node f are destroyed at the "
+"end of the function's scope. However, the task spawned to execute f's "
+"body is still in flight. When the task completes, it will look for any "
+"successors connected to its node, but by then both the graph and the node"
+" have been deleted out from underneath it. Placing a g.wait_for_all() at "
+"the end of the function prevents the premature destruction of the graph "
+"and node."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/always_use_wait_for_all.rst:41
+msgid ""
+"If you use a flow graph and see mysterious behavior, check first to see "
+"that you have called wait_for_all."
+msgstr ""
+

@@ -1,0 +1,43 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Intel Corporation
+# This file is distributed under the same license as the oneTBB package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: oneTBB \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 14:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../oneTBB/doc/main/tbb_userguide/References.rst:4
+msgid "References"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/References.rst:7
+msgid ""
+"**[1]**   \"Memory Consistency & .NET\", Arch D. Robison, Dr. Dobb’s "
+"Journal, April 2003."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/References.rst:11
+msgid ""
+"**[2]**   A Formal Specification of Intel® Itanium® Processor Family "
+"Memory Ordering, Intel Corporation, October 2002."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/References.rst:15
+msgid ""
+"**[3]**   \"Cilk: An Efficient Multithreaded Runtime System\", Robert "
+"Blumofe, Christopher Joerg, Bradley Kuszmaul, C. Leiserson, and Keith "
+"Randall, Proceedings of the fifth ACM SIGPLAN symposium on Principles and"
+" practice of parallel programming, 1995."
+msgstr ""
+

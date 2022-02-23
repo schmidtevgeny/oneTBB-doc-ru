@@ -1,0 +1,124 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Intel Corporation
+# This file is distributed under the same license as the oneTBB package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: oneTBB \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 14:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../oneTBB/doc/main/intro/Benefits.rst:4
+msgid "|short_name| Benefits"
+msgstr ""
+
+#: ../../oneTBB/doc/main/intro/Benefits.rst:7
+msgid ""
+"|full_name| is a library that helps you leverage multi-core performance "
+"without having to be a threading expert. Typically you can improve "
+"performance for multi-core processors by implementing the key points "
+"explained in the early sections of the Developer Guide. As your expertise"
+" grows, you may want to dive into more complex subjects that are covered "
+"in advanced sections."
+msgstr ""
+
+#: ../../oneTBB/doc/main/intro/Benefits.rst:15
+msgid ""
+"There are a variety of approaches to parallel programming, ranging from "
+"using platform-dependent threading primitives to exotic new languages. "
+"The advantage of oneTBB is that it works at a higher level than raw "
+"threads, yet does not require exotic languages or compilers. You can use "
+"it with any compiler supporting ISO C++. The library differs from typical"
+" threading packages in the following ways:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/intro/Benefits.rst:23
+msgid ""
+"**oneTBB enables you to specify logical paralleism instead of threads**. "
+"Most threading packages require you to specify threads. Programming "
+"directly in terms of threads can be tedious and lead to inefficient "
+"programs, because threads are low-level, heavy constructs that are close "
+"to the hardware. Direct programming with threads forces you to "
+"efficiently map logical tasks onto threads. In contrast, the oneTBB run-"
+"time library automatically maps logical parallelism onto threads in a way"
+" that makes efficient use of processor resources."
+msgstr ""
+
+#: ../../oneTBB/doc/main/intro/Benefits.rst:34
+msgid ""
+"**oneTBB targets threading for performance**. Most general-purpose "
+"threading packages support many different kinds of threading, such as "
+"threading for asynchronous events in graphical user interfaces. As a "
+"result, general-purpose packages tend to be low-level tools that provide "
+"a foundation, not a solution. Instead, oneTBB focuses on the particular "
+"goal of parallelizing computationally intensive work, delivering higher-"
+"level, simpler solutions."
+msgstr ""
+
+#: ../../oneTBB/doc/main/intro/Benefits.rst:43
+msgid ""
+"**oneTBB is compatible with other threading packages.** Because the "
+"library is not designed to address all threading problems, it can coexist"
+" seamlessly with other threading packages."
+msgstr ""
+
+#: ../../oneTBB/doc/main/intro/Benefits.rst:48
+msgid ""
+"**oneTBB emphasizes scalable, data parallel programming**. Breaking a "
+"program up into separate functional blocks, and assigning a separate "
+"thread to each block is a solution that typically does not scale well "
+"since typically the number of functional blocks is fixed. In contrast, "
+"oneTBB emphasizes *data-parallel* programming, enabling multiple threads "
+"to work on different parts of a collection. Data-parallel programming "
+"scales well to larger numbers of processors by dividing the collection "
+"into smaller pieces. With data-parallel programming, program performance "
+"increases as you add processors."
+msgstr ""
+
+#: ../../oneTBB/doc/main/intro/Benefits.rst:59
+msgid ""
+"**oneTBB relies on generic programming**. Traditional libraries specify "
+"interfaces in terms of specific types or base classes. Instead, oneAPI "
+"Threading Building Blocks uses generic programming. The essence of "
+"generic programming is writing the best possible algorithms with the "
+"fewest constraints. The C++ Standard Template Library (STL) is a good "
+"example of generic programming in which the interfaces are specified by "
+"*requirements* on types. For example, C++ STL has a template function "
+"``sort`` that sorts a sequence abstractly defined in terms of iterators "
+"on the sequence. The requirements on the iterators are:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/intro/Benefits.rst:71
+msgid "Provide random access"
+msgstr ""
+
+#: ../../oneTBB/doc/main/intro/Benefits.rst:74
+msgid ""
+"The expression ``*i<*j`` is true if the item pointed to by iterator ``i``"
+" should precede the item pointed to by iterator ``j``, and false "
+"otherwise."
+msgstr ""
+
+#: ../../oneTBB/doc/main/intro/Benefits.rst:79
+msgid "The expression ``swap(*i,*j)`` swaps two elements."
+msgstr ""
+
+#: ../../oneTBB/doc/main/intro/Benefits.rst:82
+msgid ""
+"Specification in terms of requirements on types enables the template to "
+"sort many different representations of sequences, such as vectors and "
+"deques. Similarly, the oneTBB templates specify requirements on types, "
+"not particular types, and thus adapt to different data representations. "
+"Generic programming enables oneTBB to deliver high performance algorithms"
+" with broad applicability."
+msgstr ""
+

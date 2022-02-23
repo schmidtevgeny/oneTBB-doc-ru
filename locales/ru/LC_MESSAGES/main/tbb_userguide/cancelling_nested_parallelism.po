@@ -1,0 +1,45 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Intel Corporation
+# This file is distributed under the same license as the oneTBB package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: oneTBB \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 14:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../oneTBB/doc/main/tbb_userguide/cancelling_nested_parallelism.rst:4
+msgid "Canceling Nested Parallelism"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/cancelling_nested_parallelism.rst:7
+msgid ""
+"Nested parallelism is canceled if the inner context is bound to the outer"
+" context; otherwise it is not."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/cancelling_nested_parallelism.rst:11
+msgid ""
+"If the execution of a flow graph is canceled, either explicitly or due to"
+" an exception, any tasks started by parallel algorithms or flow graphs "
+"nested within the nodes of the canceled flow graph may or may not be "
+"canceled."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/cancelling_nested_parallelism.rst:17
+msgid ""
+"As with all of the library's nested parallelism, you can control "
+"cancellation relationships by use of explicit task_group_context objects."
+" If you do not provide an explicit task_group_context to a flow graph, it"
+" is created with an isolated context by default."
+msgstr ""
+

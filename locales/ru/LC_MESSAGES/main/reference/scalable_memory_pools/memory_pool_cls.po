@@ -1,0 +1,122 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Intel Corporation
+# This file is distributed under the same license as the oneTBB package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: oneTBB \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 14:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools/memory_pool_cls.rst:4
+msgid "memory_pool"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools/memory_pool_cls.rst:7
+msgid "To enable this feature, set the ``TBB_PREVIEW_MEMORY_POOL`` macro to 1."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools/memory_pool_cls.rst:9
+msgid ""
+"A class template for scalable memory allocation from memory blocks "
+"provided by an underlying allocator."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools/memory_pool_cls.rst:16
+msgid "Description"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools/memory_pool_cls.rst:18
+msgid ""
+"A ``memory_pool`` allocates and frees memory in a way that scales with "
+"the number of processors. The memory is obtained as big chunks from an "
+"underlying allocator specified by the template argument. The latter must "
+"satisfy the subset of the allocator requirements from the "
+"[allocator.requirements] ISO C++ Standard section. A ``memory_pool`` meet"
+" the :doc:`Memory Pool named requirement<../scalable_memory_pools>`."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools/memory_pool_cls.rst:25
+msgid ""
+"If the underlying allocator refers to another scalable memory pool, the "
+"inner pool (or pools) must be destroyed before the outer pool is "
+"destroyed or recycled."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools/memory_pool_cls.rst:29
+msgid "API"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools/memory_pool_cls.rst:32
+msgid "Header"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools/memory_pool_cls.rst:34
+msgid "#include \"oneapi/tbb/memory_pool.h\""
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools/memory_pool_cls.rst:39
+msgid "Synopsis"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools/memory_pool_cls.rst:41
+msgid ""
+"namespace oneapi {\n"
+"    namespace tbb {\n"
+"        template <typename Alloc>\n"
+"        class memory_pool {\n"
+"        public:\n"
+"            explicit memory_pool(const Alloc &src = Alloc());\n"
+"            memory_pool(const memory_pool& other) = delete;\n"
+"            memory_pool& operator=(const memory_pool& other) = delete;\n"
+"            ~memory_pool();\n"
+"            void recycle();\n"
+"            void *malloc(size_t size);\n"
+"            void free(void* ptr);\n"
+"           void *realloc(void* ptr, size_t size);\n"
+"        };\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools/memory_pool_cls.rst:61
+msgid "Member Functions"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools/memory_pool_cls.rst:65
+msgid ""
+"**Effects**: Constructs a memory pool with an instance of underlying "
+"memory allocator of type ``Alloc`` copied from ``src``. Throws the "
+"``bad_alloc`` exception if runtime fails to construct an instance of the "
+"class."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools/memory_pool_cls.rst:69
+msgid "Examples"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools/memory_pool_cls.rst:71
+msgid ""
+"The code below provides a simple example of allocation from an extensible"
+" memory pool."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools/memory_pool_cls.rst:73
+msgid ""
+"#define TBB_PREVIEW_MEMORY_POOL 1\n"
+"#include \"oneapi/tbb/memory_pool.h\"\n"
+"...\n"
+"oneapi::tbb::memory_pool<std::allocator<char> > my_pool;\n"
+"void* my_ptr = my_pool.malloc(10);\n"
+"my_pool.free(my_ptr);"
+msgstr ""
+

@@ -1,0 +1,238 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Intel Corporation
+# This file is distributed under the same license as the oneTBB package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: oneTBB \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 14:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../oneTBB/doc/main/tbb_userguide/Data_Flow_Graph.rst:4
+msgid "Data Flow Graph"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Data_Flow_Graph.rst:7
+msgid ""
+"In a data flow graph, nodes are computations that send and receive data "
+"messages. Some nodes may only send messages, others may only receive "
+"messages, and others may send messages in response to messages that they "
+"receive."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Data_Flow_Graph.rst:13
+msgid ""
+"In the following data flow graph, the left-most node generates the "
+"integer values from 1 to 10 and passes them to two successor nodes. One "
+"of the successors squares each value it receives and passes the result "
+"downstream. The second successor cubes each value it receives and passes "
+"the result downstream. The right-most node receives values from both of "
+"the middle nodes. As it receives each value, it adds it to a running sum "
+"of values. When the application is run to completion, the value of sum "
+"will be equal to the sum of the sequence of squares and cubes from 1 to "
+"10."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Data_Flow_Graph.rst:28
+msgid "Simple Data Flow Graph"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Data_Flow_Graph.rst:34
+msgid "|image0|"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Data_Flow_Graph.rst:197
+msgid "image0"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Data_Flow_Graph.rst:197
+msgid ".. image:: main/tbb_userguide/Images/flow_graph.jpg"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Data_Flow_Graph.rst:37
+msgid ""
+"The following code snippet shows an implementation of the **Simple Data "
+"Flow Graph** shown above:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Data_Flow_Graph.rst:44
+msgid ""
+"int sum = 0;\n"
+"graph g;\n"
+"function_node< int, int > squarer( g, unlimited, [](const int &v) {\n"
+"    return v*v;\n"
+"} );\n"
+"function_node< int, int > cuber( g, unlimited, [](const int &v) {\n"
+"    return v*v*v;\n"
+"} );\n"
+"function_node< int, int > summer( g, 1, [&](const int &v ) -> int {\n"
+"    return sum += v;\n"
+"} );\n"
+"make_edge( squarer, summer );\n"
+"make_edge( cuber, summer );\n"
+"\n"
+"\n"
+"for ( int i = 1; i <= 10; ++i ) {\n"
+"  squarer.try_put(i);\n"
+"  cuber.try_put(i);\n"
+"}\n"
+"g.wait_for_all();\n"
+"\n"
+"\n"
+"cout << \"Sum is \" << sum << \"\\n\";"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Data_Flow_Graph.rst:69
+msgid "In the implementation above, the following function_nodes are created:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Data_Flow_Graph.rst:72
+msgid "one to square values"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Data_Flow_Graph.rst:73
+msgid "one to cube values"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Data_Flow_Graph.rst:74
+msgid "one to add values to the global sum"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Data_Flow_Graph.rst:77
+msgid ""
+"Since the squarer and cuber nodes are side-effect free, they are created "
+"with an unlimited concurrency. The summer node updates the sum through a "
+"reference to a global variable and therefore is not safe to execute in "
+"parallel. It is therefore created with a concurrency limit of 1. The node"
+" F from **Simple Data Flow Graph** above is implemented as a loop that "
+"puts messages to both the squarer and cuber node."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Data_Flow_Graph.rst:85
+msgid ""
+"A slight improvement over the first implementation is to introduce an "
+"additional node type, a ``broadcast_node``. A ``broadcast_node`` "
+"broadcasts any message it receives to all of its successors."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Data_Flow_Graph.rst:90
+msgid ""
+"This enables replacing the two ``try_put``'s in the loop with a single "
+"``try_put``:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Data_Flow_Graph.rst:97
+msgid ""
+"broadcast_node<int> b(g);\n"
+"make_edge( b, squarer );\n"
+"make_edge( b, cuber );\n"
+"for ( int i = 1; i <= 10; ++i ) {\n"
+"  b.try_put(i);\n"
+"}\n"
+"g.wait_for_all();"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Data_Flow_Graph.rst:106
+msgid ""
+"An even better option, which will make the implementation even more like "
+"the **Simple Data Flow Graph** above, is to introduce an ``input_node``. "
+"An ``input_node``, as the name implies only sends messages and does not "
+"receive messages. Its constructor takes two arguments:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Data_Flow_Graph.rst:115
+msgid "template< typename Body > input_node( graph &g, Body body)"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Data_Flow_Graph.rst:117
+msgid ""
+"The body is a function object, or lambda expression, that contains a "
+"function operator:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Data_Flow_Graph.rst:124
+msgid "Output Body::operator()( oneapi::tbb::flow_control &fc );"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Data_Flow_Graph.rst:127
+msgid "You can replace the loop in the example with an ``input_node``"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Data_Flow_Graph.rst:133
+msgid ""
+"input_node< int > src( g, src_body(10) );\n"
+"make_edge( src, squarer );\n"
+"make_edge( src, cuber );\n"
+"src.activate();\n"
+"g.wait_for_all();"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Data_Flow_Graph.rst:140
+msgid ""
+"The runtime library will repeatedly invoke the function operator in "
+"``src_body`` until ``fc.stop()`` is invoked inside the body. You "
+"therefore need to create body that will act like the body of the loop in "
+"the **Simple Data Flow Graph** above. The final implementation after all "
+"of these changes is shown below:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Data_Flow_Graph.rst:150
+msgid ""
+"class src_body {\n"
+"    const int my_limit;\n"
+"    int my_next_value;\n"
+"public:\n"
+"    src_body(int l) : my_limit(l), my_next_value(1) {}\n"
+"    int operator()( oneapi::tbb::flow_control& fc ) {\n"
+"        if ( my_next_value <= my_limit ) {\n"
+"            return my_next_value++;\n"
+"        } else {\n"
+"            fc.stop();\n"
+"            return int();\n"
+"        }\n"
+"    }\n"
+"};\n"
+"\n"
+"\n"
+"int main() {\n"
+"  int sum = 0;\n"
+"  graph g;\n"
+"  function_node< int, int > squarer( g, unlimited, [](const int &v) {\n"
+"      return v*v;\n"
+"  } );\n"
+"  function_node< int, int > cuber( g, unlimited, [](const int &v) {\n"
+"      return v*v*v;\n"
+"  } );\n"
+"  function_node< int, int > summer( g, 1, [&](const int &v ) -> int {\n"
+"      return sum += v;\n"
+"  } );\n"
+"  make_edge( squarer, summer );\n"
+"  make_edge( cuber, summer );\n"
+"  input_node< int > src( g, src_body(10) );\n"
+"  make_edge( src, squarer );\n"
+"  make_edge( src, cuber );\n"
+"  src.activate();\n"
+"  g.wait_for_all();\n"
+"  cout << \"Sum is \" << sum << \"\\n\";\n"
+"}"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Data_Flow_Graph.rst:189
+msgid ""
+"This final implementation has all of the nodes and edges from the "
+"**Simple Data Flow Graph** above. In this simple example, there is not "
+"much advantage in using an ``input_node`` over an explicit loop. But, "
+"because an ``input_node`` is able to react to the behavior of downstream "
+"nodes, it can limit memory use in more complex graphs. For more "
+"information, see:ref:`create_token_based_system` ."
+msgstr ""
+

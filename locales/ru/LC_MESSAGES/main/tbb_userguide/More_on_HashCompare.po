@@ -1,0 +1,125 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Intel Corporation
+# This file is distributed under the same license as the oneTBB package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: oneTBB \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 14:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../oneTBB/doc/main/tbb_userguide/More_on_HashCompare.rst:4
+msgid "More on HashCompare"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/More_on_HashCompare.rst:7
+msgid ""
+"There are several ways to make the ``HashCompare`` argument for "
+"``concurrent_hash_map`` work for your own types."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/More_on_HashCompare.rst:11
+msgid "Specify the ``HashCompare`` argument explicitly"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/More_on_HashCompare.rst:14
+msgid ""
+"Let the ``HashCompare`` default to ``tbb_hash_compare<Key>`` and do one "
+"of the following:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/More_on_HashCompare.rst:18
+msgid "Define a specialization of template ``tbb_hash_compare<Key>``."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/More_on_HashCompare.rst:21
+msgid ""
+"For example, if you have keys of type ``Foo``, and ``operator==`` is "
+"defined for ``Foo``, you just have to provide a definition of "
+"``tbb_hasher`` as shown below:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/More_on_HashCompare.rst:29
+msgid ""
+"size_t tbb_hasher(const Foo& f) {\n"
+"    size_t h = ...compute hash code for f...\n"
+"    return h;\n"
+"};"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/More_on_HashCompare.rst:35
+msgid ""
+"In general, the definition of ``tbb_hash_compare<Key>`` or "
+"``HashCompare`` must provide two signatures:"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/More_on_HashCompare.rst:39
+msgid "A method ``hash`` that maps a ``Key`` to a ``size_t``"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/More_on_HashCompare.rst:42
+msgid "A method ``equal`` that determines if two keys are equal"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/More_on_HashCompare.rst:45
+msgid ""
+"The signatures go together in a single class because *if two keys are "
+"equal, then they must hash to the same value*, otherwise the hash table "
+"might not work. You could trivially meet this requirement by always "
+"hashing to ``0``, but that would cause tremendous inefficiency. Ideally, "
+"each key should hash to a different value, or at least the probability of"
+" two distinct keys hashing to the same value should be kept low."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/More_on_HashCompare.rst:53
+msgid ""
+"The methods of ``HashCompare`` should be ``static`` unless you need to "
+"have them behave differently for different instances. If so, then you "
+"should construct the ``concurrent_hash_map`` using the constructor that "
+"takes a ``HashCompare`` as a parameter. The following example is a "
+"variation on an earlier example with instance-dependent methods. The "
+"instance performs both case-sensitive or case-insensitive hashing, and "
+"comparison, depending upon an internal flag ``ignore_case``."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/More_on_HashCompare.rst:65
+msgid ""
+"// Structure that defines hashing and comparison operations\n"
+"class VariantHashCompare {\n"
+"    // If true, then case of letters is ignored.\n"
+"    bool ignore_case;\n"
+"public:\n"
+"    size_t hash(const string& x) const {\n"
+"        size_t h = 0;\n"
+"        for(const char* s = x.c_str(); *s; s++)\n"
+"            h = (h*16777179)^*(ignore_case?tolower(*s):*s);\n"
+"        return h;\n"
+"    }\n"
+"    // True if strings are equal\n"
+"    bool equal(const string& x, const string& y) const {\n"
+"        if( ignore_case )\n"
+"            strcasecmp(x.c_str(), y.c_str())==0;\n"
+"        else\n"
+"            return x==y;\n"
+"    }\n"
+"    VariantHashCompare(bool ignore_case_) : ignore_case(ignore_case_) {}\n"
+"};\n"
+"\n"
+"\n"
+"typedef concurrent_hash_map<string,int, VariantHashCompare> "
+"VariantStringTable;\n"
+"\n"
+"\n"
+"VariantStringTable CaseSensitiveTable(VariantHashCompare(false));\n"
+"VariantStringTable CaseInsensitiveTable(VariantHashCompare(true));"
+msgstr ""
+

@@ -1,0 +1,155 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Intel Corporation
+# This file is distributed under the same license as the oneTBB package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: oneTBB \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 14:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:4
+msgid "Windows\\*"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:6
+msgid ""
+"This section uses <*tbb_install_dir*> to indicate the top-level "
+"installation directory. The following table describes the subdirectory "
+"structure for Windows\\*, relative to <*tbb_install_dir*>."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:16
+msgid "Item"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:17
+msgid "Location"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:18
+msgid "Environment Variable"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:19
+msgid "Header files"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst
+msgid "``include\\oneapi\\tbb.h``"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst
+msgid "``include\\oneapi\\tbb\\*.h``"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:22
+msgid "``INCLUDE``"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:23
+msgid ".lib files"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:24
+msgid "``lib\\<arch>\\vc<vcversion>\\<lib><variant><version>.lib``\\"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:25
+msgid "``LIB``"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:26
+msgid ".dll files"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:27
+msgid "``redist\\<arch>\\vc<vcversion>\\<lib><variant><version>.dll``"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:28
+msgid "``PATH``"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:29
+msgid ".pdb files"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:30
+msgid "Same as corresponding ``.dll`` file."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:31
+msgid "\\"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:33
+msgid "where"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:35
+msgid "``<arch>`` - ``ia32`` or ``intel64``"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:37
+msgid "``<lib>`` - ``tbb``, ``tbbmalloc``, ``tbbmalloc_proxy`` or ``tbbbind``"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:39
+msgid "``<vcversion>``"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:41
+msgid "``14`` - use for dynamic linkage  with the CRT"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:43
+msgid "``14_uwp`` - use for Windows 10 Universal Windows applications"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:45
+msgid "``14_uwd`` - use for Universal Windows Drivers"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:47
+msgid "``_mt`` - use for static linkage with the CRT"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:49
+msgid "``<variant>`` - ``_debug`` or empty"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:51
+msgid "``<version>`` - binary version"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:53
+msgid ""
+"The last column shows which environment variables are used by the "
+"Microsoft\\* Visual C++\\* or Intel® C++ Compiler Classic or Intel® "
+"oneAPI DPC++/C++ Compiler to find these subdirectories."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:58
+msgid ""
+"Ensure that the relevant product directories are mentioned by the "
+"environment variables; otherwise the compiler might not find the required"
+" files."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:64
+msgid ""
+"Microsoft\\* C/C++ run-time libraries come in static and dynamic forms. "
+"Either can be used with oneTBB. Linking to the oneTBB library is always "
+"dynamic."
+msgstr ""
+

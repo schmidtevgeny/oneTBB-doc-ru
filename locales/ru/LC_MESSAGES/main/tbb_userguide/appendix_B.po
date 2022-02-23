@@ -1,0 +1,96 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Intel Corporation
+# This file is distributed under the same license as the oneTBB package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: oneTBB \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 14:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../oneTBB/doc/main/tbb_userguide/appendix_B.rst:4
+msgid "Appendix B Mixing With Other Threading Packages"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/appendix_B.rst:7
+msgid ""
+"|full_name| can be mixed with other threading packages. No special effort"
+" is required to use any part of oneTBB with other threading packages."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/appendix_B.rst:12
+msgid ""
+"Here is an example that parallelizes an outer loop with OpenMP and an "
+"inner loop with oneTBB."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/appendix_B.rst:19
+msgid ""
+"int M, N;\n"
+"\n"
+"\n"
+"struct InnerBody {\n"
+"    ...\n"
+"};\n"
+"\n"
+"\n"
+"void TBB_NestedInOpenMP() {\n"
+"#pragma omp parallel\n"
+"    {\n"
+"#pragma omp for\n"
+"        for( int i=0; i<M; ++ ) {\n"
+"            parallel_for( blocked_range<int>(0,N,10), InnerBody(i) );\n"
+"        }\n"
+"    }\n"
+"}"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/appendix_B.rst:38
+msgid ""
+"The details of ``InnerBody`` are omitted for brevity. The ``#pragma omp "
+"parallel`` causes the OpenMP to create a team of threads, and each thread"
+" executes the block statement associated with the pragma. The ``#pragma "
+"omp for`` indicates that the compiler should use the previously created "
+"thread team to execute the loop in parallel."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/appendix_B.rst:45
+msgid "Here is the same example written using POSIX\\* Threads."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/appendix_B.rst:51
+msgid ""
+"int M, N;\n"
+"\n"
+"\n"
+"struct InnerBody {\n"
+"    ...\n"
+"};\n"
+"\n"
+"\n"
+"void* OuterLoopIteration( void* args ) {\n"
+"    int i = (int)args;\n"
+"    parallel_for( blocked_range<int>(0,N,10), InnerBody(i) );\n"
+"}\n"
+"\n"
+"\n"
+"void TBB_NestedInPThreads() {\n"
+"    std::vector<pthread_t> id( M );\n"
+"    // Create thread for each outer loop iteration\n"
+"    for( int i=0; i<M; ++i )\n"
+"        pthread_create( &id[i], NULL, OuterLoopIteration, NULL );\n"
+"    // Wait for outer loop threads to finish\n"
+"    for( int i=0; i<M; ++i )\n"
+"        pthread_join( &id[i], NULL );\n"
+"}"
+msgstr ""
+

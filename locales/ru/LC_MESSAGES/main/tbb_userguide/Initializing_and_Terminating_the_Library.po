@@ -1,0 +1,54 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Intel Corporation
+# This file is distributed under the same license as the oneTBB package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: oneTBB \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 14:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../oneTBB/doc/main/tbb_userguide/Initializing_and_Terminating_the_Library.rst:4
+msgid "Initializing and Terminating the Library"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Initializing_and_Terminating_the_Library.rst:6
+msgid ""
+"|full_name| automatically initializes the task scheduler. The "
+"initialization process is involved when a thread uses task scheduling "
+"services the first time, for example any parallel algorithm, flow graph "
+"or task group. The termination happens when the last such thread exits."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Initializing_and_Terminating_the_Library.rst:12
+msgid "Explicit Library Finalization"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Initializing_and_Terminating_the_Library.rst:14
+msgid ""
+"oneTBB supports an explicit library termination as a preview feature. The"
+" ``oneapi::tbb::finalize`` function called with an instance of class "
+"``oneapi::tbb::task_scheduler_handle`` blocks the calling thread until "
+"all worker threads implicitly created by the library have completed. If "
+"waiting for thread completion is not safe, e.g. may result in a deadlock "
+"or called inside a task, a parallel algorithm, or a flow graph node, the "
+"method fails."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/Initializing_and_Terminating_the_Library.rst:20
+msgid ""
+"If you know how many active ``oneapi::tbb::task_scheduler_handle`` "
+"instances exist in the program, it is recommended to call "
+"``oneapi::tbb::release`` function on all but the last one, then call "
+"``oneapi::tbb::finalize`` for the last instance."
+msgstr ""
+

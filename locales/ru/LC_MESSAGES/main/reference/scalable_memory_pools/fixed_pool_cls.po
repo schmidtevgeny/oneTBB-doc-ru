@@ -1,0 +1,109 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Intel Corporation
+# This file is distributed under the same license as the oneTBB package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: oneTBB \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 14:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools/fixed_pool_cls.rst:4
+msgid "fixed_pool"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools/fixed_pool_cls.rst:7
+msgid "To enable this feature, set the ``TBB_PREVIEW_MEMORY_POOL`` macro to 1."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools/fixed_pool_cls.rst:9
+msgid "A class for scalable memory allocation from a buffer of fixed size."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools/fixed_pool_cls.rst:16
+msgid "Description"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools/fixed_pool_cls.rst:18
+msgid ""
+"``fixed_pool`` allocates and frees memory in a way that scales with the "
+"number of processors. All the memory available for the allocation is "
+"initially passed through arguments of the constructor. ``fixed_pool`` "
+"meet the :doc:`Memory Pool named requirement<../scalable_memory_pools>`."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools/fixed_pool_cls.rst:23
+msgid "API"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools/fixed_pool_cls.rst:26
+msgid "Header"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools/fixed_pool_cls.rst:28
+msgid "#include \"oneapi/tbb/memory_pool.h\""
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools/fixed_pool_cls.rst:33
+msgid "Synopsis"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools/fixed_pool_cls.rst:35
+msgid ""
+"namespace oneapi {\n"
+"    namespace tbb {\n"
+"        class fixed_pool {\n"
+"        public:\n"
+"            fixed_pool(void *buffer, size_t size);\n"
+"            fixed_pool(const fixed_pool& other) = delete;\n"
+"            fixed_pool& operator=(const fixed_pool& other) = delete;\n"
+"            ~fixed_pool();\n"
+"\n"
+"            void recycle();\n"
+"            void* malloc(size_t size);\n"
+"            void free(void* ptr);\n"
+"            void* realloc(void* ptr, size_t size);\n"
+"        };\n"
+"    } // namespace tbb\n"
+"} // namespace oneapi"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools/fixed_pool_cls.rst:55
+msgid "Member Functions"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools/fixed_pool_cls.rst:59
+msgid ""
+"**Effects**: Constructs a memory pool to manage the memory of size "
+"``size`` pointed to by ``buffer``. Throws the ``bad_alloc`` exception if "
+"the library fails to construct an instance of the class."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools/fixed_pool_cls.rst:63
+msgid "Examples"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools/fixed_pool_cls.rst:65
+msgid "The code below provides a simple example of allocation from a fixed pool."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/scalable_memory_pools/fixed_pool_cls.rst:67
+msgid ""
+"#define TBB_PREVIEW_MEMORY_POOL 1\n"
+"#include \"oneapi/tbb/memory_pool.h\"\n"
+"...\n"
+"char buf[1024*1024];\n"
+"oneapi::tbb::fixed_pool my_pool(buf, 1024*1024);\n"
+"void* my_ptr = my_pool.malloc(10);\n"
+"my_pool.free(my_ptr);}"
+msgstr ""
+

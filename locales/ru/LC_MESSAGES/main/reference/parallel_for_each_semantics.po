@@ -1,0 +1,129 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Intel Corporation
+# This file is distributed under the same license as the oneTBB package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: oneTBB \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 14:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../oneTBB/doc/main/reference/parallel_for_each_semantics.rst:4
+msgid "parallel_for_each Body semantics and requirements"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/parallel_for_each_semantics.rst:11
+msgid "Description"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/parallel_for_each_semantics.rst:13
+msgid ""
+"This page clarifies `ParallelForEachBody "
+"<https://spec.oneapi.com/versions/latest/elements/oneTBB/source/named_requirements/algorithms/par_for_each_body.html>`_"
+" named requirements for ``tbb::parallel_for_each`` algorithm "
+"specification."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/parallel_for_each_semantics.rst:16
+msgid ""
+"namespace oneapi {\n"
+"    namespace tbb {\n"
+"\n"
+"        template <typaname InputIterator, typename Body>\n"
+"        void parallel_for_each( InputIterator first, InputIterator last, "
+"Body body ); // overload (1)\n"
+"        template <typename InputIterator, typename Body>\n"
+"        void parallel_for_each( InputIterator first, InputIterator last, "
+"Body body, task_group_context& group ); // overload (2)\n"
+"\n"
+"        template <typename Container, typename Body>\n"
+"        void parallel_for_each( Container& c, Body body ); // overload "
+"(3)\n"
+"        template <typename Container, typename Body>\n"
+"        void parallel_for_each( Container& c, Body body, "
+"task_group_context& group ); // overload (4)\n"
+"\n"
+"        template <typename Container, typename Body>\n"
+"        void parallel_for_each( const Container& c, Body body ); // "
+"overload (5)\n"
+"        template <typename Container, typename Body>\n"
+"        void parallel_for_each( const Container& c, Body body, "
+"task_group_context& group ); // overload (6)\n"
+"\n"
+"    } // namespace tbb\n"
+"} // namespace oneapi"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/parallel_for_each_semantics.rst:40
+msgid "Terms"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/parallel_for_each_semantics.rst:42
+msgid ""
+"``iterator`` determines the type of the iterator passed into "
+"``parallel_for_each`` algorithm (which is ``InputIterator`` for overloads"
+" `(1)` and `(2)` and ``decltype(std::begin(c))`` for overloads `(3) - "
+"(6)`)"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/parallel_for_each_semantics.rst:44
+msgid ""
+"``value_type`` - the type ``typename "
+"std::iterator_traits<iterator>::value_type``"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/parallel_for_each_semantics.rst:45
+msgid ""
+"``reference`` -  the type ``typename "
+"std::iterator_traits<iterator>::reference``."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/parallel_for_each_semantics.rst:48
+msgid "Requirements for different iterator types"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/parallel_for_each_semantics.rst:50
+msgid ""
+"If the ``iterator`` satisfies `Input iterator` named requirements from "
+"[input.iterators] ISO C++ Standard section and do not satisfies `Forward "
+"iterator` named requirements from [forward.iterators] ISO C++ Standard "
+"section, ``tbb::parallel_for_each`` requires the execution of the "
+"``body`` with an object of type ``const value_type&`` or ``value_type&&``"
+" to be well-formed. If both forms are well-formed, an overload with "
+"rvalue reference will be preferred."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/parallel_for_each_semantics.rst:57
+msgid ""
+"If the ``Body`` only takes non-const lvalue reference to ``value_type``, "
+"named requirements above are violated and the program can be ill-formed."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/parallel_for_each_semantics.rst:59
+msgid ""
+"If the ``iterator`` satisfies `Forward iterator` named requirements from "
+"[forward.iterators] ISO C++ Standard section, ``tbb::parallel_for_each`` "
+"requires the execution of the ``body`` with an object of type "
+"``reference`` to be well-formed."
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/parallel_for_each_semantics.rst:63
+msgid "Requirements for ``Body`` with ``feeder`` argument"
+msgstr ""
+
+#: ../../oneTBB/doc/main/reference/parallel_for_each_semantics.rst:65
+msgid ""
+"Additional elements submitted into ``tbb::parallel_for_each`` through the"
+" ``feeder::add`` passes to the ``Body`` as rvalues and therefore the "
+"corresponding execution of the ``Body`` is required to be well-formed."
+msgstr ""
+

@@ -1,0 +1,170 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, Intel Corporation
+# This file is distributed under the same license as the oneTBB package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: oneTBB \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-23 14:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst:4
+msgid "Reference Counting"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst
+msgid "Problem"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst:13
+msgid "Destroy an object when it will no longer be used."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst
+msgid "Context"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst:22
+msgid ""
+"Often it is desirable to destroy an object when it is known that it will "
+"not be used in the future. Reference counting is a common serial solution"
+" that extends to parallel programming if done carefully."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst
+msgid "Forces"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst:33
+msgid ""
+"If there are cycles of references, basic reference counting is "
+"insufficient unless the cycle is explicitly broken."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst:37
+msgid "Atomic counting is relatively expensive in hardware."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst
+msgid "Solution"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst:46
+msgid ""
+"Thread-safe reference counting is like serial reference counting, except "
+"that the increment/decrement is done atomically, and the decrement and "
+"test \"count is zero?\" must act as a single atomic operation. The "
+"following example uses ``std::atomic<int>`` to achieve this."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst:56
+msgid ""
+"template<typename T>\n"
+"class counted {\n"
+"   std::atomic<int> my_count;\n"
+"   T value;\n"
+"public:\n"
+"   // Construct object with a single reference to it.\n"
+"   counted() {my_count=1;}\n"
+"   // Add reference\n"
+"   void add_ref() {++my_count;}\n"
+"   // Remove reference. Return true if it was the last reference.\n"
+"   bool remove_ref() {return --my_count==0;}\n"
+"   // Get reference to underlying object\n"
+"   T& get() {\n"
+"       assert(my_count>0);\n"
+"       return my_value;\n"
+"   }\n"
+"};"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst:75
+msgid ""
+"It is incorrect to use a separate read for testing if the count is zero. "
+"The following code would be an incorrect implementation of method "
+"``remove_ref``\\ () because two threads might both execute the decrement,"
+" and then both read ``my_count`` as zero. Hence two callers would both be"
+" told incorrectly that they had removed the last reference."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst:86
+msgid ""
+"--my_count;\n"
+"return my_count==0. // WRONG!"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst:90
+msgid ""
+"The decrement may need to have a *release* fence so that any pending "
+"writes complete before the object is deleted."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst:94
+msgid ""
+"There is no simple way to atomically copy a pointer and increment its "
+"reference count, because there will be a timing hole between the copying "
+"and the increment where the reference count is too low, and thus another "
+"thread might decrement the count to zero and delete the object. Two ways "
+"to address the problem are \"hazard pointers\" and \"pass the buck\". See"
+" the references below for details."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst
+msgid "Variations"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst:108
+msgid ""
+"Atomic increment/decrement can be more than an order of magnitude more "
+"expensive than ordinary increment/decrement. The serial optimization of "
+"eliminating redundant increment/decrement operations becomes more "
+"important with atomic reference counts."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst:114
+msgid ""
+"Weighted reference counting can be used to reduce costs if the pointers "
+"are unshared but the referent is shared. Associate a *weight* with each "
+"pointer. The reference count is the sum of the weights. A pointer ``x`` "
+"can be copied as a pointer ``x'`` without updating the reference count by"
+" splitting the original weight between ``x`` and ``x'``. If the weight of"
+" ``x`` is too low to split, then first add a constant W to the reference "
+"count and weight of ``x``."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst
+msgid "References"
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst:129
+msgid ""
+"D. Bacon and V.T. Rajan, \"Concurrent Cycle Collection in Reference "
+"Counted Systems\" in Proc. European Conf. on Object-Oriented Programming "
+"(June 2001). Describes a garbage collector based on reference counting "
+"that does collect cycles."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst:135
+msgid ""
+"M. Michael, \"Hazard Pointers: Safe Memory Reclamation for Lock-Free "
+"Objects\" in IEEE Transactions on Parallel and Distributed Systems (June "
+"2004). Describes the \"hazard pointer\" technique."
+msgstr ""
+
+#: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst:140
+msgid ""
+"M. Herlihy, V. Luchangco, and M. Moir, \"The Repeat Offender Problem: A "
+"Mechanism for Supporting Dynamic-Sized, Lock-Free Data Structures\" in "
+"Proceedings of the 16th International Symposium on Distributed Computing "
+"(Oct. 2002). Describes the \"pass the buck\" technique."
+msgstr ""
+
