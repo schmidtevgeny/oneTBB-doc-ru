@@ -3,29 +3,27 @@
 # This file is distributed under the same license as the oneTBB package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: oneTBB \n"
+"Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-02-24 00:22+0300\n"
+"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_OS.rst:4
 msgid "Linux\\*"
-msgstr ""
+msgstr "Linux\\*"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_OS.rst:7
-msgid ""
-"This section uses *<tbb_install_dir>* to indicate the top-level "
-"installation directory. The following table describes the subdirectory "
-"structure for Linux\\*, relative to *<tbb_install_dir>*"
+msgid "This section uses *<tbb_install_dir>* to indicate the top-level installation directory. The following table describes the subdirectory structure for Linux\\*, relative to *<tbb_install_dir>*"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_OS.rst:16
@@ -81,9 +79,7 @@ msgid "``<arch>`` - ``ia32`` or ``intel64``"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_OS.rst:32
-msgid ""
-"``<lib>`` - ``libtbb``, ``libtbbmalloc``, ``libtbbmalloc_proxy`` or "
-"``libtbbbind``"
+msgid "``<lib>`` - ``libtbb``, ``libtbbmalloc``, ``libtbbmalloc_proxy`` or ``libtbbbind``"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_OS.rst:34
@@ -93,4 +89,3 @@ msgstr ""
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_OS.rst:36
 msgid "``<version>`` - binary version in a form of ``<major>.<minor>``"
 msgstr ""
-

@@ -3,41 +3,30 @@
 # This file is distributed under the same license as the oneTBB package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: oneTBB \n"
+"Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-02-24 14:40+0300\n"
+"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Reader_Writer_Mutexes.rst:4
 msgid "Reader Writer Mutexes"
-msgstr ""
+msgstr "Мьютексы читать-писать"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Reader_Writer_Mutexes.rst:7
-msgid ""
-"Mutual exclusion is necessary when at least one thread *writes* to a "
-"shared variable. But it does no harm to permit multiple readers into a "
-"protected region. The reader-writer variants of the mutexes, denoted by "
-"``_rw_`` in the class names, enable multiple readers by distinguishing "
-"*reader locks* from *writer locks.* There can be more than one reader "
-"lock on a given mutex."
-msgstr ""
+msgid "Mutual exclusion is necessary when at least one thread *writes* to a shared variable. But it does no harm to permit multiple readers into a protected region. The reader-writer variants of the mutexes, denoted by ``_rw_`` in the class names, enable multiple readers by distinguishing *reader locks* from *writer locks.* There can be more than one reader lock on a given mutex."
+msgstr "Взаимное исключение необходимо, когда хотя бы один поток *пишет* в общую переменную. Но нет никакого вреда в том, чтобы разрешить нескольким читателям заходить в защищенную область. Варианты мьютексов \"читать-писать\", обозначаемые ``_rw_`` в именах классов, позволяют использовать несколько читателей, отличая *блокировки читателя* от *блокировок писателя.* На данном мьютексе может быть более одной блокировки читателя."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Reader_Writer_Mutexes.rst:15
-msgid ""
-"Requests for a reader lock are distinguished from requests for a writer "
-"lock via an extra boolean parameter in the constructor for "
-"``scoped_lock``. The parameter is false to request a reader lock and true"
-" to request a writer lock. It defaults to ``true`` so that when omitted, "
-"a ``spin_rw_mutex`` or ``queuing_rw_mutex`` behaves like its non-``_rw_``"
-" counterpart."
+msgid "Requests for a reader lock are distinguished from requests for a writer lock via an extra boolean parameter in the constructor for ``scoped_lock``. The parameter is false to request a reader lock and true to request a writer lock. It defaults to ``true`` so that when omitted, a ``spin_rw_mutex`` or ``queuing_rw_mutex`` behaves like its non-``_rw_`` counterpart."
 msgstr ""
-

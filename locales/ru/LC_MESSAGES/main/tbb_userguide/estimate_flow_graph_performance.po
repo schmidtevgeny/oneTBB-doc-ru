@@ -3,29 +3,28 @@
 # This file is distributed under the same license as the oneTBB package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: oneTBB \n"
+"Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-02-24 14:10+0300\n"
+"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ../../oneTBB/doc/main/tbb_userguide/estimate_flow_graph_performance.rst:4
 msgid "Estimating Flow Graph Performance"
-msgstr ""
+msgstr "Оценка производительности графа потока"
 
 #: ../../oneTBB/doc/main/tbb_userguide/estimate_flow_graph_performance.rst:7
-msgid ""
-"The performance or scalability of a flow graph is not easy to predict. "
-"However there are a few key points that can guide you in estimating the "
-"limits on performance and speedup of some graphs."
+msgid "The performance or scalability of a flow graph is not easy to predict. However there are a few key points that can guide you in estimating the limits on performance and speedup of some graphs."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/estimate_flow_graph_performance.rst
@@ -33,23 +32,11 @@ msgid "The Critical Path Limits the Scalability in a Dependence Graph"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/estimate_flow_graph_performance.rst:19
-msgid ""
-"A critical path is the most time consuming path from a node with no "
-"predecessors to a node with no successors. In a dependence graph, the "
-"execution of the nodes along a path cannot be overlapped since they have "
-"a strict ordering. Therefore, for a dependence graph, the critical path "
-"limits scalability."
+msgid "A critical path is the most time consuming path from a node with no predecessors to a node with no successors. In a dependence graph, the execution of the nodes along a path cannot be overlapped since they have a strict ordering. Therefore, for a dependence graph, the critical path limits scalability."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/estimate_flow_graph_performance.rst:26
-msgid ""
-"More formally, let T be the total time consumed by all of the nodes in "
-"your graph if executed sequentially. Then let C be the time consumed "
-"along the path that takes the most time. The nodes along this path cannot"
-" be overlapped even in a parallel execution. Therefore, even if all other"
-" paths are executed in parallel with C, the wall clock time for the "
-"parallel execution is at least C, and the maximum possible speedup "
-"(ignoring microarchitectural and memory effects) is T/C."
+msgid "More formally, let T be the total time consumed by all of the nodes in your graph if executed sequentially. Then let C be the time consumed along the path that takes the most time. The nodes along this path cannot be overlapped even in a parallel execution. Therefore, even if all other paths are executed in parallel with C, the wall clock time for the parallel execution is at least C, and the maximum possible speedup (ignoring microarchitectural and memory effects) is T/C."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/estimate_flow_graph_performance.rst
@@ -57,16 +44,5 @@ msgid "There is Overhead in Spawning a Node's Body as a Task"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/estimate_flow_graph_performance.rst:42
-msgid ""
-"The bodies of ``input_nodes``, ``function_nodes``, ``continue_nodes`` and"
-" ``multifunction_nodes`` execute within spawned tasks by default. This "
-"means that you need to take into account the overhead of task scheduling "
-"when estimating the time it takes for a node to execute its body. All of "
-"the rules of thumb for determining the appropriate granularity of tasks "
-"therefore also apply to node bodies as well. If you have many fine-"
-"grained nodes in your flow graph, the impact of these overheads can "
-"noticeably impact your performance. However, depending on the graph "
-"structure, you can reduce such overheads by using lightweight policy with"
-" these nodes."
+msgid "The bodies of ``input_nodes``, ``function_nodes``, ``continue_nodes`` and ``multifunction_nodes`` execute within spawned tasks by default. This means that you need to take into account the overhead of task scheduling when estimating the time it takes for a node to execute its body. All of the rules of thumb for determining the appropriate granularity of tasks therefore also apply to node bodies as well. If you have many fine-grained nodes in your flow graph, the impact of these overheads can noticeably impact your performance. However, depending on the graph structure, you can reduce such overheads by using lightweight policy with these nodes."
 msgstr ""
-

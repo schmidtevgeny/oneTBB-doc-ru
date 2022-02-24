@@ -3,32 +3,26 @@
 # This file is distributed under the same license as the oneTBB package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: oneTBB \n"
+"Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-02-24 14:38+0300\n"
+"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Summary_of_Loops_and_Pipelines.rst:4
 msgid "Summary of Loops and Pipelines"
-msgstr ""
+msgstr "Обзор циклов и конвейеров"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Summary_of_Loops_and_Pipelines.rst:6
-msgid ""
-"The high-level loop and pipeline templates in |full_name| give you "
-"efficient scalable ways to exploit the power of multi-core chips without "
-"having to start from scratch. They let you design your software at a high"
-" task-pattern level and not worry about low-level manipulation of "
-"threads. Because they are generic, you can customize them to your "
-"specific needs. Have fun using these templates to unlock the power of "
-"multi-core."
-msgstr ""
-
+msgid "The high-level loop and pipeline templates in |full_name| give you efficient scalable ways to exploit the power of multi-core chips without having to start from scratch. They let you design your software at a high task-pattern level and not worry about low-level manipulation of threads. Because they are generic, you can customize them to your specific needs. Have fun using these templates to unlock the power of multi-core."
+msgstr "Высокоуровневые шаблоны циклов и конвейеров в |full_name| дают тебе эффективные масштабируемые способы использования мощности многоядерных чипов без необходимости начинать с нуля. Они позволяют тебе проектировать программное обеспечение на высоком уровне шаблонов задач и не беспокоиться о низкоуровневом манипулировании потоками. Поскольку они являются общими, ты можешь настроить их под свои конкретные нужды. Получай удовольствие, используя эти шаблоны, чтобы раскрыть мощь многоядерности."

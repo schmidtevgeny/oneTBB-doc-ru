@@ -3,41 +3,32 @@
 # This file is distributed under the same license as the oneTBB package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: oneTBB \n"
+"Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-02-24 14:17+0300\n"
+"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ../../oneTBB/doc/main/tbb_userguide/concurrent_vector_ug.rst:4
 msgid "concurrent_vector"
-msgstr ""
+msgstr "concurrent_vector"
 
 #: ../../oneTBB/doc/main/tbb_userguide/concurrent_vector_ug.rst:7
-msgid ""
-"``A concurrent_vector<T>`` is a dynamically growable array of ``T``. It "
-"is safe to grow a ``concurrent_vector`` while other threads are also "
-"operating on elements of it, or even growing it themselves. For safe "
-"concurrent growing, ``concurrent_vector`` has three methods that support "
-"common uses of dynamic arrays: ``push_back``, ``grow_by``, and "
-"``grow_to_at_least``."
+msgid "``A concurrent_vector<T>`` is a dynamically growable array of ``T``. It is safe to grow a ``concurrent_vector`` while other threads are also operating on elements of it, or even growing it themselves. For safe concurrent growing, ``concurrent_vector`` has three methods that support common uses of dynamic arrays: ``push_back``, ``grow_by``, and ``grow_to_at_least``."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/concurrent_vector_ug.rst:15
-msgid ""
-"Method ``push_back(x)`` safely appends x to the array. Method "
-"``grow_by(n)`` safely appends ``n`` consecutive elements initialized with"
-" ``T()``. Both methods return an iterator pointing to the first appended "
-"element. Each element is initialized with ``T()``. So for example, the "
-"following routine safely appends a C string to a shared vector:"
+msgid "Method ``push_back(x)`` safely appends x to the array. Method ``grow_by(n)`` safely appends ``n`` consecutive elements initialized with ``T()``. Both methods return an iterator pointing to the first appended element. Each element is initialized with ``T()``. So for example, the following routine safely appends a C string to a shared vector:"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/concurrent_vector_ug.rst:26
@@ -49,41 +40,17 @@ msgid ""
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/concurrent_vector_ug.rst:32
-msgid ""
-"The related method ``grow_to_at_least(n)``\\ grows a vector to size ``n``"
-" if it is shorter. Concurrent calls to the growth methods do not "
-"necessarily return in the order that elements are appended to the vector."
+msgid "The related method ``grow_to_at_least(n)``\\ grows a vector to size ``n`` if it is shorter. Concurrent calls to the growth methods do not necessarily return in the order that elements are appended to the vector."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/concurrent_vector_ug.rst:38
-msgid ""
-"Method ``size()`` returns the number of elements in the vector, which may"
-" include elements that are still undergoing concurrent construction by "
-"methods ``push_back``, ``grow_by,`` or ``grow_to_at_least``. The example "
-"uses std::copy and iterators, not ``strcpy and pointers``, because "
-"elements in a ``concurrent_vector`` might not be at consecutive "
-"addresses. It is safe to use the iterators while the "
-"``concurrent_vector`` is being grown, as long as the iterators never go "
-"past the current value of ``end()``. However, the iterator may reference "
-"an element undergoing concurrent construction. You must synchronize "
-"construction and access."
+msgid "Method ``size()`` returns the number of elements in the vector, which may include elements that are still undergoing concurrent construction by methods ``push_back``, ``grow_by,`` or ``grow_to_at_least``. The example uses std::copy and iterators, not ``strcpy and pointers``, because elements in a ``concurrent_vector`` might not be at consecutive addresses. It is safe to use the iterators while the ``concurrent_vector`` is being grown, as long as the iterators never go past the current value of ``end()``. However, the iterator may reference an element undergoing concurrent construction. You must synchronize construction and access."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/concurrent_vector_ug.rst:50
-msgid ""
-"A ``concurrent_vector<T>`` never moves an element until the array is "
-"cleared, which can be an advantage over the STL std::vector even for "
-"single-threaded code. However, ``concurrent_vector`` does have more "
-"overhead than std::vector. Use ``concurrent_vector`` only if you really "
-"need the ability to dynamically resize it while other accesses are (or "
-"might be) in flight, or require that an element never move."
+msgid "A ``concurrent_vector<T>`` never moves an element until the array is cleared, which can be an advantage over the STL std::vector even for single-threaded code. However, ``concurrent_vector`` does have more overhead than std::vector. Use ``concurrent_vector`` only if you really need the ability to dynamically resize it while other accesses are (or might be) in flight, or require that an element never move."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/concurrent_vector_ug.rst:59
-msgid ""
-"Operations on ``concurrent_vector`` are concurrency safe with respect to "
-"*growing*, not for clearing or destroying a vector. Never invoke method "
-"``clear()`` if there are other operations in flight on the "
-"``concurrent_vector``."
+msgid "Operations on ``concurrent_vector`` are concurrency safe with respect to *growing*, not for clearing or destroying a vector. Never invoke method ``clear()`` if there are other operations in flight on the ``concurrent_vector``."
 msgstr ""
-

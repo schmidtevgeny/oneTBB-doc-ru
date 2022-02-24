@@ -3,23 +3,25 @@
 # This file is distributed under the same license as the oneTBB package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: oneTBB \n"
+"Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-02-24 14:09+0300\n"
+"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ../../oneTBB/doc/main/tbb_userguide/parallel_reduce.rst:4
 msgid "parallel_reduce"
-msgstr ""
+msgstr "parallel_reduce"
 
 #: ../../oneTBB/doc/main/tbb_userguide/parallel_reduce.rst:7
 msgid "A loop can do a reduction, as in this summation:"
@@ -36,9 +38,7 @@ msgid ""
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/parallel_reduce.rst:21
-msgid ""
-"If the iterations are independent, you can parallelize this loop using "
-"the template class ``parallel_reduce`` as follows:"
+msgid "If the iterations are independent, you can parallelize this loop using the template class ``parallel_reduce`` as follows:"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/parallel_reduce.rst:28
@@ -51,10 +51,7 @@ msgid ""
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/parallel_reduce.rst:35
-msgid ""
-"The class ``SumFoo`` specifies details of the reduction, such as how to "
-"accumulate subsums and combine them. Here is the definition of class "
-"``SumFoo``:"
+msgid "The class ``SumFoo`` specifies details of the reduction, such as how to accumulate subsums and combine them. Here is the definition of class ``SumFoo``:"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/parallel_reduce.rst:43
@@ -86,39 +83,15 @@ msgid ""
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/parallel_reduce.rst:69
-msgid ""
-"Note the differences with class ``ApplyFoo`` from parallel_for. First, "
-"``operator()`` is *not* ``const``. This is because it must update "
-"SumFoo::my_sum. Second, ``SumFoo`` has a *splitting constructor* and a "
-"method ``join`` that must be present for ``parallel_reduce`` to work. The"
-" splitting constructor takes as arguments a reference to the original "
-"object, and a dummy argument of type ``split``, which is defined by the "
-"library. The dummy argument distinguishes the splitting constructor from "
-"a copy constructor."
+msgid "Note the differences with class ``ApplyFoo`` from parallel_for. First, ``operator()`` is *not* ``const``. This is because it must update SumFoo::my_sum. Second, ``SumFoo`` has a *splitting constructor* and a method ``join`` that must be present for ``parallel_reduce`` to work. The splitting constructor takes as arguments a reference to the original object, and a dummy argument of type ``split``, which is defined by the library. The dummy argument distinguishes the splitting constructor from a copy constructor."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/parallel_reduce.rst:80
-msgid ""
-"In the example, the definition of ``operator()`` uses local temporary "
-"variables (``a``, ``sum``, ``end``) for scalar values accessed inside the"
-" loop. This technique can improve performance by making it obvious to the"
-" compiler that the values can be held in registers instead of memory. If "
-"the values are too large to fit in registers, or have their address taken"
-" in a way the compiler cannot track, the technique might not help. With a"
-" typical optimizing compiler, using local temporaries for only written "
-"variables (such as ``sum`` in the example) can suffice, because then the "
-"compiler can deduce that the loop does not write to any of the other "
-"locations, and hoist the other reads to outside the loop."
+msgid "In the example, the definition of ``operator()`` uses local temporary variables (``a``, ``sum``, ``end``) for scalar values accessed inside the loop. This technique can improve performance by making it obvious to the compiler that the values can be held in registers instead of memory. If the values are too large to fit in registers, or have their address taken in a way the compiler cannot track, the technique might not help. With a typical optimizing compiler, using local temporaries for only written variables (such as ``sum`` in the example) can suffice, because then the compiler can deduce that the loop does not write to any of the other locations, and hoist the other reads to outside the loop."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/parallel_reduce.rst:93
-msgid ""
-"When a worker thread is available, as decided by the task scheduler, "
-"``parallel_reduce`` invokes the splitting constructor to create a subtask"
-" for the worker. When the subtask completes, ``parallel_reduce`` uses "
-"method ``join`` to accumulate the result of the subtask. The graph at the"
-" top of the following figure shows the split-join sequence that happens "
-"when a worker is available:"
+msgid "When a worker thread is available, as decided by the task scheduler, ``parallel_reduce`` invokes the splitting constructor to create a subtask for the worker. When the subtask completes, ``parallel_reduce`` uses method ``join`` to accumulate the result of the subtask. The graph at the top of the following figure shows the split-join sequence that happens when a worker is available:"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/parallel_reduce.rst:105
@@ -134,34 +107,19 @@ msgid ".. image:: main/tbb_userguide/Images/image009.jpg"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/parallel_reduce.rst:109
-msgid ""
-"An arrows in the above figure indicate order in time. The splitting "
-"constructor might run concurrently while object ``x`` is being used for "
-"the first half of the reduction. Therefore, all actions of the splitting "
-"constructor that creates y must be made thread safe with respect to "
-"``x``. So if the splitting constructor needs to increment a reference "
-"count shared with other objects, it should use an atomic increment."
+msgid "An arrows in the above figure indicate order in time. The splitting constructor might run concurrently while object ``x`` is being used for the first half of the reduction. Therefore, all actions of the splitting constructor that creates y must be made thread safe with respect to ``x``. So if the splitting constructor needs to increment a reference count shared with other objects, it should use an atomic increment."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/parallel_reduce.rst:117
-msgid ""
-"If a worker is not available, the second half of the iteration is reduced"
-" using the same body object that reduced the first half. That is the "
-"reduction of the second half starts where reduction of the first half "
-"finished."
+msgid "If a worker is not available, the second half of the iteration is reduced using the same body object that reduced the first half. That is the reduction of the second half starts where reduction of the first half finished."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/parallel_reduce.rst:124
-msgid ""
-"Since split/join are not used if workers are unavailable, "
-"``parallel_reduce`` does not necessarily do recursive splitting."
+msgid "Since split/join are not used if workers are unavailable, ``parallel_reduce`` does not necessarily do recursive splitting."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/parallel_reduce.rst:129
-msgid ""
-"Since the same body might be used to accumulate multiple subranges, it is"
-" critical that ``operator()`` not discard earlier accumulations. The code"
-" below shows an incorrect definition of ``SumFoo::operator()``."
+msgid "Since the same body might be used to accumulate multiple subranges, it is critical that ``operator()`` not discard earlier accumulations. The code below shows an incorrect definition of ``SumFoo::operator()``."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/parallel_reduce.rst:138
@@ -183,21 +141,15 @@ msgid ""
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/parallel_reduce.rst:154
-msgid ""
-"With the mistake, the body returns a partial sum for the last subrange "
-"instead of all subranges to which ``parallel_reduce`` applies it."
+msgid "With the mistake, the body returns a partial sum for the last subrange instead of all subranges to which ``parallel_reduce`` applies it."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/parallel_reduce.rst:158
-msgid ""
-"The rules for partitioners and grain sizes for ``parallel_reduce`` are "
-"the same as for ``parallel_for``."
+msgid "The rules for partitioners and grain sizes for ``parallel_reduce`` are the same as for ``parallel_for``."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/parallel_reduce.rst:162
-msgid ""
-"``parallel_reduce`` generalizes to any associative operation. In general,"
-" the splitting constructor does two things:"
+msgid "``parallel_reduce`` generalizes to any associative operation. In general, the splitting constructor does two things:"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/parallel_reduce.rst:166
@@ -205,21 +157,13 @@ msgid "Copy read-only information necessary to run the loop body."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/parallel_reduce.rst:169
-msgid ""
-"Initialize the reduction variable(s) to the identity element of the "
-"operation(s)."
+msgid "Initialize the reduction variable(s) to the identity element of the operation(s)."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/parallel_reduce.rst:173
-msgid ""
-"The join method should do the corresponding merge(s). You can do more "
-"than one reduction at the same time: you can gather the min and max with "
-"a single ``parallel_reduce``."
+msgid "The join method should do the corresponding merge(s). You can do more than one reduction at the same time: you can gather the min and max with a single ``parallel_reduce``."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/parallel_reduce.rst:179
-msgid ""
-"The reduction operation can be non-commutative. The example still works "
-"if floating-point addition is replaced by string concatenation."
+msgid "The reduction operation can be non-commutative. The example still works if floating-point addition is replaced by string concatenation."
 msgstr ""
-

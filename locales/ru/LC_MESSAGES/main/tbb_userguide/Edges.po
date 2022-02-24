@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-23 15:52+0300\n"
+"PO-Revision-Date: 2022-02-24 14:48+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Edges.rst:4
 msgid "Flow Graph Basics: Edges"
-msgstr "Основы потоковой диаграммы: Грани"
+msgstr "Основы графа потока: Грани"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Edges.rst:7
 msgid "Most applications contain multiple nodes with edges connecting them to each other. In the flow graph interface, edges are directed channels over which messages are passed. They are created by calling the function ``make_edge( p, s )`` with two arguments: ``p``, the predecessor, and ``s``, the successor. You can modify the example used in the **Nodes** topic to include a second node that squares the value it receives before printing it and then connect that to the first node with an edge."

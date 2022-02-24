@@ -3,33 +3,32 @@
 # This file is distributed under the same license as the oneTBB package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: oneTBB \n"
+"Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-02-24 14:13+0300\n"
+"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Odd-Even_Communication.rst:4
 msgid "Odd-Even Communication"
-msgstr ""
+msgstr "Нечетные и четные коммуникации"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Odd-Even_Communication.rst
 msgid "Problem"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Odd-Even_Communication.rst:13
-msgid ""
-"Operations on data cannot be done entirely independently, but data can be"
-" partitioned into two subsets such that all operations on a subset can "
-"run in parallel."
+msgid "Operations on data cannot be done entirely independently, but data can be partitioned into two subsets such that all operations on a subset can run in parallel."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Odd-Even_Communication.rst
@@ -37,18 +36,11 @@ msgid "Context"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Odd-Even_Communication.rst:24
-msgid ""
-"Solvers for partial differential equations can often be modified to "
-"follow this pattern. For example, for a 2D grid with only nearest-"
-"neighbor communication, it may be possible to treat the grid as a "
-"checkerboard, and alternate between updating red squares and black "
-"squares."
+msgid "Solvers for partial differential equations can often be modified to follow this pattern. For example, for a 2D grid with only nearest-neighbor communication, it may be possible to treat the grid as a checkerboard, and alternate between updating red squares and black squares."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Odd-Even_Communication.rst:31
-msgid ""
-"Another context is staggered grid (\"leap frog\") Finite Difference Time "
-"Domain (FDTD solvers, which naturally fit the pattern."
+msgid "Another context is staggered grid (\"leap frog\") Finite Difference Time Domain (FDTD solvers, which naturally fit the pattern."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Odd-Even_Communication.rst
@@ -64,9 +56,7 @@ msgid "Solution"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Odd-Even_Communication.rst:50
-msgid ""
-"Alternate between updating one subset and then the other subset. Apply "
-"the elementwise pattern to each subset."
+msgid "Alternate between updating one subset and then the other subset. Apply the elementwise pattern to each subset."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Odd-Even_Communication.rst
@@ -74,8 +64,5 @@ msgid "References"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Odd-Even_Communication.rst:59
-msgid ""
-"Eun-Gyu Kim and Mark Snir, \"Odd-Even Communication Group\", "
-"http://snir.cs.illinois.edu/patterns/oddeven.pdf"
+msgid "Eun-Gyu Kim and Mark Snir, \"Odd-Even Communication Group\", http://snir.cs.illinois.edu/patterns/oddeven.pdf"
 msgstr ""
-

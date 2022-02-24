@@ -3,58 +3,42 @@
 # This file is distributed under the same license as the oneTBB package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: oneTBB \n"
+"Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-02-24 14:26+0300\n"
+"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ../../oneTBB/doc/main/tbb_userguide/When_Not_to_Use_Queues.rst:4
 msgid "When Not to Use Queues"
-msgstr ""
+msgstr "Когда не стоит использовать очереди"
 
 #: ../../oneTBB/doc/main/tbb_userguide/When_Not_to_Use_Queues.rst:7
-msgid ""
-"Queues are widely used in parallel programs to buffer consumers from "
-"producers. Before using an explicit queue, however, consider using "
-"``parallel_for_each`` ``parallel_pipeline`` instead. These is often more "
-"efficient than queues for the following reasons:"
+msgid "Queues are widely used in parallel programs to buffer consumers from producers. Before using an explicit queue, however, consider using ``parallel_for_each`` ``parallel_pipeline`` instead. These is often more efficient than queues for the following reasons:"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/When_Not_to_Use_Queues.rst:13
-msgid ""
-"A queue is inherently a bottle neck, because it must maintain first-in "
-"first-out order."
+msgid "A queue is inherently a bottle neck, because it must maintain first-in first-out order."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/When_Not_to_Use_Queues.rst:17
-msgid ""
-"A thread that is popping a value may have to wait idly until the value is"
-" pushed."
+msgid "A thread that is popping a value may have to wait idly until the value is pushed."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/When_Not_to_Use_Queues.rst:21
-msgid ""
-"A queue is a passive data structure. If a thread pushes a value, it could"
-" take time until it pops the value, and in the meantime the value (and "
-"whatever it references) becomes \"cold\" in cache. Or worse yet, another "
-"thread pops the value, and the value (and whatever it references) must be"
-" moved to the other processor."
+msgid "A queue is a passive data structure. If a thread pushes a value, it could take time until it pops the value, and in the meantime the value (and whatever it references) becomes \"cold\" in cache. Or worse yet, another thread pops the value, and the value (and whatever it references) must be moved to the other processor."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/When_Not_to_Use_Queues.rst:28
-msgid ""
-"In contrast, ``parallel_pipeline`` avoids these bottlenecks. Because its "
-"threading is implicit, it optimizes use of worker threads so that they do"
-" other work until a value shows up. It also tries to keep items hot in "
-"cache."
+msgid "In contrast, ``parallel_pipeline`` avoids these bottlenecks. Because its threading is implicit, it optimizes use of worker threads so that they do other work until a value shows up. It also tries to keep items hot in cache."
 msgstr ""
-

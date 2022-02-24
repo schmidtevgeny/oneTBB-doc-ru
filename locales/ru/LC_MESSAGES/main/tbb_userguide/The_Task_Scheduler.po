@@ -3,31 +3,26 @@
 # This file is distributed under the same license as the oneTBB package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: oneTBB \n"
+"Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-02-24 14:27+0300\n"
+"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ../../oneTBB/doc/main/tbb_userguide/The_Task_Scheduler.rst:4
 msgid "The Task Scheduler"
-msgstr ""
+msgstr "Планировщик задач"
 
 #: ../../oneTBB/doc/main/tbb_userguide/The_Task_Scheduler.rst:7
-msgid ""
-"This section introduces the |full_name| *task scheduler*. The task "
-"scheduler is the engine that powers the loop templates. When practical, "
-"use the loop templates instead of the task scheduler, because the "
-"templates hide the complexity of the scheduler. However, if you have an "
-"algorithm that does not naturally map onto one of the high-level "
-"templates, use the task scheduler."
-msgstr ""
-
+msgid "This section introduces the |full_name| *task scheduler*. The task scheduler is the engine that powers the loop templates. When practical, use the loop templates instead of the task scheduler, because the templates hide the complexity of the scheduler. However, if you have an algorithm that does not naturally map onto one of the high-level templates, use the task scheduler."
+msgstr "В этом разделе представлен *планировщик задач* |full_name|. Планировщик задач - это движок, на котором работают шаблоны циклов. Когда это целесообразно, используйте шаблоны циклов вместо планировщика задач, поскольку шаблоны скрывают сложность планировщика. Однако, если у вас есть алгоритм, который естественным образом не отображается на один из высокоуровневых шаблонов, используйте планировщик задач."

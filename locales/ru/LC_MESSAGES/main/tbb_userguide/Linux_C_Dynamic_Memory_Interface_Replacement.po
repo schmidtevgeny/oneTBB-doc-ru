@@ -3,28 +3,28 @@
 # This file is distributed under the same license as the oneTBB package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: oneTBB \n"
+"Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-02-24 00:22+0300\n"
+"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_C_Dynamic_Memory_Interface_Replacement.rst:4
 msgid "Linux\\* OS C/C++ Dynamic Memory Interface Replacement"
-msgstr ""
+msgstr "Linux\\* OS C/C++ Замена интерфейса динамической памяти"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_C_Dynamic_Memory_Interface_Replacement.rst:7
-msgid ""
-"Release version of the proxy library is ``libtbbmalloc_proxy.so``, debug "
-"version is ``libtbbmalloc_proxy_debug.so``."
+msgid "Release version of the proxy library is ``libtbbmalloc_proxy.so``, debug version is ``libtbbmalloc_proxy_debug.so``."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_C_Dynamic_Memory_Interface_Replacement.rst:11
@@ -32,9 +32,7 @@ msgid "The following dynamic memory functions are replaced:"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_C_Dynamic_Memory_Interface_Replacement.rst:14
-msgid ""
-"Standard C library functions: ``malloc``, ``calloc``, ``realloc``, "
-"``free``, (added in C11) ``aligned_alloc``"
+msgid "Standard C library functions: ``malloc``, ``calloc``, ``realloc``, ``free``, (added in C11) ``aligned_alloc``"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_C_Dynamic_Memory_Interface_Replacement.rst:18
@@ -50,27 +48,15 @@ msgid "Replaceable global C++ operators ``new`` and ``delete``"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_C_Dynamic_Memory_Interface_Replacement.rst:28
-msgid ""
-"GNU C library (glibc) specific functions: ``malloc_usable_size``, "
-"``__libc_malloc``, ``__libc_calloc``, ``__libc_memalign``, "
-"``__libc_free``, ``__libc_realloc``, ``__libc_pvalloc``, "
-"``__libc_valloc``"
+msgid "GNU C library (glibc) specific functions: ``malloc_usable_size``, ``__libc_malloc``, ``__libc_calloc``, ``__libc_memalign``, ``__libc_free``, ``__libc_realloc``, ``__libc_pvalloc``, ``__libc_valloc``"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_C_Dynamic_Memory_Interface_Replacement.rst:34
-msgid ""
-"You can do the replacement either by loading the proxy library at program"
-" load time using the ``LD_PRELOAD`` environment variable (without "
-"changing the executable file), or by linking the main executable file "
-"with the proxy library."
+msgid "You can do the replacement either by loading the proxy library at program load time using the ``LD_PRELOAD`` environment variable (without changing the executable file), or by linking the main executable file with the proxy library."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_C_Dynamic_Memory_Interface_Replacement.rst:40
-msgid ""
-"The OS program loader must be able to find the proxy library and the "
-"scalable memory allocator library at program load time. For that you may "
-"include the directory containing the libraries in the ``LD_LIBRARY_PATH``"
-" environment variable or add it to ``/etc/ld.so.conf``."
+msgid "The OS program loader must be able to find the proxy library and the scalable memory allocator library at program load time. For that you may include the directory containing the libraries in the ``LD_LIBRARY_PATH`` environment variable or add it to ``/etc/ld.so.conf``."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_C_Dynamic_Memory_Interface_Replacement.rst:47
@@ -78,9 +64,7 @@ msgid "There are limitations for dynamic memory replacement:"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_C_Dynamic_Memory_Interface_Replacement.rst:50
-msgid ""
-"glibc memory allocation hooks, such as ``__malloc_hook``, are not "
-"supported."
+msgid "glibc memory allocation hooks, such as ``__malloc_hook``, are not supported."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_C_Dynamic_Memory_Interface_Replacement.rst:54
@@ -92,9 +76,7 @@ msgid "Examples"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_C_Dynamic_Memory_Interface_Replacement.rst:63
-msgid ""
-"These examples show how to set ``LD_PRELOAD`` and how to link a program "
-"to use the memory allocation replacements."
+msgid "These examples show how to set ``LD_PRELOAD`` and how to link a program to use the memory allocation replacements."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_C_Dynamic_Memory_Interface_Replacement.rst:70
@@ -106,8 +88,5 @@ msgid ""
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_C_Dynamic_Memory_Interface_Replacement.rst:76
-msgid ""
-"To use the debug version of the library, replace *tbbmalloc_proxy* with "
-"*tbbmalloc_proxy_debug* in the above examples."
+msgid "To use the debug version of the library, replace *tbbmalloc_proxy* with *tbbmalloc_proxy_debug* in the above examples."
 msgstr ""
-

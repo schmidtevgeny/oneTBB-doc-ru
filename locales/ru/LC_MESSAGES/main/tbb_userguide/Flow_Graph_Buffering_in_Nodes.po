@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-23 15:51+0300\n"
+"PO-Revision-Date: 2022-02-24 14:49+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Buffering_in_Nodes.rst:4
 msgid "Flow Graph Basics: Buffering and Forwarding"
-msgstr "Основы потоковой диаграммы: Буферизация и переадресация"
+msgstr "Основы графа потока: Буферизация и переадресация"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Buffering_in_Nodes.rst:7
 msgid "|full_name| flow graph nodes use messages to communicate data and to enforce dependencies. If a node passes a message successfully to any successor, no further action is taken with the message by that node. As noted in the section on Single-push vs. Broadcast-push, a message may be passed to one or to multiple successors, depending on the type of the node, how many successors are connected to the node, and whether the message is pushed or pulled."

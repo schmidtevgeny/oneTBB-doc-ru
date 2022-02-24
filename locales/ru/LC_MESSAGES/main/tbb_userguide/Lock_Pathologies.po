@@ -3,28 +3,28 @@
 # This file is distributed under the same license as the oneTBB package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: oneTBB \n"
+"Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-02-24 00:22+0300\n"
+"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lock_Pathologies.rst:4
 msgid "Lock Pathologies"
-msgstr ""
+msgstr "Патологии блокировки"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lock_Pathologies.rst:7
-msgid ""
-"Locks can introduce performance and correctness problems. If you are new "
-"to locking, here are some of the problems to avoid:"
+msgid "Locks can introduce performance and correctness problems. If you are new to locking, here are some of the problems to avoid:"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lock_Pathologies.rst
@@ -32,10 +32,7 @@ msgid "Deadlock"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lock_Pathologies.rst:17
-msgid ""
-"Deadlock happens when threads are trying to acquire more than one lock, "
-"and each holds some of the locks the other threads need to proceed. More "
-"precisely, deadlock happens when:"
+msgid "Deadlock happens when threads are trying to acquire more than one lock, and each holds some of the locks the other threads need to proceed. More precisely, deadlock happens when:"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lock_Pathologies.rst:22
@@ -43,9 +40,7 @@ msgid "There is a cycle of threads"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lock_Pathologies.rst:25
-msgid ""
-"Each thread holds at least one lock on a mutex, and is waiting on a mutex"
-" for which the *next* thread in the cycle already has a lock."
+msgid "Each thread holds at least one lock on a mutex, and is waiting on a mutex for which the *next* thread in the cycle already has a lock."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lock_Pathologies.rst:30
@@ -53,27 +48,15 @@ msgid "No thread is willing to give up its lock."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lock_Pathologies.rst:33
-msgid ""
-"Think of classic gridlock at an intersection – each car has \"acquired\" "
-"part of the road, but needs to \"acquire\" the road under another car to "
-"get through. Two common ways to avoid deadlock are:"
+msgid "Think of classic gridlock at an intersection – each car has \"acquired\" part of the road, but needs to \"acquire\" the road under another car to get through. Two common ways to avoid deadlock are:"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lock_Pathologies.rst:38
-msgid ""
-"Avoid needing to hold two locks at the same time. Break your program into"
-" small actions in which each can be accomplished while holding a single "
-"lock."
+msgid "Avoid needing to hold two locks at the same time. Break your program into small actions in which each can be accomplished while holding a single lock."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lock_Pathologies.rst:43
-msgid ""
-"Always acquire locks in the same order. For example, if you have \"outer "
-"container\" and \"inner container\" mutexes, and need to acquire a lock "
-"on one of each, you could always acquire the \"outer sanctum\" one first."
-" Another example is \"acquire locks in alphabetical order\" in a "
-"situation where the locks have names. Or if the locks are unnamed, "
-"acquire locks in order of the mutex’s numerical addresses."
+msgid "Always acquire locks in the same order. For example, if you have \"outer container\" and \"inner container\" mutexes, and need to acquire a lock on one of each, you could always acquire the \"outer sanctum\" one first. Another example is \"acquire locks in alphabetical order\" in a situation where the locks have names. Or if the locks are unnamed, acquire locks in order of the mutex’s numerical addresses."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lock_Pathologies.rst:52
@@ -85,22 +68,13 @@ msgid "Convoying"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lock_Pathologies.rst:61
-msgid ""
-"Another common problem with locks is *convoying*. Convoying occurs when "
-"the operating system interrupts a thread that is holding a lock. All "
-"other threads must wait until the interrupted thread resumes and releases"
-" the lock. Fair mutexes can make the situation even worse, because if a "
-"waiting thread is interrupted, all the threads behind it must wait for it"
-" to resume."
+msgid "Another common problem with locks is *convoying*. Convoying occurs when the operating system interrupts a thread that is holding a lock. All other threads must wait until the interrupted thread resumes and releases the lock. Fair mutexes can make the situation even worse, because if a waiting thread is interrupted, all the threads behind it must wait for it to resume."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lock_Pathologies.rst:69
-msgid ""
-"To minimize convoying, try to hold the lock as briefly as possible. "
-"Precompute whatever you can before acquiring the lock."
+msgid "To minimize convoying, try to hold the lock as briefly as possible. Precompute whatever you can before acquiring the lock."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lock_Pathologies.rst:73
 msgid "To avoid convoying, use atomic operations instead of locks where possible."
 msgstr ""
-

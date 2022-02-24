@@ -3,28 +3,28 @@
 # This file is distributed under the same license as the oneTBB package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: oneTBB \n"
+"Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-02-24 14:26+0300\n"
+"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ../../oneTBB/doc/main/tbb_userguide/UpgradeDowngrade.rst:4
 msgid "Upgrade/Downgrade"
-msgstr ""
+msgstr "Обновление/понижение"
 
 #: ../../oneTBB/doc/main/tbb_userguide/UpgradeDowngrade.rst:7
-msgid ""
-"It is possible to upgrade a reader lock to a writer lock, by using the "
-"method ``upgrade_to_writer``. Here is an example."
+msgid "It is possible to upgrade a reader lock to a writer lock, by using the method ``upgrade_to_writer``. Here is an example."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/UpgradeDowngrade.rst:14
@@ -36,8 +36,7 @@ msgid ""
 "\n"
 "void AddKeyIfMissing( const string& key ) {\n"
 "    // Obtain a reader lock on MyVectorMutex\n"
-"    MyVectorMutexType::scoped_lock "
-"lock(MyVectorMutex,/*is_writer=*/false);\n"
+"    MyVectorMutexType::scoped_lock lock(MyVectorMutex,/*is_writer=*/false);\n"
 "    size_t n = MyVector.size();\n"
 "    for( size_t i=0; i<n; ++i )\n"
 "        if( MyVector[i]==key ) return;\n"
@@ -50,26 +49,9 @@ msgid ""
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/UpgradeDowngrade.rst:33
-msgid ""
-"Note that the vector must sometimes be searched again. This is necessary "
-"because ``upgrade_to_writer`` might have to temporarily release the lock "
-"before it can upgrade. Otherwise, deadlock might ensue, as discussed in "
-"**Lock Pathologies**. Method ``upgrade_to_writer`` returns a ``bool`` "
-"that is true if it successfully upgraded the lock without releasing it, "
-"and false if the lock was released temporarily. Thus when "
-"``upgrade_to_writer`` returns false, the code must rerun the search to "
-"check that the key was not inserted by another writer. The example "
-"presumes that keys are always added to the end of the vector, and that "
-"keys are never removed. Because of these assumptions, it does not have to"
-" re-search the entire vector, but only the elements beyond those "
-"originally searched. The key point to remember is that when "
-"``upgrade_to_writer`` returns false, any assumptions established while "
-"holding a reader lock may have been invalidated, and must be rechecked."
+msgid "Note that the vector must sometimes be searched again. This is necessary because ``upgrade_to_writer`` might have to temporarily release the lock before it can upgrade. Otherwise, deadlock might ensue, as discussed in **Lock Pathologies**. Method ``upgrade_to_writer`` returns a ``bool`` that is true if it successfully upgraded the lock without releasing it, and false if the lock was released temporarily. Thus when ``upgrade_to_writer`` returns false, the code must rerun the search to check that the key was not inserted by another writer. The example presumes that keys are always added to the end of the vector, and that keys are never removed. Because of these assumptions, it does not have to re-search the entire vector, but only the elements beyond those originally searched. The key point to remember is that when ``upgrade_to_writer`` returns false, any assumptions established while holding a reader lock may have been invalidated, and must be rechecked."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/UpgradeDowngrade.rst:49
-msgid ""
-"For symmetry, there is a corresponding method ``downgrade_to_reader``, "
-"though in practice there are few reasons to use it."
+msgid "For symmetry, there is a corresponding method ``downgrade_to_reader``, though in practice there are few reasons to use it."
 msgstr ""
-

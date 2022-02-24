@@ -3,34 +3,32 @@
 # This file is distributed under the same license as the oneTBB package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: oneTBB \n"
+"Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-02-24 14:20+0300\n"
+"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ../../oneTBB/doc/main/tbb_userguide/appendix_B.rst:4
 msgid "Appendix B Mixing With Other Threading Packages"
-msgstr ""
+msgstr "Приложение B Смешивание с другими пакетами для работы с потоками"
 
 #: ../../oneTBB/doc/main/tbb_userguide/appendix_B.rst:7
-msgid ""
-"|full_name| can be mixed with other threading packages. No special effort"
-" is required to use any part of oneTBB with other threading packages."
+msgid "|full_name| can be mixed with other threading packages. No special effort is required to use any part of oneTBB with other threading packages."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/appendix_B.rst:12
-msgid ""
-"Here is an example that parallelizes an outer loop with OpenMP and an "
-"inner loop with oneTBB."
+msgid "Here is an example that parallelizes an outer loop with OpenMP and an inner loop with oneTBB."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/appendix_B.rst:19
@@ -55,12 +53,7 @@ msgid ""
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/appendix_B.rst:38
-msgid ""
-"The details of ``InnerBody`` are omitted for brevity. The ``#pragma omp "
-"parallel`` causes the OpenMP to create a team of threads, and each thread"
-" executes the block statement associated with the pragma. The ``#pragma "
-"omp for`` indicates that the compiler should use the previously created "
-"thread team to execute the loop in parallel."
+msgid "The details of ``InnerBody`` are omitted for brevity. The ``#pragma omp parallel`` causes the OpenMP to create a team of threads, and each thread executes the block statement associated with the pragma. The ``#pragma omp for`` indicates that the compiler should use the previously created thread team to execute the loop in parallel."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/appendix_B.rst:45
@@ -93,4 +86,3 @@ msgid ""
 "        pthread_join( &id[i], NULL );\n"
 "}"
 msgstr ""
-

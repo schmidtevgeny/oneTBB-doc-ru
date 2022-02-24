@@ -3,23 +3,25 @@
 # This file is distributed under the same license as the oneTBB package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: oneTBB \n"
+"Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-02-24 14:16+0300\n"
+"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:4
 msgid "Divide and Conquer"
-msgstr ""
+msgstr "Разделяй и властвуй"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst
 msgid "Problem"
@@ -34,9 +36,7 @@ msgid "Context"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:22
-msgid ""
-"Divide and conquer is widely used in serial algorithms. Common examples "
-"are quicksort and mergesort."
+msgid "Divide and conquer is widely used in serial algorithms. Common examples are quicksort and mergesort."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst
@@ -44,15 +44,11 @@ msgid "Forces"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:32
-msgid ""
-"Problem can be transformed into subproblems that can be solved "
-"independently."
+msgid "Problem can be transformed into subproblems that can be solved independently."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:36
-msgid ""
-"Splitting problem or merging solutions is relatively cheap compared to "
-"cost of solving the subproblems."
+msgid "Splitting problem or merging solutions is relatively cheap compared to cost of solving the subproblems."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst
@@ -60,21 +56,15 @@ msgid "Solution"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:46
-msgid ""
-"There are several ways to implement divide and conquer in |full_name|. "
-"The best choice depends upon circumstances."
+msgid "There are several ways to implement divide and conquer in |full_name|. The best choice depends upon circumstances."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:50
-msgid ""
-"If division always yields the same number of subproblems, use recursion "
-"and ``oneapi::tbb::parallel_invoke``."
+msgid "If division always yields the same number of subproblems, use recursion and ``oneapi::tbb::parallel_invoke``."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:54
-msgid ""
-"If the number of subproblems varies, use recursion and "
-"``oneapi::tbb::task_group``."
+msgid "If the number of subproblems varies, use recursion and ``oneapi::tbb::task_group``."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst
@@ -82,9 +72,7 @@ msgid "Example"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:64
-msgid ""
-"Quicksort is a classic divide-and-conquer algorithm. It divides a sorting"
-" problem into two subsorts. A simple serial version looks like [1]_."
+msgid "Quicksort is a classic divide-and-conquer algorithm. It divides a sorting problem into two subsorts. A simple serial version looks like [1]_."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:71
@@ -101,10 +89,7 @@ msgid ""
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:82
-msgid ""
-"The number of subsorts is fixed at two, so "
-"``oneapi::tbb::parallel_invoke`` provides a simple way to parallelize it."
-" The parallel code is shown below:"
+msgid "The number of subsorts is fixed at two, so ``oneapi::tbb::parallel_invoke`` provides a simple way to parallelize it. The parallel code is shown below:"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:90
@@ -114,18 +99,14 @@ msgid ""
 "       using namespace std;\n"
 "       T* mid = partition( begin+1, end, bind2nd(less<T>(),*begin) );\n"
 "       swap( *begin, mid[-1] );\n"
-"       oneapi::tbb::parallel_invoke( [=]{ParallelQuicksort( begin, mid-1 "
-");},\n"
+"       oneapi::tbb::parallel_invoke( [=]{ParallelQuicksort( begin, mid-1 );},\n"
 "                             [=]{ParallelQuicksort( mid, end );} );\n"
 "   }\n"
 "}"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:101
-msgid ""
-"Eventually the subsorts become small enough that serial execution is more"
-" efficient. The following variation, does sorts of less than 500 elements"
-" using the earlier serial code."
+msgid "Eventually the subsorts become small enough that serial execution is more efficient. The following variation, does sorts of less than 500 elements using the earlier serial code."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:108
@@ -135,8 +116,7 @@ msgid ""
 "       using namespace std;\n"
 "       T* mid = partition( begin+1, end, bind2nd(less<T>(),*begin) );\n"
 "       swap( *begin, mid[-1] );\n"
-"       oneapi::tbb::parallel_invoke( [=]{ParallelQuicksort( begin, mid-1 "
-");},\n"
+"       oneapi::tbb::parallel_invoke( [=]{ParallelQuicksort( begin, mid-1 );},\n"
 "                             [=]{ParallelQuicksort( mid, end );} );\n"
 "   } else {\n"
 "       SerialQuicksort( begin, end );\n"
@@ -149,10 +129,7 @@ msgid "The change is an instance of the Agglomeration pattern."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:124
-msgid ""
-"The next example considers a problem where there are a variable number of"
-" subproblems. The problem involves a tree-like description of a "
-"mechanical assembly. There are two kinds of nodes:"
+msgid "The next example considers a problem where there are a variable number of subproblems. The problem involves a tree-like description of a mechanical assembly. There are two kinds of nodes:"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:129
@@ -164,10 +141,7 @@ msgid "Internal nodes represent groups of parts."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:135
-msgid ""
-"The problem is to find all nodes that collide with a target node. The "
-"following code shows a serial solution that walks the tree. It records in"
-" ``Hits`` any nodes that collide with ``Target``."
+msgid "The problem is to find all nodes that collide with a target node. The following code shows a serial solution that walks the tree. It records in ``Hits`` any nodes that collide with ``Target``."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:143
@@ -193,8 +167,7 @@ msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:164
 msgid ""
-"typedef oneapi::tbb::enumerable_thread_specific<std::list<Node*> > "
-"LocalList;\n"
+"typedef oneapi::tbb::enumerable_thread_specific<std::list<Node*> > LocalList;\n"
 "LocalList LocalHits;\n"
 "Node* Target;    // Target node\n"
 "\n"
@@ -222,19 +195,11 @@ msgid ""
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:191
-msgid ""
-"The recursive walk is parallelized using class ``task_group`` to do "
-"recursive calls in parallel."
+msgid "The recursive walk is parallelized using class ``task_group`` to do recursive calls in parallel."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:195
-msgid ""
-"There is another significant change because of the parallelism that is "
-"introduced. Because it would be unsafe to update ``Hits`` concurrently, "
-"the parallel walk uses variable ``LocalHits`` to accumulate results. "
-"Because it is of type ``enumerable_thread_specific``, each thread "
-"accumulates its own private result. The results are spliced together into"
-" Hits after the walk completes."
+msgid "There is another significant change because of the parallelism that is introduced. Because it would be unsafe to update ``Hits`` concurrently, the parallel walk uses variable ``LocalHits`` to accumulate results. Because it is of type ``enumerable_thread_specific``, each thread accumulates its own private result. The results are spliced together into Hits after the walk completes."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:204
@@ -242,16 +207,9 @@ msgid "The results will *not* be in the same order as the original serial code."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:208
-msgid ""
-"If parallel overhead is high, use the agglomeration pattern. For example,"
-" use the serial walk for subtrees under a certain threshold."
+msgid "If parallel overhead is high, use the agglomeration pattern. For example, use the serial walk for subtrees under a certain threshold."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:212
-msgid ""
-"Production quality quicksort implementations typically use more "
-"sophisticated pivot selection, explicit stacks instead of recursion, and "
-"some other sorting algorithm for small subsorts. The simple algorithm is "
-"used here to focus on exposition of the parallel pattern."
+msgid "Production quality quicksort implementations typically use more sophisticated pivot selection, explicit stacks instead of recursion, and some other sorting algorithm for small subsorts. The simple algorithm is used here to focus on exposition of the parallel pattern."
 msgstr ""
-

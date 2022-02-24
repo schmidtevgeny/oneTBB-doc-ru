@@ -3,32 +3,32 @@
 # This file is distributed under the same license as the oneTBB package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: oneTBB \n"
+"Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-02-24 14:16+0300\n"
+"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst:4
 msgid "Elementwise"
-msgstr ""
+msgstr "По элементам"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst
 msgid "Problem"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst:13
-msgid ""
-"Initiate similar independent computations across items in a data set, and"
-" wait until all complete."
+msgid "Initiate similar independent computations across items in a data set, and wait until all complete."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst
@@ -36,10 +36,7 @@ msgid "Context"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst:23
-msgid ""
-"Many serial algorithms sweep over a set of items and do an independent "
-"computation on each item. However, if some kind of summary information is"
-" collected, use the Reduction pattern instead."
+msgid "Many serial algorithms sweep over a set of items and do an independent computation on each item. However, if some kind of summary information is collected, use the Reduction pattern instead."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst
@@ -55,25 +52,15 @@ msgid "Solution"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst:43
-msgid ""
-"If the number of items is known in advance, use "
-"``oneapi::tbb::parallel_for``. If not, consider using "
-"``oneapi::tbb::parallel_for_each``."
+msgid "If the number of items is known in advance, use ``oneapi::tbb::parallel_for``. If not, consider using ``oneapi::tbb::parallel_for_each``."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst:48
-msgid ""
-"Use agglomeration if the individual computations are small relative to "
-"scheduler overheads."
+msgid "Use agglomeration if the individual computations are small relative to scheduler overheads."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst:52
-msgid ""
-"If the pattern is followed by a reduction on the same data, consider "
-"doing the element-wise operation as part of the reduction, so that the "
-"combination of the two patterns is accomplished in a single sweep instead"
-" of two sweeps. Doing so may improve performance by reducing traffic "
-"through the memory hierarchy."
+msgid "If the pattern is followed by a reduction on the same data, consider doing the element-wise operation as part of the reduction, so that the combination of the two patterns is accomplished in a single sweep instead of two sweeps. Doing so may improve performance by reducing traffic through the memory hierarchy."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst
@@ -81,9 +68,7 @@ msgid "Example"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst:65
-msgid ""
-"Convolution is often used in signal processing. The convolution of a "
-"filter ``c`` and signal ``x`` is computed as:"
+msgid "Convolution is often used in signal processing. The convolution of a filter ``c`` and signal ``x`` is computed as:"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst:69
@@ -110,18 +95,11 @@ msgid ""
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst:85
-msgid ""
-"For simplicity, the fragment assumes that ``x`` is a pointer into an "
-"array padded with zeros such that ``x[k]``\\ returns zero when ``k<0`` or"
-" ``k≥xlen``."
+msgid "For simplicity, the fragment assumes that ``x`` is a pointer into an array padded with zeros such that ``x[k]``\\ returns zero when ``k<0`` or ``k≥xlen``."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst:90
-msgid ""
-"The inner loop does not fit the elementwise pattern, because each "
-"iteration depends on the previous iteration. However, the outer loop fits"
-" the elementwise pattern. It is straightforward to render it using "
-"``oneapi::tbb::parallel_for`` as shown:"
+msgid "The inner loop does not fit the elementwise pattern, because each iteration depends on the previous iteration. However, the outer loop fits the elementwise pattern. It is straightforward to render it using ``oneapi::tbb::parallel_for`` as shown:"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst:99
@@ -135,12 +113,7 @@ msgid ""
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst:107
-msgid ""
-"``oneapi::tbb::parallel_for`` does automatic agglomeration by implicitly "
-"using ``oneapi::tbb::auto_partitioner`` in its underlying implementation."
-" If there is reason to agglomerate explicitly, use the overload of "
-"``oneapi::tbb::parallel_for`` that takes an explicit range argument. The "
-"following shows the example transformed to use the overload."
+msgid "``oneapi::tbb::parallel_for`` does automatic agglomeration by implicitly using ``oneapi::tbb::auto_partitioner`` in its underlying implementation. If there is reason to agglomerate explicitly, use the overload of ``oneapi::tbb::parallel_for`` that takes an explicit range argument. The following shows the example transformed to use the overload."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst:117
@@ -158,4 +131,3 @@ msgid ""
 "   }\n"
 ");"
 msgstr ""
-

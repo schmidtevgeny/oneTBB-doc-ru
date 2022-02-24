@@ -3,37 +3,26 @@
 # This file is distributed under the same license as the oneTBB package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: oneTBB \n"
+"Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-02-24 14:25+0300\n"
+"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ../../oneTBB/doc/main/tbb_userguide/When_Task-Based_Programming_Is_Inappropriate.rst:4
 msgid "When Task-Based Programming Is Inappropriate"
-msgstr ""
+msgstr "Когда программирование на основе задач неуместно"
 
 #: ../../oneTBB/doc/main/tbb_userguide/When_Task-Based_Programming_Is_Inappropriate.rst:7
-msgid ""
-"Using the task scheduler is usually the best approach to threading for "
-"performance, however there are cases when the task scheduler is not "
-"appropriate. The task scheduler is intended for high-performance "
-"algorithms composed from non-blocking tasks. It still works if the tasks "
-"rarely block. However, if threads block frequently, there is a "
-"performance loss when using the task scheduler because while the thread "
-"is blocked, it is not working on any tasks. Blocking typically occurs "
-"while waiting for I/O or mutexes for long periods. If threads hold "
-"mutexes for long periods, your code is not likely to perform well anyway,"
-" no matter how many threads it has. If you have blocking tasks, it is "
-"best to use full-blown threads for those. The task scheduler is designed "
-"so that you can safely mix your own threads with |full_name| tasks."
-msgstr ""
-
+msgid "Using the task scheduler is usually the best approach to threading for performance, however there are cases when the task scheduler is not appropriate. The task scheduler is intended for high-performance algorithms composed from non-blocking tasks. It still works if the tasks rarely block. However, if threads block frequently, there is a performance loss when using the task scheduler because while the thread is blocked, it is not working on any tasks. Blocking typically occurs while waiting for I/O or mutexes for long periods. If threads hold mutexes for long periods, your code is not likely to perform well anyway, no matter how many threads it has. If you have blocking tasks, it is best to use full-blown threads for those. The task scheduler is designed so that you can safely mix your own threads with |full_name| tasks."
+msgstr "Использование планировщика задач обычно является наилучшим подходом к организации потоков для повышения производительности, однако бывают случаи, когда планировщик задач не подходит. Планировщик задач предназначен для высокопроизводительных алгоритмов, состоящих из неблокирующих задач. Он работает, если задачи редко блокируются. Однако если потоки часто блокируются, то при использовании планировщика задач происходит потеря производительности, поскольку пока поток блокируется, он не работает ни над одной задачей. Блокировка обычно происходит при длительном ожидании ввода-вывода или мьютексов. Если потоки долго удерживают мьютексы, ваш код вряд ли будет работать хорошо, независимо от количества потоков. Если у вас есть блокирующие задачи, лучше всего использовать для них полноценные потоки. Планировщик задач разработан таким образом, что вы можете смешивать свои собственные потоки с задачами |full_name|."

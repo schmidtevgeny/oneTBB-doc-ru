@@ -3,44 +3,36 @@
 # This file is distributed under the same license as the oneTBB package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: oneTBB \n"
+"Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-02-24 14:24+0300\n"
+"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Which_Dynamic_Libraries_to_Use.rst:4
 msgid "Which Dynamic Libraries to Use"
-msgstr ""
+msgstr "Какие динамические библиотеки использовать"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Which_Dynamic_Libraries_to_Use.rst:7
-msgid ""
-"The template ``scalable_allocator<T>`` requires the |full_name| scalable "
-"memory allocator library as described in **Scalable Memory Allocator**. "
-"It does not require the oneTBB general library, and can be used "
-"independently of the rest of oneTBB."
+msgid "The template ``scalable_allocator<T>`` requires the |full_name| scalable memory allocator library as described in **Scalable Memory Allocator**. It does not require the oneTBB general library, and can be used independently of the rest of oneTBB."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Which_Dynamic_Libraries_to_Use.rst:14
-msgid ""
-"The templates ``tbb_allocator<T>`` and ``cache_aligned_allocator<T>`` use"
-" the scalable allocator library if it is present otherwise it reverts to "
-"using ``malloc`` and ``free``. Thus, you can use these templates even in "
-"applications that choose to omit the scalable memory allocator library."
+msgid "The templates ``tbb_allocator<T>`` and ``cache_aligned_allocator<T>`` use the scalable allocator library if it is present otherwise it reverts to using ``malloc`` and ``free``. Thus, you can use these templates even in applications that choose to omit the scalable memory allocator library."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Which_Dynamic_Libraries_to_Use.rst:21
-msgid ""
-"The rest of |full_name| can be used with or without the oneTBB scalable "
-"memory allocator library."
+msgid "The rest of |full_name| can be used with or without the oneTBB scalable memory allocator library."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Which_Dynamic_Libraries_to_Use.rst:31
@@ -60,9 +52,7 @@ msgid "\\ ``scalable_allocator<T>``"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Which_Dynamic_Libraries_to_Use.rst:35
-msgid ""
-"|full_name| scalable    memory allocator library. See **Scalable Memory "
-"Allocator**."
+msgid "|full_name| scalable    memory allocator library. See **Scalable Memory Allocator**."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Which_Dynamic_Libraries_to_Use.rst:37
@@ -70,8 +60,5 @@ msgid "\\ ``tbb_allocator<T>``           \\ ``cache_aligned_allocator<T>``"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Which_Dynamic_Libraries_to_Use.rst:39
-msgid ""
-"Uses the scalable allocator library if it is present,    otherwise it "
-"reverts to using ``malloc`` and ``free``."
+msgid "Uses the scalable allocator library if it is present,    otherwise it reverts to using ``malloc`` and ``free``."
 msgstr ""
-

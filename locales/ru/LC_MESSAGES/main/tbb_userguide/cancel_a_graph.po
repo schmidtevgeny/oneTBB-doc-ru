@@ -3,30 +3,28 @@
 # This file is distributed under the same license as the oneTBB package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: oneTBB \n"
+"Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-02-24 14:19+0300\n"
+"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ../../oneTBB/doc/main/tbb_userguide/cancel_a_graph.rst:4
 msgid "Cancel a Graph Explicitly"
-msgstr ""
+msgstr "Отмена графа в явном виде"
 
 #: ../../oneTBB/doc/main/tbb_userguide/cancel_a_graph.rst:7
-msgid ""
-"To cancel a graph execution without an exception, you can create the "
-"graph using an explicit task_group_context, and then call "
-"cancel_group_execution() on that object. This is done in the example "
-"below:"
+msgid "To cancel a graph execution without an exception, you can create the graph using an explicit task_group_context, and then call cancel_group_execution() on that object. This is done in the example below:"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/cancel_a_graph.rst:16
@@ -60,18 +58,11 @@ msgid ""
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/cancel_a_graph.rst:44
-msgid ""
-"When a graph execution is canceled, any node that has already started to "
-"execute will execute to completion, but any node that has not started to "
-"execute will not start. So in the example above, f2 will print both the "
-"Begin and End message for input 1, but will not receive the input 2."
+msgid "When a graph execution is canceled, any node that has already started to execute will execute to completion, but any node that has not started to execute will not start. So in the example above, f2 will print both the Begin and End message for input 1, but will not receive the input 2."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/cancel_a_graph.rst:50
-msgid ""
-"You can also get the task_group_context that a node belongs to from "
-"within the node body and use it to cancel the execution of the graph it "
-"belongs to:"
+msgid "You can also get the task_group_context that a node belongs to from within the node body and use it to cancel the execution of the graph it belongs to:"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/cancel_a_graph.rst:58
@@ -103,8 +94,5 @@ msgid ""
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/cancel_a_graph.rst:84
-msgid ""
-"You can get the task_group_context from a node's body even if the graph "
-"was not explicitly passed one at construction time."
+msgid "You can get the task_group_context from a node's body even if the graph was not explicitly passed one at construction time."
 msgstr ""
-

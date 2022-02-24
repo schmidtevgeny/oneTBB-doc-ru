@@ -3,32 +3,32 @@
 # This file is distributed under the same license as the oneTBB package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: oneTBB \n"
+"Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-02-24 14:12+0300\n"
+"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:4
 msgid "Wavefront"
-msgstr ""
+msgstr "Фронт волны"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst
 msgid "Problem"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:13
-msgid ""
-"Perform computations on items in a data set, where the computation on an "
-"item uses results from computations on predecessor items."
+msgid "Perform computations on items in a data set, where the computation on an item uses results from computations on predecessor items."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst
@@ -48,9 +48,7 @@ msgid "Dependence constraints between items form an acyclic graph."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:35
-msgid ""
-"The number of immediate predecessors in the graph is known in advance, or"
-" can be determined some time before the last predecessor completes."
+msgid "The number of immediate predecessors in the graph is known in advance, or can be determined some time before the last predecessor completes."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst
@@ -58,29 +56,15 @@ msgid "Solution"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:46
-msgid ""
-"The solution is a parallel variant of topological sorting, using "
-"``oneapi::tbb::parallel_for_each`` to process items. Associate an atomic "
-"counter with each item. Initialize each counter to the number of "
-"predecessors. Invoke ``oneapi::tbb::parallel_for_each`` to process the "
-"items that have no predessors (have counts of zero). After an item is "
-"processed, decrement the counters of its successors. If a successor's "
-"counter reaches zero, add that successor to the "
-"``oneapi::tbb::parallel_for_each`` via a \"feeder\"."
+msgid "The solution is a parallel variant of topological sorting, using ``oneapi::tbb::parallel_for_each`` to process items. Associate an atomic counter with each item. Initialize each counter to the number of predecessors. Invoke ``oneapi::tbb::parallel_for_each`` to process the items that have no predessors (have counts of zero). After an item is processed, decrement the counters of its successors. If a successor's counter reaches zero, add that successor to the ``oneapi::tbb::parallel_for_each`` via a \"feeder\"."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:56
-msgid ""
-"If the number of predecessors for an item cannot be determined in "
-"advance, treat the information \"know number of predecessors\" as an "
-"additional predecessor. When the number of predecessors becomes known, "
-"treat this conceptual predecessor as completed."
+msgid "If the number of predecessors for an item cannot be determined in advance, treat the information \"know number of predecessors\" as an additional predecessor. When the number of predecessors becomes known, treat this conceptual predecessor as completed."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:62
-msgid ""
-"If the overhead of counting individual items is excessive, aggregate "
-"items into blocks, and do the wavefront over the blocks."
+msgid "If the overhead of counting individual items is excessive, aggregate items into blocks, and do the wavefront over the blocks."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst
@@ -88,10 +72,7 @@ msgid "Example"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:72
-msgid ""
-"Below is a serial kernel for the longest common subsequence algorithm. "
-"The parameters are strings ``x`` and ``y`` with respective lengths "
-"``xlen`` and ``ylen``."
+msgid "Below is a serial kernel for the longest common subsequence algorithm. The parameters are strings ``x`` and ``y`` with respective lengths ``xlen`` and ``ylen``."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:80
@@ -109,17 +90,11 @@ msgid ""
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:92
-msgid ""
-"The kernel sets ``F[i][j]`` to the length of the longest common "
-"subsequence shared by ``x[0..i-1]`` and ``y[0..j-1]``. It assumes that "
-"F[0][0..ylen] and ``F[0..xlen][0]`` have already been initialized to "
-"zero."
+msgid "The kernel sets ``F[i][j]`` to the length of the longest common subsequence shared by ``x[0..i-1]`` and ``y[0..j-1]``. It assumes that F[0][0..ylen] and ``F[0..xlen][0]`` have already been initialized to zero."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:98
-msgid ""
-"The following figure shows the data dependences for calculating "
-"``F[i][j]``."
+msgid "The following figure shows the data dependences for calculating ``F[i][j]``."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:106
@@ -135,10 +110,7 @@ msgid ".. image:: main/tbb_userguide/design_patterns/Images/image005a.jpg"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:110
-msgid ""
-"The following figure shows the gray diagonal dependence is the transitive"
-" closure of other dependencies. Thus for parallelization purposes it is a"
-" redundant dependence that can be ignored."
+msgid "The following figure shows the gray diagonal dependence is the transitive closure of other dependencies. Thus for parallelization purposes it is a redundant dependence that can be ignored."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:119
@@ -154,27 +126,15 @@ msgid ".. image:: main/tbb_userguide/design_patterns/Images/image006a.jpg"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:123
-msgid ""
-"It is generally good to remove redundant dependences from consideration, "
-"because the atomic counting incurs a cost for each dependence considered."
+msgid "It is generally good to remove redundant dependences from consideration, because the atomic counting incurs a cost for each dependence considered."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:128
-msgid ""
-"Another consideration is grain size. Scheduling each ``F[i][j]`` element "
-"calculation separately is prohibitively expensive. A good solution is to "
-"aggregate the elements into contiguous blocks, and process the contents "
-"of a block serially. The blocks have the same dependence pattern, but at "
-"a block scale. Hence scheduling overheads can be amortized over blocks."
+msgid "Another consideration is grain size. Scheduling each ``F[i][j]`` element calculation separately is prohibitively expensive. A good solution is to aggregate the elements into contiguous blocks, and process the contents of a block serially. The blocks have the same dependence pattern, but at a block scale. Hence scheduling overheads can be amortized over blocks."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:136
-msgid ""
-"The parallel code follows. Each block consists of ``N×N`` elements. Each "
-"block has an associated atomic counter. Array ``Count`` organizes these "
-"counters for easy lookup. The code initializes the counters and then "
-"rolls a wavefront using ``parallel_for_each``, starting with the block at"
-" the origin since it has no predecessors."
+msgid "The parallel code follows. Each block consists of ``N×N`` elements. Each block has an associated atomic counter. Array ``Count`` organizes these counters for easy lookup. The code initializes the counters and then rolls a wavefront using ``parallel_for_each``, starting with the block at the origin since it has no predecessors."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:146
@@ -183,8 +143,7 @@ msgid ""
 "std::atomic<char> Count[MAX_LEN/N+1][MAX_LEN/N+1];\n"
 "\n"
 "\n"
-"void ParallelLCS( const char* x, size_t xlen, const char* y, size_t ylen "
-") {\n"
+"void ParallelLCS( const char* x, size_t xlen, const char* y, size_t ylen ) {\n"
 "   // Initialize predecessor counts for blocks.\n"
 "   size_t m = (xlen+N-1)/N;\n"
 "   size_t n = (ylen+N-1)/N;\n"
@@ -222,8 +181,5 @@ msgid "References"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:189
-msgid ""
-"Eun-Gyu Kim and Mark Snir, \"Wavefront Pattern\", "
-"http://snir.cs.illinois.edu/patterns/wavefront.pdf"
+msgid "Eun-Gyu Kim and Mark Snir, \"Wavefront Pattern\", http://snir.cs.illinois.edu/patterns/wavefront.pdf"
 msgstr ""
-

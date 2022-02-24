@@ -3,64 +3,40 @@
 # This file is distributed under the same license as the oneTBB package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: oneTBB \n"
+"Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-02-24 00:20+0300\n"
+"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:4
 msgid "Mutex Flavors"
-msgstr ""
+msgstr "Виды мютексов"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:7
-msgid ""
-"Connoisseurs of mutexes distinguish various attributes of mutexes. It "
-"helps to know some of these, because they involve tradeoffs of generality"
-" and efficiency. Picking the right one often helps performance. Mutexes "
-"can be described by the following qualities, also summarized in the table"
-" below."
+msgid "Connoisseurs of mutexes distinguish various attributes of mutexes. It helps to know some of these, because they involve tradeoffs of generality and efficiency. Picking the right one often helps performance. Mutexes can be described by the following qualities, also summarized in the table below."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:14
-msgid ""
-"**Scalable**. Some mutexes are called *scalable*. In a strict sense, this"
-" is not an accurate name, because a mutex limits execution to one thread "
-"at a time. A *scalable mutex* is one that does not do *worse* than this. "
-"A mutex can do worse than serialize execution if the waiting threads "
-"consume excessive processor cycles and memory bandwidth, reducing the "
-"speed of threads trying to do real work. Scalable mutexes are often "
-"slower than non-scalable mutexes under light contention, so a non-"
-"scalable mutex may be better. When in doubt, use a scalable mutex."
+msgid "**Scalable**. Some mutexes are called *scalable*. In a strict sense, this is not an accurate name, because a mutex limits execution to one thread at a time. A *scalable mutex* is one that does not do *worse* than this. A mutex can do worse than serialize execution if the waiting threads consume excessive processor cycles and memory bandwidth, reducing the speed of threads trying to do real work. Scalable mutexes are often slower than non-scalable mutexes under light contention, so a non-scalable mutex may be better. When in doubt, use a scalable mutex."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:25
-msgid ""
-"**Fair**. Mutexes can be *fair* or *unfair*. A fair mutex lets threads "
-"through in the order they arrived. Fair mutexes avoid starving threads. "
-"Each thread gets its turn. However, unfair mutexes can be faster, because"
-" they let threads that are running go through first, instead of the "
-"thread that is next in line which may be sleeping on account of an "
-"interrupt."
+msgid "**Fair**. Mutexes can be *fair* or *unfair*. A fair mutex lets threads through in the order they arrived. Fair mutexes avoid starving threads. Each thread gets its turn. However, unfair mutexes can be faster, because they let threads that are running go through first, instead of the thread that is next in line which may be sleeping on account of an interrupt."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:33
-msgid ""
-"**Yield or Block**. This is an implementation detail that impacts "
-"performance. On long waits, an |full_name| mutex either *yields* or "
-"*blocks*. Here *yields* means to repeatedly poll whether progress can be "
-"made, and if not, temporarily yield [#]_ the processor. To *block* means "
-"to yield the processor until the mutex permits progress. Use the yielding"
-" mutexes if waits are typically short and blocking mutexes if waits are "
-"typically long."
+msgid "**Yield or Block**. This is an implementation detail that impacts performance. On long waits, an |full_name| mutex either *yields* or *blocks*. Here *yields* means to repeatedly poll whether progress can be made, and if not, temporarily yield [#]_ the processor. To *block* means to yield the processor until the mutex permits progress. Use the yielding mutexes if waits are typically short and blocking mutexes if waits are typically long."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:43
@@ -68,62 +44,31 @@ msgid "The following is a summary of mutex behaviors:"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:46
-msgid ""
-"``spin_mutex`` is non-scalable, unfair, non-recursive, and spins in user "
-"space. It would seem to be the worst of all possible worlds, except that "
-"it is *very fast* in *lightly contended* situations. If you can design "
-"your program so that contention is somehow spread out among many "
-"``spin_mutex`` objects, you can improve performance over using other "
-"kinds of mutexes. If a mutex is heavily contended, your algorithm will "
-"not scale anyway. Consider redesigning the algorithm instead of looking "
-"for a more efficient lock."
+msgid "``spin_mutex`` is non-scalable, unfair, non-recursive, and spins in user space. It would seem to be the worst of all possible worlds, except that it is *very fast* in *lightly contended* situations. If you can design your program so that contention is somehow spread out among many ``spin_mutex`` objects, you can improve performance over using other kinds of mutexes. If a mutex is heavily contended, your algorithm will not scale anyway. Consider redesigning the algorithm instead of looking for a more efficient lock."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:56
-msgid ""
-"``mutex`` has behavior similar to the ``spin_mutex``. However, the "
-"``mutex`` *blocks* on long waits that makes it resistant to high "
-"contention."
+msgid "``mutex`` has behavior similar to the ``spin_mutex``. However, the ``mutex`` *blocks* on long waits that makes it resistant to high contention."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:61
-msgid ""
-"``queuing_mutex`` is scalable, fair, non-recursive, and spins in user "
-"space. Use it when scalability and fairness are important."
+msgid "``queuing_mutex`` is scalable, fair, non-recursive, and spins in user space. Use it when scalability and fairness are important."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:65
-msgid ""
-"``spin_rw_mutex`` and ``queuing_rw_mutex`` are similar to ``spin_mutex`` "
-"and ``queuing_mutex``, but additionally support *reader* locks."
+msgid "``spin_rw_mutex`` and ``queuing_rw_mutex`` are similar to ``spin_mutex`` and ``queuing_mutex``, but additionally support *reader* locks."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:70
-msgid ""
-"``rw_mutex`` is similar to ``mutex``, but additionally support *reader* "
-"locks."
+msgid "``rw_mutex`` is similar to ``mutex``, but additionally support *reader* locks."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:74
-msgid ""
-"``speculative_spin_mutex`` and ``speculative_spin_rw_mutex`` are similar "
-"to ``spin_mutex`` and ``spin_rw_mutex``, but additionally provide "
-"*speculative locking* on processors that support hardware transaction "
-"memory. Speculative locking allows multiple threads acquire the same "
-"lock, as long as there are no \"conflicts\" that may generate different "
-"results than non-speculative locking. These mutexes are *scalable* when "
-"work with low conflict rate, i.e. mostly in speculative locking mode."
+msgid "``speculative_spin_mutex`` and ``speculative_spin_rw_mutex`` are similar to ``spin_mutex`` and ``spin_rw_mutex``, but additionally provide *speculative locking* on processors that support hardware transaction memory. Speculative locking allows multiple threads acquire the same lock, as long as there are no \"conflicts\" that may generate different results than non-speculative locking. These mutexes are *scalable* when work with low conflict rate, i.e. mostly in speculative locking mode."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:84
-msgid ""
-"``null_mutex`` and ``null_rw_mutex`` do nothing. They can be useful as "
-"template arguments. For example, suppose you are defining a container "
-"template and know that some instantiations will be shared by multiple "
-"threads and need internal locking, but others will be private to a thread"
-" and not need locking. You can define the template to take a Mutex type "
-"parameter. The parameter can be one of the real mutex types when locking "
-"is necessary, and ``null_mutex`` when locking is unnecessary."
+msgid "``null_mutex`` and ``null_rw_mutex`` do nothing. They can be useful as template arguments. For example, suppose you are defining a container template and know that some instantiations will be shared by multiple threads and need internal locking, but others will be private to a thread and not need locking. You can define the template to take a Mutex type parameter. The parameter can be one of the real mutex types when locking is necessary, and ``null_mutex`` when locking is unnecessary."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:100
@@ -274,14 +219,9 @@ msgid "\\ ``null_rw_mutex``"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:170
-msgid ""
-"The yielding is implemented via ``SwitchToThread()`` on Microsoft "
-"Windows\\* operating systems and by ``sched_yield()`` on other systems."
+msgid "The yielding is implemented via ``SwitchToThread()`` on Microsoft Windows\\* operating systems and by ``sched_yield()`` on other systems."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:174
-msgid ""
-"Null mutexes are considered fair by oneTBB because they cannot cause "
-"starvation. They lack any non-static data members."
+msgid "Null mutexes are considered fair by oneTBB because they cannot cause starvation. They lack any non-static data members."
 msgstr ""
-

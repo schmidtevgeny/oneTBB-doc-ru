@@ -3,28 +3,28 @@
 # This file is distributed under the same license as the oneTBB package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: oneTBB \n"
+"Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-02-24 00:21+0300\n"
+"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ../../oneTBB/doc/main/tbb_userguide/More_on_HashCompare.rst:4
 msgid "More on HashCompare"
-msgstr ""
+msgstr "Подробнее о HashCompare"
 
 #: ../../oneTBB/doc/main/tbb_userguide/More_on_HashCompare.rst:7
-msgid ""
-"There are several ways to make the ``HashCompare`` argument for "
-"``concurrent_hash_map`` work for your own types."
+msgid "There are several ways to make the ``HashCompare`` argument for ``concurrent_hash_map`` work for your own types."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/More_on_HashCompare.rst:11
@@ -32,9 +32,7 @@ msgid "Specify the ``HashCompare`` argument explicitly"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/More_on_HashCompare.rst:14
-msgid ""
-"Let the ``HashCompare`` default to ``tbb_hash_compare<Key>`` and do one "
-"of the following:"
+msgid "Let the ``HashCompare`` default to ``tbb_hash_compare<Key>`` and do one of the following:"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/More_on_HashCompare.rst:18
@@ -42,10 +40,7 @@ msgid "Define a specialization of template ``tbb_hash_compare<Key>``."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/More_on_HashCompare.rst:21
-msgid ""
-"For example, if you have keys of type ``Foo``, and ``operator==`` is "
-"defined for ``Foo``, you just have to provide a definition of "
-"``tbb_hasher`` as shown below:"
+msgid "For example, if you have keys of type ``Foo``, and ``operator==`` is defined for ``Foo``, you just have to provide a definition of ``tbb_hasher`` as shown below:"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/More_on_HashCompare.rst:29
@@ -57,9 +52,7 @@ msgid ""
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/More_on_HashCompare.rst:35
-msgid ""
-"In general, the definition of ``tbb_hash_compare<Key>`` or "
-"``HashCompare`` must provide two signatures:"
+msgid "In general, the definition of ``tbb_hash_compare<Key>`` or ``HashCompare`` must provide two signatures:"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/More_on_HashCompare.rst:39
@@ -71,24 +64,11 @@ msgid "A method ``equal`` that determines if two keys are equal"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/More_on_HashCompare.rst:45
-msgid ""
-"The signatures go together in a single class because *if two keys are "
-"equal, then they must hash to the same value*, otherwise the hash table "
-"might not work. You could trivially meet this requirement by always "
-"hashing to ``0``, but that would cause tremendous inefficiency. Ideally, "
-"each key should hash to a different value, or at least the probability of"
-" two distinct keys hashing to the same value should be kept low."
+msgid "The signatures go together in a single class because *if two keys are equal, then they must hash to the same value*, otherwise the hash table might not work. You could trivially meet this requirement by always hashing to ``0``, but that would cause tremendous inefficiency. Ideally, each key should hash to a different value, or at least the probability of two distinct keys hashing to the same value should be kept low."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/More_on_HashCompare.rst:53
-msgid ""
-"The methods of ``HashCompare`` should be ``static`` unless you need to "
-"have them behave differently for different instances. If so, then you "
-"should construct the ``concurrent_hash_map`` using the constructor that "
-"takes a ``HashCompare`` as a parameter. The following example is a "
-"variation on an earlier example with instance-dependent methods. The "
-"instance performs both case-sensitive or case-insensitive hashing, and "
-"comparison, depending upon an internal flag ``ignore_case``."
+msgid "The methods of ``HashCompare`` should be ``static`` unless you need to have them behave differently for different instances. If so, then you should construct the ``concurrent_hash_map`` using the constructor that takes a ``HashCompare`` as a parameter. The following example is a variation on an earlier example with instance-dependent methods. The instance performs both case-sensitive or case-insensitive hashing, and comparison, depending upon an internal flag ``ignore_case``."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/More_on_HashCompare.rst:65
@@ -115,11 +95,9 @@ msgid ""
 "};\n"
 "\n"
 "\n"
-"typedef concurrent_hash_map<string,int, VariantHashCompare> "
-"VariantStringTable;\n"
+"typedef concurrent_hash_map<string,int, VariantHashCompare> VariantStringTable;\n"
 "\n"
 "\n"
 "VariantStringTable CaseSensitiveTable(VariantHashCompare(false));\n"
 "VariantStringTable CaseInsensitiveTable(VariantHashCompare(true));"
 msgstr ""
-

@@ -3,39 +3,32 @@
 # This file is distributed under the same license as the oneTBB package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: oneTBB \n"
+"Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-02-24 00:15+0300\n"
+"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ../../oneTBB/doc/main/tbb_userguide/use_concurrency_limits.rst:4
 msgid "Use Concurrency Limits"
-msgstr ""
+msgstr "Использование пределов параллелизма"
 
 #: ../../oneTBB/doc/main/tbb_userguide/use_concurrency_limits.rst:7
-msgid ""
-"To control the number of instances of a single node, you can use the "
-"concurrency limit on the node. To cause it to reject messages after it "
-"reaches its concurrency limit, you construct it as a \"rejecting\" node."
+msgid "To control the number of instances of a single node, you can use the concurrency limit on the node. To cause it to reject messages after it reaches its concurrency limit, you construct it as a \"rejecting\" node."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/use_concurrency_limits.rst:12
-msgid ""
-"A function node is constructed with one or more template arguments. The "
-"third argument controls the buffer policy used by the node, and is by "
-"default queueing. With a queueing policy, a ``function_node`` that has "
-"reached its concurrency limit still accepts incoming messages, but "
-"buffers them internally. If the policy is set to rejecting the node will "
-"instead reject the incoming messages."
+msgid "A function node is constructed with one or more template arguments. The third argument controls the buffer policy used by the node, and is by default queueing. With a queueing policy, a ``function_node`` that has reached its concurrency limit still accepts incoming messages, but buffers them internally. If the policy is set to rejecting the node will instead reject the incoming messages."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/use_concurrency_limits.rst:23
@@ -47,10 +40,7 @@ msgid ""
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/use_concurrency_limits.rst:29
-msgid ""
-"For example, you can control the number of big objects in flight in a "
-"graph by placing a rejecting function_node downstream of an "
-"``input_node``, as is done below:"
+msgid "For example, you can control the number of big objects in flight in a graph by placing a rejecting function_node downstream of an ``input_node``, as is done below:"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/use_concurrency_limits.rst:37
@@ -63,8 +53,7 @@ msgid ""
 "int max_objects = 3;\n"
 "\n"
 "\n"
-"input_node< big_object * > s( g, [&]( oneapi::tbb::flow_control& fc ) -> "
-"big_object* {\n"
+"input_node< big_object * > s( g, [&]( oneapi::tbb::flow_control& fc ) -> big_object* {\n"
 "    if ( src_count < M ) {\n"
 "      big_object* v = new big_object();\n"
 "      ++src_count;\n"
@@ -89,16 +78,5 @@ msgid ""
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/use_concurrency_limits.rst:69
-msgid ""
-"The ``function_node`` will operate on at most three big objects "
-"concurrently. The node's concurrency threshold that limits the node to "
-"three concurrent invocations. When the ``function_node`` is running three"
-" instances concurrently, it will start rejecting incoming messages from "
-"the ``input_node``, causing the ``input_node`` to buffer its last created"
-" object and temporarily stop invoking its body object. Whenever the "
-"``function_node`` drops below its concurrency limit, it will pull new "
-"messages from the ``input_node``. At most four big objects will exist "
-"simultaneously, three in the ``function_node`` and one buffered in the "
-"``input_node``."
+msgid "The ``function_node`` will operate on at most three big objects concurrently. The node's concurrency threshold that limits the node to three concurrent invocations. When the ``function_node`` is running three instances concurrently, it will start rejecting incoming messages from the ``input_node``, causing the ``input_node`` to buffer its last created object and temporarily stop invoking its body object. Whenever the ``function_node`` drops below its concurrency limit, it will pull new messages from the ``input_node``. At most four big objects will exist simultaneously, three in the ``function_node`` and one buffered in the ``input_node``."
 msgstr ""
-

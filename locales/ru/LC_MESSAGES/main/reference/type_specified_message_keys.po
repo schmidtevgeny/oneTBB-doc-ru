@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-23 15:50+0300\n"
+"PO-Revision-Date: 2022-02-24 14:59+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: ../../oneTBB/doc/main/reference/type_specified_message_keys.rst:4
 msgid "Type-specified message keys for join_node"
-msgstr "Определенные типом ключи сообщения для join_node"
+msgstr "Определяемые типом ключи сообщения для join_node"
 
 #: ../../oneTBB/doc/main/reference/type_specified_message_keys.rst:7
 msgid "To enable this feature, define the ``TBB_PREVIEW_FLOW_GRAPH_FEATURES`` macro to 1."

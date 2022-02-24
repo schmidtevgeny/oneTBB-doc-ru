@@ -3,28 +3,26 @@
 # This file is distributed under the same license as the oneTBB package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: oneTBB \n"
+"Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-02-24 00:18+0300\n"
+"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Package_Contents.rst:4
 msgid "Package Contents"
-msgstr ""
+msgstr "Содержание пакета"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Package_Contents.rst:7
-msgid ""
-"|full_name| includes dynamic library files and header files for "
-"Windows\\*, Linux\\* and macOS\\* operating systems as described in this "
-"section."
-msgstr ""
-
+msgid "|full_name| includes dynamic library files and header files for Windows\\*, Linux\\* and macOS\\* operating systems as described in this section."
+msgstr "|full_name| включает файлы динамических библиотек и заголовочные файлы для операционных систем Windows\\*, Linux\\* и macOS\\*, как описано в этом разделе."

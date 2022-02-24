@@ -3,30 +3,28 @@
 # This file is distributed under the same license as the oneTBB package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: oneTBB \n"
+"Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-02-24 14:24+0300\n"
+"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Partitioner_Summary.rst:4
 msgid "Partitioner Summary"
-msgstr ""
+msgstr "Резюме раздела"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Partitioner_Summary.rst:7
-msgid ""
-"The parallel loop templates ``parallel_for`` and ``parallel_reduce`` take"
-" an optional *partitioner* argument, which specifies a strategy for "
-"executing the loop. The following table summarizes partitioners and their"
-" effect when used in conjunction with ``blocked_range``."
+msgid "The parallel loop templates ``parallel_for`` and ``parallel_reduce`` take an optional *partitioner* argument, which specifies a strategy for executing the loop. The following table summarizes partitioners and their effect when used in conjunction with ``blocked_range``."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Partitioner_Summary.rst:19
@@ -71,9 +69,7 @@ msgid "``affinity_partitioner``"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Partitioner_Summary.rst:29
-msgid ""
-"Automatic chunk size, cache affinity and uniform distribution of "
-"iterations."
+msgid "Automatic chunk size, cache affinity and uniform distribution of iterations."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Partitioner_Summary.rst:31
@@ -81,9 +77,7 @@ msgid "``static_partitioner``"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Partitioner_Summary.rst:32
-msgid ""
-"Deterministic chunk size, cache affinity and uniform distribution of "
-"iterations without load balancing."
+msgid "Deterministic chunk size, cache affinity and uniform distribution of iterations without load balancing."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Partitioner_Summary.rst:33
@@ -91,14 +85,7 @@ msgid "``max(g/3, problem_size/num_of_resources) ≤ chunksize``"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Partitioner_Summary.rst:38
-msgid ""
-"An ``auto_partitioner`` is used when no partitioner is specified. In "
-"general, the ``auto_partitioner`` or ``affinity_partitioner`` should be "
-"used, because these tailor the number of chunks based on available "
-"execution resources. ``affinity_partitioner`` and ``static_partitioner`` "
-"may take advantage of ``Range`` ability to split in a given ratio (see "
-"\"Advanced Topic: Other Kinds of Iteration Spaces\") for distributing "
-"iterations in nearly equal chunks between computing resources."
+msgid "An ``auto_partitioner`` is used when no partitioner is specified. In general, the ``auto_partitioner`` or ``affinity_partitioner`` should be used, because these tailor the number of chunks based on available execution resources. ``affinity_partitioner`` and ``static_partitioner`` may take advantage of ``Range`` ability to split in a given ratio (see \"Advanced Topic: Other Kinds of Iteration Spaces\") for distributing iterations in nearly equal chunks between computing resources."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Partitioner_Summary.rst:47
@@ -106,23 +93,13 @@ msgid "``simple_partitioner`` can be useful in the following situations:"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Partitioner_Summary.rst:50
-msgid ""
-"The subrange size for ``operator()`` must not exceed a limit. That might "
-"be advantageous, for example, if your ``operator()`` needs a temporary "
-"array proportional to the size of the range. With a limited subrange "
-"size, you can use an automatic variable for the array instead of having "
-"to use dynamic memory allocation."
+msgid "The subrange size for ``operator()`` must not exceed a limit. That might be advantageous, for example, if your ``operator()`` needs a temporary array proportional to the size of the range. With a limited subrange size, you can use an automatic variable for the array instead of having to use dynamic memory allocation."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Partitioner_Summary.rst:57
-msgid ""
-"A large subrange might use cache inefficiently. For example, suppose the "
-"processing of a subrange involves repeated sweeps over the same memory "
-"locations. Keeping the subrange below a limit might enable the repeatedly"
-" referenced memory locations to fit in cache."
+msgid "A large subrange might use cache inefficiently. For example, suppose the processing of a subrange involves repeated sweeps over the same memory locations. Keeping the subrange below a limit might enable the repeatedly referenced memory locations to fit in cache."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Partitioner_Summary.rst:63
 msgid "You want to tune to a specific machine."
 msgstr ""
-

@@ -3,28 +3,28 @@
 # This file is distributed under the same license as the oneTBB package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: oneTBB \n"
+"Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-02-24 14:15+0300\n"
+"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/General_References.rst:4
 msgid "General References"
-msgstr ""
+msgstr "Общие ссылки"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/General_References.rst:7
-msgid ""
-"This section lists general references. References specific to a pattern "
-"are listed at the end of the topic for the pattern."
+msgid "This section lists general references. References specific to a pattern are listed at the end of the topic for the pattern."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/General_References.rst:10
@@ -32,32 +32,21 @@ msgid "Gamma, R. Helm, R. Johnson, J. Vlissides. Design Patterns (1995)"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/General_References.rst:11
-msgid ""
-"`Berkeley Pattern Language for Parallel Programming "
-"<https://patterns.eecs.berkeley.edu/?page_id=98>`_"
+msgid "`Berkeley Pattern Language for Parallel Programming <https://patterns.eecs.berkeley.edu/?page_id=98>`_"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/General_References.rst:12
-msgid ""
-"Mattson, B. Sanders, B. Massingill. Patterns for Parallel Programming "
-"(2005)"
+msgid "Mattson, B. Sanders, B. Massingill. Patterns for Parallel Programming (2005)"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/General_References.rst:13
-msgid ""
-"`ParaPLoP 2009 "
-"<https://web.archive.org/web/20111118224546/http://www.upcrc.illinois.edu/workshops/paraplop09/program.html>`_"
+msgid "`ParaPLoP 2009 <https://web.archive.org/web/20111118224546/http://www.upcrc.illinois.edu/workshops/paraplop09/program.html>`_"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/General_References.rst:14
-msgid ""
-"`ParaPLoP 2010 "
-"<https://web.archive.org/web/20111118222933/http://www.upcrc.illinois.edu/workshops/paraplop10/program.html>`_"
+msgid "`ParaPLoP 2010 <https://web.archive.org/web/20111118222933/http://www.upcrc.illinois.edu/workshops/paraplop10/program.html>`_"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/General_References.rst:15
-msgid ""
-"Eun-Gyu Kim and Marc Snir, `Parallel Programming Patterns "
-"<http://snir.cs.illinois.edu/PPP.html>`_"
+msgid "Eun-Gyu Kim and Marc Snir, `Parallel Programming Patterns <http://snir.cs.illinois.edu/PPP.html>`_"
 msgstr ""
-

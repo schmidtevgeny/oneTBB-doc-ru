@@ -3,52 +3,40 @@
 # This file is distributed under the same license as the oneTBB package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: oneTBB \n"
+"Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-02-24 00:19+0300\n"
+"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Nodes.rst:4
 msgid "Flow Graph Basics: Nodes"
-msgstr ""
+msgstr "Основы графа потока: Узлы"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Nodes.rst:7
-msgid ""
-"A node is a class that inherits from oneapi::tbb::flow::graph_node and "
-"also typically inherits from oneapi::tbb::flow::sender<T> , "
-"oneapi::tbb::flow::receiver<T> or both. A node performs some operation, "
-"usually on an incoming message and may generate zero or more output "
-"messages. Some nodes require more than one input message or generate more"
-" than one output message."
+msgid "A node is a class that inherits from oneapi::tbb::flow::graph_node and also typically inherits from oneapi::tbb::flow::sender<T> , oneapi::tbb::flow::receiver<T> or both. A node performs some operation, usually on an incoming message and may generate zero or more output messages. Some nodes require more than one input message or generate more than one output message."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Nodes.rst:14
-msgid ""
-"While it is possible to define your own node types by inheriting from "
-"graph_node, sender and receiver, it is more typical that predefined node "
-"types are used to construct a graph."
+msgid "While it is possible to define your own node types by inheriting from graph_node, sender and receiver, it is more typical that predefined node types are used to construct a graph."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Nodes.rst:19
-msgid ""
-"A ``function_node`` is a predefined type available in ``flow_graph.h`` "
-"and represents a simple function with one input and one output. The "
-"constructor for a ``function_node`` takes three arguments:"
+msgid "A ``function_node`` is a predefined type available in ``flow_graph.h`` and represents a simple function with one input and one output. The constructor for a ``function_node`` takes three arguments:"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Nodes.rst:27
-msgid ""
-"template< typename Body> function_node(graph &g, size_t concurrency, Body"
-" body)"
+msgid "template< typename Body> function_node(graph &g, size_t concurrency, Body body)"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Nodes.rst:36
@@ -80,10 +68,7 @@ msgid "concurrency"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Nodes.rst:43
-msgid ""
-"The concurrency limit for the node. You can use the    concurrency limit "
-"to control how many invocations of the node are   allowed to proceed "
-"concurrently, from 1 (serial) to an unlimited   number."
+msgid "The concurrency limit for the node. You can use the    concurrency limit to control how many invocations of the node are   allowed to proceed concurrently, from 1 (serial) to an unlimited   number."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Nodes.rst:44
@@ -91,20 +76,11 @@ msgid "body"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Nodes.rst:45
-msgid ""
-"User defined function object, or lambda expression, that    is applied to"
-" the incoming message to generate the outgoing message."
+msgid "User defined function object, or lambda expression, that    is applied to the incoming message to generate the outgoing message."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Nodes.rst:50
-msgid ""
-"Below is code for creating a simple graph that contains a single "
-"function_node. In this example, a node n is constructed that belongs to "
-"graph g, and has a second argument of 1, which allows at most 1 "
-"invocation of the node to occur concurrently. The body is a lambda "
-"expression that prints each value v that it receives, spins for v "
-"seconds, prints the value again, and then returns v unmodified. The code "
-"for the function spin_for is not provided."
+msgid "Below is code for creating a simple graph that contains a single function_node. In this example, a node n is constructed that belongs to graph g, and has a second argument of 1, which allows at most 1 invocation of the node to occur concurrently. The body is a lambda expression that prints each value v that it receives, spins for v seconds, prints the value again, and then returns v unmodified. The code for the function spin_for is not provided."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Nodes.rst:62
@@ -119,10 +95,7 @@ msgid ""
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Nodes.rst:71
-msgid ""
-"After the node is constructed in the example above, you can pass messages"
-" to it, either by connecting it to other nodes using edges or by invoking"
-" its function try_put. Using edges is described in the next section."
+msgid "After the node is constructed in the example above, you can pass messages to it, either by connecting it to other nodes using edges or by invoking its function try_put. Using edges is described in the next section."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Nodes.rst:80
@@ -133,9 +106,7 @@ msgid ""
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Nodes.rst:85
-msgid ""
-"You can then wait for the messages to be processed by calling "
-"wait_for_all on the graph object:"
+msgid "You can then wait for the messages to be processed by calling wait_for_all on the graph object:"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Nodes.rst:92
@@ -143,30 +114,16 @@ msgid "g.wait_for_all();"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Nodes.rst:95
-msgid ""
-"In the above example code, the function_node n was created with a "
-"concurrency limit of 1. When it receives the message sequence 1, 2 and 3,"
-" the node n will spawn a task to apply the body to the first input, 1. "
-"When that task is complete, it will then spawn another task to apply the "
-"body to 2. And likewise, the node will wait for that task to complete "
-"before spawning a third task to apply the body to 3. The calls to try_put"
-" do not block until a task is spawned; if a node cannot immediately spawn"
-" a task to process the message, the message will be buffered in the node."
-" When it is legal, based on concurrency limits, a task will be spawned to"
-" process the next buffered message."
+msgid "In the above example code, the function_node n was created with a concurrency limit of 1. When it receives the message sequence 1, 2 and 3, the node n will spawn a task to apply the body to the first input, 1. When that task is complete, it will then spawn another task to apply the body to 2. And likewise, the node will wait for that task to complete before spawning a third task to apply the body to 3. The calls to try_put do not block until a task is spawned; if a node cannot immediately spawn a task to process the message, the message will be buffered in the node. When it is legal, based on concurrency limits, a task will be spawned to process the next buffered message."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Nodes.rst:107
-msgid ""
-"In the above graph, each message is processed sequentially. If however, "
-"you construct the node with a different concurrency limit, parallelism "
-"can be achieved:"
+msgid "In the above graph, each message is processed sequentially. If however, you construct the node with a different concurrency limit, parallelism can be achieved:"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Nodes.rst:115
 msgid ""
-"function_node< int, int > n( g, oneapi::tbb::flow::unlimited, []( int v )"
-" -> int {\n"
+"function_node< int, int > n( g, oneapi::tbb::flow::unlimited, []( int v ) -> int {\n"
 "    cout << v;\n"
 "    spin_for( v );\n"
 "    cout << v;\n"
@@ -175,21 +132,11 @@ msgid ""
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Nodes.rst:123
-msgid ""
-"You can use unlimited as the concurrency limit to instruct the library to"
-" spawn a task as soon as a message arrives, regardless of how many other "
-"tasks have been spawned. You can also use any specific value, such as 4 "
-"or 8, to limit concurrency to at most 4 or 8, respectively. It is "
-"important to remember that spawning a task does not mean creating a "
-"thread. So while a graph may spawn many tasks, only the number of threads"
-" available in the library's thread pool will be used to execute these "
-"tasks."
+msgid "You can use unlimited as the concurrency limit to instruct the library to spawn a task as soon as a message arrives, regardless of how many other tasks have been spawned. You can also use any specific value, such as 4 or 8, to limit concurrency to at most 4 or 8, respectively. It is important to remember that spawning a task does not mean creating a thread. So while a graph may spawn many tasks, only the number of threads available in the library's thread pool will be used to execute these tasks."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Nodes.rst:133
-msgid ""
-"Suppose you use unlimited in the function_node constructor instead and "
-"call try_put on the node:"
+msgid "Suppose you use unlimited in the function_node constructor instead and call try_put on the node:"
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Nodes.rst:140
@@ -201,11 +148,5 @@ msgid ""
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Nodes.rst:146
-msgid ""
-"The library spawns three tasks, each one applying n's lambda expression "
-"to one of the messages. If you have a sufficient number of threads "
-"available on your system, then all three invocations of the body will "
-"occur in parallel. If however, you have only one thread in the system, "
-"they execute sequentially."
+msgid "The library spawns three tasks, each one applying n's lambda expression to one of the messages. If you have a sufficient number of threads available on your system, then all three invocations of the body will occur in parallel. If however, you have only one thread in the system, they execute sequentially."
 msgstr ""
-

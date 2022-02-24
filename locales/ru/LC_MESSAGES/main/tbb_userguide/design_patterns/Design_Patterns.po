@@ -3,28 +3,28 @@
 # This file is distributed under the same license as the oneTBB package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: oneTBB \n"
+"Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2022-02-24 14:16+0300\n"
+"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Design_Patterns.rst:4
 msgid "Design Patterns"
-msgstr ""
+msgstr "Шаблоны проектирования"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Design_Patterns.rst:7
-msgid ""
-"This section provides some common parallel programming patterns and how "
-"to implement them in |full_name|."
+msgid "This section provides some common parallel programming patterns and how to implement them in |full_name|."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Design_Patterns.rst:11
@@ -52,23 +52,13 @@ msgid "**Example** – presents an example implementation."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Design_Patterns.rst:29
-msgid ""
-"Variations and examples are sometimes discussed. The code examples are "
-"intended to emphasize key points and are not full-fledged code. Examples "
-"may omit obvious const overloads of non-const methods."
+msgid "Variations and examples are sometimes discussed. The code examples are intended to emphasize key points and are not full-fledged code. Examples may omit obvious const overloads of non-const methods."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Design_Patterns.rst:34
-msgid ""
-"Much of the nomenclature and examples are adapted from Web pages created "
-"by Eun-Gyu and Marc Snir, and the Berkeley parallel patterns wiki. See "
-"links in the **General References** section."
+msgid "Much of the nomenclature and examples are adapted from Web pages created by Eun-Gyu and Marc Snir, and the Berkeley parallel patterns wiki. See links in the **General References** section."
 msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Design_Patterns.rst:39
-msgid ""
-"For brevity, some of the code examples use C++11 lambda expressions. It "
-"is straightforward, albeit sometimes tedious, to translate such lambda "
-"expressions into equivalent C++03 code."
+msgid "For brevity, some of the code examples use C++11 lambda expressions. It is straightforward, albeit sometimes tedious, to translate such lambda expressions into equivalent C++03 code."
 msgstr ""
-
