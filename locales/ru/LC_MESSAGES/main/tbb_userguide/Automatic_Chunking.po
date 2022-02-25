@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-23 15:55+0300\n"
+"PO-Revision-Date: 2022-02-24 22:41+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -21,16 +21,16 @@ msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Automatic_Chunking.rst:4
 msgid "Automatic Chunking"
-msgstr "Автоматическая сортировка"
+msgstr "Автоматическое распределение"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Automatic_Chunking.rst:7
 msgid "A parallel loop construct incurs overhead cost for every chunk of work that it schedules. |full_name| chooses chunk sizes automatically, depending upon load balancing needs. The heuristic attempts to limit overheads while still providing ample opportunities for load balancing."
-msgstr ""
+msgstr "Конструкция параллельного цикла несет накладные расходы за каждый кусок работы, который она планирует. |full_name| выбирает размеры фрагментов автоматически, в зависимости от потребностей балансировки нагрузки. Эвристика пытается ограничить накладные расходы, обеспечивая при этом широкие возможности для балансировки нагрузки."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Automatic_Chunking.rst:15
 msgid "Typically a loop needs to take at least a million clock cycles to make it worth using ``parallel_for``. For example, a loop that takes at least 500 microseconds on a 2 GHz processor might benefit from ``parallel_for``."
-msgstr ""
+msgstr "Обычно цикл должен занимать не менее миллиона тактовых циклов, чтобы было целесообразно использовать ``parallel_for``. Например, цикл, который занимает не менее 500 микросекунд на процессоре с частотой 2 ГГц, может выиграть от ``parallel_for``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Automatic_Chunking.rst:21
 msgid "The default automatic chunking is recommended for most uses. As with most heuristics, however, there are situations where controlling the chunk size more precisely might yield better performance."
-msgstr ""
+msgstr "Для большинства случаев рекомендуется автоматическая разбивка на куски по умолчанию. Однако, как и в случае с большинством эвристик, существуют ситуации, когда более точное управление размером куска может дать лучшую производительность."

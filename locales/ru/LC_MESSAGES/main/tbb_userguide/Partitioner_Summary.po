@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 14:24+0300\n"
+"PO-Revision-Date: 2022-02-24 23:00+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -21,85 +21,85 @@ msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Partitioner_Summary.rst:4
 msgid "Partitioner Summary"
-msgstr "Резюме раздела"
+msgstr "Выводы раздела"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Partitioner_Summary.rst:7
 msgid "The parallel loop templates ``parallel_for`` and ``parallel_reduce`` take an optional *partitioner* argument, which specifies a strategy for executing the loop. The following table summarizes partitioners and their effect when used in conjunction with ``blocked_range``."
-msgstr ""
+msgstr "Шаблоны параллельных циклов ``parallel_for`` и ``parallel_reduce`` принимают необязательный аргумент *partitioner*, который определяет стратегию выполнения цикла. В следующей таблице приведены разделители и их влияние при использовании в сочетании с ``blocked_range``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Partitioner_Summary.rst:19
 msgid "Partitioner"
-msgstr ""
+msgstr "Алгоритм разделения"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Partitioner_Summary.rst:20
 msgid "Description"
-msgstr ""
+msgstr "Описание"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Partitioner_Summary.rst:21
 msgid "When Used with ``blocked_range(i,j,g)``"
-msgstr ""
+msgstr "При использовании с ``blocked_range(i,j,g)``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Partitioner_Summary.rst:22
 msgid "``simple_partitioner``"
-msgstr ""
+msgstr "``simple_partitioner``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Partitioner_Summary.rst:23
 msgid "Chunksize bounded by grain size."
-msgstr ""
+msgstr "Размер кусков, ограниченный размером зерна."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Partitioner_Summary.rst:24
 msgid "``g/2 ≤ chunksize ≤ g``"
-msgstr ""
+msgstr "``g/2 ≤ chunksize ≤ g``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Partitioner_Summary.rst:25
 msgid "``auto_partitioner`` (default)"
-msgstr ""
+msgstr "``auto_partitioner`` (по-умолчанию)"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Partitioner_Summary.rst:26
 msgid "Automatic chunk size."
-msgstr ""
+msgstr "Автоматический размер блока."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Partitioner_Summary.rst:27
 #: ../../oneTBB/doc/main/tbb_userguide/Partitioner_Summary.rst:30
 msgid "``g/2 ≤ chunksize``"
-msgstr ""
+msgstr "``g/2 ≤ chunksize``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Partitioner_Summary.rst:28
 msgid "``affinity_partitioner``"
-msgstr ""
+msgstr "``affinity_partitioner``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Partitioner_Summary.rst:29
 msgid "Automatic chunk size, cache affinity and uniform distribution of iterations."
-msgstr ""
+msgstr "Автоматический размер блока, сродство к кэшу и равномерное распределение итераций."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Partitioner_Summary.rst:31
 msgid "``static_partitioner``"
-msgstr ""
+msgstr "``static_partitioner``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Partitioner_Summary.rst:32
 msgid "Deterministic chunk size, cache affinity and uniform distribution of iterations without load balancing."
-msgstr ""
+msgstr "Детерминированный размер блока, сродство кэша и равномерное распределение итераций без балансировки нагрузки."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Partitioner_Summary.rst:33
 msgid "``max(g/3, problem_size/num_of_resources) ≤ chunksize``"
-msgstr ""
+msgstr "``max(g/3, problem_size/num_of_resources) ≤ chunksize``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Partitioner_Summary.rst:38
 msgid "An ``auto_partitioner`` is used when no partitioner is specified. In general, the ``auto_partitioner`` or ``affinity_partitioner`` should be used, because these tailor the number of chunks based on available execution resources. ``affinity_partitioner`` and ``static_partitioner`` may take advantage of ``Range`` ability to split in a given ratio (see \"Advanced Topic: Other Kinds of Iteration Spaces\") for distributing iterations in nearly equal chunks between computing resources."
-msgstr ""
+msgstr "Когда не указан разделитель, используется ``auto_partitioner``. В общем случае следует использовать ``auto_partitioner`` или ``affinity_partitioner``, поскольку они подбирают количество блока в зависимости от доступных ресурсов выполнения. ``affinity_partitioner`` и ``static_partitioner`` могут воспользоваться способностью ``Range`` разбивать в заданном соотношении (см. :ref:`Exceptions_and_Cancellation`) для распределения итераций почти равными частями между вычислительными ресурсами."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Partitioner_Summary.rst:47
 msgid "``simple_partitioner`` can be useful in the following situations:"
-msgstr ""
+msgstr "``simple_partitioner`` может быть полезен в следующих ситуациях:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Partitioner_Summary.rst:50
 msgid "The subrange size for ``operator()`` must not exceed a limit. That might be advantageous, for example, if your ``operator()`` needs a temporary array proportional to the size of the range. With a limited subrange size, you can use an automatic variable for the array instead of having to use dynamic memory allocation."
-msgstr ""
+msgstr "Размер поддиапазона для ``operator()`` не должен превышать предел. Это может быть выгодно, например, если твой ``operator()`` нуждается во временном массиве, пропорциональном размеру диапазона. При ограниченном размере поддиапазона ты можешь использовать локальную переменную для массива вместо того, чтобы прибегать к динамическому выделению памяти."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Partitioner_Summary.rst:57
 msgid "A large subrange might use cache inefficiently. For example, suppose the processing of a subrange involves repeated sweeps over the same memory locations. Keeping the subrange below a limit might enable the repeatedly referenced memory locations to fit in cache."
-msgstr ""
+msgstr "Большой поддиапазон может использовать кэш неэффективно. Например, предположим, что обработка поддиапазона включает в себя повторные обращения к одним и тем же местам памяти. Если держать поддиапазон ниже предельного значения, то это может позволить многократным обращениям к одним и тем же местам памяти поместиться в кэш."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Partitioner_Summary.rst:63
 msgid "You want to tune to a specific machine."
-msgstr ""
+msgstr "Ты хочешь настроиться на конкретную машину."

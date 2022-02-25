@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 00:22+0300\n"
+"PO-Revision-Date: 2022-02-24 22:28+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -24,64 +24,64 @@ msgstr "macOS\\*"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mac_OS.rst:6
 msgid "This section uses *<install_dir>* to indicate the top-level installation directory. The following table describes the subdirectory structure for macOS\\*, relative to *<install_dir>*."
-msgstr ""
+msgstr "В этом разделе используется *<install_dir>* для указания каталога установки верхнего уровня. В следующей таблице описана структура подкаталогов для macOS\\*, относительно *<install_dir>*."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mac_OS.rst:14
 msgid "Item"
-msgstr ""
+msgstr "Элемент"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mac_OS.rst:15
 msgid "Location"
-msgstr ""
+msgstr "Местоположение"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mac_OS.rst:16
 msgid "Environment Variable"
-msgstr ""
+msgstr "Переменная окружения"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mac_OS.rst:17
 msgid "Header files"
-msgstr ""
+msgstr "Заголовочные файлы"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mac_OS.rst
 msgid "``include/oneapi/tbb.h``"
-msgstr ""
+msgstr "``include/oneapi/tbb.h``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mac_OS.rst
 msgid "``include/oneapi/tbb/*.h``"
-msgstr ""
+msgstr "``include/oneapi/tbb/*.h``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mac_OS.rst:20
 msgid "``CPATH``"
-msgstr ""
+msgstr "``CPATH``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mac_OS.rst:21
 msgid "Shared libraries"
-msgstr ""
+msgstr "Общие библиотеки"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mac_OS.rst:22
 msgid "``lib/<lib><variant>.<version>.dylib``"
-msgstr ""
+msgstr "``lib/<lib><variant>.<version>.dylib``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mac_OS.rst
 msgid "``LIBRARY_PATH``"
-msgstr ""
+msgstr "``LIBRARY_PATH``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mac_OS.rst
 msgid "``DYLD_LIBRARY_PATH``"
-msgstr ""
+msgstr "``DYLD_LIBRARY_PATH``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mac_OS.rst:26
 msgid "where"
-msgstr ""
+msgstr "где"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mac_OS.rst:28
 msgid "``<lib>`` - ``libtbb``, ``libtbbmalloc`` or ``libtbbmalloc_proxy``"
-msgstr ""
+msgstr "``<lib>`` - ``libtbb``, ``libtbbmalloc`` или ``libtbbmalloc_proxy``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mac_OS.rst:30
 msgid "``<variant>`` - ``_debug`` or empty"
-msgstr ""
+msgstr "``<variant>`` - ``_debug`` или пусто"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mac_OS.rst:32
 msgid "``<version>`` - binary version in a form of ``<major>.<minor>``"
-msgstr ""
+msgstr "``<version>`` - бинарная версия в формате ``<major>.<minor>``"

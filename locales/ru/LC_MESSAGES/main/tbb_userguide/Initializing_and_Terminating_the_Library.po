@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 14:47+0300\n"
+"PO-Revision-Date: 2022-02-24 22:31+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,7 +25,7 @@ msgstr "Инициализация и завершение работы библ
 
 #: ../../oneTBB/doc/main/tbb_userguide/Initializing_and_Terminating_the_Library.rst:6
 msgid "|full_name| automatically initializes the task scheduler. The initialization process is involved when a thread uses task scheduling services the first time, for example any parallel algorithm, flow graph or task group. The termination happens when the last such thread exits."
-msgstr ""
+msgstr "|full_name| автоматически инициализирует планировщик задач. Процесс инициализации задействован, когда поток впервые использует услуги планировщика задач, например, любой параллельный алгоритм, потоковый граф или группа задач. Завершение происходит, когда последний такой поток выходит из системы."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Initializing_and_Terminating_the_Library.rst:12
 msgid "Explicit Library Finalization"
@@ -33,8 +33,8 @@ msgstr "Явная финализация библиотеки"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Initializing_and_Terminating_the_Library.rst:14
 msgid "oneTBB supports an explicit library termination as a preview feature. The ``oneapi::tbb::finalize`` function called with an instance of class ``oneapi::tbb::task_scheduler_handle`` blocks the calling thread until all worker threads implicitly created by the library have completed. If waiting for thread completion is not safe, e.g. may result in a deadlock or called inside a task, a parallel algorithm, or a flow graph node, the method fails."
-msgstr ""
+msgstr "oneTBB поддерживает явное завершение работы библиотеки в качестве функции предварительного просмотра. Функция ``oneapi::tbb::finalize``, вызываемая с экземпляром класса ``oneapi::tbb::task_scheduler_handle``, блокирует вызывающий поток до тех пор, пока не завершатся все рабочие потоки, неявно созданные библиотекой. Если ожидание завершения потока небезопасно, например, может привести к тупику, или вызывается внутри задачи, параллельного алгоритма или узла графа потока, метод завершается неудачно."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Initializing_and_Terminating_the_Library.rst:20
 msgid "If you know how many active ``oneapi::tbb::task_scheduler_handle`` instances exist in the program, it is recommended to call ``oneapi::tbb::release`` function on all but the last one, then call ``oneapi::tbb::finalize`` for the last instance."
-msgstr ""
+msgstr "Если ты знаешь, сколько активных экземпляров ``oneapi::tbb::task_scheduler_handle`` существует в программе, рекомендуется вызвать функцию ``oneapi::tbb::release`` на всех, кроме последнего, затем вызвать ``oneapi::tbb::finalize`` для последнего экземпляра."

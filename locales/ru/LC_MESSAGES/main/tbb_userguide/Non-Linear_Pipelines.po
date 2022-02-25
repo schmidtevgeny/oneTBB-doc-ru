@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 00:18+0300\n"
+"PO-Revision-Date: 2022-02-25 22:39+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -24,44 +24,44 @@ msgstr "Нелинейные конвейеры"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Non-Linear_Pipelines.rst:7
 msgid "Template function ``parallel_pipeline`` supports only linear pipelines. It does not directly handle more baroque plumbing, such as in the diagram below."
-msgstr ""
+msgstr "Шаблонная функция ``parallel_pipeline`` поддерживает только линейные конвееры. Она не работает напрямую с более сложными конвеерами, такими как на схеме ниже."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Non-Linear_Pipelines.rst:16
 msgid "|image0|"
-msgstr ""
+msgstr "|image0|"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Non-Linear_Pipelines.rst:56
 msgid "image0"
-msgstr ""
+msgstr "image0"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Non-Linear_Pipelines.rst:56
 msgid ".. image:: main/tbb_userguide/Images/image011.jpg"
-msgstr ""
+msgstr ".. image:: main/tbb_userguide/Images/image011.jpg"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Non-Linear_Pipelines.rst:19
 msgid "However, you can still use a pipeline for this. Just topologically sort the filters into a linear order, like this:"
-msgstr ""
+msgstr "Однако ты все равно можешь использовать для этого конвейер. Просто топологически отсортируй фильтры в линейном порядке, например, так:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Non-Linear_Pipelines.rst:23
 msgid "The light gray arrows are the original arrows that are now implied by transitive closure of the other arrows. It might seem that lot of parallelism is lost by forcing a linear order on the filters, but in fact the only loss is in the *latency* of the pipeline, not the throughput. The latency is the time it takes a token to flow from the beginning to the end of the pipeline. Given a sufficient number of processors, the latency of the original non-linear pipeline is three filters. This is because filters A and B could process the token concurrently, and likewise filters D and E could process the token concurrently."
-msgstr ""
+msgstr "Светло-серые стрелки - это исходные стрелки, которые теперь подразумеваются переходным замыканием других стрелок. Может показаться, что, заставляя фильтры работать в линейном порядке, теряется много параллелизма, но на самом деле единственная потеря заключается в *латентности* конвейера, а не в пропускной способности. Латентность - это время, которое требуется токену, чтобы пройти от начала до конца конвейера. Учитывая достаточное количество процессоров, латентность оригинального нелинейного конвейера составляет три фильтра. Это происходит потому, что фильтры A и B могут обрабатывать токен одновременно, и точно так же фильтры D и E могут обрабатывать токен одновременно."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Non-Linear_Pipelines.rst:39
 msgid "|image1|"
-msgstr ""
+msgstr "|image1|"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Non-Linear_Pipelines.rst:59
 msgid "image1"
-msgstr ""
+msgstr "image1"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Non-Linear_Pipelines.rst:59
 msgid ".. image:: main/tbb_userguide/Images/image012.jpg"
-msgstr ""
+msgstr ".. image:: main/tbb_userguide/Images/image012.jpg"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Non-Linear_Pipelines.rst:42
 msgid "In the linear pipeline, the latency is five filters. The behavior of filters A, B, D and E above may need to be modified in order to properly handle objects that don’t need to be acted upon by the filter other than to be passed along to the next filter in the pipeline."
-msgstr ""
+msgstr "В линейном конвейере задержка составляет пять фильтров. Поведение фильтров A, B, D и E, описанных выше, может потребовать изменения для того, чтобы правильно обрабатывать объекты, которые не нуждаются в действиях со стороны фильтра, кроме передачи их следующему фильтру в конвейере."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Non-Linear_Pipelines.rst:48
 msgid "The throughput remains the same, because regardless of the topology, the throughput is still limited by the throughput of the slowest serial filter. If ``parallel_pipeline`` supported non-linear pipelines, it would add a lot of programming complexity, and not improve throughput. The linear limitation of ``parallel_pipeline`` is a good tradeoff of gain versus pain."
-msgstr ""
+msgstr "Пропускная способность остается прежней, потому что независимо от топологии, пропускная способность все равно ограничена пропускной способностью самого медленного последовательного фильтра. Если бы ``parallel_pipeline`` поддерживал нелинейные конвейеры, это добавило бы много сложности в программировании и не улучшило бы пропускную способность. Линейное ограничение ``parallel_pipeline`` - это хороший компромисс между выгодой и болью."

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-23 15:53+0300\n"
+"PO-Revision-Date: 2022-02-25 22:16+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,15 +25,15 @@ msgstr "Готовить до готовности: parallel_for_each"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Cook_Until_Done_parallel_do.rst:7
 msgid "For some loops, the end of the iteration space is not known in advance, or the loop body may add more iterations to do before the loop exits. You can deal with both situations using the template class ``oneapi::tbb::parallel_for_each``."
-msgstr ""
+msgstr "Для некоторых циклов конец пространства итераций не известен заранее, или тело цикла может добавить больше итераций, которые нужно сделать до выхода из цикла. С обеими ситуациями можно справиться с помощью шаблонного класса ``oneapi::tbb::parallel_for_each``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Cook_Until_Done_parallel_do.rst:12
 msgid "A linked list is an example of an iteration space that is not known in advance. In parallel programming, it is usually better to use dynamic arrays instead of linked lists, because accessing items in a linked list is inherently serial. But if you are limited to linked lists, the items can be safely processed in parallel, and processing each item takes at least a few thousand instructions, you can use ``parallel_for_each`` to gain some parallelism."
-msgstr ""
+msgstr "Связанный список - это пример итерационного пространства, которое не известно заранее. В параллельном программировании обычно лучше использовать динамические массивы, а не связанные списки, потому что доступ к элементам в связанном списке по своей природе является последовательным. Но если вы ограничены связанными списками, элементы можно безопасно обрабатывать параллельно, а обработка каждого элемента занимает по крайней мере несколько тысяч инструкций, вы можете использовать ``parallel_for_each`` для достижения некоторого параллелизма."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Cook_Until_Done_parallel_do.rst:21
 msgid "For example, consider the following serial code:"
-msgstr ""
+msgstr "Например, рассмотрим следующий последовательный код:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Cook_Until_Done_parallel_do.rst:27
 msgid ""
@@ -42,10 +42,14 @@ msgid ""
 "        Foo(*i);\n"
 "}"
 msgstr ""
+"void SerialApplyFooToList( const std::list<Item>& list ) {\n"
+"    for( std::list<Item>::const_iterator i=list.begin() i!=list.end(); ++i )\n"
+"        Foo(*i);\n"
+"}"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Cook_Until_Done_parallel_do.rst:33
 msgid "If ``Foo`` takes at least a few thousand instructions to run, you can get parallel speedup by converting the loop to use ``parallel_for_each``. To do so, define an object with a ``const`` qualified ``operator()``. This is similar to a C++ function object from the C++ standard header ``<functional>``, except that ``operator()`` must be ``const``."
-msgstr ""
+msgstr "Если цикл ``Foo`` занимает хотя бы несколько тысяч инструкций, вы можете получить параллельное ускорение, преобразовав цикл для использования ``parallel_for_each``. Для этого определите объект с оператором ``operator()`` с квалификатором ``const``. Это похоже на функтор из стандартного заголовка C++ ``<functional>``, за исключением того, что ``operator()`` должен быть ``const``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Cook_Until_Done_parallel_do.rst:44
 msgid ""
@@ -56,10 +60,16 @@ msgid ""
 "    }\n"
 "};"
 msgstr ""
+"class ApplyFoo {\n"
+"public:\n"
+"    void operator()( Item& item ) const {\n"
+"        Foo(item);\n"
+"    }\n"
+"};"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Cook_Until_Done_parallel_do.rst:52
 msgid "The parallel form of ``SerialApplyFooToList`` is as follows:"
-msgstr ""
+msgstr "Параллельная форма ``SerialApplyFooToList`` выглядит следующим образом:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Cook_Until_Done_parallel_do.rst:58
 msgid ""
@@ -67,19 +77,22 @@ msgid ""
 "    parallel_for_each( list.begin(), list.end(), ApplyFoo() );\n"
 "}"
 msgstr ""
+"void ParallelApplyFooToList( const std::list<Item>& list ) {\n"
+"    parallel_for_each( list.begin(), list.end(), ApplyFoo() );\n"
+"}"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Cook_Until_Done_parallel_do.rst:63
 msgid "An invocation of ``parallel_for_each`` never causes two threads to act on an input iterator concurrently. Thus typical definitions of input iterators for sequential programs work correctly. This convenience makes ``parallel_for_each`` unscalable, because the fetching of work is serial. But in many situations, you still get useful speedup over doing things sequentially."
-msgstr ""
+msgstr "Вызов ``parallel_for_each`` никогда не приводит к одновременному действию двух потоков на входной итератор. Таким образом, типичные определения входных итераторов для последовательных программ работают корректно. Это удобство делает ``parallel_for_each`` немасштабируемым, поскольку получение работы происходит последовательно. Но во многих ситуациях вы все равно получите полезное ускорение по сравнению с последовательным выполнением задач."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Cook_Until_Done_parallel_do.rst:71
 msgid "There are two ways that ``parallel_for_each`` can acquire work scalably."
-msgstr ""
+msgstr "Существует два способа, с помощью которых ``parallel_for_each`` может получить масштабируемую работу."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Cook_Until_Done_parallel_do.rst:74
 msgid "The iterators can be random-access iterators."
-msgstr ""
+msgstr "Итераторы могут быть итераторами со случайным доступом."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Cook_Until_Done_parallel_do.rst:77
 msgid "The body argument to ``parallel_for_each``, if it takes a second argument *feeder* of type ``parallel_for_each<Item>&``, can add more work by calling ``feeder.add(item)``. For example, suppose processing a node in a tree is a prerequisite to processing its descendants. With ``parallel_for_each``, after processing a node, you could use ``feeder.add`` to add the descendant nodes. The instance of ``parallel_for_each`` does not terminate until all items have been processed."
-msgstr ""
+msgstr "Аргумент body в ``parallel_for_each``, если он принимает второй аргумент *feeder* типа ``parallel_for_each<Item>&``, может добавить больше работы, вызвав ``feeder.add(item)``. Например, предположим, что обработка узла в дереве является предпосылкой для обработки его потомков. С помощью ``parallel_for_each`` после обработки узла можно использовать ``feeder.add`` для добавления узлов-потомков. Экземпляр ``parallel_for_each`` не завершается, пока не будут обработаны все элементы."

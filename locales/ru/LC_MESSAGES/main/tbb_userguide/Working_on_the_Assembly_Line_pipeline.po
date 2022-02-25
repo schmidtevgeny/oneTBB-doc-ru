@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 14:23+0300\n"
+"PO-Revision-Date: 2022-02-25 22:32+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,56 +25,56 @@ msgstr "Работа на конвейере: parallel_pipeline"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Working_on_the_Assembly_Line_pipeline.rst:7
 msgid "*Pipelining* is a common parallel pattern that mimics a traditional manufacturing assembly line. Data flows through a series of pipeline filters and each filter processes the data in some way. Given an incoming stream of data, some of these filters can operate in parallel, and others cannot. For example, in video processing, some operations on frames do not depend on other frames, and so can be done on multiple frames at the same time. On the other hand, some operations on frames require processing prior frames first."
-msgstr ""
+msgstr "*Конвейерная обработка* - это распространенная параллельная схема, которая имитирует традиционный производственный конвейер. Данные проходят через ряд конвейерных фильтров, и каждый фильтр обрабатывает данные определенным образом. Учитывая входящий поток данных, некоторые из этих фильтров могут работать параллельно, а другие - нет. Например, при обработке видео некоторые операции с кадрами не зависят от других кадров и поэтому могут выполняться одновременно с несколькими кадрами. С другой стороны, для выполнения некоторых операций с кадрами требуется сначала обработать предыдущие кадры."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Working_on_the_Assembly_Line_pipeline.rst:17
 msgid "The |full_name| classes ``parallel_pipeline`` and filter implement the pipeline pattern. A simple text processing example will be used to demonstrate the usage of ``parallel_pipeline`` and filter to perform parallel formatting. The example reads a text file, squares each decimal numeral in the text, and writes the modified text to a new file. Below is a picture of the pipeline."
-msgstr ""
+msgstr "Классы |full_name| ``parallel_pipeline`` и filter реализуют паттерн конвейера. Для демонстрации использования ``parallel_pipeline`` и filter для выполнения параллельного форматирования будет использован простой пример обработки текста. Пример читает текстовый файл, возводит в квадрат каждую десятичную цифру в тексте и записывает измененный текст в новый файл. Ниже приведен рисунок конвейера."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Working_on_the_Assembly_Line_pipeline.rst:27
 msgid "Since the body object provided to the filters of the ``parallel_pipline`` might be copied, its ``operator()`` should not modify the body. Otherwise the modification might or might not become visible to the thread that invoked ``parallel_pipeline``, depending upon whether ``operator()`` is acting on the original or a copy. As a reminder of this nuance, ``parallel_pipeline`` requires that the body object's ``operator()`` be declared ``const``."
-msgstr ""
+msgstr "Поскольку объект body, предоставляемый фильтрам ``parallel_pipline``, может быть скопирован, его ``operator()`` не должен модифицировать тело. В противном случае модификация может стать или не стать видимой для потока, вызвавшего ``parallel_pipeline``, в зависимости от того, действует ли ``operator()`` на оригинале или на копии. В качестве напоминания об этом нюансе, ``parallel_pipeline`` требует, чтобы ``operator()`` был объявлен ``const`` для объекта body."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Working_on_the_Assembly_Line_pipeline.rst:42
 msgid "Read chunk from input file"
-msgstr ""
+msgstr "Чтение фрагмента из входного файла"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Working_on_the_Assembly_Line_pipeline.rst:43
 msgid "|image0|"
-msgstr ""
+msgstr "|image0|"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Working_on_the_Assembly_Line_pipeline.rst:344
 msgid "image0"
-msgstr ""
+msgstr "image0"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Working_on_the_Assembly_Line_pipeline.rst:344
 #: ../../oneTBB/doc/main/tbb_userguide/Working_on_the_Assembly_Line_pipeline.rst:347
 msgid ".. image:: main/tbb_userguide/Images/image010.jpg"
-msgstr ""
+msgstr ".. image:: main/tbb_userguide/Images/image010.jpg"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Working_on_the_Assembly_Line_pipeline.rst:44
 msgid "Square numerals in chunk"
-msgstr ""
+msgstr "Возведение цифр в тексте в квадрат"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Working_on_the_Assembly_Line_pipeline.rst:45
 msgid "|image1|"
-msgstr ""
+msgstr "|image1|"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Working_on_the_Assembly_Line_pipeline.rst:347
 msgid "image1"
-msgstr ""
+msgstr "image1"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Working_on_the_Assembly_Line_pipeline.rst:46
 msgid "Write chunk to output file"
-msgstr ""
+msgstr "Запись блока в выходной файл"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Working_on_the_Assembly_Line_pipeline.rst:51
 msgid "Assume that the raw file I/O is sequential. The squaring filter can be done in parallel. That is, if you can serially read ``n`` chunks very quickly, you can transform each of the ``n`` chunks in parallel, as long as they are written in the proper order to the output file. Though the raw I/O is sequential, the formatting of input and output can be moved to the middle filter, and thus be parallel."
-msgstr ""
+msgstr "Предположим, что ввод-вывод необработанных файлов является последовательным. Фильтр квадратуры может быть выполнен параллельно. То есть, если ты можешь последовательно считывать ``n`` блоков очень быстро, ты можешь преобразовывать каждый из ``n`` блоков параллельно, пока они записываются в нужном порядке в выходной файл. Хотя необработанный ввод-вывод является последовательным, форматирование ввода и вывода может быть перенесено в средний фильтр и, таким образом, быть параллельным."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Working_on_the_Assembly_Line_pipeline.rst:59
 msgid "To amortize parallel scheduling overheads, the filters operate on chunks of text. Each input chunk is approximately 4000 characters. Each chunk is represented by an instance of class ``TextSlice``:"
-msgstr ""
+msgstr "Чтобы амортизировать накладные расходы на параллельное планирование, фильтры работают с фрагментами текста. Каждый входной фрагмент составляет примерно 4000 символов. Каждый кусок представлен экземпляром класса ``TextSlice``:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Working_on_the_Assembly_Line_pipeline.rst:67
 msgid ""
@@ -116,10 +116,47 @@ msgid ""
 "    void set_end( char* p ) {logical_end=p;}\n"
 "};"
 msgstr ""
+"// Хранит фрагмент текста.\n"
+"/** Экземпляры *должны* быть выделены/освобождены с помощью методов, описанных здесь, потому что объявление C++\n"
+"  представляет собой только заголовок гораздо большего объекта в памяти. */\n"
+"class TextSlice {\n"
+"    // Указатель на один последний символ в последовательности\n"
+"    char* logical_end;\n"
+"    // Указатель на один последний доступный байт в последовательности.\n"
+"    char* physical_end;\n"
+"public:\n"
+"    // Выделите объект TextSlice, который может содержать до max_size символов.\n"
+"    static TextSlice* allocate( size_t max_size ) {\n"
+"        // +1 оставляет место для завершающего нулевого символа.\n"
+"        TextSlice* t = (TextSlice*)oneapi::tbb::tbb_allocator<char>().allocate( sizeof(TextSlice)+max_size+1 );\n"
+"        t->logical_end = t->begin();\n"
+"        t->physical_end = t->begin()+max_size;\n"
+"        return t;\n"
+"    }\n"
+"    // Освободить данный объект TextSlice\n"
+"    void free() {\n"
+"        oneapi::tbb::tbb_allocator<char>().deallocate((char*)this, sizeof(TextSlice)+(physical_end-begin())+1);\n"
+"    }\n"
+"    // Указатель на начало последовательности\n"
+"    char* begin() {return (char*)(this+1);}\n"
+"    // Указатель на один последний символ в последовательности\n"
+"    char* end() {return logical_end;}\n"
+"    // Длина последовательности\n"
+"    size_t size() const {return logical_end-(char*)(this+1);}\n"
+"    // Максимальное количество символов, которое может быть добавлено к последовательности\n"
+"    size_t avail() const {return physical_end-logical_end;}\n"
+"    // Добавьте последовательность [first,last] к данной последовательности.\n"
+"    void append( char* first, char* last ) {\n"
+"        memcpy( logical_end, first, last-first );\n"
+"        logical_end += last-first;\n"
+"    }\n"
+"    // Установите end() на заданное значение.\n"
+"    void set_end( char* p ) {logical_end=p;}\n"
+"};"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Working_on_the_Assembly_Line_pipeline.rst:106
 msgid "Below is the top-level code for building and running the pipeline. ``TextSlice`` objects are passed between filters using pointers to avoid the overhead of copying a ``TextSlice``."
-msgstr ""
+msgstr "Ниже приведен код верхнего уровня для построения и запуска конвейера. Объекты ``TextSlice`` передаются между фильтрами с помощью указателей, чтобы избежать накладных расходов на копирование ``TextSlice``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Working_on_the_Assembly_Line_pipeline.rst:114
 msgid ""
@@ -136,38 +173,50 @@ msgid ""
 "            oneapi::tbb::filter::serial_in_order, MyOutputFunc(output_file) ) );\n"
 "}"
 msgstr ""
+"void RunPipeline( int ntoken, FILE* input_file, FILE* output_file ) {\n"
+"    oneapi::tbb::parallel_pipeline(\n"
+"        ntoken,\n"
+"        oneapi::tbb::make_filter<void,TextSlice*>(\n"
+"            oneapi::tbb::filter::serial_in_order, MyInputFunc(input_file) )\n"
+"    &\n"
+"        oneapi::tbb::make_filter<TextSlice*,TextSlice*>(\n"
+"            oneapi::tbb::filter::parallel, MyTransformFunc() )\n"
+"    &\n"
+"        oneapi::tbb::make_filter<TextSlice*,void>(\n"
+"            oneapi::tbb::filter::serial_in_order, MyOutputFunc(output_file) ) );\n"
+"}"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Working_on_the_Assembly_Line_pipeline.rst:128
 msgid "The parameter ``ntoken`` to method ``parallel_pipeline`` controls the level of parallelism. Conceptually, tokens flow through the pipeline. In a serial in-order filter, each token must be processed serially in order. In a parallel filter, multiple tokens can by processed in parallel by the filter. If the number of tokens were unlimited, there might be a problem where the unordered filter in the middle keeps gaining tokens because the output filter cannot keep up. This situation typically leads to undesirable resource consumption by the middle filter. The parameter to method ``parallel_pipeline`` specifies the maximum number of tokens that can be in flight. Once this limit is reached, the pipeline never creates a new token at the input filter until another token is destroyed at the output filter."
-msgstr ""
+msgstr "Параметр ``ntoken`` метода ``parallel_pipeline`` управляет уровнем параллелизма. Концептуально, токены проходят через конвейер. В последовательном фильтре каждый токен должен быть обработан последовательно по порядку. В параллельном фильтре несколько маркеров могут обрабатываться фильтром параллельно. Если бы количество маркеров было неограниченным, могла бы возникнуть проблема, когда неупорядоченный фильтр в середине продолжает набирать маркеры, потому что выходной фильтр не успевает за ним. Такая ситуация обычно приводит к нежелательному потреблению ресурсов средним фильтром. Параметр метода ``parallel_pipeline`` задает максимальное количество токенов, которое может находиться в процессе обработки. Когда этот предел достигнут, конвейер никогда не создает новый маркер на входном фильтре, пока другой маркер не будет уничтожен на выходном фильтре."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Working_on_the_Assembly_Line_pipeline.rst:142
 msgid "The second parameter specifies the sequence of filters. Each filter is constructed by function ``make_filter<inputType, outputType>(mode,functor)``."
-msgstr ""
+msgstr "Второй параметр задает последовательность фильтров. Каждый фильтр строится с помощью функции ``make_filter<inputType, outputType>(mode,functor)``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Working_on_the_Assembly_Line_pipeline.rst:146
 msgid "The *inputType* specifies the type of values input by a filter. For the input filter, the type is ``void``."
-msgstr ""
+msgstr "Тип *inputType* определяет тип значений, вводимых фильтром. Для входного фильтра тип - ``void``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Working_on_the_Assembly_Line_pipeline.rst:150
 msgid "The *outputType* specifies the type of values output by a filter. For the output filter, the type is ``void``."
-msgstr ""
+msgstr "Параметр *outputType* определяет тип значений, выводимых фильтром. Для выходного фильтра тип - ``void``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Working_on_the_Assembly_Line_pipeline.rst:154
 msgid "The *mode* specifies whether the filter processes items in parallel, serial in-order, or serial out-of-order."
-msgstr ""
+msgstr "Параметр *mode* определяет, как фильтр обрабатывает элементы: параллельно, последовательно по порядку или последовательно не по порядку."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Working_on_the_Assembly_Line_pipeline.rst:158
 msgid "The *functor* specifies how to produce an output value from an input value."
-msgstr ""
+msgstr "Функтор *functor* определяет, как из входного значения получить выходное значение."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Working_on_the_Assembly_Line_pipeline.rst:162
 msgid "The filters are concatenated with ``operator&``. When concatenating two filters, the *outputType* of the first filter must match the *inputType* of the second filter."
-msgstr ""
+msgstr "Фильтры конкатенируются с помощью ``operator&``. При конкатенации двух фильтров *outputType* первого фильтра должен совпадать с *inputType* второго фильтра."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Working_on_the_Assembly_Line_pipeline.rst:167
 msgid "The filters can be constructed and concatenated ahead of time. An equivalent version of the previous example that does this follows:"
-msgstr ""
+msgstr "Фильтры могут быть построены и объединены заранее. Ниже приводится эквивалентная версия предыдущего примера:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Working_on_the_Assembly_Line_pipeline.rst:174
 msgid ""
@@ -182,18 +231,28 @@ msgid ""
 "    oneapi::tbb::parallel_pipeline(ntoken,f);\n"
 "}"
 msgstr ""
+"void RunPipeline( int ntoken, FILE* input_file, FILE* output_file ) {\n"
+"    oneapi::tbb::filter<void,TextSlice*> f1( oneapi::tbb::filter::serial_in_order,\n"
+"                                       MyInputFunc(input_file) );\n"
+"    oneapi::tbb::filter<TextSlice*,TextSlice*> f2(oneapi::tbb::filter::parallel,\n"
+"                                            MyTransformFunc() );\n"
+"    oneapi::tbb::filter<TextSlice*,void> f3(oneapi::tbb::filter::serial_in_order,\n"
+"                                      MyOutputFunc(output_file) );\n"
+"    oneapi::tbb::filter<void,void> f = f1 & f2 & f3;\n"
+"    oneapi::tbb::parallel_pipeline(ntoken,f);\n"
+"}"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Working_on_the_Assembly_Line_pipeline.rst:186
 msgid "The input filter must be ``serial_in_order`` in this example because the filter reads chunks from a sequential file and the output filter must write the chunks in the same order. All ``serial_in_order`` filters process items in the same order. Thus if an item arrives at ``MyOutputFunc`` out of the order established by ``MyInputFunc``, the pipeline automatically delays invoking ``MyOutputFunc::operator()`` on the item until its predecessors are processed. There is another kind of serial filter, ``serial_out_of_order``, that does not preserve order."
-msgstr ""
+msgstr "В этом примере входной фильтр должен быть ``serial_in_order``, потому что фильтр считывает фрагменты из последовательного файла, а выходной фильтр должен записывать фрагменты в том же порядке. Все фильтры ``serial_in_order`` обрабатывают элементы в одном и том же порядке. Таким образом, если элемент поступает в ``MyOutputFunc`` вне порядка, установленного ``MyInputFunc``, конвейер автоматически откладывает вызов ``MyOutputFunc::operator()`` для этого элемента, пока не будут обработаны его предшественники. Существует еще один вид последовательного фильтра, ``serial_out_of_order``, который не сохраняет порядок."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Working_on_the_Assembly_Line_pipeline.rst:196
 msgid "The middle filter operates on purely local data. Thus any number of invocations of its functor can run concurrently. Hence it is specified as a parallel filter."
-msgstr ""
+msgstr "Средний фильтр работает с чисто локальными данными. Таким образом, любое количество вызовов его функтора может выполняться одновременно. Поэтому он определяется как параллельный фильтр."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Working_on_the_Assembly_Line_pipeline.rst:201
 msgid "The functors for each filter are explained in detail now. The output functor is the simplest. All it has to do is write a ``TextSlice`` to a file and free the ``TextSlice``."
-msgstr ""
+msgstr "Подробно рассмотрим функторы для каждого фильтра. Функтор вывода - самый простой. Все, что он должен сделать, это записать ``TextSlice`` в файл и освободить ``TextSlice``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Working_on_the_Assembly_Line_pipeline.rst:209
 #, python-format
@@ -222,14 +281,37 @@ msgid ""
 "    out->free();\n"
 "}"
 msgstr ""
+"// Функтор, записывающий фрагмент TextSlice в файл.\n"
+"class MyOutputFunc {\n"
+"    FILE* my_output_file;\n"
+"public:\n"
+"    MyOutputFunc( FILE* output_file );\n"
+"    void operator()( TextSlice* item ) const;\n"
+"};\n"
+"\n"
+"\n"
+"MyOutputFunc::MyOutputFunc( FILE* output_file ) :\n"
+"    my_output_file(output_file)\n"
+"{\n"
+"}\n"
+"\n"
+"\n"
+"void MyOutputFunc::operator()( TextSlice* out ) const {\n"
+"    size_t n = fwrite( out->begin(), 1, out->size(), my_output_file );\n"
+"    if( n!=out->size() ) {\n"
+"        fprintf(stderr,\"Can't write into file '%s'\\n\", OutputFileName);\n"
+"        exit(1);\n"
+"    }\n"
+"    out->free();\n"
+"}"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Working_on_the_Assembly_Line_pipeline.rst:234
 msgid "Method ``operator()`` processes a ``TextSlice``. The parameter ``out`` points to the ``TextSlice`` to be processed. Since it is used for the last filter of the pipeline, it returns ``void``."
-msgstr ""
+msgstr "Метод ``operator()`` обрабатывает ``TextSlice``. Параметр ``out`` указывает на обрабатываемый ``TextSlice``. Поскольку этот метод используется для последнего фильтра конвейера, он возвращает ``void``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Working_on_the_Assembly_Line_pipeline.rst:239
 msgid "The functor for the middle filter is similar, but a bit more complex. It returns a pointer to the ``TextSlice`` that it produces."
-msgstr ""
+msgstr "Функтор для среднего фильтра аналогичен, но немного сложнее. Он возвращает указатель на ``TextSlice``, который он создает."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Working_on_the_Assembly_Line_pipeline.rst:246
 #, python-format
@@ -265,10 +347,40 @@ msgid ""
 "    return out;\n"
 "}"
 msgstr ""
+"// Функтор, изменяющий каждое десятичное число на его квадрат.\n"
+"class MyTransformFunc {\n"
+"public:\n"
+"    TextSlice* operator()( TextSlice* input ) const;\n"
+"};\n"
+"\n"
+"\n"
+"TextSlice* MyTransformFunc::operator()( TextSlice* input ) const {\n"
+"    // Добавьте завершающий нуль, чтобы strtol работал правильно, даже если число находится в конце ввода.\n"
+"    *input->end() = '\\0';\n"
+"    char* p = input->begin();\n"
+"    TextSlice* out = TextSlice::allocate( 2*MAX_CHAR_PER_INPUT_SLICE );\n"
+"    char* q = out->begin();\n"
+"    for(;;) {\n"
+"        while( p<input->end() && !isdigit(*p) )\n"
+"            *q++ = *p++;\n"
+"        if( p==input->end() )\n"
+"            break;\n"
+"        long x = strtol( p, &p, 10 );\n"
+"        // Примечание: здесь не требуется проверка на переполнение, так как длина входной строки\n"
+"        // в два раза больше, но квадрат неотрицательного целого числа n не может иметь более чем \n"
+"        // в два раза больше цифр, чем n.\n"
+"        long y = x*x;\n"
+"        sprintf(q,\"%ld\",y);\n"
+"        q = strchr(q,0);\n"
+"    }\n"
+"    out->set_end(q);\n"
+"    input->free();\n"
+"    return out;\n"
+"}"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Working_on_the_Assembly_Line_pipeline.rst:278
 msgid "The input functor is the most complicated, because it has to ensure that no numeral crosses a boundary. When it finds what could be a numeral crossing into the next slice, it copies the partial numeral to the next slice. Furthermore, it has to indicate when the end of input is reached. It does this by invoking method ``stop()`` on a special argument of type ``flow_control``. This idiom is required for any functor used for the first filter of a pipline."
-msgstr ""
+msgstr "Входной вектор является самым сложным, поскольку он должен гарантировать, что ни одна цифра не пересечет границу. Когда он находит цифру, которая может пересечь границу, он копирует неполную цифру в следующий фрагмент. Кроме того, он должен указать, когда достигнут конец ввода. Для этого он вызывает метод ``stop()`` на специальном аргументе типа ``flow_control``. Эта идиома необходима для любого функтора, используемого для первого фильтра конвейера."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Working_on_the_Assembly_Line_pipeline.rst:289
 msgid ""
@@ -322,7 +434,56 @@ msgid ""
 "    }\n"
 "}"
 msgstr ""
+"TextSlice* next_slice = NULL;\n"
+"\n"
+"\n"
+"class MyInputFunc {\n"
+"public:\n"
+"    MyInputFunc( FILE* input_file_ );\n"
+"    MyInputFunc( const MyInputFunc& f ) : input_file(f.input_file) { }\n"
+"    ~MyInputFunc();\n"
+"    TextSlice* operator()( oneapi::tbb::flow_control& fc ) const;\n"
+"private:\n"
+"    FILE* input_file;\n"
+"};\n"
+"\n"
+"\n"
+"MyInputFunc::MyInputFunc( FILE* input_file_ ) :\n"
+"    input_file(input_file_) { }\n"
+"\n"
+"\n"
+"MyInputFunc::~MyInputFunc() {\n"
+"}\n"
+"\n"
+"\n"
+"TextSlice* MyInputFunc::operator()( oneapi::tbb::flow_control& fc ) const {\n"
+"    // Считывание символов в пространство, которое доступно в следующем фрагменте.\n"
+"    if( !next_slice )\n"
+"        next_slice = TextSlice::allocate( MAX_CHAR_PER_INPUT_SLICE );\n"
+"    size_t m = next_slice->avail();\n"
+"    size_t n = fread( next_slice->end(), 1, m, input_file );\n"
+"    if( !n && next_slice->size()==0 ) {\n"
+"        // Больше нет символов для обработки\n"
+"        fc.stop();\n"
+"        return NULL;\n"
+"    } else {\n"
+"        // У вас больше символов для обработки.\n"
+"        TextSlice* t = next_slice;\n"
+"        next_slice = TextSlice::allocate( MAX_CHAR_PER_INPUT_SLICE );\n"
+"        char* p = t->end()+n;\n"
+"        if( n==m ) {\n"
+"            // Возможно, прочитал неполное число.\n"
+"            // Если да, перенесите символы неполного числа на следующий фрагмент.\n"
+"            while( p>t->begin() && isdigit(p[-1]) )\n"
+"                --p;\n"
+"            assert(p>t->begin(),\"Number too large to fit in buffer.\\n\");\n"
+"            next_slice->append( p, t->end()+n );\n"
+"        }\n"
+"        t->set_end(p);\n"
+"        return t;\n"
+"    }\n"
+"}"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Working_on_the_Assembly_Line_pipeline.rst:340
 msgid "The copy constructor must be defined because the functor is copied when the underlying ``oneapi::tbb::filter_t`` is built from the functor, and again when the pipeline runs."
-msgstr ""
+msgstr "Конструктор копирования должен быть определен, потому что функтор копируется, когда из него собирается базовый ``oneapi::tbb::filter_t``, и снова при запуске конвейера."

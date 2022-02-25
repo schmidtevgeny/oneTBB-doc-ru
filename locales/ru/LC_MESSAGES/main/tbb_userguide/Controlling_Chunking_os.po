@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-23 15:53+0300\n"
+"PO-Revision-Date: 2022-02-24 22:50+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -20,27 +20,27 @@ msgstr ""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Controlling_Chunking_os.rst:4
 msgid "Controlling Chunking"
-msgstr "Контролирование разбивки на части"
+msgstr "Контролирование распределения"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Controlling_Chunking_os.rst:7
 msgid "Chunking is controlled by a *partitioner* and a *grainsize.*\\  To gain the most control over chunking, you specify both."
-msgstr ""
+msgstr "Расщепление контролируется *partitioner* и *grainsize.*\\ Чтобы получить максимальный контроль над расщеплением, укажи оба параметра."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Controlling_Chunking_os.rst:11
 msgid "Specify ``simple_partitioner()`` as the third argument to ``parallel_for``. Doing so turns off automatic chunking."
-msgstr ""
+msgstr "Укажи ``simple_partitioner()`` в качестве третьего аргумента для ``parallel_for``. Это отключает автоматическое разбиение на части."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Controlling_Chunking_os.rst:15
 msgid "Specify the grainsize when constructing the range. The thread argument form of the constructor is ``blocked_range<T>(begin,end,grainsize)``. The default value of ``grainsize`` is 1. It is in units of loop iterations per chunk."
-msgstr ""
+msgstr "Укажи размер зерна при построении диапазона. Форма аргумента потока конструктора - ``blocked_range<T>(begin,end,grainsize)``. По умолчанию значение ``grainsize`` равно 1. Оно выражается в единицах итераций цикла на интревал."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Controlling_Chunking_os.rst:21
 msgid "If the chunks are too small, the overhead may exceed the performance advantage."
-msgstr ""
+msgstr "Если блоки слишком малы, то накладные расходы могут превысить преимущество в производительности."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Controlling_Chunking_os.rst:25
 msgid "The following code is the last example from parallel_for, modified to use an explicit grainsize ``G``."
-msgstr ""
+msgstr "Следующий код - это последний пример из parallel_for, модифицированный для использования явного размера зерна ``G``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Controlling_Chunking_os.rst:32
 msgid ""
@@ -52,99 +52,106 @@ msgid ""
 "                 simple_partitioner());\n"
 "}"
 msgstr ""
+"#include \"oneapi/tbb.h\"\n"
+"\n"
+"\n"
+"void ParallelApplyFoo( float a[], size_t n ) {\n"
+"    parallel_for(blocked_range<size_t>(0,n,G), ApplyFoo(a),\n"
+"                 simple_partitioner());\n"
+"}"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Controlling_Chunking_os.rst:41
 msgid "The grainsize sets a minimum threshold for parallelization. The ``parallel_for`` in the example invokes ``ApplyFoo::operator()`` on chunks, possibly of different sizes. Let *chunksize* be the number of iterations in a chunk. Using ``simple_partitioner`` guarantees that [G/2] <= *chunksize* <= G."
-msgstr ""
+msgstr "Размер зерна задает минимальный порог для распараллеливания. В примере ``parallel_for`` вызывает ``ApplyFoo::operator()`` на интервалах, возможно, разных размеров. Пусть *chunksize* - это количество итераций в диапазоне. Использование ``simple_partitioner`` гарантирует, что [G/2] <= *chunksize* <= G."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Controlling_Chunking_os.rst:48
 msgid "There is also an intermediate level of control where you specify the grainsize for the range, but use an ``auto_partitioner`` and ``affinity_partitioner``. An ``auto_partitioner`` is the default partitioner. Both partitioners implement the automatic grainsize heuristic described in :ref:`Automatic_Chunking`. An ``affinity_partitioner`` implies an additional hint, as explained later in Section :ref:`Bandwidth_and_Cache_Affinity`. Though these partitioners may cause chunks to have more than G iterations, they never generate chunks with less than [G/2] iterations. Specifying a range with an explicit grainsize may occasionally be useful to prevent these partitioners from generating wastefully small chunks if their heuristics fail."
-msgstr ""
+msgstr "Существует также промежуточный уровень контроля, когда ты указываешь размер зерна для диапазона, но используешь ``auto_partitioner`` и ``affinity_partitioner``. Разделитель ``auto_partitioner`` является разделителем по умолчанию. Оба разделителя реализуют автоматическую эвристику размера зерна, описанную в :ref:`Automatic_Chunking`. Разделитель ``affinity_partitioner`` подразумевает дополнительную подсказку, как объясняется позже в разделе :ref:`Bandwidth_and_Cache_Affinity`. Хотя эти разделители могут привести к тому, что интервалы будут иметь более G итераций, они никогда не генерируют блоки с менее чем [G/2] итераций. Указание диапазона с явным размером зерна иногда может быть полезным, чтобы предотвратить генерацию этими разделителями впустую маленьких блоков, если их эвристика не работает."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Controlling_Chunking_os.rst:62
 msgid "Because of the impact of grainsize on parallel loops, it is worth reading the following material even if you rely on ``auto_partitioner`` and ``affinity_partitioner`` to choose the grainsize automatically."
-msgstr ""
+msgstr "Из-за влияния размера зерна на параллельные циклы стоит прочитать следующий материал, даже если ты полагаешься на ``auto_partitioner`` и ``affinity_partitioner`` для автоматического выбора размера зерна."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Controlling_Chunking_os.rst:73
 msgid "|image0|"
-msgstr ""
+msgstr "|image0|"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Controlling_Chunking_os.rst:161
 msgid "image0"
-msgstr ""
+msgstr "image0"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Controlling_Chunking_os.rst:161
 msgid ".. image:: main/tbb_userguide/Images/image002.jpg"
-msgstr ""
+msgstr ".. image:: main/tbb_userguide/Images/image002.jpg"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Controlling_Chunking_os.rst:74
 msgid "|image1|"
-msgstr ""
+msgstr "|image1|"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Controlling_Chunking_os.rst:164
 msgid "image1"
-msgstr ""
+msgstr "image1"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Controlling_Chunking_os.rst:164
 msgid ".. image:: main/tbb_userguide/Images/image004.jpg"
-msgstr ""
+msgstr ".. image:: main/tbb_userguide/Images/image004.jpg"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Controlling_Chunking_os.rst:75
 msgid "Case A"
-msgstr ""
+msgstr "Случай A"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Controlling_Chunking_os.rst:76
 msgid "Case B"
-msgstr ""
+msgstr "Случай B"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Controlling_Chunking_os.rst:81
 msgid "The above figure illustrates the impact of grainsize by showing the useful work as the gray area inside a brown border that represents overhead. Both Case A and Case B have the same total gray area. Case A shows how too small a grainsize leads to a relatively high proportion of overhead. Case B shows how a large grainsize reduces this proportion, at the cost of reducing potential parallelism. The overhead as a fraction of useful work depends upon the grainsize, not on the number of grains. Consider this relationship and not the total number of iterations or number of processors when setting a grainsize."
-msgstr ""
+msgstr "Приведенный выше рисунок иллюстрирует влияние зернистости, показывая полезную работу как серую область внутри коричневой границы, которая представляет собой накладные расходы. И в случае А, и в случае Б общая площадь серой области одинакова. Пример А показывает, как слишком маленький grainsize приводит к относительно высокой доле накладных расходов. Пример Б показывает, как большой размер зерна уменьшает эту долю, ценой уменьшения потенциального параллелизма. Накладные расходы как доля полезной работы зависят от размера зерна, а не от количества зерен. При выборе размера зерна учитывай именно эту зависимость, а не общее количество итераций или количество процессоров."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Controlling_Chunking_os.rst:92
 msgid "A rule of thumb is that ``grainsize`` iterations of ``operator()`` should take at least 100,000 clock cycles to execute. For example, if a single iteration takes 100 clocks, then the ``grainsize`` needs to be at least 1000 iterations. When in doubt, do the following experiment:"
-msgstr ""
+msgstr "Эмпирическое правило гласит, что ``grainsize`` итераций ``operator()`` должен занимать не менее 100 000 тактов. Например, если одна итерация занимает 100 тактов, то ``grainsize`` должен быть не менее 1000 итераций. Если сомневаешься, проведи следующий эксперимент:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Controlling_Chunking_os.rst:98
 msgid "Set the ``grainsize`` parameter higher than necessary. The grainsize is specified in units of loop iterations. If you have no idea of how many clock cycles an iteration might take, start with ``grainsize``\\ =100,000. The rationale is that each iteration normally requires at least one clock per iteration. In most cases, step 3 will guide you to a much smaller value."
-msgstr ""
+msgstr "Установи параметр ``grainsize`` выше, чем необходимо. Размер зерна задается в единицах итераций цикла. Если ты не имеешь представления о том, сколько тактов может занять итерация, начни с ``grainsize``\\ =100 000. Это обосновано тем, что каждая итерация обычно требует как минимум одного такта на итерацию. В большинстве случаев шаг 3 подскажет тебе гораздо меньшее значение."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Controlling_Chunking_os.rst:106
 msgid "Run your algorithm."
-msgstr ""
+msgstr "Запусти свой алгоритм."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Controlling_Chunking_os.rst:109
 msgid "Iteratively halve the ``grainsize`` parameter and see how much the algorithm slows down or speeds up as the value decreases."
-msgstr ""
+msgstr "Итеративно уменьшай параметр ``grainsize`` в два раза и посмотри, насколько алгоритм замедляется или ускоряется по мере уменьшения значения."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Controlling_Chunking_os.rst:113
 msgid "A drawback of setting a grainsize too high is that it can reduce parallelism. For example, if the grainsize is 1000 and the loop has 2000 iterations, the ``parallel_for`` distributes the loop across only two processors, even if more are available. However, if you are unsure, err on the side of being a little too high instead of a little too low, because too low a value hurts serial performance, which in turns hurts parallel performance if there is other parallelism available higher up in the call tree."
-msgstr ""
+msgstr "Недостатком установки слишком большого размера зерна является то, что это может снизить параллелизм. Например, если grainsize равен 1000, а цикл имеет 2000 итераций, то ``parallel_for`` распределяет цикл только на два процессора, даже если доступно больше. Однако если ты не уверен, то лучше сделать выбор в пользу слишком высокого значения, чем слишком низкого, потому что слишком низкое значение вредит последовательной производительности, которая, в свою очередь, вредит параллельной производительности, если выше в дереве вызовов есть другой параллелизм."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Controlling_Chunking_os.rst:124
 msgid "You do not have to set the grainsize too precisely."
-msgstr ""
+msgstr "Тебе не обязательно устанавливать размер зерна слишком точно."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Controlling_Chunking_os.rst:127
 msgid "The next figure shows the typical \"bathtub curve\" for execution time versus grainsize, based on the floating point ``a[i]=b[i]*c`` computation over a million indices. There is little work per iteration. The times were collected on a four-socket machine with eight hardware threads."
-msgstr ""
+msgstr "На следующем рисунке показана типичная \"кривая ванны\" для времени выполнения в зависимости от размера зерна, основанная на вычислениях с плавающей запятой ``a[i]=b[i]*c`` над миллионом индексов. На одну итерацию приходится мало работы. Времена были собраны на четырехсокетной машине с восемью аппаратными потоками."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Controlling_Chunking_os.rst:138
 msgid "Wall Clock Time Versus Grainsize |image2|"
-msgstr ""
+msgstr "Затраты времени от зерна |image2|"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Controlling_Chunking_os.rst:167
 msgid "image2"
-msgstr ""
+msgstr "image2"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Controlling_Chunking_os.rst:167
 msgid ".. image:: main/tbb_userguide/Images/image006.jpg"
-msgstr ""
+msgstr ".. image:: main/tbb_userguide/Images/image006.jpg"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Controlling_Chunking_os.rst:142
 msgid "The scale is logarithmic. The downward slope on the left side indicates that with a grainsize of one, most of the overhead is parallel scheduling overhead, not useful work. An increase in grainsize brings a proportional decrease in parallel overhead. Then the curve flattens out because the parallel overhead becomes insignificant for a sufficiently large grainsize. At the end on the right, the curve turns up because the chunks are so large that there are fewer chunks than available hardware threads. Notice that a grainsize over the wide range 100-100,000 works quite well."
-msgstr ""
+msgstr "Шкала логарифмическая. Нисходящий наклон в левой части показывает, что при размере зерна, равном единице, большая часть накладных расходов - это накладные расходы на параллельное планирование, а не полезная работа. Увеличение зернистости приводит к пропорциональному снижению параллельных накладных расходов. Затем кривая уплощается, потому что параллельные накладные расходы становятся незначительными при достаточно большом размере зерна. В конце справа кривая закручивается вверх, потому что блоки настолько велики, что их меньше, чем доступных аппаратных потоков. Заметь, что зернистость в широком диапазоне 100-100 000 работает достаточно хорошо."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Controlling_Chunking_os.rst:154
 msgid "A general rule of thumb for parallelizing loop nests is to parallelize the outermost one possible. The reason is that each iteration of an outer loop is likely to provide a bigger grain of work than an iteration of an inner loop."
-msgstr ""
+msgstr "Общее эмпирическое правило для распараллеливания вложенных циклов - распараллеливать самый крайний из них. Причина в том, что каждая итерация внешнего цикла, скорее всего, обеспечит большее зерно работы, чем итерация внутреннего цикла."

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 14:23+0300\n"
+"PO-Revision-Date: 2022-02-24 22:24+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,120 +25,120 @@ msgstr "Windows\\*"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:6
 msgid "This section uses <*tbb_install_dir*> to indicate the top-level installation directory. The following table describes the subdirectory structure for Windows\\*, relative to <*tbb_install_dir*>."
-msgstr ""
+msgstr "В этом разделе используется <*tbb_install_dir*> для обозначения каталога установки верхнего уровня. Следующая таблица описывает структуру подкаталогов для Windows\\*, относительно <*tbb_install_dir*>."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:16
 msgid "Item"
-msgstr ""
+msgstr "Элемент"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:17
 msgid "Location"
-msgstr ""
+msgstr "Местоположение"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:18
 msgid "Environment Variable"
-msgstr ""
+msgstr "Переменная окружения"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:19
 msgid "Header files"
-msgstr ""
+msgstr "Заголовочные файлы"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst
 msgid "``include\\oneapi\\tbb.h``"
-msgstr ""
+msgstr "``include\\oneapi\\tbb.h``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst
 msgid "``include\\oneapi\\tbb\\*.h``"
-msgstr ""
+msgstr "``include\\oneapi\\tbb\\*.h``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:22
 msgid "``INCLUDE``"
-msgstr ""
+msgstr "``INCLUDE``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:23
 msgid ".lib files"
-msgstr ""
+msgstr "файлы .lib"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:24
 msgid "``lib\\<arch>\\vc<vcversion>\\<lib><variant><version>.lib``\\"
-msgstr ""
+msgstr "``lib\\<arch>\\vc<vcversion>\\<lib><variant><version>.lib``\\"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:25
 msgid "``LIB``"
-msgstr ""
+msgstr "``LIB``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:26
 msgid ".dll files"
-msgstr ""
+msgstr "файлы .dll"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:27
 msgid "``redist\\<arch>\\vc<vcversion>\\<lib><variant><version>.dll``"
-msgstr ""
+msgstr "``redist\\<arch>\\vc<vcversion>\\<lib><variant><version>.dll``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:28
 msgid "``PATH``"
-msgstr ""
+msgstr "``PATH``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:29
 msgid ".pdb files"
-msgstr ""
+msgstr "файлы .pdb"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:30
 msgid "Same as corresponding ``.dll`` file."
-msgstr ""
+msgstr "То же самое, что и соответствующий файл ``.dll``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:31
 msgid "\\"
-msgstr ""
+msgstr "\\"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:33
 msgid "where"
-msgstr ""
+msgstr "где"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:35
 msgid "``<arch>`` - ``ia32`` or ``intel64``"
-msgstr ""
+msgstr "``<arch>`` - ``ia32`` или ``intel64``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:37
 msgid "``<lib>`` - ``tbb``, ``tbbmalloc``, ``tbbmalloc_proxy`` or ``tbbbind``"
-msgstr ""
+msgstr "``<lib>`` - ``tbb``, ``tbbmalloc``, ``tbbmalloc_proxy`` или ``tbbbind``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:39
 msgid "``<vcversion>``"
-msgstr ""
+msgstr "``<vcversion>``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:41
 msgid "``14`` - use for dynamic linkage  with the CRT"
-msgstr ""
+msgstr "``14`` - используйте для динамической связи с CRT"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:43
 msgid "``14_uwp`` - use for Windows 10 Universal Windows applications"
-msgstr ""
+msgstr "``14_uwp`` - использование для приложений Windows 10 Universal Windows"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:45
 msgid "``14_uwd`` - use for Universal Windows Drivers"
-msgstr ""
+msgstr "``14_uwd`` - использование для универсальных драйверов Windows"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:47
 msgid "``_mt`` - use for static linkage with the CRT"
-msgstr ""
+msgstr "``_mt`` - используется для статической связи с CRT"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:49
 msgid "``<variant>`` - ``_debug`` or empty"
-msgstr ""
+msgstr "``<variant>`` - ``_debug`` или пусто"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:51
 msgid "``<version>`` - binary version"
-msgstr ""
+msgstr "``<version>`` - бинарная версия"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:53
 msgid "The last column shows which environment variables are used by the Microsoft\\* Visual C++\\* or Intel® C++ Compiler Classic or Intel® oneAPI DPC++/C++ Compiler to find these subdirectories."
-msgstr ""
+msgstr "Последний столбец показывает, какие переменные окружения используются Microsoft\\* Visual C++\\* или Intel® C++ Compiler Classic или Intel® oneAPI DPC++/C++ Compiler для поиска этих подкаталогов."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:58
 msgid "Ensure that the relevant product directories are mentioned by the environment variables; otherwise the compiler might not find the required files."
-msgstr ""
+msgstr "Убедись, что соответствующие каталоги продукта упомянуты переменными окружения, иначе компилятор может не найти нужные файлы."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_OS_ug.rst:64
 msgid "Microsoft\\* C/C++ run-time libraries come in static and dynamic forms. Either can be used with oneTBB. Linking to the oneTBB library is always dynamic."
-msgstr ""
+msgstr "Библиотеки времени выполнения Microsoft\\* C/C++ бывают в статической и динамической формах. Любая из них может быть использована с oneTBB. Связывание с библиотекой oneTBB всегда динамическое."

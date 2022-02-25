@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 00:23+0300\n"
+"PO-Revision-Date: 2022-02-24 22:40+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,11 +25,11 @@ msgstr "Лямбда-выражения"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lambda_Expressions.rst:7
 msgid "C++11 lambda expressions make the |full_name| ``parallel_for`` much easier to use. A lambda expression lets the compiler do the tedious work of creating a function object."
-msgstr ""
+msgstr "В C++11 лямбда-выражения делают |full_name| ``parallel_for`` намного проще в использовании. Лямбда-выражение позволяет компилятору выполнить утомительную работу по созданию функтора."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lambda_Expressions.rst:12
 msgid "Below is the example from the previous section, rewritten with a lambda expression. The lambda expression, replaces both the declaration and construction of function object ``ApplyFoo`` in the example of the previous section."
-msgstr ""
+msgstr "Ниже приведен пример из предыдущего раздела, переписанный с помощью лямбда-выражения. Лямбда-выражение заменяет как объявление, так и построение объекта функции ``ApplyFoo`` в примере из предыдущего раздела."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lambda_Expressions.rst:20
 msgid ""
@@ -48,54 +48,68 @@ msgid ""
 "    );\n"
 "}"
 msgstr ""
+"#include \"oneapi/tbb.h\"\n"
+"\n"
+"\n"
+"using namespace oneapi::tbb;\n"
+"\n"
+"\n"
+"void ParallelApplyFoo( float* a, size_t n ) {\n"
+"   parallel_for( blocked_range<size_t>(0,n),\n"
+"      [=](const blocked_range<size_t>& r) {\n"
+"                      for(size_t i=r.begin(); i!=r.end(); ++i)\n"
+"                          Foo(a[i]);\n"
+"                  }\n"
+"    );\n"
+"}"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lambda_Expressions.rst:36
 msgid "The [=] introduces the lambda expression. The expression creates a function object very similar to ``ApplyFoo``. When local variables like ``a`` and ``n`` are declared outside the lambda expression, but used inside it, they are \"captured\" as fields inside the function object. The [=] specifies that capture is by value. Writing [&] instead would capture the values by reference. After the [=] is the parameter list and definition for the ``operator()`` of the generated function object. The compiler documentation says more about lambda expressions and other implemented C++11 features. It is worth reading more complete descriptions of lambda expressions than can fit here, because lambda expressions are a powerful feature for using template libraries in general."
-msgstr ""
+msgstr "Символ [=] вводит лямбда-выражение. Это выражение создает объект функции, очень похожий на ``ApplyFoo``. Когда локальные переменные, такие как ``a`` и ``n``, объявляются вне лямбда-выражения, но используются внутри него, они \"захватываются\" как поля внутри объекта функции. Символ [=] указывает, что захват происходит по значению. Если вместо этого написать [&], то значения будут захвачены по ссылке. После [=] идет список параметров и определение для ``operator()`` сгенерированного функтора. В документации компилятора сказано больше о лямбда-выражениях и других реализованных возможностях C++11. Стоит прочитать более полное описание лямбда-выражений, чем может поместиться здесь, потому что лямбда-выражения - это мощная возможность для использования библиотек шаблонов в целом."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lambda_Expressions.rst:50
 msgid "C++11 support is off by default in the compiler. The following table shows the option for turning it on."
-msgstr ""
+msgstr "По умолчанию в компиляторе поддержка C++11 выключена. В следующей таблице показаны варианты её включения."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lambda_Expressions.rst:60
 msgid "Environment"
-msgstr ""
+msgstr "Окружение"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lambda_Expressions.rst:61
 msgid "Intel® C++ Compiler Classic"
-msgstr ""
+msgstr "Intel® C++ Compiler Classic"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lambda_Expressions.rst:62
 msgid "Intel® oneAPI DPC++/C++ Compiler"
-msgstr ""
+msgstr "Intel® oneAPI DPC++/C++ Compiler"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lambda_Expressions.rst:63
 msgid "Windows\\* OS systems"
-msgstr ""
+msgstr "Windows\\* OS systems"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lambda_Expressions.rst:64
 msgid "\\ ``icl /Qstd=c++11 foo.cpp``"
-msgstr ""
+msgstr "\\ ``icl /Qstd=c++11 foo.cpp``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lambda_Expressions.rst:65
 msgid "\\ ``icx /Qstd=c++11 foo.cpp``"
-msgstr ""
+msgstr "\\ ``icx /Qstd=c++11 foo.cpp``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lambda_Expressions.rst:66
 msgid "Linux\\* OS systems"
-msgstr ""
+msgstr "Linux\\* OS systems"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lambda_Expressions.rst:67
 msgid "\\ ``icc -std=c++11 foo.cpp``"
-msgstr ""
+msgstr "\\ ``icc -std=c++11 foo.cpp``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lambda_Expressions.rst:68
 msgid "\\ ``icx -std=c++11 foo.cpp``"
-msgstr ""
+msgstr "\\ ``icx -std=c++11 foo.cpp``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lambda_Expressions.rst:73
 msgid "For further compactness, oneTBB has a form of ``parallel_for`` expressly for parallel looping over a consecutive range of integers. The expression ``parallel_for(first,last,step,f)`` is like writing ``for(auto i=first;         i<last;       i+=step)f(i)`` except that each f(i) can be evaluated in parallel if resources permit. The ``step`` parameter is optional. Here is the previous example rewritten in the compact form:"
-msgstr ""
+msgstr "Для большей компактности в oneTBB есть форма ``parallel_for``, предназначенная специально для параллельного цикла по последовательному диапазону целых чисел. Выражение ``parallel_for(first,last,step,f)`` похоже на запись ``for(auto i=first; i<last; i+=step)f(i)``, за исключением того, что каждая f(i) может быть оценена параллельно, если позволяют ресурсы. Параметр ``step`` является необязательным. Вот предыдущий пример, переписанный в компактной форме:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lambda_Expressions.rst:85
 msgid ""
@@ -112,7 +126,19 @@ msgid ""
 "    parallel_for(size_t(0), n, [=](size_t i) {Foo(a[i]);});\n"
 "}"
 msgstr ""
+"#include \"oneapi/tbb.h\"\n"
+"\n"
+"\n"
+"using namespace oneapi::tbb;\n"
+"\n"
+"\n"
+"#pragma warning(disable: 588)\n"
+"\n"
+"\n"
+"void ParallelApplyFoo(float a[], size_t n) {\n"
+"    parallel_for(size_t(0), n, [=](size_t i) {Foo(a[i]);});\n"
+"}"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lambda_Expressions.rst:99
 msgid "The compact form supports only unidimensional iteration spaces of integers and the automatic chunking feature detailed on the following section."
-msgstr ""
+msgstr "Компактная форма поддерживает только одномерные пространства итераций целых чисел и функцию автоматической разбивки на части, подробно описанную в следующем разделе."

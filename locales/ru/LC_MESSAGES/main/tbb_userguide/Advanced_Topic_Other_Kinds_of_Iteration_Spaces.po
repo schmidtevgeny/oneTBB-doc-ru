@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-23 15:56+0300\n"
+"PO-Revision-Date: 2022-02-24 22:15+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,7 +25,7 @@ msgstr "Расширенная тема: Другие виды итерацио�
 
 #: ../../oneTBB/doc/main/tbb_userguide/Advanced_Topic_Other_Kinds_of_Iteration_Spaces.rst:7
 msgid "The examples so far have used the class ``blocked_range<T>`` to specify ranges. This class is useful in many situations, but it does not fit every situation. You can use |full_name| to define your own iteration space objects. The object must specify how it can be split into subspaces by providing a basic splitting constructor, an optional proportional splitting constructor (accompanied with a trait value that enables its usage), and two predicate methods. If your class is called ``R``, the methods and constructors should be as follows:"
-msgstr ""
+msgstr "В примерах до сих пор для задания диапазонов использовался класс ``blocked_range<T>``. Этот класс полезен во многих ситуациях, но он не подходит для всех ситуаций. Вы можете использовать |full_name| для определения собственных объектов пространства итераций. Объект должен указать, как он может быть разбит на подпространства, предоставив конструктор базового разбиения, необязательный конструктор пропорционального разбиения (сопровождаемый значением признака, позволяющим его использовать) и два предикатных метода. Если ваш класс называется ``R``, то методы и конструкторы должны быть следующими:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Advanced_Topic_Other_Kinds_of_Iteration_Spaces.rst:21
 msgid ""
@@ -43,31 +43,44 @@ msgid ""
 "    ...\n"
 "};"
 msgstr ""
+"class R {\n"
+"    // Истина, если диапазон пуст\n"
+"    bool empty() const;\n"
+"    // Истинно, если диапазон может быть разбит на непустые поддиапазоны\n"
+"    bool is_divisible() const;\n"
+"    // Разделяет r на подмножества r и *this\n"
+"    R( R& r, split );\n"
+"    // Делит r на подмножества r и *this в пропорции p\n"
+"    R( R& r, proportional_split p );\n"
+"    // Позволяет использовать конструктор пропорционального разделения\n"
+"    static const bool is_splittable_in_proportion = true;\n"
+"    ...\n"
+"};"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Advanced_Topic_Other_Kinds_of_Iteration_Spaces.rst:38
 msgid "The method ``empty`` should return true if the range is empty. The method ``is_divisible`` should return true if the range can be split into two non-empty subspaces, and such a split is worth the overhead. The basic splitting constructor should take two arguments:"
-msgstr ""
+msgstr "Метод ``empty`` должен возвращать true, если диапазон пуст. Метод ``is_divisible`` должен возвращать true, если диапазон может быть разбит на два непустых подпространства, и такое разбиение стоит накладных расходов. Основной конструктор разбиения должен принимать два аргумента:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Advanced_Topic_Other_Kinds_of_Iteration_Spaces.rst:44
 msgid "The first of type ``R``"
-msgstr ""
+msgstr "Первый из типов ``R``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Advanced_Topic_Other_Kinds_of_Iteration_Spaces.rst:47
 msgid "The second of type oneapi::tbb::split"
-msgstr ""
+msgstr "Второй из типов oneapi::tbb::split"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Advanced_Topic_Other_Kinds_of_Iteration_Spaces.rst:50
 msgid "The second argument is not used; it serves only to distinguish the constructor from an ordinary copy constructor. The basic splitting constructor should attempt to split ``r`` roughly into two halves, and update ``r`` to be the first half, and set the constructed object as the second half."
-msgstr ""
+msgstr "Второй аргумент не используется; он служит только для того, чтобы отличить конструктор от обычного конструктора копирования. Основной конструктор расщепления должен попытаться разделить ``r`` примерно на две половины, обновить ``r`` как первую половину, и установить построенный объект как вторую половину."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Advanced_Topic_Other_Kinds_of_Iteration_Spaces.rst:57
 msgid "Unlike the basic splitting constructor, the proportional splitting constructor is optional and takes the second argument of type ``oneapi::tbb::proportional_split``. The type has methods ``left`` and ``right`` that return the values of the proportion. These values should be used to split ``r`` accordingly, so that the updated ``r`` corresponds to the left part of the proportion, and the constructed object corresponds to the right part. The proportional splitting constructor will be used only if the static constant ``is_splittable_in_proportion`` is defined in the class and assigned the value of ``true``."
-msgstr ""
+msgstr "В отличие от конструктора базового разбиения, конструктор пропорционального разбиения является необязательным и принимает второй аргумент типа ``oneapi::tbb::proportional_split``. Этот тип имеет методы ``left`` и ``right``, которые возвращают значения пропорции. Эти значения должны быть использованы для разделения ``r`` соответствующим образом, так чтобы обновленный ``r`` соответствовал левой части пропорции, а построенный объект - правой. Конструктор пропорционального деления будет использоваться только в том случае, если в классе определена статическая константа ``is_splittable_in_proportion`` и ей присвоено значение ``true``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Advanced_Topic_Other_Kinds_of_Iteration_Spaces.rst:68
 msgid "Both splitting constructors should guarantee that the updated ``r`` part and the constructed object are not empty. The parallel algorithm templates call the splitting constructors on ``r`` only if ``r.is_divisible`` is true."
-msgstr ""
+msgstr "Оба конструктора расщепления должны гарантировать, что обновленная часть ``r`` и построенный объект не пусты. Шаблоны параллельного алгоритма вызывают конструкторы разбиения на ``r`` только если ``r.is_divisible`` истинно."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Advanced_Topic_Other_Kinds_of_Iteration_Spaces.rst:74
 msgid "The iteration space does not have to be linear. Look at ``oneapi/tbb/blocked_range2d.h`` for an example of a range that is two-dimensional. Its splitting constructor attempts to split the range along its longest axis. When used with ``parallel_for``, it causes the loop to be \"recursively blocked\" in a way that improves cache usage. This nice cache behavior means that using ``parallel_for`` over a ``blocked_range2d<T>`` can make a loop run faster than the sequential equivalent, even on a single processor."
-msgstr ""
+msgstr "Пространство итераций не обязательно должно быть линейным. Посмотрите на ``oneapi/tbb/blocked_range2d.h`` для примера двумерного диапазона. Его конструктор разбиения пытается разделить диапазон вдоль его самой длинной оси. При использовании с ``parallel_for`` он заставляет цикл \"рекурсивно блокироваться\" таким образом, что улучшается использование кэша. Это хорошее поведение кэша означает, что использование ``parallel_for`` над ``blocked_range2d<T>`` может заставить цикл работать быстрее, чем последовательный эквивалент, даже на одном процессоре."

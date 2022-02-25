@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 00:24+0300\n"
+"PO-Revision-Date: 2022-02-25 22:45+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,14 +25,16 @@ msgstr "Основы графа потока: Объект графа"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Graph_Object.rst:7
 msgid "Conceptually a flow graph is a collection of nodes and edges. Each node belongs to exactly one graph and edges are made only between nodes in the same graph. In the flow graph interface, a graph object represents this collection of nodes and edges, and is used for invoking whole graph operations such as waiting for all tasks related to the graph to complete, resetting the state of all nodes in the graph, and canceling the execution of all nodes in the graph."
-msgstr ""
+msgstr "Концептуально граф потока - это набор узлов и ребер. Каждый узел принадлежит ровно одному графу, а ребра проводятся только между узлами одного и того же графа. В интерфейсе графа потока объект graph представляет эту коллекцию узлов и ребер и используется для вызова целых операций с графом, таких как ожидание завершения всех задач, связанных с графом, сброс состояния всех узлов графа и отмена выполнения всех узлов графа."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Graph_Object.rst:16
 msgid "The code below creates a graph object and then waits for all tasks spawned by the graph to complete. The call to ``wait_for_all`` in this example returns immediately since this is a trivial graph with no nodes or edges, and therefore no tasks are spawned."
-msgstr ""
+msgstr "Код ниже создает объект графа, а затем ждет завершения всех задач, порожденных графом. Вызов ``wait_for_all`` в этом примере возвращается немедленно, так как это тривиальный граф без узлов и ребер, и поэтому никакие задачи не порождаются."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Graph_Object.rst:25
 msgid ""
 "graph g;\n"
 "g.wait_for_all();"
 msgstr ""
+"graph g;\n"
+"g.wait_for_all();"

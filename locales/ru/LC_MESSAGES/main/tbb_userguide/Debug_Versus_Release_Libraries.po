@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-23 15:52+0300\n"
+"PO-Revision-Date: 2022-02-24 22:19+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,88 +25,88 @@ msgstr "Отладочные библиотеки против релизных 
 
 #: ../../oneTBB/doc/main/tbb_userguide/Debug_Versus_Release_Libraries.rst:7
 msgid "The following table details the |full_name| dynamic shared libraries that come in debug and release versions."
-msgstr ""
+msgstr "В следующей таблице подробно описаны динамические разделяемые библиотеки |full_name|, которые поставляются в отладочной и релизной версиях."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Debug_Versus_Release_Libraries.rst:18
 msgid "Library"
-msgstr ""
+msgstr "Библиотека"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Debug_Versus_Release_Libraries.rst:19
 msgid "Description"
-msgstr ""
+msgstr "Описание"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Debug_Versus_Release_Libraries.rst:20
 msgid "When to Use"
-msgstr ""
+msgstr "Когда использовать"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Debug_Versus_Release_Libraries.rst
 msgid "``tbb_debug``"
-msgstr ""
+msgstr "``tbb_debug``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Debug_Versus_Release_Libraries.rst
 msgid "``tbbmalloc_debug``"
-msgstr ""
+msgstr "``tbbmalloc_debug``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Debug_Versus_Release_Libraries.rst
 msgid "``tbbmalloc_proxy_debug``"
-msgstr ""
+msgstr "``tbbmalloc_proxy_debug``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Debug_Versus_Release_Libraries.rst
 msgid "``tbbbind_debug``"
-msgstr ""
+msgstr "``tbbbind_debug``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Debug_Versus_Release_Libraries.rst:25
 msgid "These versions have extensive internal checking for correct use of the library."
-msgstr ""
+msgstr "Эти версии имеют обширную внутреннюю проверку на правильность использования библиотеки."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Debug_Versus_Release_Libraries.rst:26
 msgid "Use with code that is compiled with the macro ``TBB_USE_DEBUG`` set to 1."
-msgstr ""
+msgstr "Используй с кодом, который скомпилирован с макросом ``TBB_USE_DEBUG``, установленным в 1."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Debug_Versus_Release_Libraries.rst
 msgid "``tbb``"
-msgstr ""
+msgstr "``tbb``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Debug_Versus_Release_Libraries.rst
 msgid "``tbbmalloc``"
-msgstr ""
+msgstr "``tbbmalloc``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Debug_Versus_Release_Libraries.rst
 msgid "``tbbmalloc_proxy``"
-msgstr ""
+msgstr "``tbbmalloc_proxy``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Debug_Versus_Release_Libraries.rst
 msgid "``tbbbind``"
-msgstr ""
+msgstr "``tbbbind``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Debug_Versus_Release_Libraries.rst:31
 msgid "These versions deliver top performance. They eliminate  most checking for correct use of the library."
-msgstr ""
+msgstr "Эти версии обеспечивают высочайшую производительность. Они устраняют большинство проверок правильности использования библиотеки."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Debug_Versus_Release_Libraries.rst:32
 msgid "Use with code compiled with ``TBB_USE_DEBUG`` undefined or set to zero."
-msgstr ""
+msgstr "Используй с кодом, скомпилированным с ``TBB_USE_DEBUG`` неопределенным или установленным в ноль."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Debug_Versus_Release_Libraries.rst:35
 msgid "Test your programs with the debug versions of the libraries first, to assure that you are using the library correctly.  With the release versions, incorrect usage may result in unpredictable program behavior."
-msgstr ""
+msgstr "Сначала протестируй свои программы с отладочными версиями библиотек, чтобы убедиться, что ты используешь библиотеку правильно.  В релизных версиях неправильное использование может привести к непредсказуемому поведению программы."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Debug_Versus_Release_Libraries.rst:41
 msgid "oneTBB supports Intel® Inspector, Intel® VTune™ Profiler and Intel® Advisor. Full support of these tools requires compiling with macro ``TBB_USE_PROFILING_TOOLS=1``. That symbol defaults to 1 in the following conditions:"
-msgstr ""
+msgstr "oneTBB поддерживает Intel® Inspector, Intel® VTune™ Profiler и Intel® Advisor. Полная поддержка этих инструментов требует компиляции с макросом ``TBB_USE_PROFILING_TOOLS=1``. Этот символ по умолчанию равен 1 в следующих условиях:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Debug_Versus_Release_Libraries.rst:45
 msgid "When ``TBB_USE_DEBUG=1``."
-msgstr ""
+msgstr "Когда ``TBB_USE_DEBUG=1``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Debug_Versus_Release_Libraries.rst:46
 msgid "On the Microsoft Windows\\* operating system, when ``_DEBUG=1``."
-msgstr ""
+msgstr "В операционной системе Microsoft Windows\\*, когда ``_DEBUG=1``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Debug_Versus_Release_Libraries.rst:48
 msgid "The :ref:`reference` section explains the default values in more detail."
-msgstr ""
+msgstr "В разделе :ref:`reference` более подробно объясняются значения по умолчанию."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Debug_Versus_Release_Libraries.rst:52
 msgid "The instrumentation support for Intel® Inspector becomes live after the first initialization of the task library. If the library components are used before this initialization occurs, Intel® Inspector may falsely report race conditions that are not really races."
-msgstr ""
+msgstr "Поддержка инструментария для Intel® Inspector становится активной после первой инициализации библиотеки задач. Если компоненты библиотеки используются до того, как произойдет эта инициализация, Intel® Inspector может ложно сообщать о состоянии гонки, которые на самом деле таковыми не являются."

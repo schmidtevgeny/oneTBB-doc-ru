@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 14:10+0300\n"
+"PO-Revision-Date: 2022-02-24 22:37+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,7 +25,7 @@ msgstr "parallel_for"
 
 #: ../../oneTBB/doc/main/tbb_userguide/parallel_for_os.rst:7
 msgid "Suppose you want to apply a function ``Foo`` to each element of an array, and it is safe to process each element concurrently. Here is the sequential code to do this:"
-msgstr ""
+msgstr "Предположим, ты хочешь применить функцию ``Foo`` к каждому элементу массива, и безопасно обрабатывать каждый элемент параллельно. Вот последовательный код для этого:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/parallel_for_os.rst:15
 msgid ""
@@ -34,10 +34,14 @@ msgid ""
 "        Foo(a[i]);\n"
 "}"
 msgstr ""
+"void SerialApplyFoo( float a[], size_t n ) {\n"
+"    for( size_t i=0; i!=n; ++i )\n"
+"        Foo(a[i]);\n"
+"}"
 
 #: ../../oneTBB/doc/main/tbb_userguide/parallel_for_os.rst:21
 msgid "The iteration space here is of type ``size_t``, and goes from ``0`` to ``n-1``. The template function ``oneapi::tbb::parallel_for`` breaks this iteration space into chunks, and runs each chunk on a separate thread. The first step in parallelizing this loop is to convert the loop body into a form that operates on a chunk. The form is an STL-style function object, called the *body* object, in which ``operator()`` processes a chunk. The following code declares the body object."
-msgstr ""
+msgstr "Пространство итераций здесь имеет тип ``size_t`` и идет от ``0`` до ``n-1``. Шаблонная функция ``oneapi::tbb::parallel_for`` разбивает это пространство итераций на фрагменты и запускает каждый фрагмент в отдельном потоке. Первым шагом в распараллеливании этого цикла является преобразование тела цикла в форму, которая работает с чанком. Форма представляет собой функтор в стиле STL, называемый объектом *body*, в котором ``operator()`` обрабатывает интервал. Следующий код объявляет объект body."
 
 #: ../../oneTBB/doc/main/tbb_userguide/parallel_for_os.rst:31
 msgid ""
@@ -58,38 +62,54 @@ msgid ""
 "    {}\n"
 "};"
 msgstr ""
+"#include \"oneapi/tbb.h\"\n"
+"\n"
+"using namespace oneapi::tbb;\n"
+"\n"
+"class ApplyFoo {\n"
+"    float *const my_a;\n"
+"public:\n"
+"    void operator()( const blocked_range<size_t>& r ) const {\n"
+"        float *a = my_a;\n"
+"        for( size_t i=r.begin(); i!=r.end(); ++i )\n"
+"           Foo(a[i]);\n"
+"    }\n"
+"    ApplyFoo( float a[] ) :\n"
+"        my_a(a)\n"
+"    {}\n"
+"};"
 
 #: ../../oneTBB/doc/main/tbb_userguide/parallel_for_os.rst:49
 msgid "The ``using`` directive in the example enables you to use the library identifiers without having to write out the namespace prefix ``oneapi::tbb`` before each identifier. The rest of the examples assume that such a ``using`` directive is present."
-msgstr ""
+msgstr "Директива ``using`` в примере позволяет тебе использовать идентификаторы библиотеки без необходимости прописывать префикс пространства имен ``oneapi::tbb`` перед каждым идентификатором. Остальные примеры предполагают наличие такой директивы ``using``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/parallel_for_os.rst:55
 msgid "Note the argument to ``operator()``. A ``blocked_range<T>`` is a template class provided by the library. It describes a one-dimensional iteration space over type ``T``. Class ``parallel_for`` works with other kinds of iteration spaces too. The library provides ``blocked_range2d`` for two-dimensional spaces. You can define your own spaces as explained in :ref:`Advanced_Topic_Other_Kinds_of_Iteration_Spaces`."
-msgstr ""
+msgstr "Обрати внимание на аргумент к ``operator()``. ``blocked_range<T>`` - это шаблонный класс, предоставляемый библиотекой. Он описывает одномерное итерационное пространство над типом ``T``. Класс ``parallel_for`` работает и с другими видами итерационных пространств. Библиотека предоставляет ``blocked_range2d`` для двумерных пространств. Ты можешь определить свои собственные пространства, как объясняется в :ref:`Advanced_Topic_Other_Kinds_of_Iteration_Spaces`."
 
 #: ../../oneTBB/doc/main/tbb_userguide/parallel_for_os.rst:63
 msgid "An instance of ``ApplyFoo`` needs member fields that remember all the local variables that were defined outside the original loop but used inside it. Usually, the constructor for the body object will initialize these fields, though ``parallel_for`` does not care how the body object is created. Template function ``parallel_for`` requires that the body object have a copy constructor, which is invoked to create a separate copy (or copies) for each worker thread. It also invokes the destructor to destroy these copies. In most cases, the implicitly generated copy constructor and destructor work correctly. If they do not, it is almost always the case (as usual in C++) that you must define *both* to be consistent."
-msgstr ""
+msgstr "Экземпляр ``ApplyFoo`` нуждается в полях-членах, которые помнят все локальные переменные, определенные вне исходного цикла, но используемые внутри него. Обычно конструктор объекта body инициализирует эти поля, хотя ``parallel_for`` не заботится о том, как создается объект body. Шаблонная функция ``parallel_for`` требует, чтобы у объекта body был конструктор копирования, который вызывается для создания отдельной копии (или копий) для каждого рабочего потока. Он также вызывает деструктор для уничтожения этих копий. В большинстве случаев неявно созданные конструктор и деструктор копирования работают правильно. Если они не работают, то почти всегда (как обычно в C++) вы должны определить *оба*, чтобы быть последовательным."
 
 #: ../../oneTBB/doc/main/tbb_userguide/parallel_for_os.rst:76
 msgid "Because the body object might be copied, its ``operator()`` should not modify the body. Otherwise the modification might or might not become visible to the thread that invoked ``parallel_for``, depending upon whether ``operator()`` is acting on the original or a copy. As a reminder of this nuance, ``parallel_for`` requires that the body object's ``operator()`` be declared ``const``."
-msgstr ""
+msgstr "Поскольку объект body может быть скопирован, его ``operator()`` не должен модифицировать body. Иначе модификация может стать или не стать видимой для потока, вызвавшего ``parallel_for``, в зависимости от того, действует ли ``operator()`` на оригинале или копии. В качестве напоминания об этом нюансе, ``parallel_for`` требует, чтобы ``operator()`` был объявлен ``const`` для объекта body."
 
 #: ../../oneTBB/doc/main/tbb_userguide/parallel_for_os.rst:84
 msgid "The example ``operator()`` loads ``my_a`` into a local variable ``a``. Though not necessary, there are two reasons for doing this in the example:"
-msgstr ""
+msgstr "Например ``operator()`` загружает ``my_a`` в локальную переменную ``a``. Хотя это и не обязательно, в примере есть две причины сделать это:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/parallel_for_os.rst:89
 msgid "**Style**. It makes the loop body look more like the original."
-msgstr ""
+msgstr "**Стиль**. Это делает тело цикла более похожим на оригинал."
 
 #: ../../oneTBB/doc/main/tbb_userguide/parallel_for_os.rst:92
 msgid "**Performance**. Sometimes putting frequently accessed values into local variables helps the compiler optimize the loop better, because local variables are often easier for the compiler to track."
-msgstr ""
+msgstr "**Производительность**. Иногда помещение часто используемых значений в локальные переменные помогает компилятору лучше оптимизировать цикл, потому что локальные переменные часто легче отслеживать компилятору."
 
 #: ../../oneTBB/doc/main/tbb_userguide/parallel_for_os.rst:97
 msgid "Once you have the loop body written as a body object, invoke the template function ``parallel_for``, as follows:"
-msgstr ""
+msgstr "Как только ты записал тело цикла в виде объекта body, вызови функцию шаблона ``parallel_for``, как показано ниже:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/parallel_for_os.rst:104
 msgid ""
@@ -100,7 +120,13 @@ msgid ""
 "    parallel_for(blocked_range<size_t>(0,n), ApplyFoo(a));\n"
 "}"
 msgstr ""
+"#include \"oneapi/tbb.h\"\n"
+"\n"
+"\n"
+"void ParallelApplyFoo( float a[], size_t n ) {\n"
+"    parallel_for(blocked_range<size_t>(0,n), ApplyFoo(a));\n"
+"}"
 
 #: ../../oneTBB/doc/main/tbb_userguide/parallel_for_os.rst:112
 msgid "The ``blocked_range`` constructed here represents the entire iteration space from 0 to n-1, which ``parallel_for`` divides into subspaces for each processor. The general form of the constructor is ``blocked_range<T>(begin,end,grainsize)``. The ``T`` specifies the value type. The arguments ``begin`` and ``end`` specify the iteration space STL-style as a half-open interval [``begin``,\\ ``end``). The argument *grainsize* is explained in the :ref:`Controlling_Chunking` section. The example uses the default grainsize of 1 because by default ``parallel_for`` applies a heuristic that works well with the default grainsize."
-msgstr ""
+msgstr "Сконструированный здесь ``blocked_range`` представляет все пространство итераций от 0 до n-1, которое ``parallel_for`` делит на подпространства для каждого процесса. Общая форма конструктора - ``blocked_range<T>(begin,end,grainsize)``. Параметр ``T`` определяет тип значения. Аргументы ``begin`` и ``end`` задают пространство итераций в STL-стиле как полуоткрытый интервал [``begin``,\\ ``end``). Аргумент *grainsize* объясняется в разделе :ref:`Controlling_Chunking`. В примере используется размер зерна по умолчанию 1, потому что по умолчанию ``parallel_for`` применяет эвристику, которая хорошо работает с размером зерна по умолчанию."

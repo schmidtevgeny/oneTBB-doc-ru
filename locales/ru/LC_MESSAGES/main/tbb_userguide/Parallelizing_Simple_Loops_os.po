@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 14:32+0300\n"
+"PO-Revision-Date: 2022-02-24 22:29+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,36 +25,36 @@ msgstr "Распараллеливание простых циклов"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Parallelizing_Simple_Loops_os.rst:7
 msgid "The simplest form of scalable parallelism is a loop of iterations that can each run simultaneously without interfering with each other. The following sections demonstrate how to parallelize simple loops."
-msgstr ""
+msgstr "Простейшая форма масштабируемого параллелизма - это цикл из итераций, каждая из которых может выполняться одновременно, не мешая друг другу. В следующих разделах демонстрируется, как распараллелить простые циклы."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Parallelizing_Simple_Loops_os.rst:13
 msgid "|full_name| components are defined in namespace ``tbb``. For brevity’s sake, the namespace is explicit in the first mention of a component, but implicit afterwards."
-msgstr ""
+msgstr "Компоненты |full_name| определены в пространстве имен ``tbb``. Для краткости пространство имен является явным в первом упоминании компонента, но неявным в последующих."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Parallelizing_Simple_Loops_os.rst:19
 msgid "When compiling oneTBB programs, be sure to link in the oneTBB shared library, otherwise undefined references will occur. The following table shows compilation commands that use the debug version of the library. Remove the \"``_debug``\" portion to link against the production version of the library."
-msgstr ""
+msgstr "При компиляции программ oneTBB обязательно подключайте разделяемую библиотеку oneTBB, иначе возникнут неопределенные ссылки. В следующей таблице приведены команды компиляции, использующие отладочную версию библиотеки. Удалите часть \"``_debug``\", чтобы скомпоновать с рабочей версией библиотеки."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Parallelizing_Simple_Loops_os.rst:32
 msgid "Operating System"
-msgstr ""
+msgstr "Операционная система"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Parallelizing_Simple_Loops_os.rst:33
 msgid "Command line"
-msgstr ""
+msgstr "Командная строка"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Parallelizing_Simple_Loops_os.rst:34
 msgid "Windows\\* OS"
-msgstr ""
+msgstr "Windows\\* OS"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Parallelizing_Simple_Loops_os.rst:35
 msgid "``icl /MD example.cpp tbb_debug.lib``"
-msgstr ""
+msgstr "``icl /MD example.cpp tbb_debug.lib``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Parallelizing_Simple_Loops_os.rst:36
 msgid "Linux\\* OS"
-msgstr ""
+msgstr "Linux\\* OS"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Parallelizing_Simple_Loops_os.rst:37
 msgid "``icc example.cpp -ltbb_debug``"
-msgstr ""
+msgstr "``icc example.cpp -ltbb_debug``"

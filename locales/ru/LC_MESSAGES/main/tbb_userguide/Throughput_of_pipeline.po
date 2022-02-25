@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 14:27+0300\n"
+"PO-Revision-Date: 2022-02-25 22:36+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,12 +25,12 @@ msgstr "Пропускная способность конвейера"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Throughput_of_pipeline.rst:7
 msgid "The throughput of a pipeline is the rate at which tokens flow through it, and is limited by two constraints. First, if a pipeline is run with ``N`` tokens, then obviously there cannot be more than ``N`` operations running in parallel. Selecting the right value of ``N`` may involve some experimentation. Too low a value limits parallelism; too high a value may demand too many resources (for example, more buffers). Second, the throughput of a pipeline is limited by the throughput of the slowest sequential filter. This is true even for a pipeline with no parallel filters. No matter how fast the other filters are, the slowest sequential filter is the bottleneck. So in general you should try to keep the sequential filters fast, and when possible, shift work to the parallel filters."
-msgstr ""
+msgstr "Пропускная способность конвейера - это скорость прохождения токенов через него, и она ограничена двумя ограничениями. Во-первых, если конвейер запускается с ``N`` токенами, то, очевидно, параллельно не может выполняться более ``N`` операций. Выбор правильного значения ``N`` может потребовать некоторых экспериментов. Слишком низкое значение ограничивает параллелизм; слишком высокое значение может потребовать слишком много ресурсов (например, больше буферов). Во-вторых, пропускная способность конвейера ограничена пропускной способностью самого медленного последовательного фильтра. Это верно даже для конвейера без параллельных фильтров. Неважно, насколько быстры остальные фильтры, узким местом является самый медленный последовательный фильтр. Поэтому в целом ты должен стараться, чтобы последовательные фильтры работали быстро, и, когда это возможно, перекладывать работу на параллельные фильтры."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Throughput_of_pipeline.rst:21
 msgid "The text processing example has relatively poor speedup, because the serial filters are limited by the I/O speed of the system. Indeed, even with files that are on a local disk, you are unlikely to see a speedup much more than 2. To really benefit from a pipeline, the parallel filters need to be doing some heavy lifting compared to the serial filters."
-msgstr ""
+msgstr "Пример с обработкой текста имеет относительно низкое ускорение, потому что последовательные фильтры ограничены скоростью ввода-вывода системы. Действительно, даже с файлами, которые находятся на локальном диске, ты вряд ли увидишь ускорение больше 2. Чтобы действительно получить выгоду от конвейера, параллельные фильтры должны выполнять более тяжелую работу по сравнению с последовательными фильтрами."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Throughput_of_pipeline.rst:29
 msgid "The window size, or sub-problem size for each token, can also limit throughput. Making windows too small may cause overheads to dominate the useful work. Making windows too large may cause them to spill out of cache. A good guideline is to try for a large window size that still fits in cache. You may have to experiment a bit to find a good window size."
-msgstr ""
+msgstr "Размер окна, или размер подпроблемы для каждого токена, также может ограничивать пропускную способность. Слишком маленькие окна могут привести к тому, что накладные расходы будут преобладать над полезной работой. Слишком большие окна могут привести к тому, что они выпадут из кэша. Хорошим ориентиром является попытка получить большой размер окна, который все еще помещается в кэш. Возможно, тебе придется немного поэкспериментировать, чтобы найти хороший размер окна."

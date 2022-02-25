@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 00:29+0300\n"
+"PO-Revision-Date: 2022-02-24 22:17+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,23 +25,23 @@ msgstr "Основы графа потока: Резервирование"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:7
 msgid "|full_name| flow graph ``join_node`` has four possible policies: ``queueing``, ``reserving``, ``key_matching`` and ``tag_matching``. ``join_nodes`` need messages at every input before they can create an output message. The reserving ``join_node`` does not have internal buffering, and it does not pull messages from its inputs until it has a message at each input. To create an output message it temporarily reserves a message at each input port, and only if all input ports succeed reserving messages will an output message be created. If any input port fails to reserve a message, no message will be pulled by the ``join_node``."
-msgstr ""
+msgstr "Граф потока |full_name| ``join_node`` имеет четыре возможных политики: ``queueing``, ``reserving``, ``key_matching`` и ``tag_matching``. Узлам ``join_nodes`` требуются сообщения на каждом входе, прежде чем они смогут создать выходное сообщение. Резервирующий узел ``join_node`` не имеет внутренней буферизации, и он не получает сообщения со своих входов, пока не получит сообщение на каждом входе. Для создания выходного сообщения он временно резервирует сообщение на каждом входном порту, и только если все входные порты успешно резервируют сообщения, будет создано выходное сообщение. Если какой-либо входной порт не смог зарезервировать сообщение, то узел ``join_node`` не будет получать сообщения."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:19
 msgid "To support the reserving ``join_node`` some nodes support **reservation** of their outputs. The way reservation works is:"
-msgstr ""
+msgstr "Для поддержки резервирования ``join_node`` некоторые узлы поддерживают **резервирование** своих выходов. Резервирование работает следующим образом:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:23
 msgid "When a node connected to a reserving ``join_node`` in push state tries to push a message, the ``join_node`` always rejects the push and the edge connecting the nodes is switched to pull mode."
-msgstr ""
+msgstr "Когда узел, подключенный к резервирующему ``join_node`` в состоянии push, пытается передать сообщение, ``join_node`` всегда отклоняет push, и ребро, соединяющее узлы, переключается в режим pull."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:26
 msgid "The reserving input port calls ``try_reserve`` on each edge in pull state. This may fail; if so, the reserving input port switches that edge to push state, and tries to reserve the next node connected by an edge in pull state. While the input port's predecessor is in reserved state, no other node can retrieve the reserved value."
-msgstr ""
+msgstr "Входной порт резервирования вызывает ``try_reserve`` на каждом ребре в состоянии pull. Это может закончиться неудачей; если это так, резервирующий входной порт переключает это ребро в состояние push и пытается зарезервировать следующий узел, соединенный ребром в состоянии pull. Пока предшественник входного порта находится в состоянии резервирования, никакой другой узел не может получить зарезервированное значение."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:31
 msgid "If each input port successfully reserves an edge in pull state, the reserving ``join_node`` will create a message using the reserved messages and try to push the resulting message to any nodes connected to it."
-msgstr ""
+msgstr "Если каждый входной порт успешно резервирует ребро в состоянии pull, резервирующий узел ``join_node`` создаст сообщение, используя зарезервированные сообщения, и попытается передать полученное сообщение всем узлам, подключенным к нему."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:35
 msgid "If the message is successfully pushed to a successor, the predecessors that were reserved are signaled that the messages were used (by calling ``try_consume()``.) Those messages will be discarded by the predecessor nodes, because they have been successfully pushed."
