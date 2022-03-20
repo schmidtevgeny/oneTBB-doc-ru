@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 00:24+0300\n"
+"PO-Revision-Date: 2022-03-20 18:16+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,12 +25,12 @@ msgstr "Категории приложений графов"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Graph_Main_Categories.rst:7
 msgid "Most flow graphs fall into one of two categories:"
-msgstr ""
+msgstr "Большинство графов потока относятся к одной из двух категорий:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Graph_Main_Categories.rst:10
 msgid "**Data flow graphs.** In this type of graph, data is passed along the graph's edges. The nodes receive, transform and then pass along the data messages."
-msgstr ""
+msgstr "**Графы потоков данных.** В этом типе графов данные передаются по ребрам графа. Узлы получают, преобразуют и затем передают сообщения с данными."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Graph_Main_Categories.rst:13
 msgid "**Dependence graphs.** In this type of graph, the data operated on by the nodes is obtained through shared memory directly and is not passed along the edges."
-msgstr ""
+msgstr "**Графы зависимости.** В этом типе графа данные, которыми оперируют узлы, получаются через общую память напрямую и не передаются по ребрам."

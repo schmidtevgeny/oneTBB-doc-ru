@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 14:19+0300\n"
+"PO-Revision-Date: 2022-03-20 19:05+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,31 +25,31 @@ msgstr "Отправка одному или нескольким преемни
 
 #: ../../oneTBB/doc/main/tbb_userguide/broadcast_or_send.rst:7
 msgid "An important characteristic of the predefined nodes is whether they push their output to a single successor or broadcast to all successors. The following predefined nodes push messages to a single successor:"
-msgstr ""
+msgstr "Важной характеристикой предопределенных узлов является то, передают ли они свой вывод одному преемнику или транслируют всем преемникам. Следующие предопределенные узлы отправляют сообщения одному преемнику:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/broadcast_or_send.rst:12
 msgid "buffer_node"
-msgstr ""
+msgstr "buffer_node"
 
 #: ../../oneTBB/doc/main/tbb_userguide/broadcast_or_send.rst:13
 msgid "queue_node"
-msgstr ""
+msgstr "queue_node"
 
 #: ../../oneTBB/doc/main/tbb_userguide/broadcast_or_send.rst:14
 msgid "priority_queue_node"
-msgstr ""
+msgstr "priority_queue_node"
 
 #: ../../oneTBB/doc/main/tbb_userguide/broadcast_or_send.rst:15
 msgid "sequencer_node"
-msgstr ""
+msgstr "sequencer_node"
 
 #: ../../oneTBB/doc/main/tbb_userguide/broadcast_or_send.rst:18
 msgid "Other nodes push messages to all successors that will accept them."
-msgstr ""
+msgstr "Другие узлы передают сообщения всем преемникам, которые их примут."
 
 #: ../../oneTBB/doc/main/tbb_userguide/broadcast_or_send.rst:21
 msgid "The nodes that push to only a single successor are all buffer nodes. Their purpose is to hold messages temporarily, until they are consumed downstream. Consider the example below:"
-msgstr ""
+msgstr "Узлы, которые направляют сообщения только одному преемнику, являются буферными узлами. Их цель - временно удерживать сообщения, пока они не будут обработаны ниже по потоку. Рассмотрим пример ниже:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/broadcast_or_send.rst:29
 msgid ""
@@ -82,22 +82,50 @@ msgid ""
 "  g.wait_for_all();\n"
 "}"
 msgstr ""
+"void use_buffer_and_two_nodes() {\n"
+"  graph g;\n"
+"\n"
+"\n"
+"  function_node< int, int, rejecting > f1( g, 1, []( int i ) -> int {\n"
+"    spin_for(0.1);\n"
+"    cout << \"f1 consuming \" << i << \"\\n\";\n"
+"    return i;\n"
+"  } );\n"
+"\n"
+"\n"
+"  function_node< int, int, rejecting > f2( g, 1, []( int i ) -> int {\n"
+"    spin_for(0.2);\n"
+"    cout << \"f2 consuming \" << i << \"\\n\";\n"
+"    return i;\n"
+"  } );\n"
+"\n"
+"\n"
+"  priority_queue_node< int > q(g);\n"
+"\n"
+"\n"
+"  make_edge( q, f1 );\n"
+"  make_edge( q, f2 );\n"
+"  for ( int i = 10; i > 0; --i ) {\n"
+"    q.try_put( i );\n"
+"  }\n"
+"  g.wait_for_all();\n"
+"}"
 
 #: ../../oneTBB/doc/main/tbb_userguide/broadcast_or_send.rst:59
 msgid "First, function_nodes by default queue up the messages they receive at their input. To make a priority_queue_node work properly with a function_node, the example above constructs its function_nodes with its buffer policy set to rejecting. So, f1 and f2 do not internally buffer incoming messages, but instead rely on upstream buffering in the priority_queue_node."
-msgstr ""
+msgstr "Во-первых, function_nodes по умолчанию ставят в очередь сообщения, которые они получают на свой вход. Чтобы узел priority_queue_node правильно работал с узлом function_node, в приведенном выше примере его узлы function_node строятся с политикой буферизации, установленной на rejecting. Таким образом, f1 и f2 не буферизируют входящие сообщения внутри себя, а вместо этого полагаются на буферизацию в priority_queue_node."
 
 #: ../../oneTBB/doc/main/tbb_userguide/broadcast_or_send.rst:67
 msgid "In the above example, each message buffered by the priority_queue_node is sent to either f1 or f2, but not both."
-msgstr ""
+msgstr "В приведенном выше примере каждое сообщение, буферизованное узлом priority_queue_node, отправляется либо на f1, либо на f2, но не на оба."
 
 #: ../../oneTBB/doc/main/tbb_userguide/broadcast_or_send.rst:71
 msgid "Let's consider the alternative behavior; that is; what if the priority_queue_node broadcasts to all successors. What if some, but not all, nodes accept a message? Should the message be buffered until all nodes accept it, or be only delivered to the accepting subset? If the node continues to buffer the message, should it eventually deliver the messages in the same order to all nodes or in the current priority order at the time the node accepts the next message? For example, assume a priority_queue_node only contains \"9\" when a successor node, f1, accepts \"9\" but another successor node, f2, rejects it. Later a value \"100\" arrives and f2 is available to accept messages. Should f2 receive \"9\" next or \"100\", which has a higher priority? In any case, trying to ensure that all successors receive each message creates a garbage collection problem and complicates reasoning. Therefore, these buffering nodes push each message to only one successor. And, you can use this characteristic to create useful graph structures such as the one shown in the graph above, where each message will be processed in priority order, by either f1 or f2."
-msgstr ""
+msgstr "Давай рассмотрим альтернативное поведение; то есть, что если узел priority_queue_node транслирует сообщение всем преемникам. Что если некоторые, но не все узлы примут сообщение? Должно ли сообщение буферизироваться до тех пор, пока все узлы не примут его, или же оно должно быть доставлено только принимающему подмножеству? Если узел продолжает буферизировать сообщение, должен ли он в конечном итоге доставлять сообщения в том же порядке всем узлам или в текущем порядке приоритетов на момент принятия узлом следующего сообщения? Например, предположим, что узел priority_queue_node содержит только \"9\", когда узел-преемник, f1, принимает \"9\", но другой узел-преемник, f2, отвергает его. Позже приходит значение \"100\", и f2 становится доступным для принятия сообщений. Должен ли f2 принять \"9\" следующим или \"100\", которое имеет более высокий приоритет? В любом случае, попытка гарантировать, что все преемники получат каждое сообщение, создает проблему сбора мусора и усложняет рассуждения. Поэтому эти буферные узлы подталкивают каждое сообщение только к одному преемнику. И, ты можешь использовать эту характеристику для создания полезных структур графов, таких как показанная на графике выше, где каждое сообщение будет обрабатываться в порядке приоритета, либо f1, либо f2."
 
 #: ../../oneTBB/doc/main/tbb_userguide/broadcast_or_send.rst:90
 msgid "But what if you really do want both f1 and f2 to receive all of the values, and in priority order? You can easily create this behavior by creating one priority_queue_node for each function_node, and pushing each value to both queues through a broadcast_node, as shown below:"
-msgstr ""
+msgstr "Но что, если ты действительно хочешь, чтобы и f1, и f2 получали все значения, причем в приоритетном порядке? Ты можешь легко создать такое поведение, создав один узел priority_queue_node для каждой function_node и проталкивая каждое значение в обе очереди через broadcast_node, как показано ниже:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/broadcast_or_send.rst:99
 msgid ""
@@ -132,7 +160,37 @@ msgid ""
 "}\n"
 "g.wait_for_all();"
 msgstr ""
+"graph g;\n"
+"\n"
+"\n"
+"function_node< int, int, rejecting > f1( g, 1, []( int i ) -> int {\n"
+"  spin_for(0.1);\n"
+"  cout << \"f1 consuming \" << i << \"\\n\";\n"
+"  return i;\n"
+"} );\n"
+"\n"
+"\n"
+"function_node< int, int, rejecting > f2( g, 1, []( int i ) -> int {\n"
+"  spin_for(0.2);\n"
+"  cout << \"f2 consuming \" << i << \"\\n\";\n"
+"  return i;\n"
+"} );\n"
+"\n"
+"\n"
+"priority_queue_node< int > q1(g);\n"
+"priority_queue_node< int > q2(g);\n"
+"broadcast_node< int > b(g);\n"
+"\n"
+"\n"
+"make_edge( b, q1 );\n"
+"make_edge( b, q2 );\n"
+"make_edge( q1, f1 );\n"
+"make_edge( q2, f2 );\n"
+"for ( int i = 10; i > 0; --i ) {\n"
+"  b.try_put( i );\n"
+"}\n"
+"g.wait_for_all();"
 
 #: ../../oneTBB/doc/main/tbb_userguide/broadcast_or_send.rst:131
 msgid "So, when connecting a node in your graph to multiple successors, be sure to understand whether the output will broadcast to all of the successors, or just a single successor."
-msgstr ""
+msgstr "Поэтому, соединяя узел в твоем графе с несколькими преемниками, обязательно пойми, будет ли выход транслироваться всем преемникам или только одному преемнику."

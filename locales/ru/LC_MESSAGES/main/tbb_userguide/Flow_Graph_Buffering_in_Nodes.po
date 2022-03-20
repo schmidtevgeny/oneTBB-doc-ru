@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 14:49+0300\n"
+"PO-Revision-Date: 2022-03-20 17:54+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,36 +25,36 @@ msgstr "Основы графа потока: Буферизация и пере
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Buffering_in_Nodes.rst:7
 msgid "|full_name| flow graph nodes use messages to communicate data and to enforce dependencies. If a node passes a message successfully to any successor, no further action is taken with the message by that node. As noted in the section on Single-push vs. Broadcast-push, a message may be passed to one or to multiple successors, depending on the type of the node, how many successors are connected to the node, and whether the message is pushed or pulled."
-msgstr ""
+msgstr "Узлы графа потока |full_name| используют сообщения для передачи данных и обеспечения зависимостей. Если узел успешно передал сообщение любому преемнику, то никаких дальнейших действий с сообщением этот узел не предпринимает. Как было отмечено в разделе \"Однократное нажатие против широковещательного нажатия\", сообщение может быть передано одному или нескольким преемникам, в зависимости от типа узла, количества преемников, подключенных к узлу, и от того, проталкивается сообщение или вытягивается."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Buffering_in_Nodes.rst:16
 msgid "There are times when a node cannot successfully push a message to any successor. In this case what happens to the message depends on the type of the node. The two possibilities are:"
-msgstr ""
+msgstr "Бывают случаи, когда узел не может успешно переслать сообщение ни одному преемнику. В этом случае то, что происходит с сообщением, зависит от типа узла. Возможны два варианта:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Buffering_in_Nodes.rst:21
 msgid "The node stores the message to be forwarded later."
-msgstr ""
+msgstr "Узел сохраняет сообщение для последующей пересылки."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Buffering_in_Nodes.rst:22
 msgid "The node discards the message."
-msgstr ""
+msgstr "Узел отбрасывает сообщение."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Buffering_in_Nodes.rst:25
 msgid "If a node discards messages that are not forwarded, and this behavior is not desired, the node should be connected to a buffering node that does store messages that cannot be pushed."
-msgstr ""
+msgstr "Если узел отбрасывает сообщения, которые не пересылаются, и такое поведение нежелательно, узел должен быть подключен к буферному узлу, который действительно хранит сообщения, которые не могут быть пересланы."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Buffering_in_Nodes.rst:30
 msgid "If a message has been stored by a node, there are two ways it can be passed to another node:"
-msgstr ""
+msgstr "Если сообщение было сохранено узлом, есть два способа передать его другому узлу:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Buffering_in_Nodes.rst:34
 msgid "A successor to the node can pull the message using ``try_get()`` or ``try_reserve()``."
-msgstr ""
+msgstr "Преемник узла может вытащить сообщение, используя ``try_get()`` или ``try_reserve()``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Buffering_in_Nodes.rst:36
 msgid "A successor can be connected using ``make_edge()``."
-msgstr ""
+msgstr "Преемник может быть подключен с помощью ``make_edge()``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Buffering_in_Nodes.rst:39
 msgid "If a ``try_get()`` successfully forwards a message, it is removed from the node that stored it. If a node is connected using ``make_edge`` the node will attempt to push a stored message to the new successor."
-msgstr ""
+msgstr "Если ``try_get()`` успешно пересылает сообщение, оно удаляется из узла, который его хранил. Если узел соединяется с помощью ``make_edge``, то узел попытается протолкнуть сохраненное сообщение новому преемнику."

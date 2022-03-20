@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-23 15:53+0300\n"
+"PO-Revision-Date: 2022-03-20 20:49+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,28 +25,28 @@ msgstr "Контейнеры"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Containers.rst:7
 msgid "|full_name| provides highly concurrent container classes. These containers can be used with raw Windows\\* OS or Linux\\* OS threads, or in conjunction with task-based programming."
-msgstr ""
+msgstr "|full_name| предоставляет классы контейнеров с высокой степенью параллельности. Эти контейнеры можно использовать с необработанными потоками Windows\\* OS или Linux\\* OS, или в сочетании с программированием на основе задач."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Containers.rst:12
 msgid "A concurrent container allows multiple threads to concurrently access and update items in the container. Typical C++ STL containers do not permit concurrent update; attempts to modify them concurrently often result in corrupting the container. STL containers can be wrapped in a mutex to make them safe for concurrent access, by letting only one thread operate on the container at a time, but that approach eliminates concurrency, thus restricting parallel speedup."
-msgstr ""
+msgstr "Параллельный контейнер позволяет нескольким потокам одновременно обращаться к элементам в контейнере и обновлять их. Типичные STL-контейнеры C++ не допускают одновременного обновления; попытки изменить их одновременно часто приводят к повреждению контейнера. Контейнеры STL можно обернуть в мьютекс, чтобы сделать их безопасными для одновременного доступа, позволяя только одному потоку одновременно работать с контейнером, но такой подход устраняет параллельность, ограничивая тем самым параллельное ускорение."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Containers.rst:21
 msgid "Containers provided by oneTBB offer a much higher level of concurrency, via one or both of the following methods:"
-msgstr ""
+msgstr "Контейнеры, предоставляемые oneTBB, предлагают гораздо более высокий уровень параллелизма, посредством одного или обоих из следующих методов:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Containers.rst:25
 msgid "**Fine-grained locking:** Multiple threads operate on the container by locking only those portions they really need to lock. As long as different threads access different portions, they can proceed concurrently."
-msgstr ""
+msgstr "**Мелкозернистая блокировка:** Несколько потоков работают с контейнером, блокируя только те части, которые им действительно нужно заблокировать. Пока разные потоки обращаются к разным частям, они могут работать параллельно."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Containers.rst:31
 msgid "**Lock-free techniques:** Different threads account and correct for the effects of other interfering threads."
-msgstr ""
+msgstr "**Безмьютексные техники:** Различные потоки учитывают и корректируют влияние других мешающих потоков."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Containers.rst:35
 msgid "Notice that highly-concurrent containers come at a cost. They typically have higher overheads than regular STL containers. Operations on highly-concurrent containers may take longer than for STL containers. Therefore, use highly-concurrent containers when the speedup from the additional concurrency that they enable outweighs their slower sequential performance."
-msgstr ""
+msgstr "Заметь, что за высококонкурентные контейнеры приходится платить. Они обычно имеют более высокие накладные расходы, чем обычные контейнеры STL. Операции с высококонкурентными контейнерами могут занимать больше времени, чем с контейнерами STL. Поэтому используй высококонкурентные контейнеры, когда ускорение от дополнительного параллелизма, который они обеспечивают, перевешивает их более медленную последовательную производительность."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Containers.rst:44
 msgid "As with most objects in C++, the constructor or destructor of a container object must not be invoked concurrently with another operation on the same object. Otherwise the resulting race may cause the operation to be executed on an undefined object."
-msgstr ""
+msgstr "Как и в случае с большинством объектов в C++, конструктор или деструктор объекта-контейнера не должен вызываться одновременно с другой операцией над тем же объектом. В противном случае возникающая гонка может привести к тому, что операция будет выполнена над неопределенным объектом."

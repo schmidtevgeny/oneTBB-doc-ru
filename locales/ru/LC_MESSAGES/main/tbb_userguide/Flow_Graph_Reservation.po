@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 22:17+0300\n"
+"PO-Revision-Date: 2022-03-20 18:15+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -45,19 +45,19 @@ msgstr "Если каждый входной порт успешно резер�
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:35
 msgid "If the message is successfully pushed to a successor, the predecessors that were reserved are signaled that the messages were used (by calling ``try_consume()``.) Those messages will be discarded by the predecessor nodes, because they have been successfully pushed."
-msgstr ""
+msgstr "Если сообщение успешно проталкивается к преемнику, предшественники, которые были зарезервированы, получают сигнал о том, что сообщения были использованы (путем вызова ``try_consume()``) Эти сообщения будут отброшены узлами-предшественниками, поскольку они были успешно вытолкнуты."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:39
 msgid "If the message was not successfully pushed to any successor, the predecessors that were reserved are signaled that the messages were not used (by calling ``try_release()``.) At this point, the messages may be pushed to or pulled by other nodes."
-msgstr ""
+msgstr "Если сообщение не было успешно вытолкнуто ни к одному преемнику, то предшественники, которые были зарезервированы, получают сигнал о том, что сообщения не были использованы (путем вызова ``try_release()``) В этот момент сообщения могут быть подтолкнуты к другим узлам или вытащены ими."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:45
 msgid "Because the reserving ``join_node`` will only attempt to push when each input port has at least one edge in a pull state, and will only attempt to create and push a message if all input ports succeed reserving messages, at least one of the predecessors to each of the reserving ``join_node`` input ports must be reservable."
-msgstr ""
+msgstr "Поскольку резервирующий ``join_node`` будет пытаться толкать только тогда, когда каждый входной порт имеет хотя бы одно ребро в состоянии pull, и будет пытаться создать и толкать сообщение только тогда, когда все входные порты успешно резервируют сообщения, по крайней мере один из предшественников каждого из резервирующих входных портов ``join_node`` должен быть резервируемым."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:52
 msgid "The following example demonstrates a reserving ``join_node``'s behavior. ``buffer_nodes`` buffer their output, so they accept a switch of their output edge from push to pull mode. ``broadcast_nodes`` do not buffer messages and do not support ``try_get()`` or ``try_reserve()``."
-msgstr ""
+msgstr "Следующий пример демонстрирует поведение резервирующего узла ``join_node``. ``buffer_nodes`` буферизируют свой выход, поэтому они принимают переключение своего выходного края из режима push в режим pull. ``broadcast_nodes`` не буферизируют сообщения и не поддерживают ``try_get()`` или ``try_reserve()``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:61
 #, python-format
@@ -93,174 +93,204 @@ msgid ""
 "    else printf(\"buf2 was empty\\n\");\n"
 "}"
 msgstr ""
+"void run_example2() { // пример для Flow_Graph_Reservation.xml\n"
+"    graph g;\n"
+"    broadcast_node<int>bn(g);\n"
+"    buffer_node<int>buf1(g);\n"
+"    buffer_node<int>buf2(g);\n"
+"    typedef join_node<tuple<int,int> reserving> join_type;\n"
+"    join_type jn(g);\n"
+"    буферный_узел<join_type::output_type>buf_out(g);\n"
+"    join_type::output_type tuple_out;\n"
+"    int icnt;\n"
+"\n"
+"\n"
+"    // предшественники join_node являются резервируемыми буферными узлами\n"
+"    make_edge(buf1,input_portjn<0>));\n"
+"    make_edge(bn,input_portjn<0>)); // присоединяем broadcast_node\n"
+"    make_edge(buf2,input_portjn<1>));\n"
+"    make_edge(jn, buf_out);\n"
+"    bn.try_put(2);\n"
+"    buf1.try_put(3);\n"
+"    buf2.try_put(4);\n"
+"    buf2.try_put(7);\n"
+"    g.wait_for_all();\n"
+"    while (buf_out.try_get(tuple_out)) {\n"
+"        printf(\"join_node output == (%d,%d)\\n\",gettuple_out<0>), gettuple_out<1>) );\n"
+"    }\n"
+"    if(buf1.try_get(icnt)) printf(\"buf1 имел %d\\n\", icnt);\n"
+"    else printf(\"buf1 был пуст\\n\");\n"
+"    if(buf2.try_get(icnt)) printf(\"buf2 имел %d\\n\", icnt);\n"
+"    else printf(\"buf2 был пуст\\n\");\n"
+"}"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:93
 msgid "In the example above, port 0 of the reserving ``join_node`` ``jn`` has two predecessors: a ``buffer_node`` ``buf1`` and a ``broadcast_node`` ``bn``. Port 1 of the ``join_node`` has one predecessor, ``buffer_node`` ``buf2``."
-msgstr ""
+msgstr "В приведенном выше примере порт 0 резервирующего ``join_node`` ``jn`` имеет двух предшественников: ``buffer_node`` ``buf1`` и ``broadcast_node`` ``bn``. Порт 1 узла ``join_node`` имеет одного предшественника, ``buffer_node`` ``buf2``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:106
 msgid "|image0|"
-msgstr ""
+msgstr "|image0|"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:265
 msgid "image0"
-msgstr ""
+msgstr "image0"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:265
 msgid ".. image:: main/tbb_userguide/Images/flow_graph_reserve_buffers_1.png"
-msgstr ""
+msgstr ".. image:: main/tbb_userguide/Images/flow_graph_reserve_buffers_1.png"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:109
 msgid "We will discuss one possible execution sequence (the scheduling of tasks may differ slightly, but the end result will be the same.)"
-msgstr ""
+msgstr "Мы обсудим одну возможную последовательность выполнения (планирование задач может немного отличаться, но конечный результат будет одинаковым)"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:116
 msgid "bn.try_put(2);"
-msgstr ""
+msgstr "bn.try_put(2);"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:119
 msgid "``bn`` attempts to forward 2 to ``jn``. ``jn`` does not accept the value and the arc from ``bn`` to ``jn`` reverses. Because neither bn nor jn buffer messages, the message is dropped. Because not all the inputs to ``jn`` have available predecessors, ``jn`` does nothing further."
-msgstr ""
+msgstr "``bn`` пытается переслать 2 в ``jn``. ``jn`` не принимает значение, и дуга от ``bn`` к ``jn`` меняется на обратную. Поскольку ни bn, ни jn не буферизируют сообщения, сообщение отбрасывается. Поскольку не все входы в ``jn`` имеют доступных предшественников, ``jn`` больше ничего не делает."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:126
 msgid "Any node which does not support reservation will not work correctly when attached to a reserving ``join_node``. This program demonstrates why this occurs; connecting non-reserving nodes to nodes requiring support for reservation is **not** recommended practice."
-msgstr ""
+msgstr "Любой узел, который не поддерживает резервирование, не будет работать корректно при присоединении к резервирующему ``join_node``. Эта программа демонстрирует, почему это происходит; подключение не резервирующих узлов к узлам, требующим поддержки резервирования, является **не** рекомендуемой практикой."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:139
 msgid "|image1|"
-msgstr ""
+msgstr "|image1|"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:268
 msgid "image1"
-msgstr ""
+msgstr "image1"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:268
 msgid ".. image:: main/tbb_userguide/Images/flow_graph_reserve_buffers_2.png"
-msgstr ""
+msgstr ".. image:: main/tbb_userguide/Images/flow_graph_reserve_buffers_2.png"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:145
 msgid "buf1.try_put(3);"
-msgstr ""
+msgstr "buf1.try_put(3);"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:148
 msgid "``buf1`` attempts to forward 3 to ``jn``. ``jn`` does not accept the value and the arc from ``buf1`` to ``jn`` reverses. Because not all the inputs to ``jn`` have available predecessors, ``jn`` does nothing further."
-msgstr ""
+msgstr "``buf1`` пытается переслать 3 в ``jn``. ``jn`` не принимает значение, и дуга от ``buf1`` к ``jn`` обратная. Поскольку не все входы в ``jn`` имеют доступных предшественников, ``jn`` больше ничего не делает."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:161
 msgid "|image2|"
-msgstr ""
+msgstr "|image2|"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:271
 msgid "image2"
-msgstr ""
+msgstr "image2"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:271
 msgid ".. image:: main/tbb_userguide/Images/flow_graph_reserve_buffers_3.png"
-msgstr ""
+msgstr ".. image:: main/tbb_userguide/Images/flow_graph_reserve_buffers_3.png"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:167
 msgid "buf2.try_put(4);"
-msgstr ""
+msgstr "buf2.try_put(4);"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:170
 msgid "``buf2`` attempts to forward 4 to ``jn``. ``jn`` does not accept the value and the arc from ``buf2`` to ``jn`` reverses. Now both inputs of ``jn`` have predecessors, a task to build and forward a message from ``jn`` will be spawned. We assume that task is not yet executing."
-msgstr ""
+msgstr "``buf2`` пытается переслать 4 в ``jn``. ``jn`` не принимает значение, и дуга от ``buf2`` к ``jn`` меняется на обратную. Теперь оба входа ``jn`` имеют предшественников, будет порождена задача по созданию и пересылке сообщения от ``jn``. Мы предполагаем, что эта задача еще не выполняется."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:183
 msgid "|image3|"
-msgstr ""
+msgstr "|image3|"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:274
 msgid "image3"
-msgstr ""
+msgstr "image3"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:274
 msgid ".. image:: main/tbb_userguide/Images/flow_graph_reserve_buffers_4.png"
-msgstr ""
+msgstr ".. image:: main/tbb_userguide/Images/flow_graph_reserve_buffers_4.png"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:189
 msgid "buf2.try_put(7);"
-msgstr ""
+msgstr "buf2.try_put(7);"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:192
 msgid "``buf2`` has no successor (because the arc to ``jn`` is reversed,) so it stores the value 7."
-msgstr ""
+msgstr "у ``buf2`` нет преемника (потому что дуга к ``jn`` обратная), поэтому он хранит значение 7."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:203
 msgid "|image4|"
-msgstr ""
+msgstr "|image4|"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:277
 msgid "image4"
-msgstr ""
+msgstr "image4"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:277
 msgid ".. image:: main/tbb_userguide/Images/flow_graph_reserve_buffers_5.png"
-msgstr ""
+msgstr ".. image:: main/tbb_userguide/Images/flow_graph_reserve_buffers_5.png"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:206
 msgid "Now the task spawned to run ``jn`` runs."
-msgstr ""
+msgstr "Теперь запускается задача, порожденная для выполнения ``jn``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:209
 msgid "``jn`` tries to reserve ``bn``, which fails. The arc to ``bn`` switches back to the forward direction."
-msgstr ""
+msgstr "``jn`` пытается зарезервировать ``bn``, что не удается. Дуга к ``bn`` переключается обратно в прямое направление."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:211
 msgid "``jn`` tries to reserve ``buf1``, which succeeds (reserved nodes are colored grey.) ``jn`` receives the value 3 from ``buf1``, but it remains in ``buf1`` (in case the attempt to forward a message from ``jn`` fails.)"
-msgstr ""
+msgstr "``jn`` пытается зарезервировать ``buf1``, что удается (зарезервированные узлы окрашены в серый цвет.) ``jn`` получает значение 3 от ``buf1``, но он остается в ``buf1`` (на случай, если попытка переслать сообщение от ``jn`` не удастся)"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:215
 msgid "``jn`` tries to reserve ``buf2``, which succeeds. ``jn`` receives the value 4 from ``buf2``, but it remains in ``buf2``."
-msgstr ""
+msgstr "``jn`` пытается зарезервировать ``buf2``, что удается. ``jn`` получает значение 4 из ``buf2``, но оно остается в ``buf2``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:217
 msgid "``jn`` constructs the output message ``tuple<3,4>``."
-msgstr ""
+msgstr "``jn`` конструирует выходное сообщение ``tuple<3,4>``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:227
 msgid "|image5|"
-msgstr ""
+msgstr "|image5|"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:280
 msgid "image5"
-msgstr ""
+msgstr "image5"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:280
 msgid ".. image:: main/tbb_userguide/Images/flow_graph_reserve_buffers_6.png"
-msgstr ""
+msgstr ".. image:: main/tbb_userguide/Images/flow_graph_reserve_buffers_6.png"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:230
 msgid "Now ``jn`` pushes its message to ``buf_out``, which accepts it. Because the push succeeded, ``jn`` signals ``buf1`` and ``buf2`` that the reserved values were used, and the buffers discard those values. Now ``jn`` attempts to reserve again."
-msgstr ""
+msgstr "Теперь ``jn`` толкает свое сообщение в ``buf_out``, который принимает его. Поскольку проталкивание прошло успешно, ``jn`` сигнализирует ``buf1`` и ``buf2`` о том, что зарезервированные значения были использованы, и буферы отбрасывают эти значения. Теперь ``jn`` пытается зарезервировать снова."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:236
 msgid "No attempt to pull from ``bn`` is made, because the edge from ``bn`` to ``jn`` is in push state."
-msgstr ""
+msgstr "Попытка вытянуть из ``bn`` не предпринимается, потому что грань от ``bn`` до ``jn`` находится в состоянии push."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:238
 msgid "``jn`` tries to reserve ``buf1``, which fails. The arc to ``buf1`` switches back to the forward direction."
-msgstr ""
+msgstr "``jn`` пытается зарезервировать ``buf1``, что не удается. Дуга к ``buf1`` переключается обратно в прямое направление."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:240
 msgid "``jn`` does not try any further actions."
-msgstr ""
+msgstr "``jn`` не пытается предпринимать никаких дальнейших действий."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:250
 msgid "|image6|"
-msgstr ""
+msgstr "|image6|"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:283
 msgid "image6"
-msgstr ""
+msgstr "image6"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:283
 msgid ".. image:: main/tbb_userguide/Images/flow_graph_reserve_buffers_7.png"
-msgstr ""
+msgstr ".. image:: main/tbb_userguide/Images/flow_graph_reserve_buffers_7.png"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:253
 msgid "No further activity occurs in the graph, and the ``wait_for_all()`` will complete. The output of this code is"
-msgstr ""
+msgstr "Больше никакой активности в графе не происходит, и ``wait_for_all()`` завершится. Вывод этого кода следующий"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Flow_Graph_Reservation.rst:260
 msgid ""
@@ -268,3 +298,6 @@ msgid ""
 "buf1 was empty\n"
 "buf2 had 7"
 msgstr ""
+"join_node output == (3,4)\n"
+"buf1 was empty\n"
+"buf2 had 7"

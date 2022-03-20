@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-23 15:56+0300\n"
+"PO-Revision-Date: 2022-03-20 18:54+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,63 +25,63 @@ msgstr "Граф зависимости"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Dependence_Graph.rst:7
 msgid "In a dependence graph, the nodes invoke body objects to perform computations and the edges create a partial ordering of these computations. At runtime, the library spawns and schedules tasks to execute the body objects when it is legal to do so according to the specified partial ordering. The following figure shows an example of an application that could be expressed using a dependence graph."
-msgstr ""
+msgstr "В графе зависимостей узлы вызывают объекты тела для выполнения вычислений, а ребра создают частичное упорядочение этих вычислений. Во время исполнения библиотека порождает и планирует задачи для выполнения тела объектов, когда это законно в соответствии с заданным частичным упорядочиванием. На следующем рисунке показан пример приложения, которое может быть выражено с помощью графа зависимостей."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Dependence_Graph.rst:19
 msgid "Dependence Graph for Making a Sandwich"
-msgstr ""
+msgstr "График зависимости для приготовления сэндвича"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Dependence_Graph.rst:25
 msgid "|image0|"
-msgstr ""
+msgstr "|image0|"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Dependence_Graph.rst:142
 msgid "image0"
-msgstr ""
+msgstr "image0"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Dependence_Graph.rst:142
 msgid ".. image:: main/tbb_userguide/Images/flow_graph_complex.jpg"
-msgstr ""
+msgstr ".. image:: main/tbb_userguide/Images/flow_graph_complex.jpg"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Dependence_Graph.rst:28
 msgid "Dependence graphs are a special case of data flow graphs, where the data passed between nodes are of type oneapi::tbb::flow::continue_msg. Unlike a general data flow graph, nodes in a dependence graph do not spawn a task for each message they receive. Instead, they are aware of the number of predecessors they have, count the messages they receive and only spawn a task to execute their body when this count is equal to the total number of their predecessors."
-msgstr ""
+msgstr "Графы зависимости - это особый случай графов потока данных, где данные, передаваемые между узлами, имеют тип oneapi::tbb::flow::continue_msg. В отличие от общего графа потока данных, узлы в графе зависимости не порождают задачу для каждого сообщения, которое они получают. Вместо этого они знают о количестве своих предшественников, подсчитывают полученные сообщения и порождают задачу для выполнения своего тела только тогда, когда это количество равно общему числу их предшественников."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Dependence_Graph.rst:37
 msgid "The following figure shows another example of a dependence graph. It has the same topology as the figure above, but with simple functions replacing the sandwich making steps. In this partial ordering, function A must complete executing before any other computation starts executing. Function B must complete before C and D start executing; and E must complete before D and F start executing. This is a partial ordering because, for example, there is no explicit ordering requirement between B and E or C and F."
-msgstr ""
+msgstr "На следующем рисунке показан еще один пример графа зависимостей. Он имеет ту же топологию, что и рисунок выше, но с простыми функциями, заменяющими этапы создания сэндвича. В этом частичном упорядочивании функция A должна завершить выполнение до того, как начнется выполнение любого другого вычисления. Функция B должна завершиться до того, как начнут выполняться C и D; а E должна завершиться до того, как начнут выполняться D и F. Это частичное упорядочивание, потому что, например, нет явного требования упорядочивания между B и E или C и F."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Dependence_Graph.rst:51
 msgid "Simple Dependence Graph"
-msgstr ""
+msgstr "Простой график зависимости"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Dependence_Graph.rst:57
 msgid "|image1|"
-msgstr ""
+msgstr "|image1|"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Dependence_Graph.rst:145
 msgid "image1"
-msgstr ""
+msgstr "image1"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Dependence_Graph.rst:145
 msgid ".. image:: main/tbb_userguide/Images/dependence_graph.jpg"
-msgstr ""
+msgstr ".. image:: main/tbb_userguide/Images/dependence_graph.jpg"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Dependence_Graph.rst:60
 msgid "To implement this as a flow graph, continue_node objects are used for the nodes and continue_msg objects as the messages. A continue_node constructor takes two arguments:"
-msgstr ""
+msgstr "Чтобы реализовать это в виде графа потока, для узлов используются объекты continue_node, а для сообщений - continue_msg. Конструктор continue_node принимает два аргумента:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Dependence_Graph.rst:68
 msgid "template< typename Body > continue_node( graph &g, Body body)"
-msgstr ""
+msgstr "template< typename Body > continue_node( graph &g, Body body)"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Dependence_Graph.rst:71
 msgid "The first argument is the graph it belongs to and the second is a function object or lambda expression. Unlike a function_node, a continue_node is always assumed to have unlimited concurrency and will immediately spawn a task whenever its dependencies are met."
-msgstr ""
+msgstr "Первый аргумент - это граф, к которому он принадлежит, а второй - объект функции или лямбда-выражение. В отличие от function_node, continue_node всегда предполагается с неограниченным параллелизмом и будет немедленно порождать задачу всякий раз, когда будут выполнены его зависимости."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Dependence_Graph.rst:77
 msgid "The following code snippet is an implementation of the example in this figure."
-msgstr ""
+msgstr "Следующий фрагмент кода является реализацией примера на этом рисунке."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Dependence_Graph.rst:84
 msgid ""
@@ -108,31 +108,53 @@ msgid ""
 "  return 0;\n"
 "}"
 msgstr ""
+"typedef continue_node< continue_msg > node_t;\n"
+"typedef const continue_msg & msg_t;\n"
+"\n"
+"\n"
+"int main() {\n"
+"  oneapi::tbb::flow::graph g;\n"
+"  node_t A(g, [](msg_t){ a(); } );\n"
+"  node_t B(g, [](msg_t){ b(); } );\n"
+"  node_t C(g, [](msg_t){ c(); } );\n"
+"  node_t D(g, [](msg_t){ d(); } );\n"
+"  node_t E(g, [](msg_t){ e(); } );\n"
+"  node_t F(g, [](msg_t){ f(); } );\n"
+"  make_edge(A, B);\n"
+"  make_edge(B, C);\n"
+"  make_edge(B, D);\n"
+"  make_edge(A, E);\n"
+"  make_edge(E, D);\n"
+"  make_edge(E, F);\n"
+"  A.try_put( continue_msg() );\n"
+"  g.wait_for_all();\n"
+"  return 0;\n"
+"}"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Dependence_Graph.rst:108
 msgid "One possible execution of this graph is shown below. The execution of D does not start until both B and E are finished. While a task is waiting in the wait_for_all, its thread can participate in executing other tasks from the oneTBB work pool."
-msgstr ""
+msgstr "Одно из возможных исполнений этого графа показано ниже. Выполнение D не начинается до тех пор, пока не закончатся и B, и E. Пока задача ожидает в wait_for_all, ее поток может участвовать в выполнении других задач из пула работ oneTBB."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Dependence_Graph.rst:117
 msgid "Execution Timeline for a Dependence Graph"
-msgstr ""
+msgstr "Временная шкала выполнения для графа зависимости"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Dependence_Graph.rst:123
 msgid "|image2|"
-msgstr ""
+msgstr "|image2|"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Dependence_Graph.rst:146
 msgid "image2"
-msgstr ""
+msgstr "image2"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Dependence_Graph.rst:146
 msgid ".. image:: main/tbb_userguide/Images/execution_timeline_dependence.jpg"
-msgstr ""
+msgstr ".. image:: main/tbb_userguide/Images/execution_timeline_dependence.jpg"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Dependence_Graph.rst:126
 msgid "Again, it is important to note that all execution in the flow graph happens asynchronously. The call to A.try_put returns control to the calling thread quickly, after incrementing the counter and spawning a task to execute the body of A. Likewise, the body tasks execute the lambda expressions and then put a continue_msg to all successor nodes, if any. Only the call to wait_for_all blocks, as it should, and even in this case the calling thread may be used to execute tasks from the oneTBB work pool while it is waiting."
-msgstr ""
+msgstr "Опять же, важно отметить, что все выполнение в графе потока происходит асинхронно. Вызов A.try_put быстро возвращает управление вызывающему потоку, после инкремента счетчика и порождения задачи для выполнения тела A. Аналогично, задачи тела выполняют лямбда-выражения, а затем посылают continue_msg всем узлам-преемникам, если таковые имеются. Только вызов wait_for_all блокируется, как и должно быть, и даже в этом случае вызывающий поток может использоваться для выполнения задач из пула работ oneTBB во время ожидания."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Dependence_Graph.rst:136
 msgid "The above timeline shows the sequence when there are enough threads to execute all of the tasks that can be executed concurrently in parallel. If there are fewer threads, then some tasks that are spawned will need to wait until a thread is available to execute them."
-msgstr ""
+msgstr "Приведенный выше график показывает последовательность действий, когда потоков достаточно для параллельного выполнения всех задач, которые могут выполняться параллельно. Если потоков меньше, то некоторые порождаемые задачи должны будут ждать, пока освободится поток для их выполнения."

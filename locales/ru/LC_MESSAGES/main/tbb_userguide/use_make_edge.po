@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 00:17+0300\n"
+"PO-Revision-Date: 2022-03-20 19:03+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,20 +25,20 @@ msgstr "Использование make_edge и remove_edge"
 
 #: ../../oneTBB/doc/main/tbb_userguide/use_make_edge.rst:7
 msgid "These are the basic guidelines for creating and removing edges:"
-msgstr ""
+msgstr "Это основные рекомендации по созданию и удалению граней:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/use_make_edge.rst:10
 msgid "use make_edge and remove_edge"
-msgstr ""
+msgstr "Использоуй make_edge и remove_edge"
 
 #: ../../oneTBB/doc/main/tbb_userguide/use_make_edge.rst:13
 msgid "Avoid using register_successor and register_predecessor"
-msgstr ""
+msgstr "Избегай использования register_successor и register_predecessor"
 
 #: ../../oneTBB/doc/main/tbb_userguide/use_make_edge.rst:16
 msgid "Avoid using remove_successor and remove_predecessor"
-msgstr ""
+msgstr "Избегай использования remove_successor и remove_predecessor"
 
 #: ../../oneTBB/doc/main/tbb_userguide/use_make_edge.rst:19
 msgid "As a convention, to communicate the topology, use only functions flow::make_edge and flow::remove_edge. The runtime library uses node functions, such as sender<T>::register_successor, to create these edges, but those functions should not be called directly. The runtime library calls these node functions directly to implement optimizations on the topology at runtime."
-msgstr ""
+msgstr "В качестве соглашения, для передачи топологии используй только функции flow::make_edge и flow::remove_edge. Библиотека времени выполнения использует функции узла, такие как sender<T>::register_successor, для создания этих ребер, но эти функции не должны вызываться напрямую. Библиотека времени выполнения вызывает эти функции узла напрямую, чтобы реализовать оптимизацию топологии во время выполнения."

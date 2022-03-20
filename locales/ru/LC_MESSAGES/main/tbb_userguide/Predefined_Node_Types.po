@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 14:40+0300\n"
+"PO-Revision-Date: 2022-03-20 18:55+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,116 +25,116 @@ msgstr "Предопределенные типы узлов"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:7
 msgid "You can define your own node types by inheriting from class graph_node, class sender and class receiver but it is likely that you can create your graph with the predefined node types already available in flow_graph.h. Below is a table that lists all of the predefined types with a basic description. See the Developer Reference for a more detailed description of each node."
-msgstr ""
+msgstr "Ты можешь определить свои собственные типы узлов, наследуя от class graph_node, class sender и class receiver, но, скорее всего, ты сможешь создать свой граф с помощью предопределенных типов узлов, уже имеющихся в flow_graph.h. Ниже приведена таблица, в которой перечислены все предопределенные типы с основным описанием. Более подробное описание каждого узла смотри в Справочнике разработчика."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:22
 msgid "Predefined Node Type"
-msgstr ""
+msgstr "Предопределенный тип узла"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:23
 msgid "Description"
-msgstr ""
+msgstr "Описание"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:24
 msgid "input_node"
-msgstr ""
+msgstr "input_node"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:25
 msgid "A single-output node, with a generic output type. When activated, it executes a user body to generate its output. Its body is invoked if downstream nodes have accepted the previous generated output. Otherwise, the previous output is temporarily buffered until it is accepted downstream and then the body is again invoked."
-msgstr ""
+msgstr "Узел с одним выходом, с общим типом выхода. При активации он выполняет тело пользователя для генерации своего вывода. Его тело вызывается, если нижележащие узлы приняли предыдущий сгенерированный вывод. В противном случае предыдущий вывод временно буферизируется до тех пор, пока он не будет принят нижележащими узлами, после чего тело снова вызывается."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:28
 msgid "function_node"
-msgstr ""
+msgstr "function_node"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:29
 msgid "A single-input single-output node that broadcasts its output to all successors. Has generic input and output types. Executes a user body, and has controllable concurrency level and buffering policy.   For each input exactly one output is returned."
-msgstr ""
+msgstr "Узел с одним входом и одним выходом, который транслирует свой выход всем преемникам. Имеет общие типы входа и выхода. Выполняет тело пользователя и имеет контролируемый уровень параллелизма и политику буферизации.   Для каждого входа возвращается ровно один выход."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:30
 msgid "continue_node"
-msgstr ""
+msgstr "continue_node"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:31
 msgid "A single-input, single-output node that broadcasts its output to    all successors. It has a single input that requires 1 or more inputs   of type continue_msg and has a generic output type. It executes a   user body when it receives N continue_msg objects at its input. N is   equal to the number of predecessors plus any additional offset   assigned at construction time."
-msgstr ""
+msgstr "Узел с одним входом и одним выходом, который транслирует свой выход всем преемникам. Он имеет единственный вход, который требует 1 или более входов типа continue_msg, и имеет общий тип выхода. Он выполняет тело пользователя, когда получает на свой вход N объектов continue_msg. N равно количеству предшественников плюс любое дополнительное смещение, назначенное во время построения."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:32
 msgid "multifunction_node"
-msgstr ""
+msgstr "multifunction_node"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:33
 msgid "A single-input multi-output node. It has a generic input type and    several generic output types. It executes a user body, and has   controllable concurrency level and buffering policy. The body can   output zero or more messages on each output port."
-msgstr ""
+msgstr "Узел с одним входом и несколькими выходами. Он имеет общий тип входа и несколько общих типов выхода. Он выполняет тело пользователя и имеет контролируемый уровень параллелизма и политику буферизации. Тело может выводить ноль или более сообщений на каждый выходной порт."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:34
 msgid "broadcast_node"
-msgstr ""
+msgstr "broadcast_node"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:35
 msgid "A single-input, single-output node that broadcasts each message    received to all successors. Its input and output are of the same   generic type. It does not buffer messages."
-msgstr ""
+msgstr "Узел с одним входом и одним выходом, который транслирует каждое полученное сообщение всем преемникам. Его вход и выход имеют один и тот же общий тип. Он не буферизирует сообщения."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:36
 msgid "buffer_node, queue_node, priority_queue_node, and sequencer_node."
-msgstr ""
+msgstr "buffer_node, queue_node, priority_queue_node и sequencer_node."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:37
 msgid "Single-input, single-output nodes that buffer messages and send    their output to one successor. The order in which the messages are   sent are node specific (see the Developer Reference). These nodes are   unique in that they send to only a single successor and not all   successors."
-msgstr ""
+msgstr "Узлы с одним входом и одним выходом, которые буферизируют сообщения и отправляют их выход одному преемнику. Порядок, в котором отправляются сообщения, зависит от конкретного узла (см. Справочник разработчика). Эти узлы уникальны тем, что они отправляют сообщения только одному преемнику, а не всем преемникам."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:38
 msgid "join_node"
-msgstr ""
+msgstr "join_node"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:39
 msgid "A multi-input, single-output node. There are several generic    input types and the output type is a tuple of these generic types.   The node combines one message from each input port to create a tuple   that is broadcast to all successors. The policy used to combine   messages is selectable as queueing, reserving or tag-matching."
-msgstr ""
+msgstr "Узел с несколькими входами и одним выходом. Существует несколько общих входных типов, а выходной тип представляет собой кортеж этих общих типов.   Узел объединяет по одному сообщению от каждого входного порта для создания кортежа, который транслируется всем преемникам. Политика, используемая для объединения сообщений, может быть выбрана как постановка в очередь, резервирование или согласование тегов."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:40
 msgid "split_node"
-msgstr ""
+msgstr "split_node"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:41
 msgid "A single-input, multi-output node. The input type is a tuple of    generic types and there is one output port for each of the types in   the tuple. The node receives a tuple of values and outputs each   element of the tuple on a corresponding output port."
-msgstr ""
+msgstr "Узел с одним входом и несколькими выходами. Входным типом является кортеж общих типов, а для каждого из типов в кортеже существует один выходной порт. Узел получает кортеж значений и выводит каждый элемент кортежа на соответствующий выходной порт."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:42
 msgid "write_once_node, overwrite_node"
-msgstr ""
+msgstr "write_once_node, overwrite_node"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:43
 msgid "Single-input, single-output nodes that buffer a single message    and broadcast their outputs to all successors. After broadcast, the   nodes retain the last message received, so it is available to any   future successor. A write_once_node will only accept the first   message it receives, while the overwrite_node will accept all   messages, broadcasting them to all successors, and replacing the old   value with the new."
-msgstr ""
+msgstr "Узлы с одним входом и одним выходом, которые буферизируют одно сообщение и транслируют свои выходы всем преемникам. После трансляции узлы сохраняют последнее полученное сообщение, поэтому оно доступно любому будущему преемнику. Узел write_once_node будет принимать только первое полученное сообщение, в то время как узел overwrite_node будет принимать все сообщения, транслируя их всем преемникам и заменяя старое значение новым."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:44
 msgid "limiter_node"
-msgstr ""
+msgstr "limiter_node"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:45
 msgid "A multi-input, single output node that broadcasts its output to    all successors. The main input type and output type are of the same   generic type. The node increments an internal counter when it   broadcasts a message. If the increment causes it to reach its   user-assigned threshold, it will broadcast no more messages. A   special input port can be used to adjust the internal count, allowing   further messages to be broadcast. The node does not buffer messages."
-msgstr ""
+msgstr "Узел с несколькими входами и одним выходом, который транслирует свой выход всем преемникам. Основной тип входа и тип выхода имеют один и тот же общий тип. Узел инкрементирует внутренний счетчик, когда передает сообщение. Если в результате инкремента он достигает порога, назначенного пользователем, он больше не будет транслировать сообщения. Специальный входной порт может быть использован для корректировки внутреннего счетчика, что позволяет транслировать дальнейшие сообщения. Узел не буферизирует сообщения."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:46
 msgid "indexer_node"
-msgstr ""
+msgstr "indexer_node"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:47
 msgid "A multi-input, single-output node that broadcasts its output    message to all of its successors. The input type is a list of generic   types and the output type is a tagged_msg. The message is of one of   the types listed in the input and the tag identifies the port on   which the message was received. Messages are broadcast individually   as they arrive at the input ports."
-msgstr ""
+msgstr "Многовходовый, одновыходной узел, который транслирует свое выходное сообщение всем своим преемникам. Входной тип - это список общих типов, а выходной тип - tagged_msg. Сообщение имеет один из типов, перечисленных на входе, а метка идентифицирует порт, на котором было получено сообщение. Сообщения транслируются по отдельности по мере их поступления на входные порты."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:48
 msgid "composite_node"
-msgstr ""
+msgstr "composite_node"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:49
 msgid "A node that might have 0, 1 or multiple ports for both input and    output. The composite_node packages a group of other nodes together   and maintains a tuple of references to ports that border it. This   allows for the corresponding ports of the composite_node to be used   to make edges which hitherto would have been made from the actual   nodes in the composite_node."
-msgstr ""
+msgstr "Узел, который может иметь 0, 1 или несколько портов как для входа, так и для выхода. Составной_узел упаковывает группу других узлов вместе и поддерживает кортеж ссылок на порты, которые граничат с ним. Это позволяет использовать соответствующие порты составного_узла для создания ребер, которые до сих пор создавались бы из реальных узлов составного_узла."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:50
 msgid "async_node (preview feature)"
-msgstr ""
+msgstr "async_node (предварительно)"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Predefined_Node_Types.rst:51
 msgid "A node that allows a flow graph to communicate with an external    activity managed by the user or another runtime. This node receives   messages of generic type, invokes the user-provided body to submit a   message to an external activity. The external activity can use a   special interface to return a generic type and put it to all   successors of async_node."
-msgstr ""
+msgstr "Узел, который позволяет графу потока взаимодействовать с внешней активностью, управляемой пользователем или другой средой выполнения. Этот узел получает сообщения общего типа, вызывает тело, предоставленное пользователем, чтобы передать сообщение внешней активности. Внешняя активность может использовать специальный интерфейс, чтобы вернуть родовой тип и поместить его всем преемникам async_node."

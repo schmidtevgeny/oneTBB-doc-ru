@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 14:22+0300\n"
+"PO-Revision-Date: 2022-03-20 18:58+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,7 +25,7 @@ msgstr "Всегда используйте wait_for_all()"
 
 #: ../../oneTBB/doc/main/tbb_userguide/always_use_wait_for_all.rst:7
 msgid "One of the most common mistakes made in flow graph programming is to forget to call wait_for_all. The function graph::wait_for_all blocks until all tasks spawned by the graph are complete. This is not only useful when you want to wait until the computation is done, but it is necessary to call wait_for_all before destroying the graph, or any of its nodes. For example, the following function will lead to a program failure:"
-msgstr ""
+msgstr "Одна из самых распространенных ошибок, допускаемых при программировании потоковых графов, - забыть вызвать wait_for_all. Функция graph::wait_for_all блокирует до тех пор, пока не завершатся все задачи, порожденные графом. Это полезно не только тогда, когда ты хочешь дождаться окончания вычислений, но и необходимо вызвать wait_for_all перед уничтожением графа или любого из его узлов. Например, следующая функция приведет к сбою программы:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/always_use_wait_for_all.rst:19
 msgid ""
@@ -41,11 +41,22 @@ msgid ""
 "    // end of the scope, since the body of f is not complete\n"
 "}"
 msgstr ""
+"void no_wait_for_all() {\n"
+"    graph g;\n"
+"    function_node< int, int > f( g, 1, []( int i ) -> int {\n"
+"        return spin_for(i);\n"
+"    } );\n"
+"    f.try_put(1);\n"
+"\n"
+"\n"
+"    // программа потерпит неудачу, когда f и g будут уничтожены в конце\n"
+"    // области видимости, поскольку тело f не является завершенным\n"
+"}"
 
 #: ../../oneTBB/doc/main/tbb_userguide/always_use_wait_for_all.rst:32
 msgid "In the function above, the graph g and its node f are destroyed at the end of the function's scope. However, the task spawned to execute f's body is still in flight. When the task completes, it will look for any successors connected to its node, but by then both the graph and the node have been deleted out from underneath it. Placing a g.wait_for_all() at the end of the function prevents the premature destruction of the graph and node."
-msgstr ""
+msgstr "В приведенной выше функции граф g и его узел f уничтожаются в конце области видимости функции. Однако задача, порожденная для выполнения тела f, все еще находится в полете. Когда задача завершится, она будет искать преемников, подключенных к ее узлу, но к тому времени и граф, и узел будут удалены из-под нее. Размещение g.wait_for_all() в конце функции предотвращает преждевременное уничтожение графа и узла."
 
 #: ../../oneTBB/doc/main/tbb_userguide/always_use_wait_for_all.rst:41
 msgid "If you use a flow graph and see mysterious behavior, check first to see that you have called wait_for_all."
-msgstr ""
+msgstr "Если ты используешь граф потока и видишь загадочное поведение, проверь сначала, что ты вызвал wait_for_all."

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 14:20+0300\n"
+"PO-Revision-Date: 2022-03-20 19:00+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,20 +25,20 @@ msgstr "Избегайте динамического удаления узло�
 
 #: ../../oneTBB/doc/main/tbb_userguide/avoid_dynamic_node_removal.rst:7
 msgid "These are the basic guidelines regarding nodes and edges:"
-msgstr ""
+msgstr "Это основные рекомендации относительно узлов и ребер:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/avoid_dynamic_node_removal.rst:10
 msgid "Avoid dynamic node removal"
-msgstr ""
+msgstr "Избегайте динамического удаления узлов"
 
 #: ../../oneTBB/doc/main/tbb_userguide/avoid_dynamic_node_removal.rst:13
 msgid "Adding edges and nodes is supported"
-msgstr ""
+msgstr "Поддерживается добавление ребер и узлов"
 
 #: ../../oneTBB/doc/main/tbb_userguide/avoid_dynamic_node_removal.rst:16
 msgid "Removing edges is supported"
-msgstr ""
+msgstr "Удаление ребер поддерживается"
 
 #: ../../oneTBB/doc/main/tbb_userguide/avoid_dynamic_node_removal.rst:19
 msgid "It is possible to add new nodes and edges and to remove old edges from a flow graph as nodes are actively processing messages in the graph. However, removing nodes is discouraged. Destroying a graph or any of its nodes while there are messages being processed in the graph can lead to premature deletion of memory that will be later touched by tasks in the graph causing program failure. Removal of nodes when the graph is not idle may lead to intermittent failures and hard to find failures, so it should be avoided."
-msgstr ""
+msgstr "Можно добавлять новые узлы и ребра и удалять старые ребра из графа потока, поскольку узлы активно обрабатывают сообщения в графе. Однако удалять узлы не рекомендуется. Уничтожение графа или любого из его узлов, пока в графе обрабатываются сообщения, может привести к преждевременному удалению памяти, к которой впоследствии будут обращаться задачи в графе, что вызовет сбой программы. Удаление узлов, когда граф не простаивает, может привести к прерывистым сбоям и трудно обнаруживаемым отказам, поэтому этого следует избегать."
