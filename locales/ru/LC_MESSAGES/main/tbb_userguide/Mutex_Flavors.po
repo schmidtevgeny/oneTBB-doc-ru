@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 00:20+0300\n"
+"PO-Revision-Date: 2022-04-24 21:17+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,79 +25,79 @@ msgstr "Виды мютексов"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:7
 msgid "Connoisseurs of mutexes distinguish various attributes of mutexes. It helps to know some of these, because they involve tradeoffs of generality and efficiency. Picking the right one often helps performance. Mutexes can be described by the following qualities, also summarized in the table below."
-msgstr ""
+msgstr "Знатоки мьютексов выделяют различные атрибуты мьютексов. Полезно знать некоторые из них, потому что они предполагают компромисс между общностью и эффективностью. Правильный выбор часто помогает повысить производительность. Мьютексы могут быть описаны следующими качествами, также сведенными в таблицу ниже."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:14
 msgid "**Scalable**. Some mutexes are called *scalable*. In a strict sense, this is not an accurate name, because a mutex limits execution to one thread at a time. A *scalable mutex* is one that does not do *worse* than this. A mutex can do worse than serialize execution if the waiting threads consume excessive processor cycles and memory bandwidth, reducing the speed of threads trying to do real work. Scalable mutexes are often slower than non-scalable mutexes under light contention, so a non-scalable mutex may be better. When in doubt, use a scalable mutex."
-msgstr ""
+msgstr "**Масштабируемость**. Некоторые мьютексы называются *масштабируемыми*. В строгом смысле это не совсем точное название, потому что мьютекс ограничивает выполнение одним потоком за раз. *Масштабируемый мьютекс* - это тот, который не делает *хуже*, чем это. Мьютекс может делать хуже, чем сериализация выполнения, если ожидающие потоки потребляют чрезмерное количество процессорных тактов и пропускную способность памяти, снижая скорость потоков, пытающихся выполнить реальную работу. Масштабируемые мьютексы часто медленнее, чем немасштабируемые мьютексы в условиях легкой конкуренции, поэтому немасштабируемый мьютекс может быть лучше. Если есть сомнения, используй масштабируемый мьютекс."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:25
 msgid "**Fair**. Mutexes can be *fair* or *unfair*. A fair mutex lets threads through in the order they arrived. Fair mutexes avoid starving threads. Each thread gets its turn. However, unfair mutexes can be faster, because they let threads that are running go through first, instead of the thread that is next in line which may be sleeping on account of an interrupt."
-msgstr ""
+msgstr "**Честный**. Мьютексы могут быть *честными* или *нечестными*. Честный мьютекс пропускает потоки в том порядке, в котором они пришли. Справедливые мьютексы позволяют избежать голодания потоков. Каждый поток получает свою очередь. Однако несправедливые мьютексы могут быть быстрее, потому что они позволяют потокам, которые выполняются, пройти первыми, а не следующему в очереди потоку, который может спать из-за прерывания."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:33
 msgid "**Yield or Block**. This is an implementation detail that impacts performance. On long waits, an |full_name| mutex either *yields* or *blocks*. Here *yields* means to repeatedly poll whether progress can be made, and if not, temporarily yield [#]_ the processor. To *block* means to yield the processor until the mutex permits progress. Use the yielding mutexes if waits are typically short and blocking mutexes if waits are typically long."
-msgstr ""
+msgstr "**Выдача или блокировка**. Это деталь реализации, которая влияет на производительность. При длительном ожидании мьютекс |full_name| либо *выдает*, либо *блокирует*. Здесь *выдача* означает многократный опрос, можно ли достичь прогресса, и если нет, то временная передача [#]_ процессора. А *блокировать* означает отдать процессор до тех пор, пока мьютекс не разрешит прогресс. Используй уступающие мьютексы, если ожидание обычно короткое, и блокирующие мьютексы, если ожидание обычно длительное."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:43
 msgid "The following is a summary of mutex behaviors:"
-msgstr ""
+msgstr "Ниже приводится краткое описание поведения мьютексов:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:46
 msgid "``spin_mutex`` is non-scalable, unfair, non-recursive, and spins in user space. It would seem to be the worst of all possible worlds, except that it is *very fast* in *lightly contended* situations. If you can design your program so that contention is somehow spread out among many ``spin_mutex`` objects, you can improve performance over using other kinds of mutexes. If a mutex is heavily contended, your algorithm will not scale anyway. Consider redesigning the algorithm instead of looking for a more efficient lock."
-msgstr ""
+msgstr "``spin_mutex`` - немасштабируемый, нечестный, нерекурсивный и вращается в пространстве пользователя. Казалось бы, это худший из всех возможных в мире, за исключением того, что он *очень быстрый* в *легких ситуациях*. Если ты сможешь спроектировать свою программу так, чтобы разногласия каким-то образом распределялись между многими объектами ``spin_mutex``, ты сможешь улучшить производительность по сравнению с использованием других видов мьютексов. Если мьютекс сильно загрязнен, твой алгоритм все равно не будет масштабироваться. Подумай о перепроектировании алгоритма вместо того, чтобы искать более эффективную блокировку."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:56
 msgid "``mutex`` has behavior similar to the ``spin_mutex``. However, the ``mutex`` *blocks* on long waits that makes it resistant to high contention."
-msgstr ""
+msgstr "поведение ``mutex`` похоже на поведение ``spin_mutex``. Однако ``mutex`` *блокирует* при длительном ожидании, что делает его устойчивым к высоким нагрузкам."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:61
 msgid "``queuing_mutex`` is scalable, fair, non-recursive, and spins in user space. Use it when scalability and fairness are important."
-msgstr ""
+msgstr "``queuing_mutex`` является масштабируемым, справедливым, нерекурсивным и вращается в пространстве пользователя. Используй его, когда важны масштабируемость и справедливость."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:65
 msgid "``spin_rw_mutex`` and ``queuing_rw_mutex`` are similar to ``spin_mutex`` and ``queuing_mutex``, but additionally support *reader* locks."
-msgstr ""
+msgstr "``spin_rw_mutex`` и ``queuing_rw_mutex`` похожи на ``spin_mutex`` и ``queuing_mutex``, но дополнительно поддерживают *читательские* блокировки."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:70
 msgid "``rw_mutex`` is similar to ``mutex``, but additionally support *reader* locks."
-msgstr ""
+msgstr "``rw_mutex`` похож на ``mutex``, но дополнительно поддерживает блокировки *читателя*."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:74
 msgid "``speculative_spin_mutex`` and ``speculative_spin_rw_mutex`` are similar to ``spin_mutex`` and ``spin_rw_mutex``, but additionally provide *speculative locking* on processors that support hardware transaction memory. Speculative locking allows multiple threads acquire the same lock, as long as there are no \"conflicts\" that may generate different results than non-speculative locking. These mutexes are *scalable* when work with low conflict rate, i.e. mostly in speculative locking mode."
-msgstr ""
+msgstr "``speculative_spin_mutex`` и ``speculative_spin_rw_mutex`` похожи на ``spin_mutex`` и ``spin_rw_mutex``, но дополнительно обеспечивают *спекулятивную блокировку* на процессорах, поддерживающих аппаратную память транзакций. Спекулятивная блокировка позволяет нескольким потокам получить одну и ту же блокировку при условии отсутствия \"конфликтов\", которые могут привести к результатам, отличным от результатов неспекулятивной блокировки. Эти мьютексы *масштабируемы* при работе с низкой частотой конфликтов, то есть в основном в режиме спекулятивной блокировки."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:84
 msgid "``null_mutex`` and ``null_rw_mutex`` do nothing. They can be useful as template arguments. For example, suppose you are defining a container template and know that some instantiations will be shared by multiple threads and need internal locking, but others will be private to a thread and not need locking. You can define the template to take a Mutex type parameter. The parameter can be one of the real mutex types when locking is necessary, and ``null_mutex`` when locking is unnecessary."
-msgstr ""
+msgstr "``null_mutex`` и ``null_rw_mutex`` ничего не делают. Они могут быть полезны в качестве аргументов шаблона. Например, предположим, что ты определяешь шаблон контейнера и знаешь, что некоторые инстансы будут совместно использоваться несколькими потоками и нуждаются во внутренней блокировке, а другие будут приватными для одного потока и не нуждаются в блокировке. Ты можешь определить шаблон так, чтобы он принимал параметр типа Mutex. Параметр может быть одним из реальных типов мьютексов, когда блокировка необходима, и ``null_mutex``, когда блокировка не нужна."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:100
 msgid "Mutex"
-msgstr ""
+msgstr "Мютекс"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:101
 msgid "Scalable"
-msgstr ""
+msgstr "Масштабируемый"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:102
 msgid "Fair"
-msgstr ""
+msgstr "Честность"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:103
 msgid "Recursive"
-msgstr ""
+msgstr "Рекурсивно"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:104
 msgid "Long Wait"
-msgstr ""
+msgstr "Долгое ожидание"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:105
 msgid "Size"
-msgstr ""
+msgstr "Размер"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:106
 msgid "\\ ``spin_mutex``"
-msgstr ""
+msgstr "\\ ``spin_mutex``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:107
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:108
@@ -116,7 +116,7 @@ msgstr ""
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:145
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:151
 msgid "no"
-msgstr ""
+msgstr "нет"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:110
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:122
@@ -125,16 +125,16 @@ msgstr ""
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:146
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:152
 msgid "yields"
-msgstr ""
+msgstr "выдача"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:111
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:117
 msgid "1 byte"
-msgstr ""
+msgstr "1 байт"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:112
 msgid "\\ ``mutex``"
-msgstr ""
+msgstr "\\ ``mutex``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:113
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:125
@@ -147,81 +147,81 @@ msgstr ""
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:162
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:163
 msgid "✓"
-msgstr ""
+msgstr "✓"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:116
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:140
 msgid "blocks"
-msgstr ""
+msgstr "блокировка"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:118
 msgid "\\ ``speculative_spin_mutex``"
-msgstr ""
+msgstr "\\ ``speculative_spin_mutex``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:119
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:143
 msgid "HW dependent"
-msgstr ""
+msgstr "Зависимость от HW"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:123
 msgid "2 cache lines"
-msgstr ""
+msgstr "2 кэш-линии"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:124
 msgid "\\ ``queuing_mutex``"
-msgstr ""
+msgstr "\\ ``queuing_mutex``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:129
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:135
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:141
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:153
 msgid "1 word"
-msgstr ""
+msgstr "1 слово"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:130
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:136
 msgid "\\ ``spin_rw_mutex``"
-msgstr ""
+msgstr "\\ ``spin_rw_mutex``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:142
 msgid "\\ ``speculative_spin_rw_mutex``"
-msgstr ""
+msgstr "\\ ``speculative_spin_rw_mutex``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:147
 msgid "3 cache lines"
-msgstr ""
+msgstr "3 кэш-линии"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:148
 msgid "\\ ``queuing_rw_mutex``"
-msgstr ""
+msgstr "\\ ``queuing_rw_mutex``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:154
 msgid "\\ ``null_mutex`` [#]_"
-msgstr ""
+msgstr "\\ ``null_mutex`` [#]_"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:155
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:161
 msgid "moot"
-msgstr ""
+msgstr "спорный"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:158
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:164
 msgid "never"
-msgstr ""
+msgstr "никогда"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:159
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:165
 msgid "empty"
-msgstr ""
+msgstr "пусто"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:160
 msgid "\\ ``null_rw_mutex``"
-msgstr ""
+msgstr "\\ ``null_rw_mutex``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:170
 msgid "The yielding is implemented via ``SwitchToThread()`` on Microsoft Windows\\* operating systems and by ``sched_yield()`` on other systems."
-msgstr ""
+msgstr "Выдыча реализуется через ``SwitchToThread()`` в операционных системах Microsoft Windows\\* и через ``ched_yield()`` в других системах."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Mutex_Flavors.rst:174
 msgid "Null mutexes are considered fair by oneTBB because they cannot cause starvation. They lack any non-static data members."
-msgstr ""
+msgstr "Нулевые мьютексы считаются справедливыми в oneTBB, потому что они не могут вызвать гонку. В них отсутствуют нестатические члены данных."

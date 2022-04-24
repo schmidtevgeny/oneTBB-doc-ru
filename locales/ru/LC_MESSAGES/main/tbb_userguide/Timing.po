@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 14:26+0300\n"
+"PO-Revision-Date: 2022-04-24 21:26+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,11 +25,11 @@ msgstr "Хронометраж"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Timing.rst:7
 msgid "When measuring the performance of parallel programs, it is usually *wall clock* time, not CPU time, that matters. The reason is that better parallelization typically increases aggregate CPU time by employing more CPUs. The goal of parallelizing a program is usually to make it run *faster* in real time."
-msgstr ""
+msgstr "При измерении производительности параллельных программ обычно важно время *настенных часов*, а не процессорное время. Причина в том, что лучшее распараллеливание обычно увеличивает суммарное процессорное время за счет использования большего количества процессоров. Цель распараллеливания программы обычно заключается в том, чтобы заставить ее работать *быстрее* в реальном времени."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Timing.rst:14
 msgid "The class ``tick_count`` in |full_name| provides a simple interface for measuring wall clock time. A ``tick_count`` value obtained from the static method tick_count::now() represents the current absolute time. Subtracting two ``tick_count`` values yields a relative time in ``tick_count::interval_t``, which you can convert to seconds, as in the following example:"
-msgstr ""
+msgstr "Класс ``tick_count`` в |full_name| предоставляет простой интерфейс для измерения времени настенных часов. Значение ``tick_count``, полученное из статического метода tick_count::now(), представляет собой текущее абсолютное время. Вычитание двух значений ``tick_count`` дает относительное время в ``tick_count::interval_t``, которое ты можешь преобразовать в секунды, как в следующем примере:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Timing.rst:25
 #, python-format
@@ -39,15 +39,19 @@ msgid ""
 "tick_count t1 = tick_count::now();\n"
 "printf(\"work took %g seconds\\n\",(t1-t0).seconds());"
 msgstr ""
+"tick_count t0 = tick_count::now();\n"
+"... do some work ...\n"
+"tick_count t1 = tick_count::now();\n"
+"printf(\"work took %g seconds\\n\",(t1-t0).seconds());"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Timing.rst:33
 msgid "Unlike some timing interfaces, ``tick_count`` is guaranteed to be safe to use across threads. It is valid to subtract ``tick_count`` values that were created by different threads. A ``tick_count`` difference can be converted to seconds."
-msgstr ""
+msgstr "В отличие от некоторых интерфейсов синхронизации, ``tick_count`` гарантированно безопасен для использования в разных потоках. Допустимо вычитать значения ``tick_count``, которые были созданы разными потоками. Разница ``tick_count`` может быть преобразована в секунды."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Timing.rst:39
 msgid "The resolution of ``tick_count`` corresponds to the highest resolution timing service on the platform that is valid across threads in the same process. Since the CPU timer registers are *not* valid across threads on some platforms, this means that the resolution of tick_count can not be guaranteed to be consistent across platforms."
-msgstr ""
+msgstr "Разрешение ``tick_count`` соответствует службе тайминга с наивысшим разрешением на платформе, которая действительна для потоков в одном и том же процессе. Так как регистры таймера процессора *не* действительны в разных потоках на некоторых платформах, это означает, что разрешение ``tick_count`` не может быть гарантированно согласованным на разных платформах."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Timing.rst:48
 msgid "On Linux\\* OS, you may need to add -lrt to the linker command when you use oneapi::tbb::tick_count class. For more information, see `http://fedoraproject.org/wiki/Features/ChangeInImplicitDSOLinking <http://fedoraproject.org/wiki/Features/ChangeInImplicitDSOLinking>`_."
-msgstr ""
+msgstr "В ОС Linux\\* тебе может понадобиться добавить ``-lrt`` к команде компоновщика, когда ты используешь класс ``oneapi::tbb::tick_count``. Для получения дополнительной информации смотри `http://fedoraproject.org/wiki/Features/ChangeInImplicitDSOLinking <http://fedoraproject.org/wiki/Features/ChangeInImplicitDSOLinking>`_."

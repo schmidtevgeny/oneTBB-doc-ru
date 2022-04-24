@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 14:40+0300\n"
+"PO-Revision-Date: 2022-04-24 21:19+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -29,4 +29,4 @@ msgstr "Взаимное исключение необходимо, когда �
 
 #: ../../oneTBB/doc/main/tbb_userguide/Reader_Writer_Mutexes.rst:15
 msgid "Requests for a reader lock are distinguished from requests for a writer lock via an extra boolean parameter in the constructor for ``scoped_lock``. The parameter is false to request a reader lock and true to request a writer lock. It defaults to ``true`` so that when omitted, a ``spin_rw_mutex`` or ``queuing_rw_mutex`` behaves like its non-``_rw_`` counterpart."
-msgstr ""
+msgstr "Запросы на блокировку читателя отличаются от запросов на блокировку писателя дополнительным булевым параметром в конструкторе для ``scoped_lock``. Этот параметр равен false для запроса блокировки читателя и true для запроса блокировки писателя. По умолчанию он принимает значение ``true``, так что если его опустить, то ``spin_rw_mutex`` или ``queuing_rw_mutex`` будут вести себя так же, как и их аналоги без ``_rw_``."

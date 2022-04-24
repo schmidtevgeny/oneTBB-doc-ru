@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 00:22+0300\n"
+"PO-Revision-Date: 2022-04-24 21:23+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,56 +25,56 @@ msgstr "Патологии блокировки"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lock_Pathologies.rst:7
 msgid "Locks can introduce performance and correctness problems. If you are new to locking, here are some of the problems to avoid:"
-msgstr ""
+msgstr "Блокировки могут внести проблемы с производительностью и корректностью. Если ты новичок в блокировке, вот некоторые проблемы, которых следует избегать:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lock_Pathologies.rst
 msgid "Deadlock"
-msgstr ""
+msgstr "Тупик"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lock_Pathologies.rst:17
 msgid "Deadlock happens when threads are trying to acquire more than one lock, and each holds some of the locks the other threads need to proceed. More precisely, deadlock happens when:"
-msgstr ""
+msgstr "Тупик возникает, когда потоки пытаются получить более одной блокировки, и каждый из них удерживает некоторые блокировки, которые нужны другим потокам для продолжения работы. Более точно, тупик происходит, когда:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lock_Pathologies.rst:22
 msgid "There is a cycle of threads"
-msgstr ""
+msgstr "Существует цикл нитей"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lock_Pathologies.rst:25
 msgid "Each thread holds at least one lock on a mutex, and is waiting on a mutex for which the *next* thread in the cycle already has a lock."
-msgstr ""
+msgstr "Каждый поток держит по крайней мере одну блокировку на мьютексе и ожидает мьютекс, для которого *следующий* поток в цикле уже имеет блокировку."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lock_Pathologies.rst:30
 msgid "No thread is willing to give up its lock."
-msgstr ""
+msgstr "Ни одна нить не желает отказываться от своей блокировки."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lock_Pathologies.rst:33
 msgid "Think of classic gridlock at an intersection – each car has \"acquired\" part of the road, but needs to \"acquire\" the road under another car to get through. Two common ways to avoid deadlock are:"
-msgstr ""
+msgstr "Вспомни классический тупик на перекрестке - каждый автомобиль \"приобрел\" часть дороги, но чтобы проехать, ему нужно \"приобрести\" дорогу под другим автомобилем. Два распространенных способа избежать тупика таковы:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lock_Pathologies.rst:38
 msgid "Avoid needing to hold two locks at the same time. Break your program into small actions in which each can be accomplished while holding a single lock."
-msgstr ""
+msgstr "Избегай необходимости держать две блокировки одновременно. Разбей свою программу на небольшие действия, каждое из которых может быть выполнено при удержании одного мютекса."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lock_Pathologies.rst:43
 msgid "Always acquire locks in the same order. For example, if you have \"outer container\" and \"inner container\" mutexes, and need to acquire a lock on one of each, you could always acquire the \"outer sanctum\" one first. Another example is \"acquire locks in alphabetical order\" in a situation where the locks have names. Or if the locks are unnamed, acquire locks in order of the mutex’s numerical addresses."
-msgstr ""
+msgstr "Всегда приобретай блокировки в одном и том же порядке. Например, если у тебя есть мьютексы \"внешний контейнер\" и \"внутренний контейнер\", и тебе нужно получить блокировку на один из них, ты всегда можешь сначала получить блокировку \"внешнего святилища\". Другой пример - \"приобретать блокировки в алфавитном порядке\" в ситуации, когда блокировки имеют имена. Или, если блокировки не имеют имен, приобретай блокировки в порядке цифровых адресов мьютексов."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lock_Pathologies.rst:52
 msgid "Use atomic operations instead of locks."
-msgstr ""
+msgstr "Используй атомарные операции вместо блокировок."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lock_Pathologies.rst
 msgid "Convoying"
-msgstr ""
+msgstr "Конвоирование"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lock_Pathologies.rst:61
 msgid "Another common problem with locks is *convoying*. Convoying occurs when the operating system interrupts a thread that is holding a lock. All other threads must wait until the interrupted thread resumes and releases the lock. Fair mutexes can make the situation even worse, because if a waiting thread is interrupted, all the threads behind it must wait for it to resume."
-msgstr ""
+msgstr "Еще одна распространенная проблема с блокировками - это *Конвоирование*. Конвоирование происходит, когда операционная система прерывает поток, который держит блокировку. Все остальные потоки должны ждать, пока прерванный поток не возобновит работу и не освободит блокировку. Справедливые мьютексы могут сделать ситуацию еще хуже, потому что если ожидающий поток прерывается, то все потоки за ним должны ждать его возобновления."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lock_Pathologies.rst:69
 msgid "To minimize convoying, try to hold the lock as briefly as possible. Precompute whatever you can before acquiring the lock."
-msgstr ""
+msgstr "Чтобы минимизировать конвоирование, старайся удерживать блокировку как можно дольше. Предварительно просчитай все, что сможешь, до получения блокировки."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Lock_Pathologies.rst:73
 msgid "To avoid convoying, use atomic operations instead of locks where possible."
-msgstr ""
+msgstr "Чтобы избежать конвоирования, используй атомарные операции вместо блокировок там, где это возможно."

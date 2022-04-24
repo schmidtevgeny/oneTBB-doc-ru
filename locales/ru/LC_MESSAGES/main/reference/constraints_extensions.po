@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-23 15:45+0300\n"
+"PO-Revision-Date: 2022-04-24 19:22+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,39 +25,39 @@ msgstr "Расширение task_arena::constraints"
 
 #: ../../oneTBB/doc/main/reference/constraints_extensions.rst:7
 msgid "To enable this feature, set the ``TBB_PREVIEW_TASK_ARENA_CONSTRAINTS_EXTENSION`` macro to 1."
-msgstr ""
+msgstr "Чтобы включить эту функцию, установи макрос ``TBB_PREVIEW_TASK_ARENA_CONSTRAINTS_EXTENSION`` в значение 1."
 
 #: ../../oneTBB/doc/main/reference/constraints_extensions.rst:14
 msgid "Description"
-msgstr ""
+msgstr "Описание"
 
 #: ../../oneTBB/doc/main/reference/constraints_extensions.rst:16
 msgid "These extensions allow to customize ``tbb::task_arena::constraints`` with the following properties:"
-msgstr ""
+msgstr "Эти расширения позволяют настраивать ``tbb::task_arena::constraints`` со следующими свойствами:"
 
 #: ../../oneTBB/doc/main/reference/constraints_extensions.rst:18
 msgid "On machines with Intel® Hybrid Technology set the preferred core type for threads working within the task arena."
-msgstr ""
+msgstr "На машинах с технологией Intel® Hybrid Technology установить предпочтительный тип ядра для потоков, работающих в области задач."
 
 #: ../../oneTBB/doc/main/reference/constraints_extensions.rst:19
 msgid "Limit the maximum number of threads that can be scheduled to one core simultaneously."
-msgstr ""
+msgstr "Ограничить максимальное количество потоков, которые могут быть запланированы на одном ядре одновременно."
 
 #: ../../oneTBB/doc/main/reference/constraints_extensions.rst:22
 msgid "API"
-msgstr ""
+msgstr "API"
 
 #: ../../oneTBB/doc/main/reference/constraints_extensions.rst:25
 msgid "Header"
-msgstr ""
+msgstr "Заголовок"
 
 #: ../../oneTBB/doc/main/reference/constraints_extensions.rst:27
 msgid "#include <oneapi/tbb/task_arena.h>"
-msgstr ""
+msgstr "#include <oneapi/tbb/task_arena.h>"
 
 #: ../../oneTBB/doc/main/reference/constraints_extensions.rst:32
 msgid "Synopsis"
-msgstr ""
+msgstr "Описание"
 
 #: ../../oneTBB/doc/main/reference/constraints_extensions.rst:34
 msgid ""
@@ -82,70 +82,90 @@ msgid ""
 "    } // namespace tbb\n"
 "} // namespace oneapi"
 msgstr ""
+"namespace oneapi {\n"
+"    namespace tbb {\n"
+"\n"
+"        class task_arena {\n"
+"        public:\n"
+"            struct constraints {\n"
+"                constraints& set_numa_id(numa_node_id id);\n"
+"                constraints& set_max_concurrency(int maximal_concurrency);\n"
+"                constraints& set_core_type(core_type_id id);\n"
+"                constraints& set_max_threads_per_core(int threads_number);\n"
+"\n"
+"                numa_node_id numa_id = task_arena::automatic;\n"
+"                int max_concurrency = task_arena::automatic;\n"
+"                core_type_id core_type = task_arena::automatic;\n"
+"                int max_threads_per_core = task_arena::automatic;\n"
+"            }; // struct constraints\n"
+"        }; // class task_arena\n"
+"\n"
+"    } // namespace tbb\n"
+"} // namespace oneapi"
 
 #: ../../oneTBB/doc/main/reference/constraints_extensions.rst:58
 msgid "Member Functions"
-msgstr ""
+msgstr "Функции-члены"
 
 #: ../../oneTBB/doc/main/reference/constraints_extensions.rst:62
 msgid "Sets the ``numa_id`` field to the ``id``."
-msgstr ""
+msgstr "Устанавливает поле ``numa_id`` в значение ``id``."
 
 #: ../../oneTBB/doc/main/reference/constraints_extensions.rst:64
 #: ../../oneTBB/doc/main/reference/constraints_extensions.rst:70
 #: ../../oneTBB/doc/main/reference/constraints_extensions.rst:76
 #: ../../oneTBB/doc/main/reference/constraints_extensions.rst:82
 msgid "**Returns:** Reference to ``*this``."
-msgstr ""
+msgstr "**Возвращает**: ссылку на ``*this``."
 
 #: ../../oneTBB/doc/main/reference/constraints_extensions.rst:68
 msgid "Sets the ``max_concurrency`` field to the ``maximal_concurrency``."
-msgstr ""
+msgstr "Устанавливает поле ``max_concurrency`` в значение ``maximal_concurrency``."
 
 #: ../../oneTBB/doc/main/reference/constraints_extensions.rst:74
 msgid "Sets the ``core_type`` field to the ``id``."
-msgstr ""
+msgstr "Устанавливает поле ``core_type`` на ``id``."
 
 #: ../../oneTBB/doc/main/reference/constraints_extensions.rst:80
 msgid "Sets the ``max_threads_per_core`` field to the ``threads_number``."
-msgstr ""
+msgstr "Устанавливает поле ``max_threads_per_core`` в значение ``threads_number``."
 
 #: ../../oneTBB/doc/main/reference/constraints_extensions.rst:85
 msgid "Member Objects"
-msgstr ""
+msgstr "Объекты-члены"
 
 #: ../../oneTBB/doc/main/reference/constraints_extensions.rst:89
 msgid "An integral logical index uniquely identifying a NUMA node. All threads joining the ``task_arena`` are bound to this NUMA node."
-msgstr ""
+msgstr "Интегральный логический индекс, однозначно идентифицирующий узел NUMA. Все потоки, присоединяющиеся к ``task_arena``, привязываются к этому NUMA-узлу."
 
 #: ../../oneTBB/doc/main/reference/constraints_extensions.rst:94
 msgid "To obtain a valid NUMA node ID, call ``oneapi::tbb::info::numa_nodes()``."
-msgstr ""
+msgstr "Чтобы получить действительный идентификатор NUMA-узла, вызови ``oneapi::tbb::info::numa_nodes()``."
 
 #: ../../oneTBB/doc/main/reference/constraints_extensions.rst:98
 msgid "The maximum number of threads that can participate in work processing within the ``task_arena`` at the same time."
-msgstr ""
+msgstr "Максимальное количество потоков, которые могут одновременно участвовать в обработке работы в пределах ``task_arena``."
 
 #: ../../oneTBB/doc/main/reference/constraints_extensions.rst:104
 msgid "An integral logical index uniquely identifying a core type. All threads joining the ``task_arena`` are bound to this core type."
-msgstr ""
+msgstr "Интегральный логический индекс, однозначно идентифицирующий тип ядра. Все потоки, присоединяющиеся к ``task_arena``, привязываются к этому типу ядра."
 
 #: ../../oneTBB/doc/main/reference/constraints_extensions.rst:109
 msgid "To obtain a valid core type node ID, call ``oneapi::tbb::info::core_types()``."
-msgstr ""
+msgstr "Чтобы получить действительный идентификатор узла core type, вызови ``oneapi::tbb::info::core_types()``."
 
 #: ../../oneTBB/doc/main/reference/constraints_extensions.rst:113
 msgid "The maximum number of threads that can be scheduled to one core simultaneously."
-msgstr ""
+msgstr "Максимальное количество потоков, которые могут быть запланированы на одно ядро одновременно."
 
 #: ../../oneTBB/doc/main/reference/constraints_extensions.rst:115
 msgid "See also:"
-msgstr ""
+msgstr "См. также"
 
 #: ../../oneTBB/doc/main/reference/constraints_extensions.rst:117
 msgid ":doc:`oneapi::tbb::info namespace preview extensions <info_namespace_extensions>`"
-msgstr ""
+msgstr ":doc:`предварительное расширение пространства имен oneapi::tbb::info <info_namespace_extensions>`"
 
 #: ../../oneTBB/doc/main/reference/constraints_extensions.rst:118
 msgid "`oneapi::tbb::task_arena specification <https://spec.oneapi.com/versions/latest/elements/oneTBB/source/task_scheduler/task_arena/task_arena_cls.html>`_"
-msgstr ""
+msgstr "`спецификация oneapi::tbb::task_arena <https://spec.oneapi.com/versions/latest/elements/oneTBB/source/task_scheduler/task_arena/task_arena_cls.html>`_"

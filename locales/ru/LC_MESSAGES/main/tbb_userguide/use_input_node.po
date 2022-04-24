@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 00:16+0300\n"
+"PO-Revision-Date: 2022-04-24 19:25+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,15 +25,15 @@ msgstr "Использование input_node"
 
 #: ../../oneTBB/doc/main/tbb_userguide/use_input_node.rst:7
 msgid "By default, an ``input_node`` is constructed in the inactive state:"
-msgstr ""
+msgstr "По умолчанию ``input_node`` строится в неактивном состоянии:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/use_input_node.rst:13
 msgid "template< typename Body > input_node( graph &g, Body body, bool is_active=true )"
-msgstr ""
+msgstr "template< typename Body > input_node( graph &g, Body body, bool is_active=true )"
 
 #: ../../oneTBB/doc/main/tbb_userguide/use_input_node.rst:16
 msgid "To activate an inactive ``input_node``, you call the node's function activate:"
-msgstr ""
+msgstr "Чтобы активировать неактивный ``input_node``, ты вызываешь функцию узла activate:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/use_input_node.rst:23
 msgid ""
@@ -41,14 +41,17 @@ msgid ""
 "// use it in calls to make_edge…\n"
 "src.activate();"
 msgstr ""
+"input_node< int > src( g, src_body(10), false );\n"
+"// use it in calls to make_edge…\n"
+"src.activate();"
 
 #: ../../oneTBB/doc/main/tbb_userguide/use_input_node.rst:28
 msgid "All ``input_node`` objects are constructed in the inactive state and usually activated after the entire flow graph is constructed."
-msgstr ""
+msgstr "Все объекты ``input_node`` строятся в неактивном состоянии и обычно активируются после построения всего графа потока."
 
 #: ../../oneTBB/doc/main/tbb_userguide/use_input_node.rst:32
 msgid "For example, you can use the code in :ref:`Data_Flow_Graph`. In that implementation, the ``input_node`` is constructed in the inactive state and activated after all other edges are made:"
-msgstr ""
+msgstr "Например, ты можешь использовать код в :ref:`Data_Flow_Graph`. В этой реализации ``input_node`` строится в неактивном состоянии и активируется после того, как все остальные ребра будут сделаны:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/use_input_node.rst:40
 msgid ""
@@ -60,18 +63,25 @@ msgid ""
 "src.activate();\n"
 "g.wait_for_all();"
 msgstr ""
+"make_edge( squarer, summer );\n"
+"make_edge( cuber, summer );\n"
+"input_node< int > src( g, src_body(10), false );\n"
+"make_edge( src, squarer );\n"
+"make_edge( src, cuber );\n"
+"src.activate();\n"
+"g.wait_for_all();"
 
 #: ../../oneTBB/doc/main/tbb_userguide/use_input_node.rst:49
 msgid "In this example, if the ``input_node`` was toggled to the active state at the beginning, it might send a message to squarer immediately after the edge to squarer is connected. Later, when the edge to cuber is connected, cuber will receive all future messages, but may have already missed some."
-msgstr ""
+msgstr "В этом примере, если ``input_node`` был переведен в активное состояние в самом начале, он может послать сообщение squarer сразу после подключения грани к squarer. Позже, когда ребро к cuber будет подключено, cuber получит все будущие сообщения, но, возможно, уже пропустил некоторые."
 
 #: ../../oneTBB/doc/main/tbb_userguide/use_input_node.rst:55
 msgid "In general it is safest to create your ``input_node`` objects in the inactive state and then activate them after the whole graph is constructed. However, this approach serializes graph construction and graph execution."
-msgstr ""
+msgstr "В общем, безопаснее всего создавать свои объекты ``input_node`` в неактивном состоянии, а затем активировать их после того, как весь граф будет построен. Однако такой подход сериализует построение графа и его выполнение."
 
 #: ../../oneTBB/doc/main/tbb_userguide/use_input_node.rst:61
 msgid "Some graphs can be constructed safely with ``input_node``s active, allowing the overlap of construction and execution. If your graph is a directed acyclic graph (DAG), and each ``input_node`` has only one successor, you can activate your ``input_node``s just after their construction if you construct the edges in reverse topological order; that is, make the edges at the largest depth in the tree first, and work back to the shallowest edges. For example, if src is an ``input_node`` and ``func1`` and ``func2`` are both function nodes, the following graph would not drop messages, even though src is activated just after its construction:"
-msgstr ""
+msgstr "Некоторые графы можно безопасно строить с активными ``input_node``, что позволяет перекрывать построение и выполнение. Если твой граф является направленным ациклическим графом (DAG), и каждый ``input_node`` имеет только один приемник, ты можешь активировать свои ``input_node`` сразу после их построения, если будешь строить ребра в обратном топологическом порядке; то есть сначала сделай ребра на самой большой глубине дерева, а затем возвращайся к самым мелким ребрам. Например, если src является ``input_node``, а ``func1`` и ``func2`` являются функциональными узлами, то следующий граф не будет отбрасывать сообщения, даже если src активируется сразу после его построения:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/use_input_node.rst:75
 msgid ""
@@ -104,7 +114,35 @@ msgid ""
 "\n"
 "g.wait_for_all();"
 msgstr ""
+"const int limit = 10;\n"
+"int count = 0;\n"
+"graph g;\n"
+"oneapi::tbb::flow::graph g;\n"
+"oneapi::tbb::flow::input_node<int> src( g, [&]( oneapi::tbb::flow_control &fc ) -> int {\n"
+"  if ( count < limit ) {\n"
+"    return ++count;\n"
+"  }\n"
+"  fc.stop();\n"
+"  return {};\n"
+"});\n"
+"src.activate();\n"
+"\n"
+"oneapi::tbb::flow::function_node<int,int> func1( g, 1, []( int i ) -> int {\n"
+"  std::cout << i << \"\\n\";\n"
+"  return i;\n"
+"} );\n"
+"oneapi::tbb::flow::function_node<int,int> func2( g, 1, []( int i ) -> int {\n"
+"  std::cout << i << \"\\n\";\n"
+"  return i;\n"
+"} );\n"
+"\n"
+"\n"
+"make_edge( func1, func2 );\n"
+"make_edge( src, func1 );\n"
+"\n"
+"\n"
+"g.wait_for_all();"
 
 #: ../../oneTBB/doc/main/tbb_userguide/use_input_node.rst:105
 msgid "The above code is safe because the edge from ``func1`` to ``func2`` is made before the edge from src to ``func1``. If the edge from src to func1 were made first, ``func1`` might generate a message before ``func2`` is attached to it; that message would be dropped. Also, src has only a single successor. If src had more than one successor, the successor that is attached first might receive messages that do not reach the successors that are attached after it."
-msgstr ""
+msgstr "Приведенный выше код безопасен, потому что ребро от ``func1`` к ``func2`` делается раньше, чем ребро от src к ``func1``. Если бы ребро от src к func1 было сделано первым, то ``func1`` могла бы сгенерировать сообщение до того, как к ней будет присоединена ``func2``; это сообщение было бы отброшено. Кроме того, src имеет только одного преемника. Если бы у src было более одного преемника, то преемник, присоединенный первым, мог бы получать сообщения, которые не доходят до преемников, присоединенных после него."

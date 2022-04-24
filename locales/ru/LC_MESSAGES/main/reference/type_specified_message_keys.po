@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 14:59+0300\n"
+"PO-Revision-Date: 2022-04-24 18:36+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,43 +25,43 @@ msgstr "Определяемые типом ключи сообщения для
 
 #: ../../oneTBB/doc/main/reference/type_specified_message_keys.rst:7
 msgid "To enable this feature, define the ``TBB_PREVIEW_FLOW_GRAPH_FEATURES`` macro to 1."
-msgstr ""
+msgstr "Чтобы включить эту функцию, определи макрос ``TBB_PREVIEW_FLOW_GRAPH_FEATURES`` в 1."
 
 #: ../../oneTBB/doc/main/reference/type_specified_message_keys.rst:14
 msgid "Description"
-msgstr ""
+msgstr "Описание"
 
 #: ../../oneTBB/doc/main/reference/type_specified_message_keys.rst:16
 msgid "The extension allows a key matching ``join_node`` to obtain keys via functions associated with its input types. The extension simplifies the existing approach by removing the need to provide a function object for each input port of ``join_node``."
-msgstr ""
+msgstr "Расширение позволяет узлу сопоставления ключей ``join_node`` получать ключи через функции, связанные с его входными типами. Расширение упрощает существующий подход, устраняя необходимость предоставлять объект функции для каждого входного порта ``join_node``."
 
 #: ../../oneTBB/doc/main/reference/type_specified_message_keys.rst:21
 msgid "API"
-msgstr ""
+msgstr "API"
 
 #: ../../oneTBB/doc/main/reference/type_specified_message_keys.rst:24
 msgid "Header"
-msgstr ""
+msgstr "Заголовок"
 
 #: ../../oneTBB/doc/main/reference/type_specified_message_keys.rst:26
 msgid "#include \"oneapi/tbb/flow_graph.h\""
-msgstr ""
+msgstr "#include \"oneapi/tbb/flow_graph.h\""
 
 #: ../../oneTBB/doc/main/reference/type_specified_message_keys.rst:31
 msgid "Syntax"
-msgstr ""
+msgstr "Синтаксис"
 
 #: ../../oneTBB/doc/main/reference/type_specified_message_keys.rst:33
 msgid "The extension adds a special constructor to the ``join_node`` interface when the ``key_matching<typename K, class KHash=tbb_hash_compare>`` policy is used. The constructor has the following signature:"
-msgstr ""
+msgstr "Расширение добавляет специальный конструктор в интерфейс ``join_node``, когда используется политика ``key_matching<typename K, class KHash=tbb_hash_compare>``. Конструктор имеет следующую сигнатуру:"
 
 #: ../../oneTBB/doc/main/reference/type_specified_message_keys.rst:37
 msgid "join_node( graph &g )"
-msgstr ""
+msgstr "join_node( graph &g )"
 
 #: ../../oneTBB/doc/main/reference/type_specified_message_keys.rst:41
 msgid "When constructed this way, a ``join_node`` calls the ``key_from_message`` function for each incoming message to obtain the key associated with it. The default implementation of ``key_from_message`` is the following"
-msgstr ""
+msgstr "При таком построении узел ``join_node`` вызывает функцию ``key_from_message`` для каждого входящего сообщения, чтобы получить связанный с ним ключ. По умолчанию функция ``key_from_message`` реализуется следующим образом"
 
 #: ../../oneTBB/doc/main/reference/type_specified_message_keys.rst:45
 msgid ""
@@ -76,15 +76,25 @@ msgid ""
 "    }\n"
 "}"
 msgstr ""
+"namespace oneapi {\n"
+"    namespace tbb {\n"
+"        namespace flow {\n"
+"            template <typename K, typename T>\n"
+"            K key_from_message( const T &t ) {\n"
+"                return t.key();\n"
+"            }\n"
+"        }\n"
+"    }\n"
+"}"
 
 #: ../../oneTBB/doc/main/reference/type_specified_message_keys.rst:58
 msgid "``T`` is one of the user-provided types in ``OutputTuple`` and is used to construct the ``join_node``, and ``K`` is the key type of the node. By default, the ``key()`` method defined in the message class will be called. Alternatively, the user can define its own ``key_from_message`` function in the same namespace with the message type. This function will be found via C++ argument-dependent lookup and used in place of the default implementation."
-msgstr ""
+msgstr "``T`` является одним из типов, предоставляемых пользователем в ``OutputTuple`` и используется для построения ``join_node``, а ``K`` - это тип ключа узла. По умолчанию будет вызван метод ``key()``, определенный в классе сообщения. В качестве альтернативы пользователь может определить собственную функцию ``key_from_message`` в одном пространстве имен с типом сообщения. Эта функция будет найдена через зависимый от аргументов поиск C++ и использована вместо реализации по умолчанию."
 
 #: ../../oneTBB/doc/main/reference/type_specified_message_keys.rst:67
 msgid "See Also"
-msgstr ""
+msgstr "Читайте также"
 
 #: ../../oneTBB/doc/main/reference/type_specified_message_keys.rst:69
 msgid "`join_node Specification <https://spec.oneapi.com/versions/latest/elements/oneTBB/source/flow_graph/join_node_cls.html>`_"
-msgstr ""
+msgstr "`Спецификация join_node <https://spec.oneapi.com/versions/latest/elements/oneTBB/source/flow_graph/join_node_cls.html>`_"

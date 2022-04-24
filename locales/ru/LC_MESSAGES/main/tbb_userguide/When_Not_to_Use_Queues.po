@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 14:26+0300\n"
+"PO-Revision-Date: 2022-04-24 20:21+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,20 +25,20 @@ msgstr "Когда не стоит использовать очереди"
 
 #: ../../oneTBB/doc/main/tbb_userguide/When_Not_to_Use_Queues.rst:7
 msgid "Queues are widely used in parallel programs to buffer consumers from producers. Before using an explicit queue, however, consider using ``parallel_for_each`` ``parallel_pipeline`` instead. These is often more efficient than queues for the following reasons:"
-msgstr ""
+msgstr "Очереди широко используются в параллельных программах для буферизации потребителей от производителей. Однако прежде чем использовать явную очередь, подумай о том, чтобы вместо нее использовать ``parallel_for_each`` ``parallel_pipeline``. Они часто более эффективны, чем очереди, по следующим причинам:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/When_Not_to_Use_Queues.rst:13
 msgid "A queue is inherently a bottle neck, because it must maintain first-in first-out order."
-msgstr ""
+msgstr "Очередь по своей сути является бутылочным горлышком, потому что она должна поддерживать порядок \"первый пришел - первый ушел\"."
 
 #: ../../oneTBB/doc/main/tbb_userguide/When_Not_to_Use_Queues.rst:17
 msgid "A thread that is popping a value may have to wait idly until the value is pushed."
-msgstr ""
+msgstr "Поток, который выкачивает значение, может быть вынужден ждать вхолостую, пока значение не будет вытолкнуто."
 
 #: ../../oneTBB/doc/main/tbb_userguide/When_Not_to_Use_Queues.rst:21
 msgid "A queue is a passive data structure. If a thread pushes a value, it could take time until it pops the value, and in the meantime the value (and whatever it references) becomes \"cold\" in cache. Or worse yet, another thread pops the value, and the value (and whatever it references) must be moved to the other processor."
-msgstr ""
+msgstr "Очередь - это пассивная структура данных. Если поток выталкивает значение, то может пройти время, пока он его вытащит, а тем временем значение (и всё, на что оно ссылается) становится \"холодным\" в кэше. Или, что еще хуже, другой поток выталкивает значение, и значение (и все, на что оно ссылается) должно быть перемещено в другой процессор."
 
 #: ../../oneTBB/doc/main/tbb_userguide/When_Not_to_Use_Queues.rst:28
 msgid "In contrast, ``parallel_pipeline`` avoids these bottlenecks. Because its threading is implicit, it optimizes use of worker threads so that they do other work until a value shows up. It also tries to keep items hot in cache."
-msgstr ""
+msgstr "В отличие от него, ``parallel_pipeline`` позволяет избежать этих узких мест. Поскольку его потоковая передача неявная, он оптимизирует использование рабочих потоков таким образом, чтобы они выполняли другую работу, пока не появится значение. Он также старается держать элементы в кэше в горячем состоянии."

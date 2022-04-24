@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 00:23+0300\n"
+"PO-Revision-Date: 2022-04-24 20:20+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,7 +25,7 @@ msgstr "Итерация над параллельной очередью для
 
 #: ../../oneTBB/doc/main/tbb_userguide/Iterating_Over_a_Concurrent_Queue_for_Debugging.rst:7
 msgid "The template classes ``concurrent_queue`` and ``concurrent_bounded_queue`` support STL-style iteration. This support is intended only for debugging, when you need to dump a queue. The iterators go forwards only, and are too slow to be very useful in production code. If a queue is modified, all iterators pointing to it become invalid and unsafe to use. The following snippet dumps a queue. The ``operator<<`` is defined for a ``Foo``."
-msgstr ""
+msgstr "Шаблонные классы ``concurrent_queue`` и ``concurrent_bounded_queue`` поддерживают итерацию в стиле STL. Эта поддержка предназначена только для отладки, когда тебе нужно сбросить очередь. Итераторы идут только вперед, и они слишком медленные, чтобы быть очень полезными в производственном коде. Если очередь модифицирована, то все итераторы, указывающие на нее, становятся недействительными и небезопасными для использования. Следующий фрагмент сбрасывает очередь. Оператор ``operator<<`` определен для ``Foo``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Iterating_Over_a_Concurrent_Queue_for_Debugging.rst:19
 msgid ""
@@ -36,7 +36,13 @@ msgid ""
 "    cout << *i;\n"
 "}"
 msgstr ""
+"concurrent_queue<Foo> q;\n"
+"...\n"
+"typedef concurrent_queue<Foo>::const_iterator iter;\n"
+"for(iter i(q.unsafe_begin()); i!=q.unsafe_end(); ++i ) {\n"
+"    cout << *i;\n"
+"}"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Iterating_Over_a_Concurrent_Queue_for_Debugging.rst:27
 msgid "The prefix ``unsafe_`` on the methods is a reminder that they are not concurrency safe."
-msgstr ""
+msgstr "Префикс ``unsafe_`` на методах - это напоминание о том, что они не являются параллельно безопасными."
