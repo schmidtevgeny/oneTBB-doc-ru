@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 14:24+0300\n"
-"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"PO-Revision-Date: 2022-04-25 09:49+0300\n"
+"Last-Translator: Evgeny Shmidt <evgenyshmidt@gmail.com>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.0\n"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_C_Dynamic_Memory_Interface_Replacement.rst:4
 msgid "Windows\\* OS C/C++ Dynamic Memory Interface Replacement"
@@ -25,68 +25,68 @@ msgstr "Windows\\* OS C/C++ Замена интерфейса динамичес
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_C_Dynamic_Memory_Interface_Replacement.rst:7
 msgid "Release version of the proxy library is ``tbbmalloc_proxy.dll``, debug version is ``tbbmalloc_proxy_debug.dll``."
-msgstr ""
+msgstr "Release-версия библиотеки прокси - ``tbbmalloc_proxy.dll``, отладочная версия - ``tbbmalloc_proxy_debug.dll``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_C_Dynamic_Memory_Interface_Replacement.rst:11
 msgid "The following dynamic memory functions are replaced:"
-msgstr ""
+msgstr "Заменяются следующие функции динамической памяти:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_C_Dynamic_Memory_Interface_Replacement.rst:14
 msgid "Standard C library functions: ``malloc``, ``calloc``, ``realloc``, ``free``"
-msgstr ""
+msgstr "Стандартные функции библиотеки C: ``malloc``, ``calloc``, ``realloc``, ``free``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_C_Dynamic_Memory_Interface_Replacement.rst:18
 msgid "Replaceable global C++ operators ``new`` and ``delete``"
-msgstr ""
+msgstr "Заменяемые глобальные операторы C++ ``new`` и ``delete``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_C_Dynamic_Memory_Interface_Replacement.rst:21
 msgid "Microsoft\\* C run-time library functions: ``_msize``, ``_aligned_malloc``, ``_aligned_realloc``, ``_aligned_free``, ``_aligned_msize``"
-msgstr ""
+msgstr "Microsoft\\* Функции библиотеки времени выполнения C: ``_msize``, ``_aligned_malloc``, ``_aligned_realloc``, ``_aligned_free``, ``_aligned_msize``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_C_Dynamic_Memory_Interface_Replacement.rst:27
 msgid "Replacement of memory allocation functions is not supported for Universal Windows Platform applications."
-msgstr ""
+msgstr "Замена функций распределения памяти не поддерживается для приложений Universal Windows Platform."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_C_Dynamic_Memory_Interface_Replacement.rst:31
 msgid "To do the replacement use one of the following methods:"
-msgstr ""
+msgstr "Чтобы произвести замену, используй один из следующих методов:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_C_Dynamic_Memory_Interface_Replacement.rst:34
 msgid "Add the following header to a source code of any binary which is loaded during application startup."
-msgstr ""
+msgstr "Добавь следующий заголовок в исходный код любого бинарного файла, который загружается во время запуска приложения."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_C_Dynamic_Memory_Interface_Replacement.rst:41
 msgid "#include \"oneapi/tbb/tbbmalloc_proxy.h\""
-msgstr ""
+msgstr "#include \"oneapi/tbb/tbbmalloc_proxy.h\""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_C_Dynamic_Memory_Interface_Replacement.rst:44
 msgid "Alternatively, add the following parameters to the linker options for the .exe or .dll file that is loaded during application startup."
-msgstr ""
+msgstr "В качестве альтернативы добавь следующие параметры в опции компоновщика для файла .exe или .dll, который загружается при запуске приложения."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_C_Dynamic_Memory_Interface_Replacement.rst:48
 msgid "For 32-bit code (note the triple underscore):"
-msgstr ""
+msgstr "Для 32-битного кода (обрати внимание на тройное подчеркивание):"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_C_Dynamic_Memory_Interface_Replacement.rst:54
 msgid "tbbmalloc_proxy.lib /INCLUDE:\"___TBB_malloc_proxy\""
-msgstr ""
+msgstr "tbbmalloc_proxy.lib /INCLUDE:\"___TBB_malloc_proxy\""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_C_Dynamic_Memory_Interface_Replacement.rst:57
 msgid "For 64-bit code (note the double underscore):"
-msgstr ""
+msgstr "Для 64-битного кода (обрати внимание на двойное подчеркивание):"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_C_Dynamic_Memory_Interface_Replacement.rst:63
 msgid "tbbmalloc_proxy.lib /INCLUDE:\"__TBB_malloc_proxy\""
-msgstr ""
+msgstr "tbbmalloc_proxy.lib /INCLUDE:\"__TBB_malloc_proxy\""
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_C_Dynamic_Memory_Interface_Replacement.rst:66
 msgid "The OS program loader must be able to find the proxy library and the scalable memory allocator library at program load time. For that you may include the directory containing the libraries in the ``PATH`` environment variable."
-msgstr ""
+msgstr "Загрузчик программ ОС должен уметь находить библиотеку прокси и библиотеку масштабируемого распределителя памяти во время загрузки программы. Для этого ты можешь включить каталог, содержащий библиотеки, в переменную окружения ``PATH``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_C_Dynamic_Memory_Interface_Replacement.rst:72
 msgid "The replacement uses in-memory binary instrumentation of Visual C++\\* runtime libraries. To ensure correctness, it must first recognize a subset of dynamic memory functions in these libraries. If a problem occurs, the replacement is skipped, and the program continues to use the standard memory allocation functions. You can use the ``TBB_malloc_replacement_log`` function to check if the replacement has succeeded and to get additional information."
-msgstr ""
+msgstr "Замена использует бинарный инструментарий в памяти библиотек времени выполнения Visual C++\\*. Чтобы обеспечить корректность, она должна сначала распознать подмножество функций динамической памяти в этих библиотеках. Если возникает проблема, замена пропускается, и программа продолжает использовать стандартные функции распределения памяти. Ты можешь использовать функцию ``TBB_malloc_replacement_log`` для проверки успешности замены и получения дополнительной информации."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Windows_C_Dynamic_Memory_Interface_Replacement.rst:80
 msgid "Set the ``TBB_MALLOC_DISABLE_REPLACEMENT`` environment variable to 1 to disable replacement for a specific program invocation. In this case, the program will use standard dynamic memory allocation functions. Note that the oneTBB memory allocation libraries are still required for the program to start even if their usage is disabled."
-msgstr ""
+msgstr "Установи переменную окружения ``TBB_MALLOC_DISABLE_REPLACEMENT`` в 1, чтобы отключить замещение для конкретного вызова программы. В этом случае программа будет использовать стандартные функции динамического распределения памяти. Обрати внимание, что библиотеки распределения памяти oneTBB по-прежнему необходимы для запуска программы, даже если их использование отключено."

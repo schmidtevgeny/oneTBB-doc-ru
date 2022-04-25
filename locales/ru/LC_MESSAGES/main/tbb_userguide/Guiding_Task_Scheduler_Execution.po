@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 00:23+0300\n"
-"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"PO-Revision-Date: 2022-04-25 10:05+0300\n"
+"Last-Translator: Evgeny Shmidt <evgenyshmidt@gmail.com>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.0\n"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Guiding_Task_Scheduler_Execution.rst:4
 msgid "Guiding Task Scheduler Execution"
@@ -25,63 +25,63 @@ msgstr "Управление работой планировщика задач"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Guiding_Task_Scheduler_Execution.rst:6
 msgid "By default, the task scheduler tries to use all available computing resources. In some cases, you may want to configure the task scheduler to use only some of them."
-msgstr ""
+msgstr "По умолчанию планировщик задач пытается использовать все доступные вычислительные ресурсы. В некоторых случаях ты можешь захотеть настроить планировщик заданий на использование только некоторых из них."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Guiding_Task_Scheduler_Execution.rst:11
 msgid "Guiding the execution of the task scheduler may cause composability issues."
-msgstr ""
+msgstr "Руководство выполнением планировщика заданий может вызвать проблемы с композитивностью."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Guiding_Task_Scheduler_Execution.rst:15
 msgid "|full_name| provides the ``task_arena`` interface to guide tasks execution within the arena by:"
-msgstr ""
+msgstr "|full_name| предоставляет интерфейс ``task_arena``, чтобы направлять выполнение задач в пределах арены:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Guiding_Task_Scheduler_Execution.rst:14
 msgid "setting the preferred computation units;"
-msgstr ""
+msgstr "задание предпочтительных вычислительных блоков;"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Guiding_Task_Scheduler_Execution.rst:15
 msgid "restricting part of computation units."
-msgstr ""
+msgstr "ограничение части вычислительных блоков."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Guiding_Task_Scheduler_Execution.rst:17
 msgid "Such customizations are encapsulated within the ``task_arena::constraints`` structure. To set the limitation, you have to customize the ``task_arena::constraints`` and then pass it to the ``task_arena`` instance during the construction or initialization."
-msgstr ""
+msgstr "Такие настройки заключены в структуре ``task_arena::constraints``. Чтобы установить ограничение, тебе нужно настроить структуру ``task_arena::constraints`` и затем передать ее экземпляру ``task_arena`` во время построения или инициализации."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Guiding_Task_Scheduler_Execution.rst:21
 msgid "The structure ``task_arena::constraints`` allows to specify the following restrictions:"
-msgstr ""
+msgstr "Структура ``task_arena::constraints`` позволяет указать следующие ограничения:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Guiding_Task_Scheduler_Execution.rst:23
 msgid "Preferred NUMA node"
-msgstr ""
+msgstr "Предпочитаемый узел NUMA"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Guiding_Task_Scheduler_Execution.rst:24
 msgid "Preferred core type"
-msgstr ""
+msgstr "Предпочтительный тип ядра"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Guiding_Task_Scheduler_Execution.rst:25
 msgid "The maximum number of logical threads scheduled per single core simultaneously"
-msgstr ""
+msgstr "Максимальное количество логических потоков, запланированных на одно ядро одновременно"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Guiding_Task_Scheduler_Execution.rst:26
 msgid "The level of ``task_arena`` concurrency"
-msgstr ""
+msgstr "Уровень параллелизма ``task_arena``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Guiding_Task_Scheduler_Execution.rst:28
 msgid "You may use the interfaces from ``tbb::info`` namespace to construct the ``tbb::task_arena::constraints`` instance. Interfaces from ``tbb::info`` namespace respect the process affinity mask. For instance, if the process affinity mask excludes execution on some of the NUMA nodes, then these NUMA nodes are not returned by ``tbb::info::numa_nodes()`` interface."
-msgstr ""
+msgstr "Ты можешь использовать интерфейсы из пространства имен ``tbb::info`` для построения экземпляра ``tbb::task_arena::constraints``. Интерфейсы из пространства имен ``tbb::info`` уважают маску аффинити процесса. Например, если маска аффинити процесса исключает выполнение на некоторых NUMA-узлах, то эти NUMA-узлы не возвращаются интерфейсом ``tbb::info::numa_nodes()``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Guiding_Task_Scheduler_Execution.rst:33
 msgid "The following examples show how to use these interfaces:"
-msgstr ""
+msgstr "В следующих примерах показано, как использовать эти интерфейсы:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Guiding_Task_Scheduler_Execution.rst:36
 msgid "Setting the preferred NUMA node"
-msgstr ""
+msgstr "Установка предпочтительного узла NUMA"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Guiding_Task_Scheduler_Execution.rst:37
 msgid "The execution on systems with non-uniform memory access (`NUMA <https://en.wikipedia.org/wiki/Non-uniform_memory_access>`_ systems) may cause a performance penalty if threads from one NUMA node access the memory allocated on a different NUMA node. To reduce this overhead, the work may be divided among several ``task_arena`` instances, whose execution preference is set to different NUMA nodes. To set execution preference, assign a NUMA node identifier to the ``task_arena::constraints::numa_id`` field."
-msgstr ""
+msgstr "Выполнение на системах с неравномерным доступом к памяти (`NUMA <https://en.wikipedia.org/wiki/Non-uniform_memory_access>`_ системы) может привести к снижению производительности, если потоки из одного NUMA-узла обращаются к памяти, выделенной на другом NUMA-узле. Чтобы уменьшить эти накладные расходы, работа может быть разделена между несколькими экземплярами ``task_arena``, предпочтение выполнения которых установлено на разные NUMA-узлы. Чтобы установить предпочтение выполнения, назначь идентификатор NUMA-узла полю ``task_arena::constraints::numa_id``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Guiding_Task_Scheduler_Execution.rst:45
 msgid ""
@@ -100,18 +100,32 @@ msgid ""
 "    arenas[j].execute([&task_groups, &j](){ task_groups[j].wait(); });\n"
 "}"
 msgstr ""
+"std::vector<tbb::numa_node_id> numa_indexes = tbb::info::numa_nodes();\n"
+"std::vector<tbb::task_arena> arenas(numa_indexes.size());\n"
+"std::vector<tbb::task_group> task_groups(numa_indexes.size());\n"
+"\n"
+"for(unsigned j = 0; j < numa_indexes.size(); j++) {\n"
+"    arenas[j].initialize(tbb::task_arena::constraints(numa_indexes[j]));\n"
+"    arenas[j].execute([&task_groups, &j](){\n"
+"        task_groups[j].run([](){/*some parallel stuff*/});\n"
+"    });\n"
+"}\n"
+"\n"
+"for(unsigned j = 0; j < numa_indexes.size(); j++) {\n"
+"    arenas[j].execute([&task_groups, &j](){ task_groups[j].wait(); });\n"
+"}"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Guiding_Task_Scheduler_Execution.rst:61
 msgid "Setting the preferred core type"
-msgstr ""
+msgstr "Установка предпочтительного типа сердечника"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Guiding_Task_Scheduler_Execution.rst:62
 msgid "The processors with `Intel® Hybrid Technology <https://www.intel.com/content/www/us/en/products/docs/processors/core/core-processors-with-hybrid-technology-brief.html>`_ contain several core types, each is suited for different purposes. For example, some applications may improve their performance by preferring execution on the most performant cores. To set execution preference, assign specific core type identifier to the ``task_arena::constraints::core_type`` field."
-msgstr ""
+msgstr "Процессоры с `Intel® Hybrid Technology <https://www.intel.com/content/www/us/en/products/docs/processors/core/core-processors-with-hybrid-technology-brief.html>`_ содержат несколько типов ядер, каждое из которых подходит для различных целей. Например, некоторые приложения могут улучшить свою производительность, предпочитая выполнение на наиболее производительных ядрах. Чтобы установить предпочтение выполнения, назначь конкретный идентификатор типа ядра полю ``task_arena::constraints::core_type``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Guiding_Task_Scheduler_Execution.rst:67
 msgid "The example shows how to set the most performant core type as preferable for work execution:"
-msgstr ""
+msgstr "В примере показано, как установить наиболее производительный тип ядра как предпочтительный для выполнения работы:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Guiding_Task_Scheduler_Execution.rst:71
 msgid ""
@@ -124,18 +138,26 @@ msgid ""
 "    /*the most performant core type is defined as preferred.*/\n"
 "});"
 msgstr ""
+"std::vector<tbb::core_type_id> core_types = tbb::info::core_types();\n"
+"tbb::task_arena arena(\n"
+"    tbb::task_arena::constraints{}.set_core_type(core_types.back())\n"
+");\n"
+"\n"
+"arena.execute( [] {\n"
+"    /*the most performant core type is defined as preferred.*/\n"
+"});"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Guiding_Task_Scheduler_Execution.rst:81
 msgid "Limiting the maximum number of threads simultaneously scheduled to one core"
-msgstr ""
+msgstr "Ограничение максимального количества потоков, одновременно запланированных на одном ядре"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Guiding_Task_Scheduler_Execution.rst:82
 msgid "The processors with `Intel® Hyper-Threading Technology <https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html>`_ allow more than one thread to run on each core simultaneously. However, there might be situations when there is need to lower the number of simultaneously running threads per core. In such cases, assign the desired value to the ``task_arena::constraints::max_threads_per_core`` field."
-msgstr ""
+msgstr "Процессоры с технологией `Intel® Hyper-Threading Technology <https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html>`_ позволяют одновременно запускать более одного потока на каждом ядре. Однако могут возникнуть ситуации, когда необходимо снизить количество одновременно работающих потоков на ядро. В таких случаях присвой нужное значение полю ``task_arena::constraints::max_threads_per_core``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Guiding_Task_Scheduler_Execution.rst:87
 msgid "The example shows how to allow only one thread to run on each core at a time:"
-msgstr ""
+msgstr "В примере показано, как разрешить одновременно запускать только один поток на каждом ядре:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Guiding_Task_Scheduler_Execution.rst:91
 msgid ""

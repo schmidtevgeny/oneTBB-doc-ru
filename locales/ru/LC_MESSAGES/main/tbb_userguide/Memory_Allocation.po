@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 00:21+0300\n"
-"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"PO-Revision-Date: 2022-04-25 09:38+0300\n"
+"Last-Translator: Evgeny Shmidt <evgenyshmidt@gmail.com>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.0\n"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Memory_Allocation.rst:4
 msgid "Memory Allocation"
@@ -25,36 +25,36 @@ msgstr "Распределение памяти"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Memory_Allocation.rst:7
 msgid "|full_name| provides several memory allocator templates that are similar to the STL template class std::allocator. Two templates, ``scalable_allocator<T>`` and ``cache_aligned_allocator<T>``, address critical issues in parallel programming as follows:"
-msgstr ""
+msgstr "|full_name| предоставляет несколько шаблонов распределителей памяти, которые похожи на шаблонный класс STL ``std::allocator``. Два шаблона, ``scalable_allocator<T>`` и ``cache_aligned_allocator<T>``, решают критические вопросы в параллельном программировании следующим образом:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Memory_Allocation.rst:14
 msgid "**Scalability**. Problems of scalability arise when using memory allocators originally designed for serial programs, on threads that might have to compete for a single shared pool in a way that allows only one thread to allocate at a time."
-msgstr ""
+msgstr "**Масштабируемость**. Проблемы масштабируемости возникают при использовании распределителей памяти, изначально разработанных для последовательных программ, на потоках, которым, возможно, придется конкурировать за один общий пул таким образом, чтобы позволить только одному потоку выделять за один раз."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Memory_Allocation.rst:20
 msgid "Use the ``scalable_allocator<T>`` template to avoid scalability bottlenecks. This template can improve the performance of programs that rapidly allocate and free memory."
-msgstr ""
+msgstr "Используй шаблон ``scalable_allocator<T>``, чтобы избежать узких мест масштабируемости. Этот шаблон может улучшить производительность программ, которые быстро выделяют и освобождают память."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Memory_Allocation.rst:25
 msgid "**False sharing**. Problems of sharing arise when two threads access different words that share the same cache line. The problem is that a cache line is the unit of information interchange between processor caches. If one processor modifies a cache line and another processor reads the same cache line, the line must be moved from one processor to the other, even if the two processors are dealing with different words within the line. False sharing can hurt performance because cache lines can take hundreds of clocks to move."
-msgstr ""
+msgstr "**Ложный совместный доступ**. Проблемы совместного использования возникают, когда два потока обращаются к разным словам, которые делят одну и ту же кэш-линию. Проблема заключается в том, что кэш-линия - это единица обмена информацией между кэшами процессоров. Если один процессор модифицирует кэш-линию, а другой процессор читает ту же самую кэш-линию, то эта линия должна быть перемещена от одного процессора к другому, даже если два процессора имеют дело с разными словами внутри этой линии. Ложный обмен может навредить производительности, потому что на перемещение кэш-линий могут уходить сотни тактов."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Memory_Allocation.rst:35
 msgid "Use the ``cache_aligned_allocator<T>`` template to always allocate on a separate cache line. Two objects allocated by ``cache_aligned_allocator`` are guaranteed to not have false sharing. However, if an object is allocated by ``cache_aligned_allocator`` and another object is allocated some other way, there is no guarantee."
-msgstr ""
+msgstr "Используй шаблон ``cache_aligned_allocator<T>``, чтобы всегда выделять на отдельной линии кэша. Два объекта, выделенные с помощью ``cache_aligned_allocator``, гарантированно не имеют ложного совместного использования. Однако если объект выделяется с помощью ``cache_aligned_allocator``, а другой объект выделяется каким-то другим способом, то гарантии нет."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Memory_Allocation.rst:42
 msgid "You can use these allocator templates as the *allocator* argument to STL template classes.The following code shows how to declare an STL vector that uses ``cache_aligned_allocator``\\ for allocation:"
-msgstr ""
+msgstr "Ты можешь использовать эти шаблоны аллокаторов в качестве аргумента *allocator* в классах шаблонов STL. Следующий код показывает, как объявить вектор STL, который использует ``cache_aligned_allocator`` для аллокации:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Memory_Allocation.rst:50
 msgid "std::vector<int,cache_aligned_allocator<int> >;"
-msgstr ""
+msgstr "std::vector<int,cache_aligned_allocator<int> >;"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Memory_Allocation.rst:54
 msgid "The functionality of ``cache_aligned_allocator<T>`` comes at some cost in space, because it must allocate at least one cache line’s worth of memory, even for a small object. So use ``cache_aligned_allocator<T>`` only if false sharing is likely to be a real problem."
-msgstr ""
+msgstr "За функциональность ``cache_aligned_allocator<T>`` приходится платить пространством, потому что он должен выделять как минимум одну кэш-линию памяти даже для небольшого объекта. Поэтому используй ``cache_aligned_allocator<T>`` только в том случае, если ложное разделение может стать реальной проблемой."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Memory_Allocation.rst:61
 msgid "The scalable memory allocator also provides a set of functions equivalent to the C standard library memory management routines but has the ``scalable_`` prefix in their names, as well as the way to easily redirect the standard routines to these functions."
-msgstr ""
+msgstr "Масштабируемый распределитель памяти также предоставляет набор функций, эквивалентных подпрограммам управления памятью стандартной библиотеки C, но имеющих префикс ``scalable_`` в своих именах, а также способ легко перенаправить стандартные подпрограммы на эти функции."

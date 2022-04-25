@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 14:33+0300\n"
-"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"PO-Revision-Date: 2022-04-25 09:58+0300\n"
+"Last-Translator: Evgeny Shmidt <evgenyshmidt@gmail.com>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.0\n"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Task-Based_Programming.rst:4
 msgid "Task-Based Programming"
@@ -25,52 +25,52 @@ msgstr "Программирование на основе задач"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Task-Based_Programming.rst:7
 msgid "When striving for performance, programming in terms of threads can be a poor way to do multithreaded programming. It is much better to formulate your program in terms of *logical tasks*, not threads, for several reasons."
-msgstr ""
+msgstr "Если стремиться к производительности, программирование в терминах потоков может быть плохим способом многопоточного программирования. Гораздо лучше формулировать свою программу в терминах *логических задач*, а не потоков, по нескольким причинам."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Task-Based_Programming.rst:13
 msgid "Matching parallelism to available resources"
-msgstr ""
+msgstr "Сопоставление параллелизма с доступными ресурсами"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Task-Based_Programming.rst:16
 msgid "Faster task startup and shutdown"
-msgstr ""
+msgstr "Более быстрый запуск и завершение задач"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Task-Based_Programming.rst:19
 msgid "More efficient evaluation order"
-msgstr ""
+msgstr "Более эффективный порядок оценки"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Task-Based_Programming.rst:22
 msgid "Improved load balancing"
-msgstr ""
+msgstr "Улучшенная балансировка нагрузки"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Task-Based_Programming.rst:25
 msgid "Higher–level thinking"
-msgstr ""
+msgstr "Мышление более высокого уровня"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Task-Based_Programming.rst:28
 msgid "The following paragraphs explain these points in detail."
-msgstr ""
+msgstr "Следующие параграфы подробно объясняют эти моменты."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Task-Based_Programming.rst:31
 msgid "The threads you create with a threading package are *logical* threads, which map onto the *physical threads* of the hardware. For computations that do not wait on external devices, highest efficiency usually occurs when there is exactly one running logical thread per physical thread. Otherwise, there can be inefficiencies from the mismatch\\ *. Undersubscription* occurs when there are not enough running logical threads to keep the physical threads working. *Oversubscription* occurs when there are more running logical threads than physical threads. Oversubscription usually leads to *time sliced* execution of logical threads, which incurs overheads as discussed in Appendix A, *Costs of Time Slicing*. The scheduler tries to avoid oversubscription, by having one logical thread per physical thread, and mapping tasks to logical threads, in a way that tolerates interference by other threads from the same or other processes."
-msgstr ""
+msgstr "Потоки, которые ты создаешь с помощью пакета потоков, являются *логическими* потоками, которые отображаются на *физические потоки* аппаратного обеспечения. Для вычислений, которые не ждут от внешних устройств, наивысшая эффективность обычно имеет место, когда на один физический поток приходится ровно один работающий логический поток. В противном случае может возникнуть неэффективность из-за несоответствия. *Неподписка* возникает, когда не хватает запущенных логических потоков для поддержания работоспособности физических потоков. *Переподписка* возникает, когда работающих логических потоков больше, чем физических. Переподписка обычно приводит к *временной нарезке* выполнения логических потоков, что влечет за собой накладные расходы, которые обсуждаются в Приложении А, *Стоимость временной нарезки*. Планировщик пытается избежать переподписки, имея один логический поток на один физический поток, и сопоставляя задачи с логическими потоками таким образом, чтобы не допустить вмешательства других потоков из того же или других процессов."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Task-Based_Programming.rst:47
 msgid "The key advantage of tasks versus logical threads is that tasks are much *lighter weight* than logical threads. On Linux systems, starting and terminating a task is about 18 times faster than starting and terminating a thread. On Windows systems, the ratio is more than 100. This is because a thread has its own copy of a lot of resources, such as register state and a stack. On Linux, a thread even has its own process id. A task in |full_name|, in contrast, is typically a small routine, and also, cannot be preempted at the task level (though its logical thread can be preempted)."
-msgstr ""
+msgstr "Ключевое преимущество задач по сравнению с логическими потоками заключается в том, что задачи намного *легче*, чем логические потоки. В системах Linux запуск и завершение задачи происходит примерно в 18 раз быстрее, чем запуск и завершение потока. В системах Windows это соотношение больше 100. Это происходит потому, что поток имеет свою собственную копию многих ресурсов, таких как состояние регистров и стек. В Linux поток даже имеет свой собственный идентификатор процесса. Задача в |full_name|, напротив, обычно является небольшой рутиной, и, кроме того, не может быть вытеснена на уровне задачи (хотя ее логический поток может быть вытеснен)."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Task-Based_Programming.rst:58
 msgid "Tasks in oneTBB are efficient too because *the scheduler is unfair*. Thread schedulers typically distribute time slices in a round-robin fashion. This distribution is called \"fair\", because each logical thread gets its fair share of time. Thread schedulers are typically fair because it is the safest strategy to undertake without understanding the higher-level organization of a program. In task-based programming, the task scheduler does have some higher-level information, and so can sacrifice fairness for efficiency. Indeed, it often delays starting a task until it can make useful progress."
-msgstr ""
+msgstr "Задачи в oneTBB эффективны еще и потому, что *планировщик несправедлив*. Планировщики потоков обычно распределяют временные срезы по кругу. Такое распределение называется \"справедливым\", потому что каждый логический поток получает свою справедливую долю времени. Планировщики потоков обычно справедливы, потому что это самая безопасная стратегия, которую можно предпринять, не понимая высокоуровневой организации программы. В программировании на основе задач планировщик задач действительно обладает некоторой информацией более высокого уровня, и поэтому может пожертвовать справедливостью ради эффективности. Действительно, он часто откладывает запуск задачи до тех пор, пока она не сможет добиться полезного прогресса."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Task-Based_Programming.rst:69
 msgid "The scheduler does *load balancing*. In addition to using the right number of threads, it is important to distribute work evenly across those threads. As long as you break your program into enough small tasks, the scheduler usually does a good job of assigning tasks to threads to balance load. With thread-based programming, you are often stuck dealing with load-balancing yourself, which can be tricky to get right."
-msgstr ""
+msgstr "Планировщик выполняет *балансировку нагрузки*. Помимо использования нужного количества потоков, важно равномерно распределить работу между этими потоками. Пока ты разбиваешь свою программу на достаточно мелкие задачи, планировщик обычно хорошо справляется с распределением задач по потокам, чтобы сбалансировать нагрузку. При программировании на основе потоков тебе часто приходится самому решать вопросы балансировки нагрузки, что может быть непросто."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Task-Based_Programming.rst:79
 msgid "Design your programs to try to create many more tasks than there are threads, and let the task scheduler choose the mapping from tasks to threads."
-msgstr ""
+msgstr "Разрабатывай свои программы так, чтобы стараться создавать гораздо больше задач, чем потоков, и позволь планировщику задач выбирать отображение от задач к потокам."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Task-Based_Programming.rst:84
 msgid "Finally, the main advantage of using tasks instead of threads is that they let you think at a higher, task-based, level. With thread-based programming, you are forced to think at the low level of physical threads to get good efficiency, because you have one logical thread per physical thread to avoid undersubscription or oversubscription. You also have to deal with the relatively coarse grain of threads. With tasks, you can concentrate on the logical dependences between tasks, and leave the efficient scheduling to the scheduler."
-msgstr ""
+msgstr "Наконец, главное преимущество использования задач вместо потоков заключается в том, что они позволяют тебе мыслить на более высоком, основанном на задачах, уровне. При программировании на основе потоков ты вынужден думать на низком уровне физических потоков, чтобы добиться хорошей эффективности, потому что у тебя есть один логический поток на физический поток, чтобы избежать недописки или переписки. Тебе также приходится иметь дело с относительно крупным зерном потоков. С задачами ты можешь сосредоточиться на логических зависимостях между задачами, а эффективное планирование оставить планировщику."

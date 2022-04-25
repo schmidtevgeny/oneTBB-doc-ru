@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 00:22+0300\n"
-"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"PO-Revision-Date: 2022-04-25 09:51+0300\n"
+"Last-Translator: Evgeny Shmidt <evgenyshmidt@gmail.com>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.0\n"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_C_Dynamic_Memory_Interface_Replacement.rst:4
 msgid "Linux\\* OS C/C++ Dynamic Memory Interface Replacement"
@@ -25,59 +25,59 @@ msgstr "Linux\\* OS C/C++ Замена интерфейса динамическ
 
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_C_Dynamic_Memory_Interface_Replacement.rst:7
 msgid "Release version of the proxy library is ``libtbbmalloc_proxy.so``, debug version is ``libtbbmalloc_proxy_debug.so``."
-msgstr ""
+msgstr "Release-версия библиотеки прокси - ``libtbbmalloc_proxy.so``, отладочная версия - ``libtbbmalloc_proxy_debug.so``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_C_Dynamic_Memory_Interface_Replacement.rst:11
 msgid "The following dynamic memory functions are replaced:"
-msgstr ""
+msgstr "Заменяются следующие функции динамической памяти:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_C_Dynamic_Memory_Interface_Replacement.rst:14
 msgid "Standard C library functions: ``malloc``, ``calloc``, ``realloc``, ``free``, (added in C11) ``aligned_alloc``"
-msgstr ""
+msgstr "Стандартные функции библиотеки C: ``malloc``, ``calloc``, ``realloc``, ``free``, (добавлена в C11) ``aligned_alloc``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_C_Dynamic_Memory_Interface_Replacement.rst:18
 msgid "Standard POSIX\\* function: ``posix_memalign``"
-msgstr ""
+msgstr "Стандартная функция POSIX\\*: ``posix_memalign``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_C_Dynamic_Memory_Interface_Replacement.rst:21
 msgid "Obsolete functions: ``valloc``, ``memalign``, ``pvalloc``, ``mallopt``"
-msgstr ""
+msgstr "Устаревшие функции: ``valloc``, ``memalign``, ``pvalloc``, ``mallopt``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_C_Dynamic_Memory_Interface_Replacement.rst:25
 msgid "Replaceable global C++ operators ``new`` and ``delete``"
-msgstr ""
+msgstr "Заменяемые глобальные операторы C++ ``new`` и ``delete``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_C_Dynamic_Memory_Interface_Replacement.rst:28
 msgid "GNU C library (glibc) specific functions: ``malloc_usable_size``, ``__libc_malloc``, ``__libc_calloc``, ``__libc_memalign``, ``__libc_free``, ``__libc_realloc``, ``__libc_pvalloc``, ``__libc_valloc``"
-msgstr ""
+msgstr "Специфические функции библиотеки GNU C (glibc): ``malloc_usable_size``, ``__libc_malloc``, ``__libc_calloc``, ``__libc_memalign``, ``__libc_free``, ``__libc_realloc``, ``__libc_pvalloc``, ``__libc_valloc``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_C_Dynamic_Memory_Interface_Replacement.rst:34
 msgid "You can do the replacement either by loading the proxy library at program load time using the ``LD_PRELOAD`` environment variable (without changing the executable file), or by linking the main executable file with the proxy library."
-msgstr ""
+msgstr "Ты можешь сделать замену либо загрузив прокси-библиотеку во время загрузки программы с помощью переменной окружения ``LD_PRELOAD`` (без изменения исполняемого файла), либо соединив основной исполняемый файл с прокси-библиотекой."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_C_Dynamic_Memory_Interface_Replacement.rst:40
 msgid "The OS program loader must be able to find the proxy library and the scalable memory allocator library at program load time. For that you may include the directory containing the libraries in the ``LD_LIBRARY_PATH`` environment variable or add it to ``/etc/ld.so.conf``."
-msgstr ""
+msgstr "Загрузчик программ ОС должен уметь находить библиотеку прокси и библиотеку масштабируемого распределителя памяти во время загрузки программы. Для этого ты можешь включить каталог, содержащий библиотеки, в переменную окружения ``LD_LIBRARY_PATH`` или добавить его в ``/etc/ld.so.conf``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_C_Dynamic_Memory_Interface_Replacement.rst:47
 msgid "There are limitations for dynamic memory replacement:"
-msgstr ""
+msgstr "Существуют ограничения для динамической замены памяти:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_C_Dynamic_Memory_Interface_Replacement.rst:50
 msgid "glibc memory allocation hooks, such as ``__malloc_hook``, are not supported."
-msgstr ""
+msgstr "хуки выделения памяти glibc, такие как ``__malloc_hook``, не поддерживаются."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_C_Dynamic_Memory_Interface_Replacement.rst:54
 msgid "Mono is not supported."
-msgstr ""
+msgstr "Mono не поддерживается."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_C_Dynamic_Memory_Interface_Replacement.rst
 msgid "Examples"
-msgstr ""
+msgstr "Примеры"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_C_Dynamic_Memory_Interface_Replacement.rst:63
 msgid "These examples show how to set ``LD_PRELOAD`` and how to link a program to use the memory allocation replacements."
-msgstr ""
+msgstr "Эти примеры показывают, как установить ``LD_PRELOAD`` и как скомпоновать программу для использования замены распределения памяти."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_C_Dynamic_Memory_Interface_Replacement.rst:70
 msgid ""
@@ -86,7 +86,11 @@ msgid ""
 "# Link with the release version of the proxy library\n"
 "g++ foo.o bar.o -ltbbmalloc_proxy -o a.out"
 msgstr ""
+"# Set LD_PRELOAD to load the release version of the proxy library\n"
+"LD_PRELOAD=libtbbmalloc_proxy.so\n"
+"# Link with the release version of the proxy library\n"
+"g++ foo.o bar.o -ltbbmalloc_proxy -o a.out"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Linux_C_Dynamic_Memory_Interface_Replacement.rst:76
 msgid "To use the debug version of the library, replace *tbbmalloc_proxy* with *tbbmalloc_proxy_debug* in the above examples."
-msgstr ""
+msgstr "Чтобы использовать отладочную версию библиотеки, замени *tbbmalloc_proxy* на *tbbmalloc_proxy_debug* в приведенных выше примерах."
