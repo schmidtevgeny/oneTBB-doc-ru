@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 14:12+0300\n"
-"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"PO-Revision-Date: 2022-04-25 10:50+0300\n"
+"Last-Translator: Evgeny Shmidt <evgenyshmidt@gmail.com>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.0\n"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:4
 msgid "Wavefront"
@@ -25,55 +25,55 @@ msgstr "Фронт волны"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst
 msgid "Problem"
-msgstr ""
+msgstr "Проблема"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:13
 msgid "Perform computations on items in a data set, where the computation on an item uses results from computations on predecessor items."
-msgstr ""
+msgstr "Выполняй вычисления над элементами в наборе данных, где вычисления над элементом используют результаты вычислений над предшествующими элементами."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst
 msgid "Context"
-msgstr ""
+msgstr "Контекст"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:23
 msgid "The dependences between computations form an acyclic graph."
-msgstr ""
+msgstr "Зависимости между вычислениями образуют ациклический граф."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst
 msgid "Forces"
-msgstr ""
+msgstr "Силы"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:32
 msgid "Dependence constraints between items form an acyclic graph."
-msgstr ""
+msgstr "Ограничения зависимости между элементами образуют ациклический граф."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:35
 msgid "The number of immediate predecessors in the graph is known in advance, or can be determined some time before the last predecessor completes."
-msgstr ""
+msgstr "Количество непосредственных предшественников в графе известно заранее или может быть определено за некоторое время до завершения последнего предшественника."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst
 msgid "Solution"
-msgstr ""
+msgstr "Решение"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:46
 msgid "The solution is a parallel variant of topological sorting, using ``oneapi::tbb::parallel_for_each`` to process items. Associate an atomic counter with each item. Initialize each counter to the number of predecessors. Invoke ``oneapi::tbb::parallel_for_each`` to process the items that have no predessors (have counts of zero). After an item is processed, decrement the counters of its successors. If a successor's counter reaches zero, add that successor to the ``oneapi::tbb::parallel_for_each`` via a \"feeder\"."
-msgstr ""
+msgstr "Решением является параллельный вариант топологической сортировки, использующий ``oneapi::tbb::parallel_for_each`` для обработки элементов. Свяжи атомарный счетчик с каждым элементом. Инициализируй каждый счётчик количеством предшественников. Вызови команду ``oneapi::tbb::parallel_for_each`` для обработки элементов, у которых нет предшественников (счетчики равны нулю). После того как элемент обработан, уменьши счетчики его преемников. Если счётчик преемника достигает нуля, добавь этого преемника в ``oneapi::tbb::parallel_for_each`` через \"фидер\"."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:56
 msgid "If the number of predecessors for an item cannot be determined in advance, treat the information \"know number of predecessors\" as an additional predecessor. When the number of predecessors becomes known, treat this conceptual predecessor as completed."
-msgstr ""
+msgstr "Если количество предшественников для элемента не может быть определено заранее, рассматривай информацию \"известно количество предшественников\" как дополнительного предшественника. Когда количество предшественников станет известно, рассматривай этого концептуального предшественника как завершенного."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:62
 msgid "If the overhead of counting individual items is excessive, aggregate items into blocks, and do the wavefront over the blocks."
-msgstr ""
+msgstr "Если накладные расходы на подсчет отдельных элементов чрезмерны, объединяй элементы в блоки и проводи волновой фронт по блокам."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst
 msgid "Example"
-msgstr ""
+msgstr "Пример"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:72
 msgid "Below is a serial kernel for the longest common subsequence algorithm. The parameters are strings ``x`` and ``y`` with respective lengths ``xlen`` and ``ylen``."
-msgstr ""
+msgstr "Ниже приведено последовательное ядро для алгоритма самой длинной общей подпоследовательности. Параметрами являются строки ``x`` и ``y`` с соответствующими длинами ``xlen`` и ``ylen``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:80
 msgid ""
@@ -88,54 +88,64 @@ msgid ""
 "                                      max(F[i][j-1],F[i-1][j]);\n"
 "}"
 msgstr ""
+"int F[MAX_LEN+1][MAX_LEN+1];\n"
+"\n"
+"\n"
+"void SerialLCS( const char* x, size_t xlen, const char* y, size_t ylen )\n"
+"{\n"
+"   for( size_t i=1; i<=xlen; ++i )\n"
+"       for( size_t j=1; j<=ylen; ++j )\n"
+"           F[i][j] = x[i-1]==y[j-1] ? F[i-1][j-1]+1:\n"
+"                                      max(F[i][j-1],F[i-1][j]);\n"
+"}"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:92
 msgid "The kernel sets ``F[i][j]`` to the length of the longest common subsequence shared by ``x[0..i-1]`` and ``y[0..j-1]``. It assumes that F[0][0..ylen] and ``F[0..xlen][0]`` have already been initialized to zero."
-msgstr ""
+msgstr "Ядро устанавливает ``F[i][j]`` в длину самой длинной общей подпоследовательности, которую разделяют ``x[0..i-1]`` и ``y[0..j-1]``. При этом предполагается, что F[0][0..ylen] и ``F[0..xlen][0]`` уже инициализированы нулем."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:98
 msgid "The following figure shows the data dependences for calculating ``F[i][j]``."
-msgstr ""
+msgstr "На следующем рисунке показаны зависимости данных для вычисления ``F[i][j]``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:106
 msgid "Data dependences for longest common substring calculation. |image0|"
-msgstr ""
+msgstr "Зависимости данных для вычисления самой длинной общей подстроки. |image0|"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:193
 msgid "image0"
-msgstr ""
+msgstr "image0"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:193
 msgid ".. image:: main/tbb_userguide/design_patterns/Images/image005a.jpg"
-msgstr ""
+msgstr ".. image:: main/tbb_userguide/design_patterns/Images/image005a.jpg"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:110
 msgid "The following figure shows the gray diagonal dependence is the transitive closure of other dependencies. Thus for parallelization purposes it is a redundant dependence that can be ignored."
-msgstr ""
+msgstr "На следующем рисунке видно, что серая диагональная зависимость является транзитивным замыканием других зависимостей. Таким образом, для целей распараллеливания это избыточная зависимость, которую можно игнорировать."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:119
 msgid "Diagonal dependence is redundant. |image1|"
-msgstr ""
+msgstr "Диагональная зависимость является избыточной. |image1|"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:196
 msgid "image1"
-msgstr ""
+msgstr "image1"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:196
 msgid ".. image:: main/tbb_userguide/design_patterns/Images/image006a.jpg"
-msgstr ""
+msgstr ".. image:: main/tbb_userguide/design_patterns/Images/image006a.jpg"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:123
 msgid "It is generally good to remove redundant dependences from consideration, because the atomic counting incurs a cost for each dependence considered."
-msgstr ""
+msgstr "Как правило, хорошо убирать из рассмотрения лишние зависимости, потому что атомарный подсчет несет затраты на каждую рассматриваемую зависимость."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:128
 msgid "Another consideration is grain size. Scheduling each ``F[i][j]`` element calculation separately is prohibitively expensive. A good solution is to aggregate the elements into contiguous blocks, and process the contents of a block serially. The blocks have the same dependence pattern, but at a block scale. Hence scheduling overheads can be amortized over blocks."
-msgstr ""
+msgstr "Еще одно соображение - размер зерна. Планировать вычисление каждого элемента ``F[i][j]`` отдельно - непомерно дорого. Хорошее решение - объединить элементы в смежные блоки и обрабатывать содержимое блока последовательно. Блоки имеют одинаковую схему зависимости, но в масштабе блока. Следовательно, накладные расходы на планирование могут быть амортизированы по блокам."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:136
 msgid "The parallel code follows. Each block consists of ``N×N`` elements. Each block has an associated atomic counter. Array ``Count`` organizes these counters for easy lookup. The code initializes the counters and then rolls a wavefront using ``parallel_for_each``, starting with the block at the origin since it has no predecessors."
-msgstr ""
+msgstr "Далее следует параллельный код. Каждый блок состоит из ``N×N`` элементов. Каждый блок имеет связанный с ним атомарный счетчик. Массив ``Count`` организует эти счетчики для удобства поиска. Код инициализирует счётчики, а затем разворачивает волновой фронт с помощью ``parallel_for_each``, начиная с блока в начале координат, поскольку у него нет предшественников."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:146
 msgid ""
@@ -175,11 +185,46 @@ msgid ""
 "   );\n"
 "}"
 msgstr ""
+"const int N = 64;\n"
+"std::atomic<char> Count[MAX_LEN/N+1][MAX_LEN/N+1];\n"
+"\n"
+"\n"
+"void ParallelLCS( const char* x, size_t xlen, const char* y, size_t ylen ) {\n"
+"   // Initialize predecessor counts for blocks.\n"
+"   size_t m = (xlen+N-1)/N;\n"
+"   size_t n = (ylen+N-1)/N;\n"
+"   for( int i=0; i<m; ++i )\n"
+"       for( int j=0; j<n; ++j )\n"
+"           Count[i][j] = (i>0)+(j>0);\n"
+"   // Roll the wavefront from the origin.\n"
+"   typedef pair<size_t,size_t> block;\n"
+"   block origin(0,0);\n"
+"   oneapi::tbb::parallel_for_each( &origin, &origin+1,\n"
+"       [=]( const block& b, oneapi::tbb::feeder<block>&feeder ) {\n"
+"           // Extract bounds on block\n"
+"           size_t bi = b.first;\n"
+"           size_t bj = b.second;\n"
+"           size_t xl = N*bi+1;\n"
+"           size_t xu = min(xl+N,xlen+1);\n"
+"           size_t yl = N*bj+1;\n"
+"           size_t yu = min(yl+N,ylen+1);\n"
+"           // Process the block\n"
+"           for( size_t i=xl; i<xu; ++i )\n"
+"               for( size_t j=yl; j<yu; ++j )\n"
+"                   F[i][j] = x[i-1]==y[j-1] ? F[i-1][j-1]+1:\n"
+"                                              max(F[i][j-1],F[i-1][j]);\n"
+"           // Account for successors\n"
+"           if( bj+1<n && --Count[bi][bj+1]==0 )\n"
+"               feeder.add( block(bi,bj+1) );\n"
+"           if( bi+1<m && --Count[bi+1][bj]==0 )\n"
+"               feeder.add( block(bi+1,bj) );       }\n"
+"   );\n"
+"}"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst
 msgid "References"
-msgstr ""
+msgstr "Ссылки"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Wavefront.rst:189
 msgid "Eun-Gyu Kim and Mark Snir, \"Wavefront Pattern\", http://snir.cs.illinois.edu/patterns/wavefront.pdf"
-msgstr ""
+msgstr "Ын-Гю Ким и Марк Снир, \"Узор волнового фронта\", http://snir.cs.illinois.edu/patterns/wavefront.pdf"

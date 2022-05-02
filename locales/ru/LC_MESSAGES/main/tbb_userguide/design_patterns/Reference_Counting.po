@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 14:13+0300\n"
-"Last-Translator: Evgeny <schmidte@list.ru>\n"
+"PO-Revision-Date: 2022-04-25 10:53+0300\n"
+"Last-Translator: Evgeny Shmidt <evgenyshmidt@gmail.com>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.0\n"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst:4
 msgid "Reference Counting"
@@ -25,39 +25,39 @@ msgstr "Подсчет ссылок"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst
 msgid "Problem"
-msgstr ""
+msgstr "Проблема"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst:13
 msgid "Destroy an object when it will no longer be used."
-msgstr ""
+msgstr "Уничтожь объект, когда он больше не будет использоваться."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst
 msgid "Context"
-msgstr ""
+msgstr "Контекст"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst:22
 msgid "Often it is desirable to destroy an object when it is known that it will not be used in the future. Reference counting is a common serial solution that extends to parallel programming if done carefully."
-msgstr ""
+msgstr "Часто бывает желательно уничтожить объект, когда известно, что он не будет использоваться в будущем. Подсчет ссылок - это распространенное последовательное решение, которое при аккуратном выполнении распространяется и на параллельное программирование."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst
 msgid "Forces"
-msgstr ""
+msgstr "Силы"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst:33
 msgid "If there are cycles of references, basic reference counting is insufficient unless the cycle is explicitly broken."
-msgstr ""
+msgstr "Если существуют циклы ссылок, то базового подсчета ссылок недостаточно, если только цикл явно не разорван."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst:37
 msgid "Atomic counting is relatively expensive in hardware."
-msgstr ""
+msgstr "Атомный подсчет относительно дорог в аппаратном обеспечении."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst
 msgid "Solution"
-msgstr ""
+msgstr "Решение"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst:46
 msgid "Thread-safe reference counting is like serial reference counting, except that the increment/decrement is done atomically, and the decrement and test \"count is zero?\" must act as a single atomic operation. The following example uses ``std::atomic<int>`` to achieve this."
-msgstr ""
+msgstr "Потокобезопасный подсчет ссылок похож на последовательный подсчет ссылок, за исключением того, что инкремент/декремент выполняется атомарно, а декремент и проверка \"count равен нулю?\" должны действовать как одна атомарная операция. В следующем примере для этого используется ``std::atomic<int>``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst:56
 msgid ""
@@ -79,44 +79,63 @@ msgid ""
 "   }\n"
 "};"
 msgstr ""
+"template<typename T>\n"
+"class counted {\n"
+"   std::atomic<int> my_count;\n"
+"   T value;\n"
+"public:\n"
+"   // Construct object with a single reference to it.\n"
+"   counted() {my_count=1;}\n"
+"   // Add reference\n"
+"   void add_ref() {++my_count;}\n"
+"   // Remove reference. Return true if it was the last reference.\n"
+"   bool remove_ref() {return --my_count==0;}\n"
+"   // Get reference to underlying object\n"
+"   T& get() {\n"
+"       assert(my_count>0);\n"
+"       return my_value;\n"
+"   }\n"
+"};"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst:75
 msgid "It is incorrect to use a separate read for testing if the count is zero. The following code would be an incorrect implementation of method ``remove_ref``\\ () because two threads might both execute the decrement, and then both read ``my_count`` as zero. Hence two callers would both be told incorrectly that they had removed the last reference."
-msgstr ""
+msgstr "Неправильно использовать отдельное чтение для проверки того, равен ли счет нулю. Следующий код будет неправильной реализацией метода ``remove_ref``\\ (), потому что два потока могут оба выполнить декремент, а затем оба прочитать ``my_count`` как ноль. Следовательно, двум вызывающим потокам будет неверно сказано, что они удалили последнюю ссылку."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst:86
 msgid ""
 "--my_count;\n"
 "return my_count==0. // WRONG!"
 msgstr ""
+"--my_count;\n"
+"return my_count==0. // WRONG!"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst:90
 msgid "The decrement may need to have a *release* fence so that any pending writes complete before the object is deleted."
-msgstr ""
+msgstr "Декременту может потребоваться ограждение *release*, чтобы все ожидающие записи завершились до того, как объект будет удален."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst:94
 msgid "There is no simple way to atomically copy a pointer and increment its reference count, because there will be a timing hole between the copying and the increment where the reference count is too low, and thus another thread might decrement the count to zero and delete the object. Two ways to address the problem are \"hazard pointers\" and \"pass the buck\". See the references below for details."
-msgstr ""
+msgstr "Не существует простого способа атомарно копировать указатель и увеличивать его счётчик ссылок, потому что между копированием и увеличением будет временная дыра, когда счётчик ссылок будет слишком мал, и, таким образом, другой поток может уменьшить счётчик до нуля и удалить объект. Два способа решения этой проблемы - это \"опасные указатели\" и \"передавать удар\". Подробности смотри в ссылках ниже."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst
 msgid "Variations"
-msgstr ""
+msgstr "Вариации"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst:108
 msgid "Atomic increment/decrement can be more than an order of magnitude more expensive than ordinary increment/decrement. The serial optimization of eliminating redundant increment/decrement operations becomes more important with atomic reference counts."
-msgstr ""
+msgstr "Атомарный инкремент/декремент может быть более чем на порядок дороже обычного инкремента/декремента. Серийная оптимизация, заключающаяся в устранении избыточных операций инкремента/декремента, становится более важной при атомарном подсчете ссылок."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst:114
 msgid "Weighted reference counting can be used to reduce costs if the pointers are unshared but the referent is shared. Associate a *weight* with each pointer. The reference count is the sum of the weights. A pointer ``x`` can be copied as a pointer ``x'`` without updating the reference count by splitting the original weight between ``x`` and ``x'``. If the weight of ``x`` is too low to split, then first add a constant W to the reference count and weight of ``x``."
-msgstr ""
+msgstr "Взвешенный подсчет ссылок может быть использован для снижения затрат, если указатели не разделяются, но референт является общим. Привяжи *вес* к каждому указателю. Количество ссылок равно сумме весов. Указатель ``x`` может быть скопирован как указатель ``x'`` без обновления подсчета ссылок путем разделения исходного веса между ``x`` и ``x'``. Если вес ``x`` слишком мал для разделения, то сначала добавь константу W к количеству ссылок и весу ``x``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst
 msgid "References"
-msgstr ""
+msgstr "Ссылки"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst:129
 msgid "D. Bacon and V.T. Rajan, \"Concurrent Cycle Collection in Reference Counted Systems\" in Proc. European Conf. on Object-Oriented Programming (June 2001). Describes a garbage collector based on reference counting that does collect cycles."
-msgstr ""
+msgstr "D. Bacon и V.T. Rajan, \"Concurrent Cycle Collection in Reference Counted Systems\" in Proc. European Conf. on Object-Oriented Programming (июнь 2001). Описывается сборщик мусора, основанный на подсчёте ссылок, который действительно собирает циклы."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst:135
 msgid "M. Michael, \"Hazard Pointers: Safe Memory Reclamation for Lock-Free Objects\" in IEEE Transactions on Parallel and Distributed Systems (June 2004). Describes the \"hazard pointer\" technique."
