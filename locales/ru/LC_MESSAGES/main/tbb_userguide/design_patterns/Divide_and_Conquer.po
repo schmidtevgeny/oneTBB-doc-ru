@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 14:16+0300\n"
+"PO-Revision-Date: 2022-05-02 21:21+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,55 +25,55 @@ msgstr "Разделяй и властвуй"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst
 msgid "Problem"
-msgstr ""
+msgstr "Проблема"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:13
 msgid "Parallelize a divide and conquer algorithm."
-msgstr ""
+msgstr "Распараллель алгоритм \"разделяй и властвуй\"."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst
 msgid "Context"
-msgstr ""
+msgstr "Контекст"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:22
 msgid "Divide and conquer is widely used in serial algorithms. Common examples are quicksort and mergesort."
-msgstr ""
+msgstr "Divide and conquer широко используется в последовательных алгоритмах. Общими примерами являются quicksort и mergesort."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst
 msgid "Forces"
-msgstr ""
+msgstr "Форсы"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:32
 msgid "Problem can be transformed into subproblems that can be solved independently."
-msgstr ""
+msgstr "Проблема может быть преобразована в подпроблемы, которые могут быть решены независимо друг от друга."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:36
 msgid "Splitting problem or merging solutions is relatively cheap compared to cost of solving the subproblems."
-msgstr ""
+msgstr "Разделение проблемы или объединение решений относительно дешево по сравнению со стоимостью решения подпроблем."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst
 msgid "Solution"
-msgstr ""
+msgstr "Решение"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:46
 msgid "There are several ways to implement divide and conquer in |full_name|. The best choice depends upon circumstances."
-msgstr ""
+msgstr "Есть несколько способов реализовать принцип \"разделяй и властвуй\" в |full_name|. Лучший выбор зависит от обстоятельств."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:50
 msgid "If division always yields the same number of subproblems, use recursion and ``oneapi::tbb::parallel_invoke``."
-msgstr ""
+msgstr "Если деление всегда дает одинаковое количество подпроблем, используй рекурсию и ``oneapi::tbb::parallel_invoke``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:54
 msgid "If the number of subproblems varies, use recursion and ``oneapi::tbb::task_group``."
-msgstr ""
+msgstr "Если количество подпроблем меняется, используй рекурсию и ``oneapi::tbb::task_group``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst
 msgid "Example"
-msgstr ""
+msgstr "Пример"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:64
 msgid "Quicksort is a classic divide-and-conquer algorithm. It divides a sorting problem into two subsorts. A simple serial version looks like [1]_."
-msgstr ""
+msgstr "Quicksort - это классический алгоритм \"разделяй и властвуй\". Он разделяет проблему сортировки на две подсортировки. Простая последовательная версия выглядит как [1]_."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:71
 msgid ""
@@ -87,10 +87,19 @@ msgid ""
 "   }\n"
 "}"
 msgstr ""
+"void SerialQuicksort( T* begin, T* end ) {\n"
+"   if( end-begin>1  ) {\n"
+"       using namespace std;\n"
+"       T* mid = partition( begin+1, end, bind2nd(less<T>(),*begin) );\n"
+"       swap( *begin, mid[-1] );\n"
+"       SerialQuicksort( begin, mid-1 );\n"
+"       SerialQuicksort( mid, end );\n"
+"   }\n"
+"}"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:82
 msgid "The number of subsorts is fixed at two, so ``oneapi::tbb::parallel_invoke`` provides a simple way to parallelize it. The parallel code is shown below:"
-msgstr ""
+msgstr "Количество подсортировок фиксировано и равно двум, поэтому ``oneapi::tbb::parallel_invoke`` предоставляет простой способ распараллелить его. Параллельный код показан ниже:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:90
 msgid ""
@@ -104,10 +113,19 @@ msgid ""
 "   }\n"
 "}"
 msgstr ""
+"void ParallelQuicksort( T* begin, T* end ) {\n"
+"   if( end-begin>1 ) {\n"
+"       using namespace std;\n"
+"       T* mid = partition( begin+1, end, bind2nd(less<T>(),*begin) );\n"
+"       swap( *begin, mid[-1] );\n"
+"       oneapi::tbb::parallel_invoke( [=]{ParallelQuicksort( begin, mid-1 );},\n"
+"                             [=]{ParallelQuicksort( mid, end );} );\n"
+"   }\n"
+"}"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:101
 msgid "Eventually the subsorts become small enough that serial execution is more efficient. The following variation, does sorts of less than 500 elements using the earlier serial code."
-msgstr ""
+msgstr "В конце концов, подсортировки становятся настолько маленькими, что последовательное выполнение становится более эффективным. Следующая вариация, выполняющая сортировку менее 500 элементов, использует более ранний последовательный код."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:108
 msgid ""
@@ -123,26 +141,37 @@ msgid ""
 "   }\n"
 "}"
 msgstr ""
+"void ParallelQuicksort( T* begin, T* end ) {\n"
+"   if( end-begin>=500 ) {\n"
+"       using namespace std;\n"
+"       T* mid = partition( begin+1, end, bind2nd(less<T>(),*begin) );\n"
+"       swap( *begin, mid[-1] );\n"
+"       oneapi::tbb::parallel_invoke( [=]{ParallelQuicksort( begin, mid-1 );},\n"
+"                             [=]{ParallelQuicksort( mid, end );} );\n"
+"   } else {\n"
+"       SerialQuicksort( begin, end );\n"
+"   }\n"
+"}"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:121
 msgid "The change is an instance of the Agglomeration pattern."
-msgstr ""
+msgstr "Изменение является примером паттерна \"Агломерация\"."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:124
 msgid "The next example considers a problem where there are a variable number of subproblems. The problem involves a tree-like description of a mechanical assembly. There are two kinds of nodes:"
-msgstr ""
+msgstr "В следующем примере рассматривается проблема, в которой существует переменное количество подпроблем. Проблема включает в себя древовидное описание механического узла. Есть два вида узлов:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:129
 msgid "Leaf nodes represent individual parts."
-msgstr ""
+msgstr "Листовые узлы представляют отдельные части."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:132
 msgid "Internal nodes represent groups of parts."
-msgstr ""
+msgstr "Внутренние узлы представляют собой группы деталей."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:135
 msgid "The problem is to find all nodes that collide with a target node. The following code shows a serial solution that walks the tree. It records in ``Hits`` any nodes that collide with ``Target``."
-msgstr ""
+msgstr "Задача состоит в том, чтобы найти все узлы, которые сталкиваются с целевым узлом. Следующий код показывает последовательное решение, которое обходит дерево. Он записывает в ``Hits`` все узлы, которые сталкиваются с ``Target``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:143
 msgid ""
@@ -160,10 +189,23 @@ msgid ""
 "   }\n"
 "}"
 msgstr ""
+"std::list<Node*> Hits;\n"
+"Node* Target;\n"
+"\n"
+"\n"
+"void SerialFindCollisions( Node& x ) {\n"
+"   if( x.is_leaf() ) {\n"
+"       if( x.collides_with( *Target ) )\n"
+"           Hits.push_back(&x);\n"
+"   } else {\n"
+"       for( Node::const_iterator y=x.begin();y!=x.end(); ++y )\n"
+"           SerialFindCollisions(*y);\n"
+"   }\n"
+"}"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:158
 msgid "A parallel version is shown below."
-msgstr ""
+msgstr "Параллельная версия показана ниже."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:164
 msgid ""
@@ -193,23 +235,48 @@ msgid ""
 "       Hits.splice( Hits.end(), *i );\n"
 "}"
 msgstr ""
+"typedef oneapi::tbb::enumerable_thread_specific<std::list<Node*> > LocalList;\n"
+"LocalList LocalHits;\n"
+"Node* Target;    // Целевой узел\n"
+"\n"
+"\n"
+"void ParallelWalk( Node& x ) {\n"
+"   if( x.is_leaf() ) {\n"
+"       if( x.collides_with( *Target ) )\n"
+"           LocalHits.local().push_back(&x);\n"
+"   } else {\n"
+"       // Параллельно выполняйте рекурсию по каждому дочернему y от x\n"
+"       oneapi::tbb::task_group g;\n"
+"       for( Node::const_iterator y=x.begin(); y!=x.end(); ++y )\n"
+"           g.run( [=]{ParallelWalk(*y);} );\n"
+"       // Дождитесь завершения рекурсивных вызовов\n"
+"       g.wait();\n"
+"   }\n"
+"}\n"
+"\n"
+"\n"
+"void ParallelFindCollisions( Node& x ) {\n"
+"   ParallelWalk(x);\n"
+"   for(LocalList::iterator i=LocalHits.begin();i!=LocalHits.end(); ++i)\n"
+"       Hits.splice( Hits.end(), *i );\n"
+"}"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:191
 msgid "The recursive walk is parallelized using class ``task_group`` to do recursive calls in parallel."
-msgstr ""
+msgstr "Рекурсивное прохождение распараллеливается с помощью класса ``task_group`` для выполнения рекурсивных вызовов параллельно."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:195
 msgid "There is another significant change because of the parallelism that is introduced. Because it would be unsafe to update ``Hits`` concurrently, the parallel walk uses variable ``LocalHits`` to accumulate results. Because it is of type ``enumerable_thread_specific``, each thread accumulates its own private result. The results are spliced together into Hits after the walk completes."
-msgstr ""
+msgstr "Есть еще одно существенное изменение из-за введенного параллелизма. Поскольку было бы небезопасно обновлять ``Hits`` одновременно, параллельное прохождение использует переменную ``LocalHits`` для накопления результатов. Поскольку она имеет тип ``enumerable_thread_specific``, каждый поток накапливает свой собственный частный результат. После завершения прохода результаты объединяются в Hits."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:204
 msgid "The results will *not* be in the same order as the original serial code."
-msgstr ""
+msgstr "Результаты будут *не* в том же порядке, что и оригинальный серийный код."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:208
 msgid "If parallel overhead is high, use the agglomeration pattern. For example, use the serial walk for subtrees under a certain threshold."
-msgstr ""
+msgstr "Если параллельные накладные расходы высоки, используй схему агломерации. Например, используй последовательный просмотр для поддеревьев ниже определенного порога."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Divide_and_Conquer.rst:212
 msgid "Production quality quicksort implementations typically use more sophisticated pivot selection, explicit stacks instead of recursion, and some other sorting algorithm for small subsorts. The simple algorithm is used here to focus on exposition of the parallel pattern."
-msgstr ""
+msgstr "Реализации quicksort производственного качества обычно используют более сложный выбор поворотной точки, явные стеки вместо рекурсии и какой-либо другой алгоритм сортировки для небольших подсортировок. Здесь используется простой алгоритм, чтобы сосредоточиться на изложении параллельного паттерна."

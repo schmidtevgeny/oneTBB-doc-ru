@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 14:15+0300\n"
+"PO-Revision-Date: 2022-05-02 22:02+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,79 +25,79 @@ msgstr "Поток GUI"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/GUI_Thread.rst
 msgid "Problem"
-msgstr ""
+msgstr "Проблема"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/GUI_Thread.rst:12
 msgid "A user interface thread must remain responsive to user requests, and must not get bogged down in long computations."
-msgstr ""
+msgstr "Поток пользовательского интерфейса должен оставаться отзывчивым на запросы пользователя и не увязнуть в долгих вычислениях."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/GUI_Thread.rst
 msgid "Context"
-msgstr ""
+msgstr "Контекст"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/GUI_Thread.rst:22
 msgid "Graphical user interfaces often have a dedicated thread (\"GUI thread\") for servicing user interactions. The thread must remain responsive to user requests even while the application has long computations running. For example, the user might want to press a \"cancel\" button to stop the long running computation. If the GUI thread takes part in the long running computation, it will not be able to respond to user requests."
-msgstr ""
+msgstr "Графические пользовательские интерфейсы часто имеют выделенный поток (\"поток GUI\") для обслуживания взаимодействия с пользователем. Этот поток должен оставаться отзывчивым на запросы пользователя даже в то время, когда в приложении выполняются длительные вычисления. Например, пользователь может захотеть нажать кнопку \"отмена\", чтобы остановить длительное вычисление. Если поток GUI будет принимать участие в длительном вычислении, он не сможет отвечать на запросы пользователя."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/GUI_Thread.rst
 msgid "Forces"
-msgstr ""
+msgstr "Форсы"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/GUI_Thread.rst:37
 msgid "The GUI thread services an event loop."
-msgstr ""
+msgstr "Поток GUI обслуживает цикл событий."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/GUI_Thread.rst:40
 msgid "The GUI thread needs to offload work onto other threads without waiting for the work to complete."
-msgstr ""
+msgstr "Поток GUI должен разгрузить работу на другие потоки, не дожидаясь завершения работы."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/GUI_Thread.rst:44
 msgid "The GUI thread must be responsive to the event loop and not become dedicated to doing the offloaded work."
-msgstr ""
+msgstr "Поток GUI должен реагировать на цикл событий и не становиться предназначенным для выполнения разгруженной работы."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/GUI_Thread.rst
 msgid "Related"
-msgstr ""
+msgstr "Похожие"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/GUI_Thread.rst:54
 msgid "Non-Preemptive Priorities"
-msgstr ""
+msgstr "Не упреждающие приоритеты"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/GUI_Thread.rst:55
 msgid "Local Serializer"
-msgstr ""
+msgstr "Локальный сериализатор"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/GUI_Thread.rst
 msgid "Solution"
-msgstr ""
+msgstr "Решение"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/GUI_Thread.rst:64
 msgid "The GUI thread offloads the work by firing off a task to do it using method ``task_arena::enqueue`` of a ``task_arena`` instance. When finished, the task posts an event to the GUI thread to indicate that the work is done. The semantics of ``enqueue`` cause the task to eventually run on a worker thread distinct from the calling thread."
-msgstr ""
+msgstr "Поток GUI разгружает работу, запуская для этого задачу с помощью метода ``task_arena::enqueue`` экземпляра ``task_arena``. Когда задача завершена, она посылает событие в поток GUI, чтобы указать, что работа выполнена. Семантика метода ``enqueue`` приводит к тому, что задача в конечном итоге выполняется на рабочем потоке, отличном от вызывающего потока."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/GUI_Thread.rst:70
 msgid "The following figure sketches the communication paths. Items in black are executed by the GUI thread; items in blue are executed by another thread."
-msgstr ""
+msgstr "На следующем рисунке показаны пути взаимодействия. Элементы, выделенные черным цветом, выполняются потоком GUI; элементы, выделенные синим цветом, выполняются другим потоком."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/GUI_Thread.rst:73
 msgid "|image0|"
-msgstr ""
+msgstr "|image0|"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/GUI_Thread.rst:203
 msgid "image0"
-msgstr ""
+msgstr "image0"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/GUI_Thread.rst:203
 msgid ".. image:: main/tbb_userguide/design_patterns/Images/image007a.jpg"
-msgstr ""
+msgstr ".. image:: main/tbb_userguide/design_patterns/Images/image007a.jpg"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/GUI_Thread.rst
 msgid "Example"
-msgstr ""
+msgstr "Пример"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/GUI_Thread.rst:81
 msgid "The example is for the Microsoft Windows\\* operating systems, though similar principles apply to any GUI using an event loop idiom. For each event, the GUI thread calls a user-defined function ``WndProc`` to process an event."
-msgstr ""
+msgstr "Пример приведен для операционных систем Microsoft Windows\\*, хотя аналогичные принципы применимы к любому графическому интерфейсу, использующему идиому цикла событий. Для каждого события поток GUI вызывает определяемую пользователем функцию ``WndProc`` для обработки события."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/GUI_Thread.rst:89
 msgid ""
@@ -146,30 +146,74 @@ msgid ""
 "   return 0;\n"
 "}"
 msgstr ""
+"// Событие, опубликованное от поставленной в очередь задачи, когда она завершает свою работу.\n"
+"const UINT WM_POP_FOO = WM_USER+0;\n"
+"\n"
+"\n"
+"// Очередь для передачи результатов от поставленной в очередь задачи потоку GUI.\n"
+"oneapi::tbb::concurrent_queue<Foo>ResultQueue;\n"
+"\n"
+"\n"
+"// Частная копия последнего вычисленного результата для потока GUI.\n"
+"Foo CurrentResult;\n"
+"\n"
+"\n"
+"LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) {\n"
+"   switch(msg) {\n"
+"       case WM_COMMAND:\n"
+"           switch (LOWORD(wParam)) {\n"
+"               case IDM_LONGRUNNINGWORK:\n"
+"                   // Пользователь запросил длительное вычисление. Делегируйте его другому потоку.\n"
+"                   LaunchLongRunningWork(hWnd);\n"
+"                   break;\n"
+"               case IDM_EXIT:\n"
+"                   DestroyWindow(hWnd);\n"
+"                   break;\n"
+"               default:\n"
+"                   return DefWindowProc(hWnd, msg, wParam, lParam);\n"
+"           }\n"
+"           break;\n"
+"       case WM_POP_FOO:\n"
+"           // Есть еще один результат в ResultQueue, который я могу захватить.\n"
+"           ResultQueue.try_pop(CurrentResult);\n"
+"           // Обновление окна с последним результатом.\n"
+"           RedrawWindow( hWnd, NULL, NULL, RDW_ERASE|RDW_INVALIDATE );\n"
+"           break;\n"
+"       case WM_PAINT:\n"
+"           Repaint the window using CurrentResult\n"
+"           break;\n"
+"       case WM_DESTROY:\n"
+"           PostQuitMessage(0);\n"
+"           break;\n"
+"       default:\n"
+"           return DefWindowProc( hWnd, msg, wParam, lParam );\n"
+"   }\n"
+"   return 0;\n"
+"}"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/GUI_Thread.rst:135
 msgid "The GUI thread processes long computations as follows:"
-msgstr ""
+msgstr "Поток GUI обрабатывает длинные вычисления следующим образом:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/GUI_Thread.rst:138
 msgid "The GUI thread calls ``LongRunningWork``, which hands off the work to a worker thread and immediately returns."
-msgstr ""
+msgstr "Поток GUI вызывает ``LongRunningWork``, который передает работу рабочему потоку и сразу же возвращается обратно."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/GUI_Thread.rst:142
 msgid "The GUI thread continues servicing the event loop. If it has to repaint the window, it uses the value of\\ ``CurrentResult``, which is the most recent ``Foo`` that it has seen."
-msgstr ""
+msgstr "Поток GUI продолжает обслуживать цикл событий. Если ему нужно перерисовать окно, он использует значение ``CurrentResult``, которое является самым последним ``Foo``, которое он видел."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/GUI_Thread.rst:147
 msgid "When a worker finishes the long computation, it pushes the result into ResultQueue, and sends a message WM_POP_FOO to the GUI thread."
-msgstr ""
+msgstr "Когда рабочий заканчивает длительное вычисление, он выталкивает результат в ResultQueue и отправляет сообщение WM_POP_FOO потоку GUI."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/GUI_Thread.rst:151
 msgid "The GUI thread services a ``WM_POP_FOO`` message by popping an item from ResultQueue into CurrentResult. The ``try_pop`` always succeeds because there is exactly one ``WM_POP_FOO`` message for each item in ``ResultQueue``."
-msgstr ""
+msgstr "Поток GUI обслуживает сообщение ``WM_POP_FOO``, выгружая элемент из ResultQueue в CurrentResult. Команда ``try_pop`` всегда успешна, потому что для каждого элемента в ``ResultQueue`` существует ровно одно сообщение ``WM_POP_FOO``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/GUI_Thread.rst:157
 msgid "Routine ``LaunchLongRunningWork`` creates a function task and launches it using method ``task_arena::enqueue``."
-msgstr ""
+msgstr "Маршрут ``LaunchLongRunningWork`` создает функциональную задачу и запускает ее с помощью метода ``task_arena::enqueue``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/GUI_Thread.rst:163
 msgid ""
@@ -191,15 +235,32 @@ msgid ""
 "   a.enqueue(LongTask(hWnd));\n"
 "}"
 msgstr ""
+"class LongTask {\n"
+"   HWND hWnd;\n"
+"   void operator()() {\n"
+"       Do long computation\n"
+"       Foo x = result of long computation\n"
+"       ResultQueue.push( x );\n"
+"       // Уведомить поток GUI о том, что результат доступен.\n"
+"       PostMessage(hWnd,WM_POP_FOO,0,0);\n"
+"   }\n"
+"public:\n"
+"   LongTask( HWND hWnd_ ) : hWnd(hWnd_) {}\n"
+"};\n"
+"\n"
+"void LaunchLongRunningWork( HWND hWnd ) {\n"
+"   oneapi::tbb::task_arena a;\n"
+"   a.enqueue(LongTask(hWnd));\n"
+"}"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/GUI_Thread.rst:182
 msgid "It is essential to use method ``task_arena::enqueue`` here. Even though, an explicit ``task_arena`` instance is created, the method ``enqueue`` ensures that the function task eventually executes when resources permit, even if no thread explicitly waits on the task. In contrast, ``oneapi::tbb::task_group::run`` may postpone execution of the function task until it is explicitly waited upon with the ``oneapi::tbb::task_group::wait``."
-msgstr ""
+msgstr "Здесь очень важно использовать метод ``task_arena::enqueue``. Несмотря на то, что создается явный экземпляр ``task_arena``, метод ``enqueue`` гарантирует, что задача функции в конечном итоге будет выполнена, когда позволят ресурсы, даже если ни один поток явно не ожидает выполнения задачи. В отличие от этого, ``oneapi::tbb::task_group::run`` может отложить выполнение задачи функции до тех пор, пока она не будет явно ожидаться с помощью ``oneapi::tbb::task_group::wait``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/GUI_Thread.rst:188
 msgid "The example uses a ``concurrent_queue`` for workers to communicate results back to the GUI thread. Since only the most recent result matters in the example, and alternative would be to use a shared variable protected by a mutex. However, doing so would block the worker while the GUI thread was holding a lock on the mutex, and vice versa. Using ``concurrent_queue`` provides a simple robust solution."
-msgstr ""
+msgstr "В примере используется ``concurrent_queue`` для рабочих, чтобы передавать результаты обратно в поток GUI. Поскольку в примере имеет значение только самый последний результат, альтернативой могло бы быть использование общей переменной, защищенной мьютексом. Однако это привело бы к блокировке рабочего потока, пока поток GUI держит блокировку на мьютексе, и наоборот. Использование ``concurrent_queue`` обеспечивает простое надежное решение."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/GUI_Thread.rst:195
 msgid "If two long computations are in flight, there is a chance that the first computation completes after the second one. If displaying the result of the most recently requested computation is important, then associate a request serial number with the computation. The GUI thread can pop from ``ResultQueue`` into a temporary variable, check the serial number, and update ``CurrentResult`` only if doing so advances the serial number."
-msgstr ""
+msgstr "Если два длинных вычисления находятся в полёте, есть вероятность, что первое вычисление завершится позже второго. Если отображение результата последнего запрошенного вычисления важно, то свяжи серийный номер запроса с вычислением. Поток GUI может получить результат из ``ResultQueue`` во временную переменную, проверить серийный номер и обновить ``CurrentResult`` только в том случае, если это приведет к увеличению серийного номера."

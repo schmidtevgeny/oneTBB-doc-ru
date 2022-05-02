@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-04-25 10:53+0300\n"
-"Last-Translator: Evgeny Shmidt <evgenyshmidt@gmail.com>\n"
+"PO-Revision-Date: 2022-05-02 17:06+0300\n"
+"Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Generated-By: Babel 2.9.1\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst:4
 msgid "Reference Counting"
@@ -139,8 +139,8 @@ msgstr "D. Bacon и V.T. Rajan, \"Concurrent Cycle Collection in Reference Count
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst:135
 msgid "M. Michael, \"Hazard Pointers: Safe Memory Reclamation for Lock-Free Objects\" in IEEE Transactions on Parallel and Distributed Systems (June 2004). Describes the \"hazard pointer\" technique."
-msgstr ""
+msgstr "M. Michael, \"Hazard Pointers: Safe Memory Reclamation for Lock-Free Objects\" in IEEE Transactions on Parallel and Distributed Systems (June 2004). Описывает технику \"опасного указателя\"."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Reference_Counting.rst:140
 msgid "M. Herlihy, V. Luchangco, and M. Moir, \"The Repeat Offender Problem: A Mechanism for Supporting Dynamic-Sized, Lock-Free Data Structures\" in Proceedings of the 16th International Symposium on Distributed Computing (Oct. 2002). Describes the \"pass the buck\" technique."
-msgstr ""
+msgstr "M. Herlihy, V. Luchangco, and M. Moir, \"The Repeat Offender Problem: A Mechanism for Supporting Dynamic-Sized, Lock-Free Data Structures\" в Proceedings of the 16th International Symposium on Distributed Computing (Oct. 2002). Описывается техника \"передавать долг\"."

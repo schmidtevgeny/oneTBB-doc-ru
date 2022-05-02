@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-23 15:53+0300\n"
+"PO-Revision-Date: 2022-05-02 21:18+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,15 +25,15 @@ msgstr "Ограниченные API"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Constraints.rst:6
 msgid "Starting from C++20, most of |full_name| APIs are constrained to enforce `named requirements <https://spec.oneapi.com/versions/latest/elements/oneTBB/source/named_requirements.html>`_ on template arguments types."
-msgstr ""
+msgstr "Начиная с C++20, большинство API |full_name| ограничивают применение `именованных требований <https://spec.oneapi.com/versions/latest/elements/oneTBB/source/named_requirements.html>`_ к типам аргументов шаблона."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Constraints.rst:10
 msgid "The violations of these requirements are detected at a compile time during the template instantiation."
-msgstr ""
+msgstr "Нарушения этих требований обнаруживаются на этапе компиляции во время инстанцирования шаблона."
 
 #: ../../oneTBB/doc/main/tbb_userguide/Constraints.rst:13
 msgid "Example"
-msgstr ""
+msgstr "Пример"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Constraints.rst:14
 msgid ""
@@ -48,7 +48,17 @@ msgid ""
 "// note: the required expression 'body(range)' is invalid\n"
 "        body(range);"
 msgstr ""
+"// Вызов body(oneapi::tbb::blocked_range) неправильно сформирован\n"
+"// вызов oneapi::tbb::parallel_for приводит к нарушению ограничений\n"
+"auto body = [](const int& r) { /*...*/ };\n"
+"oneapi::tbb::parallel_for(oneapi::tbb::blocked_range{1, 10}, body);\n"
+"\n"
+"// Error example:\n"
+"// error: нет подходящей функции для вызова oneapi::tbb::parallel_for\n"
+"// note: ограничения не выполнены\n"
+"// note: требуемое выражение 'body(range)' является недействительным\n"
+"//       body(range);"
 
 #: ../../oneTBB/doc/main/tbb_userguide/Constraints.rst:29
 msgid "The code that violates named requirements but compiles successfully until C++20, may not compile in C++20 mode due to early and strict constraints diagnostics."
-msgstr ""
+msgstr "Код, нарушающий названные требования, но успешно компилирующийся до C++20, может не компилироваться в режиме C++20 из-за ранней и строгой диагностики ограничений."

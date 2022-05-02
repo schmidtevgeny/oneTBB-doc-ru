@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 14:15+0300\n"
+"PO-Revision-Date: 2022-05-02 22:02+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,28 +25,28 @@ msgstr "Общие ссылки"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/General_References.rst:7
 msgid "This section lists general references. References specific to a pattern are listed at the end of the topic for the pattern."
-msgstr ""
+msgstr "В этом разделе перечислены общие ссылки. Ссылки, относящиеся к конкретной детали, перечислены в конце темы по этой детали."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/General_References.rst:10
 msgid "Gamma, R. Helm, R. Johnson, J. Vlissides. Design Patterns (1995)"
-msgstr ""
+msgstr "Гамма, Р. Хелм, Р. Джонсон, Дж. Влиссидес. Паттерны проектирования (1995)"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/General_References.rst:11
 msgid "`Berkeley Pattern Language for Parallel Programming <https://patterns.eecs.berkeley.edu/?page_id=98>`_"
-msgstr ""
+msgstr "`Berkeley Pattern Language for Parallel Programming <https://patterns.eecs.berkeley.edu/?page_id=98>`_"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/General_References.rst:12
 msgid "Mattson, B. Sanders, B. Massingill. Patterns for Parallel Programming (2005)"
-msgstr ""
+msgstr "Мэттсон, Б. Сандерс, Б. Массингилл. Паттерны для параллельного программирования (2005)"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/General_References.rst:13
 msgid "`ParaPLoP 2009 <https://web.archive.org/web/20111118224546/http://www.upcrc.illinois.edu/workshops/paraplop09/program.html>`_"
-msgstr ""
+msgstr "`ParaPLoP 2009 <https://web.archive.org/web/20111118224546/http://www.upcrc.illinois.edu/workshops/paraplop09/program.html>`_"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/General_References.rst:14
 msgid "`ParaPLoP 2010 <https://web.archive.org/web/20111118222933/http://www.upcrc.illinois.edu/workshops/paraplop10/program.html>`_"
-msgstr ""
+msgstr "`ParaPLoP 2010 <https://web.archive.org/web/20111118222933/http://www.upcrc.illinois.edu/workshops/paraplop10/program.html>`_"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/General_References.rst:15
 msgid "Eun-Gyu Kim and Marc Snir, `Parallel Programming Patterns <http://snir.cs.illinois.edu/PPP.html>`_"
-msgstr ""
+msgstr "Eun-Gyu Kim and Marc Snir, `Parallel Programming Patterns <http://snir.cs.illinois.edu/PPP.html>`_"

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 14:14+0300\n"
+"PO-Revision-Date: 2022-05-02 22:05+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,47 +25,47 @@ msgstr "Не упреждающие приоритеты"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Non-Preemptive_Priorities.rst
 msgid "Problem"
-msgstr ""
+msgstr "Проблема"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Non-Preemptive_Priorities.rst:13
 msgid "Choose the next work item to do, based on priorities."
-msgstr ""
+msgstr "Выбери следующий рабочий элемент для выполнения, основываясь на приоритетах."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Non-Preemptive_Priorities.rst
 msgid "Context"
-msgstr ""
+msgstr "Контекст"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Non-Preemptive_Priorities.rst:22
 msgid "The scheduler in |full_name| chooses tasks using rules based on scalability concerns. The rules are based on the order in which tasks were spawned or enqueued, and are oblivious to the contents of tasks. However, sometimes it is best to choose work based on some kind of priority relationship."
-msgstr ""
+msgstr "Планировщик в |full_name| выбирает задачи, используя правила, основанные на соображениях масштабируемости. Правила основаны на порядке, в котором задачи были порождены или поставлены в очередь, и не обращают внимания на содержимое задач. Однако иногда лучше всего выбирать работу, основываясь на каком-то соотношении приоритетов."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Non-Preemptive_Priorities.rst
 msgid "Forces"
-msgstr ""
+msgstr "Форсы"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Non-Preemptive_Priorities.rst:35
 msgid "Given multiple work items, there is a rule for which item should be done next that is *not* the default oneTBB rule."
-msgstr ""
+msgstr "Учитывая несколько рабочих элементов, существует правило для того, какой элемент должен быть выполнен следующим, которое *не* является правилом по умолчанию oneTBB."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Non-Preemptive_Priorities.rst:39
 msgid "Preemptive priorities are not necessary. If a higher priority item appears, it is not necessary to immediately stop lower priority items in flight. If preemptive priorities are necessary, then non-preemptive tasking is inappropriate. Use threads instead."
-msgstr ""
+msgstr "Упреждающие приоритеты не нужны. Если появляется элемент с более высоким приоритетом, то нет необходимости немедленно останавливать в полете элементы с более низким приоритетом. Если вытесняющие приоритеты необходимы, то невытесняющая постановка задач неуместна. Вместо этого используй потоки."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Non-Preemptive_Priorities.rst
 msgid "Solution"
-msgstr ""
+msgstr "Решение"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Non-Preemptive_Priorities.rst:51
 msgid "Put the work in a shared work pile. Decouple tasks from specific work, so that task execution chooses the actual piece of work to be selected from the pile."
-msgstr ""
+msgstr "Помести работу в общую рабочую кучу. Отдели задачи от конкретной работы, чтобы выполнение задачи выбирало фактическую часть работы, которая будет выбрана из кучи."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Non-Preemptive_Priorities.rst
 msgid "Example"
-msgstr ""
+msgstr "Пример"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Non-Preemptive_Priorities.rst:62
 msgid "The following example implements three priority levels. The user interface for it and top-level implementation follow:"
-msgstr ""
+msgstr "Следующий пример реализует три уровня приоритета. Далее следует пользовательский интерфейс для него и реализация верхнего уровня:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Non-Preemptive_Priorities.rst:69
 msgid ""
@@ -82,14 +82,26 @@ msgid ""
 "   ReadyPile.add(item);\n"
 "}"
 msgstr ""
+"enum Priority {\n"
+"   P_High,\n"
+"   P_Medium,\n"
+"   P_Low\n"
+"};\n"
+"\n"
+"\n"
+"template<typename Func>\n"
+"void EnqueueWork( Priority p, Func f ) {\n"
+"   WorkItem* item = new ConcreteWorkItem<Func>( p, f );\n"
+"   ReadyPile.add(item);\n"
+"}"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Non-Preemptive_Priorities.rst:83
 msgid "The caller provides a priority ``p`` and a functor ``f`` to routine ``EnqueueWork``. The functor may be the result of a lambda expression. ``EnqueueWork`` packages ``f`` as a ``WorkItem`` and adds it to global object ``ReadyPile``."
-msgstr ""
+msgstr "Вызывающая сторона предоставляет приоритет ``p`` и вектор ``f`` для процедуры ``EnqueueWork``. Функтор может быть результатом лямбда-выражения. ``EnqueueWork`` упаковывает ``f`` как ``WorkItem`` и добавляет его в глобальный объект ``ReadyPile``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Non-Preemptive_Priorities.rst:88
 msgid "Class ``WorkItem`` provides a uniform interface for running functors of unknown type:"
-msgstr ""
+msgstr "Класс ``WorkItem`` предоставляет единый интерфейс для запуска функторов неизвестного типа:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Non-Preemptive_Priorities.rst:94
 msgid ""
@@ -116,10 +128,32 @@ msgid ""
 "   {}\n"
 "};"
 msgstr ""
+"// Абстрактный базовый класс для приоритетной части работы.\n"
+"class WorkItem {\n"
+"public:\n"
+"   WorkItem( Priority p ) : priority(p) {}\n"
+"   // Производный класс определяет фактическую работу.\n"
+"   virtual void run() = 0;\n"
+"   const Priority priority;\n"
+"};\n"
+"\n"
+"\n"
+"template<typename Func>\n"
+"class ConcreteWorkItem: public WorkItem {\n"
+"   Func f;\n"
+"   /*override*/ void run() {\n"
+"       f();\n"
+"       delete this;\n"
+"   }\n"
+"public:\n"
+"   ConcreteWorkItem( Priority p, const Func& f_ ) :\n"
+"       WorkItem(p), f(f_)\n"
+"   {}\n"
+"};"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Non-Preemptive_Priorities.rst:118
 msgid "Class ``ReadyPile`` contains the core pattern. It maintains a collection of work and fires off tasks through the ``oneapi::tbb::task_group::run`` interface and then choose a work from the collection:"
-msgstr ""
+msgstr "Класс ``ReadyPile`` содержит основной паттерн. Он поддерживает коллекцию работ и выстреливает задачи через интерфейс ``oneapi::tbb::task_group::run``, а затем выбирает работу из коллекции:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Non-Preemptive_Priorities.rst:126
 msgid ""
@@ -146,14 +180,36 @@ msgid ""
 "\n"
 "ReadyPileType ReadyPile;"
 msgstr ""
+"class ReadyPileType {\n"
+"   // Одна очередь для каждого уровня приоритета\n"
+"   oneapi::tbb::concurrent_queue<WorkItem*> level[P_Low+1];\n"
+"   oneapi::tbb::task_group tg;\n"
+"public:\n"
+"   void add( WorkItem* item ) {\n"
+"       level[item->priority].push(item);\n"
+"       tg.run(RunWorkItem());\n"
+"   }\n"
+"   void runNextWorkItem() {\n"
+"       // Сканирование очередей в порядке приоритета для элемента.\n"
+"       WorkItem* item=NULL;\n"
+"       for( int i=P_High; i<=P_Low; ++i )\n"
+"           if( level[i].try_pop(item) )\n"
+"               break;\n"
+"       assert(item);\n"
+"       item->run();\n"
+"   }\n"
+"};\n"
+"\n"
+"\n"
+"ReadyPileType ReadyPile;"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Non-Preemptive_Priorities.rst:150
 msgid "The task added by ``add(item)`` does *not* necessarily execute that item. The task itself executes ``runNextWorkItem()``, which may find a higher priority item. There is one task for each item, but the mapping resolves when the task actually executes, not when it is created."
-msgstr ""
+msgstr "Задача, добавленная командой ``add(item)``, *не обязательно* выполняет этот пункт. Сама задача выполняет ``runNextWorkItem()``, которая может найти более приоритетный элемент. Для каждого элемента существует одна задача, но сопоставление решается, когда задача действительно выполняется, а не когда она создается."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Non-Preemptive_Priorities.rst:155
 msgid "Here are the details of class ``RunWorkItem``:"
-msgstr ""
+msgstr "Вот детали класса ``RunWorkItem``:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Non-Preemptive_Priorities.rst:159
 msgid ""
@@ -163,15 +219,20 @@ msgid ""
 "   };\n"
 "};"
 msgstr ""
+"class RunWorkItem {\n"
+"   void operator()() {\n"
+"       ReadyPile.runNextWorkItem();\n"
+"   };\n"
+"};"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Non-Preemptive_Priorities.rst:166
 msgid "``RunWorkItem`` objects are fungible. They enable the oneTBB scheduler to choose when to do a work item, not which work item to do."
-msgstr ""
+msgstr "Объекты ``RunWorkItem`` являются взаимозаменяемыми. Они позволяют планировщику oneTBB выбирать, когда выполнять рабочий элемент, а не какой рабочий элемент выполнять."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Non-Preemptive_Priorities.rst:170
 msgid "Other priority schemes can be implemented by changing the internals for ``ReadyPileType``. A priority queue could be used to implement very fine grained priorities."
-msgstr ""
+msgstr "Другие схемы приоритетов могут быть реализованы путем изменения внутренних параметров для ``ReadyPileType``. Для реализации очень тонких приоритетов можно использовать очередь приоритетов."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Non-Preemptive_Priorities.rst:174
 msgid "The scalability of the pattern is limited by the scalability of ``ReadyPileType``. Ideally scalable concurrent containers should be used for it."
-msgstr ""
+msgstr "Масштабируемость паттерна ограничена масштабируемостью ``ReadyPileType``. В идеале для него должны использоваться масштабируемые параллельные контейнеры."

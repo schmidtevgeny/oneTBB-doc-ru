@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 14:16+0300\n"
+"PO-Revision-Date: 2022-05-02 16:54+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,136 +25,136 @@ msgstr "Агломерация"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Agglomeration.rst
 msgid "Problem"
-msgstr ""
+msgstr "Проблема"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Agglomeration.rst:13
 msgid "Parallelism is so fine grained that overhead of parallel scheduling or communication swamps the useful work."
-msgstr ""
+msgstr "Параллелизм настолько мелкозернистый, что накладные расходы на параллельное планирование или коммуникации перекрывают полезную работу."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Agglomeration.rst
 msgid "Context"
-msgstr ""
+msgstr "Контекст"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Agglomeration.rst:23
 msgid "Many algorithms permit parallelism at a very fine grain, on the order of a few instructions per task. But synchronization between threads usually requires orders of magnitude more cycles. For example, elementwise addition of two arrays can be done fully in parallel, but if each scalar addition is scheduled as a separate task, most of the time will be spent doing synchronization instead of useful addition."
-msgstr ""
+msgstr "Многие алгоритмы допускают параллелизм на очень мелком зерне, порядка нескольких инструкций на задачу. Но синхронизация между потоками обычно требует на порядки больше тактов. Например, поэлементное сложение двух массивов может быть выполнено полностью параллельно, но если каждое скалярное сложение запланировано как отдельная задача, то большая часть времени будет потрачена на выполнение синхронизации вместо полезного сложения."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Agglomeration.rst
 msgid "Forces"
-msgstr ""
+msgstr "Форсы"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Agglomeration.rst:37
 msgid "Individual computations can be done in parallel, but are small. For practical use of |full_name|, \"small\" here means less than 10,000 clock cycles."
-msgstr ""
+msgstr "Отдельные вычисления могут выполняться параллельно, но их объем невелик. Для практического использования |full_name| \"небольшой\" здесь означает менее 10 000 тактовых циклов."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Agglomeration.rst:42
 msgid "The parallelism is for sake of performance and not required for semantic reasons."
-msgstr ""
+msgstr "Параллелизм существует ради производительности и не требуется по семантическим причинам."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Agglomeration.rst
 msgid "Solution"
-msgstr ""
+msgstr "Решение"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Agglomeration.rst:52
 msgid "Group the computations into blocks. Evaluate computations within a block serially."
-msgstr ""
+msgstr "Сгруппируй вычисления в блоки. Проводи вычисления внутри блока последовательно."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Agglomeration.rst:56
 msgid "The block size should be chosen to be large enough to amortize parallel overhead. Too large a block size may limit parallelism or load balancing because the number of blocks becomes too small to distribute work evenly across processors."
-msgstr ""
+msgstr "Размер блока должен быть выбран достаточно большим, чтобы амортизировать параллельные накладные расходы. Слишком большой размер блока может ограничить параллелизм или балансировку нагрузки, потому что количество блоков становится слишком маленьким для равномерного распределения работы между процессорами."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Agglomeration.rst:62
 msgid "The choice of block topology is typically driven by two concerns:"
-msgstr ""
+msgstr "Выбор топологии блока обычно обусловлен двумя причинами:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Agglomeration.rst:65
 msgid "Minimizing synchronization between blocks."
-msgstr ""
+msgstr "Минимизация синхронизации между блоками."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Agglomeration.rst:68
 msgid "Minimizing cache traffic between blocks."
-msgstr ""
+msgstr "Минимизация кэш-трафика между блоками."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Agglomeration.rst:71
 msgid "If the computations are completely independent, then the blocks will be independent too, and then only cache traffic issues must be considered."
-msgstr ""
+msgstr "Если вычисления полностью независимы, то блоки тоже будут независимы, и тогда нужно рассматривать только вопросы трафика кэша."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Agglomeration.rst:76
 msgid "If the loop is \"small\", on the order of less than 10,000 clock cycles, then it may be impractical to parallelize at all, because the optimal agglomeration might be a single block,"
-msgstr ""
+msgstr "Если цикл \"маленький\", порядка менее 10 000 тактов, то распараллеливание может быть непрактичным вообще, потому что оптимальным агломератом может быть один блок,"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Agglomeration.rst
 msgid "Examples"
-msgstr ""
+msgstr "Примеры"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Agglomeration.rst:87
 msgid "TBB loop templates such as ``oneapi::tbb::parallel_for`` that take a *range* argument support automatic agglomeration."
-msgstr ""
+msgstr "Шаблоны циклов TBB, такие как ``oneapi::tbb::parallel_for``, которые принимают аргумент *range*, поддерживают автоматическую агломерацию."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Agglomeration.rst:91
 msgid "When agglomerating, think about cache effects. Avoid having cache lines cross between groups if possible."
-msgstr ""
+msgstr "При агломерации думай об эффектах кэша. По возможности избегай пересечения кэш-линий между группами."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Agglomeration.rst:95
 msgid "There may be boundary to interior ratio effects. For example, if the computations form a 2D grid, and communicate only with nearest neighbors, then the computation per block grows quadratically (with the block's area), but the cross-block communication grows with linearly (with the block's perimeter). The following figure shows four different ways to agglomerate an 8×8 grid. If doing such analysis, be careful to consider that information is transferred in cache line units. For a given area, the perimeter may be minimized when the block is square with respect to the underlying grid of cache lines, not square with respect to the logical grid."
-msgstr ""
+msgstr "Могут существовать эффекты соотношения границ и интерьеров. Например, если вычисления образуют двумерную сетку, а связь осуществляется только с ближайшими соседями, то вычисления на блок растут квадратично (с увеличением площади блока), но межблочная связь растет линейно (с увеличением периметра блока). На следующем рисунке показаны четыре различных способа агломерации сетки 8×8. При проведении такого анализа будь внимателен и учитывай, что информация передается в единицах кэш-линий. Для заданной площади периметр может быть минимизирован, если блок будет квадратным по отношению к лежащей в основе сетке кэш-линий, а не квадратным по отношению к логической сетке."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Agglomeration.rst:111
 msgid "Four different agglomerations of an 8×8 grid. |image0|"
-msgstr ""
+msgstr "Четыре различных агломерации сетки 8×8. |image0|"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Agglomeration.rst:165
 msgid "image0"
-msgstr ""
+msgstr "image0"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Agglomeration.rst:165
 msgid ".. image:: main/tbb_userguide/design_patterns/Images/image002a.jpg"
-msgstr ""
+msgstr ".. image:: main/tbb_userguide/design_patterns/Images/image002a.jpg"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Agglomeration.rst:114
 msgid "Also consider vectorization. Blocks that contain long contiguous subsets of data may better enable vectorization."
-msgstr ""
+msgstr "Также рассмотри возможность векторизации. Блоки, которые содержат длинные непрерывные подмножества данных, могут лучше позволить векторизацию."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Agglomeration.rst:118
 msgid "For recursive computations, most of the work is towards the leaves, so the solution is to treat subtrees as a groups as shown in the following figure."
-msgstr ""
+msgstr "При рекурсивных вычислениях большая часть работы направлена на листья, поэтому решение заключается в том, чтобы рассматривать поддеревья как группы, как показано на следующем рисунке."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Agglomeration.rst:127
 msgid "Agglomeration of a recursive computation |image1|"
-msgstr ""
+msgstr "Агломерация рекурсивного вычисления |image1|"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Agglomeration.rst:168
 msgid "image1"
-msgstr ""
+msgstr "image1"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Agglomeration.rst:168
 msgid ".. image:: main/tbb_userguide/design_patterns/Images/image003a.jpg"
-msgstr ""
+msgstr ".. image:: main/tbb_userguide/design_patterns/Images/image003a.jpg"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Agglomeration.rst:130
 msgid "Often such an agglomeration is achieved by recursing serially once some threshold is reached. For example, a recursive sort might solve sub-problems in parallel only if they are above a certain threshold size."
-msgstr ""
+msgstr "Часто такая агломерация достигается путем последовательной рекурсии после достижения некоторого порога. Например, рекурсивная сортировка может решать подпроблемы параллельно, только если они превышают определенный пороговый размер."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Agglomeration.rst
 msgid "Reference"
-msgstr ""
+msgstr "Ссылка"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Agglomeration.rst:142
 msgid "Ian Foster introduced the term \"agglomeration\" in his book Designing and Building Parallel Programs http://www.mcs.anl.gov/~itf/dbpp. There agglomeration is part of a four step **PCAM** design method:"
-msgstr ""
+msgstr "Ян Фостер ввел термин \"агломерация\" в своей книге Designing and Building Parallel Programs http://www.mcs.anl.gov/~itf/dbpp. Там агломерация является частью четырехшагового метода проектирования **PCAM**:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Agglomeration.rst:147
 msgid "**P**\\ artitioning - break the program into the smallest tasks possible."
-msgstr ""
+msgstr "**Р** Разбиение на разделы - разбивайте программу на минимально возможные задачи."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Agglomeration.rst:151
 msgid "**C**\\ ommunication – figure out what communication is required between tasks. When using oneTBB, communication is usually cache line transfers. Though they are automatic, understanding which ones happen between tasks helps guide the agglomeration step."
-msgstr ""
+msgstr "**C** Коммуникация - выясните, какая коммуникация требуется между задачами. При использовании oneTBB коммуникация обычно заключается в передаче строк кэша. Хотя они происходят автоматически, понимание того, какие из них происходят между задачами, помогает направлять шаг агломерации."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Agglomeration.rst:157
 msgid "**A**\\ gglomeration – combine tasks into larger tasks. His book has an extensive list of considerations that is worth reading."
-msgstr ""
+msgstr "**A** Агломерация - объединение задач в более крупные задачи. В его книге есть обширный список соображений, который стоит прочитать."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Agglomeration.rst:161
 msgid "**M**\\ apping – map tasks onto processors. The oneTBB task scheduler does this step for you."
-msgstr ""
+msgstr "**M** Сопоставление - распределение задач по процессорам. Планировщик задач oneTBB выполняет этот шаг за вас."

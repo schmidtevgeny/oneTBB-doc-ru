@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 14:13+0300\n"
+"PO-Revision-Date: 2022-05-02 16:59+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,44 +25,44 @@ msgstr "Нечетные и четные коммуникации"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Odd-Even_Communication.rst
 msgid "Problem"
-msgstr ""
+msgstr "Проблема"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Odd-Even_Communication.rst:13
 msgid "Operations on data cannot be done entirely independently, but data can be partitioned into two subsets such that all operations on a subset can run in parallel."
-msgstr ""
+msgstr "Операции над данными не могут выполняться полностью независимо, но данные можно разделить на два подмножества так, чтобы все операции над подмножеством могли выполняться параллельно."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Odd-Even_Communication.rst
 msgid "Context"
-msgstr ""
+msgstr "Контекст"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Odd-Even_Communication.rst:24
 msgid "Solvers for partial differential equations can often be modified to follow this pattern. For example, for a 2D grid with only nearest-neighbor communication, it may be possible to treat the grid as a checkerboard, and alternate between updating red squares and black squares."
-msgstr ""
+msgstr "Решатели дифференциальных уравнений часто могут быть модифицированы таким образом, чтобы следовать этой схеме. Например, для двумерной сетки с единственной связью между ближайшими соседями можно рассматривать сетку как шашечную доску и чередовать обновление красных и черных квадратов."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Odd-Even_Communication.rst:31
 msgid "Another context is staggered grid (\"leap frog\") Finite Difference Time Domain (FDTD solvers, which naturally fit the pattern."
-msgstr ""
+msgstr "Другой контекст - это решатели конечных разностей во временной области (FDTD) со ступенчатой сеткой (\"прыгающая лягушка\"), которые естественным образом вписываются в эту схему."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Odd-Even_Communication.rst
 msgid "Forces"
-msgstr ""
+msgstr "Форсы"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Odd-Even_Communication.rst:41
 msgid "Dependencies between items form a bipartite graph."
-msgstr ""
+msgstr "Зависимости между элементами образуют двудольный граф."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Odd-Even_Communication.rst
 msgid "Solution"
-msgstr ""
+msgstr "Решение"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Odd-Even_Communication.rst:50
 msgid "Alternate between updating one subset and then the other subset. Apply the elementwise pattern to each subset."
-msgstr ""
+msgstr "Попеременно обновляй сначала одно подмножество, а затем другое. Применяй поэлементную схему к каждому подмножеству."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Odd-Even_Communication.rst
 msgid "References"
-msgstr ""
+msgstr "Ссылки"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Odd-Even_Communication.rst:59
 msgid "Eun-Gyu Kim and Mark Snir, \"Odd-Even Communication Group\", http://snir.cs.illinois.edu/patterns/oddeven.pdf"
-msgstr ""
+msgstr "Ын-Гю Ким и Марк Снир, \"Коммуникационная группа Odd-Even\", http://snir.cs.illinois.edu/patterns/oddeven.pdf"

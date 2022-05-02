@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 14:16+0300\n"
+"PO-Revision-Date: 2022-05-02 16:58+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,63 +25,63 @@ msgstr "По элементам"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst
 msgid "Problem"
-msgstr ""
+msgstr "Проблема"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst:13
 msgid "Initiate similar independent computations across items in a data set, and wait until all complete."
-msgstr ""
+msgstr "Запускай аналогичные независимые вычисления для всех элементов в наборе данных и жди, пока все они завершатся."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst
 msgid "Context"
-msgstr ""
+msgstr "Контекст"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst:23
 msgid "Many serial algorithms sweep over a set of items and do an independent computation on each item. However, if some kind of summary information is collected, use the Reduction pattern instead."
-msgstr ""
+msgstr "Многие последовательные алгоритмы перебирают набор элементов и выполняют независимые вычисления для каждого элемента. Однако если собирается какая-то суммарная информация, используй вместо этого шаблон \"Свертка\"."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst
 msgid "Forces"
-msgstr ""
+msgstr "Форсы"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst:34
 msgid "No information is carried or merged between the computations."
-msgstr ""
+msgstr "Никакая информация не переносится и не объединяется между вычислениями."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst
 msgid "Solution"
-msgstr ""
+msgstr "Решение"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst:43
 msgid "If the number of items is known in advance, use ``oneapi::tbb::parallel_for``. If not, consider using ``oneapi::tbb::parallel_for_each``."
-msgstr ""
+msgstr "Если количество элементов известно заранее, используй ``oneapi::tbb::parallel_for``. Если нет, рассмотри возможность использования ``oneapi::tbb::parallel_for_each``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst:48
 msgid "Use agglomeration if the individual computations are small relative to scheduler overheads."
-msgstr ""
+msgstr "Используй агломерацию, если отдельные вычисления малы относительно накладных расходов планировщика."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst:52
 msgid "If the pattern is followed by a reduction on the same data, consider doing the element-wise operation as part of the reduction, so that the combination of the two patterns is accomplished in a single sweep instead of two sweeps. Doing so may improve performance by reducing traffic through the memory hierarchy."
-msgstr ""
+msgstr "Если за паттерном следует уменьшение тех же данных, подумай о том, чтобы выполнить операцию \"по элементам\" как часть уменьшения, чтобы комбинация двух паттернов была выполнена за один проход вместо двух проходов. Это может повысить производительность за счет уменьшения трафика через иерархию памяти."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst
 msgid "Example"
-msgstr ""
+msgstr "Пример"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst:65
 msgid "Convolution is often used in signal processing. The convolution of a filter ``c`` and signal ``x`` is computed as:"
-msgstr ""
+msgstr "Свертка часто используется в обработке сигналов. Свертка фильтра ``c`` и сигнала ``x`` вычисляется как:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst:69
 msgid "|image0| Serial code for this computation might look like:"
-msgstr ""
+msgstr "|image0| Последовательный код для этого вычисления может выглядеть так:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst:135
 msgid "image0"
-msgstr ""
+msgstr "image0"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst:135
 msgid ".. image:: main/tbb_userguide/design_patterns/Images/image004a.jpg"
-msgstr ""
+msgstr ".. image:: main/tbb_userguide/design_patterns/Images/image004a.jpg"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst:76
 msgid ""
@@ -93,14 +93,21 @@ msgid ""
 "   y[i] = tmp;\n"
 "}"
 msgstr ""
+"// Assumes c[0..clen-1] and x[1-clen..xlen-1] are defined\n"
+"for( int i=0; i<xlen+clen-1; ++i ) {\n"
+"   float tmp = 0;\n"
+"   for( int j=0; j<clen; ++j )\n"
+"       tmp += c[j]*x[i-j];\n"
+"   y[i] = tmp;\n"
+"}"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst:85
 msgid "For simplicity, the fragment assumes that ``x`` is a pointer into an array padded with zeros such that ``x[k]``\\ returns zero when ``k<0`` or ``k≥xlen``."
-msgstr ""
+msgstr "Для простоты фрагмент предполагает, что ``x`` является указателем на массив, заполненный нулями так, что ``x[k]`` возвращает ноль, когда ``k<0`` или ``k≥xlen``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst:90
 msgid "The inner loop does not fit the elementwise pattern, because each iteration depends on the previous iteration. However, the outer loop fits the elementwise pattern. It is straightforward to render it using ``oneapi::tbb::parallel_for`` as shown:"
-msgstr ""
+msgstr "Внутренний цикл не соответствует поэлементному шаблону, потому что каждая итерация зависит от предыдущей итерации. Однако внешний цикл соответствует поэлементному шаблону. Его можно легко визуализировать, используя ``oneapi::tbb::parallel_for``, как показано на рисунке:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst:99
 msgid ""
@@ -111,10 +118,16 @@ msgid ""
 "   y[i] = tmp;\n"
 "});"
 msgstr ""
+"oneapi::tbb::parallel_for( 0, xlen+clen-1, [=]( int i ) {\n"
+"   float tmp = 0;\n"
+"   for( int j=0; j<clen; ++j )\n"
+"       tmp += c[j]*x[i-j];\n"
+"   y[i] = tmp;\n"
+"});"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst:107
 msgid "``oneapi::tbb::parallel_for`` does automatic agglomeration by implicitly using ``oneapi::tbb::auto_partitioner`` in its underlying implementation. If there is reason to agglomerate explicitly, use the overload of ``oneapi::tbb::parallel_for`` that takes an explicit range argument. The following shows the example transformed to use the overload."
-msgstr ""
+msgstr "``oneapi::tbb::parallel_for`` делает автоматическую агломерацию, неявно используя ``oneapi::tbb::auto_partitioner`` в своей базовой реализации. Если есть причина для явного агломерирования, используй перегрузку ``oneapi::tbb::parallel_for``, которая принимает явный аргумент диапазона. Ниже показан пример, преобразованный для использования перегрузки."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Elementwise.rst:117
 msgid ""
@@ -131,3 +144,15 @@ msgid ""
 "   }\n"
 ");"
 msgstr ""
+"oneapi::tbb::parallel_for(\n"
+"   oneapi::tbb::blocked_range<int>(0,xlen+clen-1,1000),\n"
+"   [=]( oneapi::tbb::blocked_range<int> r ) {\n"
+"         int end = r.end();\n"
+"       for( int i=r.begin(); i!=end; ++i ) {\n"
+"           float tmp = 0;\n"
+"           for( int j=0; j<clen; ++j )\n"
+"               tmp += c[j]*x[i-j];\n"
+"           y[i] = tmp;\n"
+"       }\n"
+"   }\n"
+");ч"

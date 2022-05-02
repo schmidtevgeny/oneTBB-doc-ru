@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-24 14:14+0300\n"
+"PO-Revision-Date: 2022-05-02 22:10+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,43 +25,43 @@ msgstr "Локальный сериализатор"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst
 msgid "Context"
-msgstr ""
+msgstr "Контекст"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:13
 msgid "Consider an interactive program. To maximize concurrency and responsiveness, operations requested by the user can be implemented as tasks. The order of operations can be important. For example, suppose the program presents editable text to the user. There might be operations to select text and delete selected text. Reversing the order of \"select\" and \"delete\" operations on the same buffer would be bad. However, commuting operations on different buffers might be okay. Hence the goal is to establish serial ordering of tasks associated with a given object, but not constrain ordering of tasks between different objects."
-msgstr ""
+msgstr "Рассмотри интерактивную программу. Чтобы максимизировать параллелизм и отзывчивость, операции, запрашиваемые пользователем, могут быть реализованы в виде задач. Порядок выполнения операций может быть важным. Например, предположим, что программа представляет пользователю редактируемый текст. Могут быть операции по выделению текста и удалению выделенного текста. Изменение порядка операций \"выбрать\" и \"удалить\" на одном и том же буфере было бы плохо. Однако коммутация операций на разных буферах может быть нормальной. Следовательно, цель состоит в том, чтобы установить последовательное упорядочивание задач, связанных с данным объектом, но не ограничивать упорядочивание задач между различными объектами."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst
 msgid "Forces"
-msgstr ""
+msgstr "Форсы"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:31
 msgid "Operations associated with a certain object must be performed in serial order."
-msgstr ""
+msgstr "Операции, связанные с определенным объектом, должны выполняться в последовательном порядке."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:35
 msgid "Serializing with a lock would be wasteful because threads would be waiting at the lock when they could be doing useful work elsewhere."
-msgstr ""
+msgstr "Сериализация с блокировкой была бы расточительной, потому что потоки ожидали бы блокировки, когда они могли бы выполнять полезную работу в другом месте."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst
 msgid "Solution"
-msgstr ""
+msgstr "Решение"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:46
 msgid "Sequence the work items using a FIFO (first-in first-out structure). Always keep an item in flight if possible. If no item is in flight when a work item appears, put the item in flight. Otherwise, push the item onto the FIFO. When the current item in flight completes, pop another item from the FIFO and put it in flight."
-msgstr ""
+msgstr "Упорядочивай рабочие элементы, используя структуру FIFO (first-in first-out structure). Всегда держи предмет в полете, если это возможно. Если ни один элемент не находится в полете, когда появляется рабочий элемент, помести этот элемент в полет. В противном случае вытесни элемент в FIFO. Когда текущий элемент в полёте завершится, вытолкни другой элемент из FIFO и помести его в полёт."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:53
 msgid "The logic can be implemented without mutexes, by using ``concurrent_queue`` for the FIFO and ``atomic<int>`` to count the number of items waiting and in flight. The example explains the accounting in detail."
-msgstr ""
+msgstr "Эту логику можно реализовать без мьютексов, используя ``concurrent_queue`` для FIFO и ``atomic<int>`` для подсчёта количества ожидающих и находящихся в полёте элементов. Пример подробно объясняет учет."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst
 msgid "Example"
-msgstr ""
+msgstr "Пример"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:65
 msgid "The following example builds on the Non-Preemptive Priorities example to implement local serialization in addition to priorities. It implements three priority levels and local serializers. The user interface for it follows:"
-msgstr ""
+msgstr "Следующий пример основан на примере \"Приоритеты без вытеснения\" и реализует локальную сериализацию в дополнение к приоритетам. Он реализует три уровня приоритетов и локальные сериализаторы. Пользовательский интерфейс для него следует ниже:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:74
 msgid ""
@@ -75,46 +75,55 @@ msgid ""
 "template<typename Func>\n"
 "void EnqueueWork( Priority p, Func f, Serializer* s=NULL );"
 msgstr ""
+"enum Priority {\n"
+"   P_High,\n"
+"   P_Medium,\n"
+"   P_Low\n"
+"};\n"
+"\n"
+"\n"
+"template<typename Func>\n"
+"void EnqueueWork( Priority p, Func f, Serializer* s=NULL );"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:85
 msgid "Template function ``EnqueueWork`` causes functor ``f`` to run when the three constraints in the following table are met."
-msgstr ""
+msgstr "Шаблонная функция ``EnqueueWork`` вызывает запуск функтора ``f``, когда выполняются три ограничения в следующей таблице."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:95
 msgid "Constraint"
-msgstr ""
+msgstr "Constraint (Ограничение)"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:96
 msgid "Resolved by class..."
-msgstr ""
+msgstr "Решено классом..."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:97
 msgid "Any prior work for the ``Serializer`` has completed."
-msgstr ""
+msgstr "Любая предшествующая работа для ``Serializer`` завершена."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:98
 msgid "\\ ``Serializer``"
-msgstr ""
+msgstr "\\ ``Serializer``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:99
 msgid "A thread is available."
-msgstr ""
+msgstr "Нить можно приобрести."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:100
 msgid "\\ ``RunWorkItem``"
-msgstr ""
+msgstr "\\ ``RunWorkItem``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:101
 msgid "No higher priority work is ready to run."
-msgstr ""
+msgstr "Никакая более приоритетная работа не готова к запуску."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:102
 msgid "\\ ``ReadyPileType``"
-msgstr ""
+msgstr "\\ ``ReadyPileType``"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:107
 msgid "Constraints on a given functor are resolved from top to bottom in the table. The first constraint does not exist when s is NULL. The implementation of ``EnqueueWork`` packages the functor in a ``SerializedWorkItem`` and routes it to the class that enforces the first relevant constraint between pieces of work."
-msgstr ""
+msgstr "Ограничения на данный вектор разрешаются сверху вниз по таблице. Первое ограничение не существует, если s равно NULL. Реализация ``EnqueueWork`` упаковывает функтор в ``SerializedWorkItem`` и направляет его в класс, который применяет первое соответствующее ограничение между частями работы."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:117
 msgid ""
@@ -127,10 +136,18 @@ msgid ""
 "       ReadyPile.add(item);\n"
 "}"
 msgstr ""
+"template<typename Func>\n"
+"void EnqueueWork( Priority p, Func f, Serializer* s=NULL ) {\n"
+"   WorkItem* item = new SerializedWorkItem<Func>( p, f, s );\n"
+"   if( s )\n"
+"       s->add(item);\n"
+"   else\n"
+"       ReadyPile.add(item);\n"
+"}"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:127
 msgid "A ``SerializedWorkItem`` is derived from a ``WorkItem``, which serves as a way to pass around a prioritized piece of work without knowing further details of the work."
-msgstr ""
+msgstr "``SerializedWorkItem`` является производным от ``WorkItem``, который служит способом передачи приоритетной части работы без знания дальнейших деталей работы."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:135
 msgid ""
@@ -162,34 +179,61 @@ msgid ""
 "   {}\n"
 "};"
 msgstr ""
+"// Абстрактный базовый класс для приоритетной части работы.\n"
+"class WorkItem {\n"
+"public:\n"
+"   WorkItem( Priority p ) : priority(p) {}\n"
+"   // Производный класс определяет фактическую работу.\n"
+"   virtual void run() = 0;\n"
+"   const Priority priority;\n"
+"};\n"
+"\n"
+"\n"
+"template<typename Func>\n"
+"class SerializedWorkItem: public WorkItem {\n"
+"   Serializer* serializer;\n"
+"   Func f;\n"
+"   /*override*/ void run() {\n"
+"       f();\n"
+"       Serializer* s = serializer;\n"
+"       // Уничтожить f перед запуском следующего функтора Serializer.\n"
+"       delete this;\n"
+"       if( s )\n"
+"           s->noteCompletion();\n"
+"   }\n"
+"public:\n"
+"   SerializedWorkItem( Priority p, const Func& f_, Serializer* s ) :\n"
+"       WorkItem(p), serializer(s), f(f_)\n"
+"   {}\n"
+"};"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:164
 msgid "Base class ``WorkItem`` is the same as class WorkItem in the example for Non-Preemptive Priorities. The notion of serial constraints is completely hidden from the base class, thus permitting the framework to extend other kinds of constraints or lack of constraints. Class ``SerializedWorkItem`` is essentially ``ConcreteWorkItem`` from the example for Non-Preemptive Priorities, extended with a ``Serializer`` aspect."
-msgstr ""
+msgstr "Базовый класс ``WorkItem`` - это то же самое, что и класс WorkItem в примере для не вытесняющих приоритетов. Понятие последовательных ограничений полностью скрыто от базового класса, что позволяет фреймворку расширять другие виды ограничений или отсутствие ограничений. Класс ``SerializedWorkItem`` по сути является ``ConcreteWorkItem`` из примера для Non-Preemptive Priorities, расширенный аспектом ``Serializer``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:173
 msgid "Virtual method ``run()`` is invoked when it becomes time to run the functor. It performs three steps:"
-msgstr ""
+msgstr "Виртуальный метод ``run()`` вызывается, когда наступает время запуска функтора. Он выполняет три этапа:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:177
 msgid "Run the functor."
-msgstr ""
+msgstr "Запускай функтор."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:180
 msgid "Destroy the functor."
-msgstr ""
+msgstr "Уничтожь функтор."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:183
 msgid "Notify the ``Serializer`` that the functor completed, and thus unconstraining the next waiting functor."
-msgstr ""
+msgstr "Уведоми ``Serializer`` о том, что функтор завершен, и тем самым сними ограничения со следующего ожидающего функтора."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:187
 msgid "Step 3 is the difference from the operation of ConcreteWorkItem::run. Step 2 could be done after step 3 in some contexts to increase concurrency slightly. However, the presented order is recommended because if step 2 takes non-trivial time, it likely has side effects that should complete before the next functor runs."
-msgstr ""
+msgstr "Шаг 3 - это отличие от операции ``ConcreteWorkItem::run``. Шаг 2 может быть выполнен после шага 3 в некоторых контекстах, чтобы немного увеличить параллелизм. Однако представленный порядок рекомендуется, потому что если шаг 2 занимает нетривиальное время, то он, скорее всего, имеет побочные эффекты, которые должны завершиться до запуска следующего функтора."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:194
 msgid "Class ``Serializer`` implements the core of the Local Serializer pattern:"
-msgstr ""
+msgstr "Класс ``Serializer`` реализует ядро паттерна Local Serializer:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:201
 msgid ""
@@ -213,51 +257,70 @@ msgid ""
 "   }\n"
 "};"
 msgstr ""
+"class Serializer {\n"
+"   oneapi::tbb::concurrent_queue<WorkItem*> queue;\n"
+"   std::atomic<int> count;         // Количество элементов в очереди и в полете\n"
+"   void moveOneItemToReadyPile() { // Передача элемента из очереди в ReadyPile\n"
+"       WorkItem* item;\n"
+"       queue.try_pop(item);\n"
+"       ReadyPile.add(item);\n"
+"   }\n"
+"public:\n"
+"   void add( WorkItem* item ) {\n"
+"       queue.push(item);\n"
+"       if( ++count==1 )\n"
+"           moveOneItemToReadyPile();\n"
+"   }\n"
+"   void noteCompletion() {        // Вызывается, когда WorkItem завершается.\n"
+"       if( --count!=0 )\n"
+"           moveOneItemToReadyPile();\n"
+"   }\n"
+"};"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:222
 msgid "The class maintains two members:"
-msgstr ""
+msgstr "Класс поддерживает два члена:"
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:225
 msgid "A queue of WorkItem waiting for prior work to complete."
-msgstr ""
+msgstr "Очередь WorkItem, ожидающих завершения предыдущей работы."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:228
 msgid "A count of queued or in-flight work."
-msgstr ""
+msgstr "Подсчет работы в очереди или в полете."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:231
 msgid "Mutexes are avoided by using ``concurrent_queue<WorkItem*>`` and ``atomic<int>`` along with careful ordering of operations. The transitions of count are the key understanding how class ``Serializer`` works."
-msgstr ""
+msgstr "Мьютексов можно избежать, используя ``concurrent_queue<WorkItem*>`` и ``atomic<int>`` наряду с тщательным упорядочиванием операций. Переходы count - это ключевое понимание того, как работает класс ``Serializer``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:237
 msgid "If method ``add`` increments ``count`` from 0 to 1, this indicates that no other work is in flight and thus the work should be moved to the ``ReadyPile``."
-msgstr ""
+msgstr "Если метод ``add`` увеличивает ``count`` от 0 до 1, это указывает на то, что никакая другая работа не находится в полёте, и поэтому работу следует переместить в ``ReadyPile``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:242
 msgid "If method ``noteCompletion`` decrements count and it is *not* from 1 to 0, then the queue is non-empty and another item in the queue should be moved to ``ReadyPile``."
-msgstr ""
+msgstr "Если метод ``noteCompletion`` уменьшает count и он *не* от 1 до 0, то очередь не пуста, и другой элемент в очереди должен быть перемещен в ``ReadyPile``."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:247
 msgid "Class ``ReadyPile`` is explained in the example for Non-Preemptive Priorities."
-msgstr ""
+msgstr "Класс ``ReadyPile`` объясняется в примере для невытесняющих приоритетов."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:251
 msgid "If priorities are not necessary, there are two variations on method ``moveOneItemToReadyPile``, with different implications."
-msgstr ""
+msgstr "Если приоритеты не нужны, есть две вариации метода ``moveOneItemToReadyPile``, с разными последствиями."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:255
 msgid "Method ``moveOneItemToReadyPile`` could directly invoke\\ ``item->run()``. This approach has relatively low overhead and high thread locality for a given ``Serializer``. But it is unfair. If the ``Serializer`` has a continual stream of tasks, the thread operating on it will keep servicing those tasks to the exclusion of others."
-msgstr ""
+msgstr "Метод ``moveOneItemToReadyPile`` может напрямую вызывать ``item->run()``. Этот подход имеет относительно низкие накладные расходы и высокую локальность потоков для данного ``Serializer``. Но он несправедлив. Если у ``Serializer`` есть непрерывный поток задач, то поток, работающий на нём, будет продолжать обслуживать эти задачи, исключая другие."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:263
 msgid "Method ``moveOneItemToReadyPile`` could invoke ``task::enqueue`` to enqueue a task that invokes ``item->run()``. Doing so introduces higher overhead and less locality than the first approach, but avoids starvation."
-msgstr ""
+msgstr "Метод ``moveOneItemToReadyPile`` может вызывать ``task::enqueue``, чтобы вызвать задачу, которая вызывает ``item->run()``. Это влечет за собой более высокие накладные расходы и меньшую локальность, чем первый подход, но позволяет избежать голодания."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:269
 msgid "The conflict between fairness and maximum locality is fundamental. The best resolution depends upon circumstance."
-msgstr ""
+msgstr "Конфликт между справедливостью и максимальной локальностью является фундаментальным. Лучшее разрешение зависит от обстоятельств."
 
 #: ../../oneTBB/doc/main/tbb_userguide/design_patterns/Local_Serializer.rst:273
 msgid "The pattern generalizes to constraints on work items more general than those maintained by class Serializer. A generalized ``Serializer::add`` determines if a work item is unconstrained, and if so, runs it immediately. A generalized ``Serializer::noteCompletion`` runs all previously constrained items that have become unconstrained by the completion of the current work item. The term \"run\" means to run work immediately, or if there are more constraints, forwarding the work to the next constraint resolver."
-msgstr ""
+msgstr "Этот паттерн обобщается на ограничения на рабочие элементы более общие, чем те, которые поддерживаются классом Serializer. Обобщенный ``Serializer::add`` определяет, является ли рабочий элемент неограниченным, и если да, то запускает его немедленно. Обобщённый ``Serializer::noteCompletion`` запускает все ранее ограниченные элементы, которые стали неограниченными в результате завершения текущего рабочего элемента. Термин \"запуск\" означает немедленный запуск работы или, если ограничений больше, переадресацию работы следующему преобразователю ограничений."
