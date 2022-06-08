@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-23 15:49+0300\n"
+"PO-Revision-Date: 2022-05-03 10:38+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,27 +25,27 @@ msgstr "Расширение интерфейса диапазонов parallel_
 
 #: ../../oneTBB/doc/main/reference/parallel_sort_ranges_extension.rst:11
 msgid "Description"
-msgstr ""
+msgstr "Описание"
 
 #: ../../oneTBB/doc/main/reference/parallel_sort_ranges_extension.rst:13
 msgid "|full_name| implementation extends the `oneapi::tbb::parallel_sort specification <https://spec.oneapi.io/versions/latest/elements/oneTBB/source/algorithms/functions/parallel_sort_func.html>`_ with overloads that takes the container by forwarding reference."
-msgstr ""
+msgstr "Реализация |full_name| расширяет спецификацию `oneapi::tbb::parallel_sort <https://spec.oneapi.io/versions/latest/elements/oneTBB/source/algorithms/functions/parallel_sort_func.html>`_ с перегрузками, которые принимают контейнер по пересылочной ссылке."
 
 #: ../../oneTBB/doc/main/reference/parallel_sort_ranges_extension.rst:18
 msgid "API"
-msgstr ""
+msgstr "API"
 
 #: ../../oneTBB/doc/main/reference/parallel_sort_ranges_extension.rst:21
 msgid "Header"
-msgstr ""
+msgstr "Заголовок"
 
 #: ../../oneTBB/doc/main/reference/parallel_sort_ranges_extension.rst:23
 msgid "#include <oneapi/tbb/parallel_sort.h>"
-msgstr ""
+msgstr "#include <oneapi/tbb/parallel_sort.h>"
 
 #: ../../oneTBB/doc/main/reference/parallel_sort_ranges_extension.rst:28
 msgid "Syntax"
-msgstr ""
+msgstr "Синтаксис"
 
 #: ../../oneTBB/doc/main/reference/parallel_sort_ranges_extension.rst:30
 msgid ""
@@ -60,26 +60,36 @@ msgid ""
 "    } // namespace tbb\n"
 "} // namespace oneapi"
 msgstr ""
+"namespace oneapi {\n"
+"    namespace tbb {\n"
+"\n"
+"        template <typename Container>\n"
+"        void parallel_sort( Container&& c );\n"
+"        template <typename Container, typename Compare>\n"
+"        void parallel_sort( Container&& c, const Compare& comp );\n"
+"\n"
+"    } // namespace tbb\n"
+"} // namespace oneapi"
 
 #: ../../oneTBB/doc/main/reference/parallel_sort_ranges_extension.rst:44
 msgid "Functions"
-msgstr ""
+msgstr "Функции"
 
 #: ../../oneTBB/doc/main/reference/parallel_sort_ranges_extension.rst:48
 msgid "Equivalent to ``parallel_sort( std::begin(c), std::end(c), comp )``, where `comp` uses `operator<` to determine relative orderings."
-msgstr ""
+msgstr "Эквивалентен ``parallel_sort( std::begin(c), std::end(c), comp )``, где `comp` использует `operator<` для определения относительного упорядочивания."
 
 #: ../../oneTBB/doc/main/reference/parallel_sort_ranges_extension.rst:52
 msgid "Equivalent to ``parallel_sort( std::begin(c), std::end(c), comp )``."
-msgstr ""
+msgstr "Эквивалентно ``parallel_sort( std::begin(c), std::end(c), comp )``."
 
 #: ../../oneTBB/doc/main/reference/parallel_sort_ranges_extension.rst:55
 msgid "Example"
-msgstr ""
+msgstr "Пример"
 
 #: ../../oneTBB/doc/main/reference/parallel_sort_ranges_extension.rst:57
 msgid "This interface may be used for sorting rvalue or constant views:"
-msgstr ""
+msgstr "Этот интерфейс можно использовать для сортировки представлений rvalue или констант:"
 
 #: ../../oneTBB/doc/main/reference/parallel_sort_ranges_extension.rst:59
 msgid ""
@@ -96,3 +106,15 @@ msgid ""
 "    tbb::parallel_sort(get_span());\n"
 "}"
 msgstr ""
+"#include <array>\n"
+"#include <span> // requires C++20\n"
+"#include <oneapi/tbb/parallel_sort.h>\n"
+"\n"
+"std::span<int> get_span() {\n"
+"    static std::array<int, 3> arr = {3, 2, 1};\n"
+"    return std::span<int>(arr);\n"
+"}\n"
+"\n"
+"int main() {\n"
+"    tbb::parallel_sort(get_span());\n"
+"}"

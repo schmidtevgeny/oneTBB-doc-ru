@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-23 15:49+0300\n"
+"PO-Revision-Date: 2022-05-03 11:02+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,35 +25,35 @@ msgstr "memory_pool_allocator"
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools/memory_pool_allocator_cls.rst:7
 msgid "To enable this feature, set the ``TBB_PREVIEW_MEMORY_POOL`` macro to 1."
-msgstr ""
+msgstr "Чтобы включить эту функцию, установи макрос ``TBB_PREVIEW_MEMORY_POOL`` в 1."
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools/memory_pool_allocator_cls.rst:9
 msgid "A class template that provides a memory pool with a C++ allocator interface."
-msgstr ""
+msgstr "Шаблон класса, который предоставляет пул памяти с интерфейсом аллокатора C++."
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools/memory_pool_allocator_cls.rst:16
 msgid "Description"
-msgstr ""
+msgstr "Описание"
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools/memory_pool_allocator_cls.rst:18
 msgid "``memory_pool_allocator`` meets the allocator requirements from the [allocator.requirements] ISO C++ Standard section It also provides a constructor to allocate and deallocate memory. This constructor is linked with an instance of either the ``memory_pool`` or the ``fixed_pool`` class. The class is mainly intended for enabling memory pools within STL containers."
-msgstr ""
+msgstr "``memory_pool_allocator`` соответствует требованиям к аллокатору из раздела [allocator.requirements] стандарта ISO C++ Он также предоставляет конструктор для выделения и деаллокации памяти. Этот конструктор связан с экземпляром либо класса ``memory_pool``, либо класса ``fixed_pool``. Этот класс в основном предназначен для включения пулов памяти внутри контейнеров STL."
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools/memory_pool_allocator_cls.rst:24
 msgid "API"
-msgstr ""
+msgstr "API"
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools/memory_pool_allocator_cls.rst:27
 msgid "Header"
-msgstr ""
+msgstr "Заголовок"
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools/memory_pool_allocator_cls.rst:29
 msgid "#include \"oneapi/tbb/memory_pool.h\""
-msgstr ""
+msgstr "#include \"oneapi/tbb/memory_pool.h\""
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools/memory_pool_allocator_cls.rst:34
 msgid "Synopsis"
-msgstr ""
+msgstr "Описание"
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools/memory_pool_allocator_cls.rst:36
 msgid ""
@@ -111,26 +111,79 @@ msgid ""
 "inline bool operator!=( const memory_pool_allocator<T>& a,\n"
 "                        const memory_pool_allocator<U>& b);"
 msgstr ""
+"namespace oneapi {\n"
+"    namespace tbb {\n"
+"        template<typename T>\n"
+"        class memory_pool_allocator {\n"
+"        public:\n"
+"            using value_type = T;\n"
+"            using pointer = value_type*;\n"
+"            using const_pointer = const value_type*;\n"
+"            using reference = value_type&;\n"
+"            using const_reference = const value_type&;\n"
+"            using size_type = size_t;\n"
+"            using difference_type = ptrdiff_t;\n"
+"            template<typename U> struct rebind {\n"
+"                using other = memory_pool_allocator<U>;\n"
+"            };\n"
+"            explicit memory_pool_allocator(memory_pool &pool) throw();\n"
+"            explicit memory_pool_allocator(fixed_pool &pool) throw();\n"
+"            memory_pool_allocator(const memory_pool_allocator& src) throw();\n"
+"            template<typename U>\n"
+"            memory_pool_allocator(const memory_pool_allocator<U,P>& src) throw();\n"
+"            pointer address(reference x) const;\n"
+"            const_pointer address(const_reference x) const;\n"
+"            pointer allocate(size_type n, const void* hint=0);\n"
+"            void deallocate(pointer p, size_type);\n"
+"            size_type max_size() const throw();\n"
+"            void construct(pointer p, const T& value);\n"
+"            void destroy(pointer p);\n"
+"        };\n"
+"\n"
+"        template<>\n"
+"        class memory_pool_allocator<void> {\n"
+"        public:\n"
+"            using pointer = void*;\n"
+"            using const_pointer = const void*;\n"
+"            using value_type = void;\n"
+"            template<typename U> struct rebind {\n"
+"                using other = memory_pool_allocator<U>;\n"
+"            };\n"
+"            memory_pool_allocator(memory_pool &pool) throw();\n"
+"            memory_pool_allocator(fixed_pool &pool) throw();\n"
+"            memory_pool_allocator(const memory_pool_allocator& src) throw();\n"
+"            template<typename U>\n"
+"            memory_pool_allocator(const memory_pool_allocator<U>& src) throw();\n"
+"        };\n"
+"    } // namespace tbb\n"
+"} // namespace oneapi\n"
+"\n"
+"template<typename T, typename U>\n"
+"inline bool operator==( const memory_pool_allocator<T>& a,\n"
+"                       const memory_pool_allocator<U>& b);\n"
+"template<typename T, typename U>\n"
+"inline bool operator!=( const memory_pool_allocator<T>& a,\n"
+"                        const memory_pool_allocator<U>& b);"
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools/memory_pool_allocator_cls.rst:93
 msgid "Member Functions"
-msgstr ""
+msgstr "Функции-члены"
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools/memory_pool_allocator_cls.rst:97
 msgid "**Effects**: Constructs a memory pool allocator serviced by ``memory_pool`` instance pool."
-msgstr ""
+msgstr "**Эффекты**: Конструирует распределитель пула памяти, обслуживаемый пулом экземпляров ``memory_pool``."
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools/memory_pool_allocator_cls.rst:103
 msgid "**Effects**: Constructs a memory pool allocator serviced by ``fixed_pool`` instance pool."
-msgstr ""
+msgstr "**Эффекты**: Конструирует распределитель пула памяти, обслуживаемый пулом экземпляров ``fixed_pool``."
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools/memory_pool_allocator_cls.rst:106
 msgid "Examples"
-msgstr ""
+msgstr "Примеры"
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools/memory_pool_allocator_cls.rst:108
 msgid "The code below provides a simple example of container construction with the use of a memory pool."
-msgstr ""
+msgstr "В приведенном ниже коде представлен простой пример построения контейнера с использованием пула памяти."
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools/memory_pool_allocator_cls.rst:110
 msgid ""
@@ -141,3 +194,9 @@ msgid ""
 "pool_allocator_t;\n"
 "std::list<int, pool_allocator_t> my_list(pool_allocator_t( my_pool ));"
 msgstr ""
+"#define TBB_PREVIEW_MEMORY_POOL 1\n"
+"#include \"oneapi/tbb/memory_pool.h\"\n"
+"...\n"
+"typedef oneapi::tbb::memory_pool_allocator<int>\n"
+"pool_allocator_t;\n"
+"std::list<int, pool_allocator_t> my_list(pool_allocator_t( my_pool ));"

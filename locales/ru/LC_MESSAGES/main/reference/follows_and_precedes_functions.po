@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-23 15:46+0300\n"
+"PO-Revision-Date: 2022-05-03 11:06+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,47 +25,47 @@ msgstr "Шаблоны функций ``follows`` и ``precedes``"
 
 #: ../../oneTBB/doc/main/reference/follows_and_precedes_functions.rst:7
 msgid "To enable this feature, define the ``TBB_PREVIEW_FLOW_GRAPH_FEATURES`` macro to 1."
-msgstr ""
+msgstr "Чтобы включить эту функцию, определи макрос ``TBB_PREVIEW_FLOW_GRAPH_FEATURES`` в 1."
 
 #: ../../oneTBB/doc/main/reference/follows_and_precedes_functions.rst:9
 msgid "The ``follows`` and ``precedes`` helper functions aid in expressing dependencies between nodes when building oneTBB flow graphs. These helper functions can only be used while constructing the node."
-msgstr ""
+msgstr "Вспомогательные функции ``follows`` и ``precedes`` помогают выразить зависимости между узлами при построении графов потока OneTBB. Эти вспомогательные функции можно использовать только при построении узла."
 
 #: ../../oneTBB/doc/main/reference/follows_and_precedes_functions.rst:18
 msgid "Description"
-msgstr ""
+msgstr "Описание"
 
 #: ../../oneTBB/doc/main/reference/follows_and_precedes_functions.rst:20
 msgid "The ``follows`` helper function specifies that the node being constructed is the successor of the set of nodes passed as an argument."
-msgstr ""
+msgstr "Вспомогательная функция ``follows`` указывает, что конструируемый узел является преемником множества узлов, переданных в качестве аргумента."
 
 #: ../../oneTBB/doc/main/reference/follows_and_precedes_functions.rst:23
 msgid "The ``precedes`` helper function specifies that the node being constructed is the predecessor of the set of nodes passed as an argument."
-msgstr ""
+msgstr "Вспомогательная функция ``precedes`` указывает, что конструируемый узел является предшественником множества узлов, переданных в качестве аргумента."
 
 #: ../../oneTBB/doc/main/reference/follows_and_precedes_functions.rst:26
 msgid "Functions ``follows`` and ``precedes`` are meant to replace the graph argument, which is passed as the first argument to the constructor of the node. The graph argument for the node being constructed is obtained either from the specified node set or the sequence of nodes passed to ``follows`` or ``precedes``."
-msgstr ""
+msgstr "Функции ``follows`` и ``precedes`` предназначены для замены аргумента graph, который передается в качестве первого аргумента конструктору узла. Аргумент graph для конструируемого узла получается либо из указанного набора узлов, либо из последовательности узлов, переданных в ``follows`` или ``precedes``."
 
 #: ../../oneTBB/doc/main/reference/follows_and_precedes_functions.rst:31
 msgid "If the nodes passed to ``follows`` or ``precedes`` belong to different graphs, the behavior is undefined."
-msgstr ""
+msgstr "Если узлы, переданные в ``follows`` или ``precedes``, принадлежат разным графам, поведение будет неопределенным."
 
 #: ../../oneTBB/doc/main/reference/follows_and_precedes_functions.rst:35
 msgid "API"
-msgstr ""
+msgstr "API"
 
 #: ../../oneTBB/doc/main/reference/follows_and_precedes_functions.rst:38
 msgid "Header"
-msgstr ""
+msgstr "Заголовок"
 
 #: ../../oneTBB/doc/main/reference/follows_and_precedes_functions.rst:40
 msgid "#include <oneapi/tbb/flow_graph.h>"
-msgstr ""
+msgstr "#include <oneapi/tbb/flow_graph.h>"
 
 #: ../../oneTBB/doc/main/reference/follows_and_precedes_functions.rst:45
 msgid "Syntax"
-msgstr ""
+msgstr "Синтаксис"
 
 #: ../../oneTBB/doc/main/reference/follows_and_precedes_functions.rst:47
 msgid ""
@@ -83,29 +83,44 @@ msgid ""
 "template <typename NodeType, typename... NodeTypes>\n"
 "/*unspecified*/ precedes( NodeType& node, NodeTypes&... nodes );"
 msgstr ""
+"// node_set is an exposition-only name for the type returned from make_node_set function\n"
+"\n"
+"template <typename NodeType, typename... NodeTypes>\n"
+"/*unspecified*/ follows( node_set<NodeType, NodeTypes...>& set );\n"
+"\n"
+"template <typename NodeType, typename... NodeTypes>\n"
+"/*unspecified*/ follows( NodeType& node, NodeTypes&... nodes );\n"
+"\n"
+"template <typename NodeType, typename... NodeTypes>\n"
+"/*unspecified*/ precedes( node_set<NodeType, NodeTypes...>& set );\n"
+"\n"
+"template <typename NodeType, typename... NodeTypes>\n"
+"/*unspecified*/ precedes( NodeType& node, NodeTypes&... nodes );"
 
 #: ../../oneTBB/doc/main/reference/follows_and_precedes_functions.rst:64
 msgid "Input Parameters"
-msgstr ""
+msgstr "Входные параметры"
 
 #: ../../oneTBB/doc/main/reference/follows_and_precedes_functions.rst:66
 msgid "Either a set or a sequence of nodes can be used as arguments for ``follows`` and ``precedes``. The following expressions are equivalent:"
-msgstr ""
+msgstr "В качестве аргументов для ``follows`` и ``precedes`` можно использовать либо набор, либо последовательность узлов. Следующие выражения эквивалентны:"
 
 #: ../../oneTBB/doc/main/reference/follows_and_precedes_functions.rst:69
 msgid "A set of nodes as an input"
-msgstr ""
+msgstr "Набор узлов в качестве входа"
 
 #: ../../oneTBB/doc/main/reference/follows_and_precedes_functions.rst:69
 msgid ""
 "auto handlers = make_node_set(n1, n2, n3);\n"
 "broadcast_node<int> input(precedes(handlers));"
 msgstr ""
+"auto handlers = make_node_set(n1, n2, n3);\n"
+"broadcast_node<int> input(precedes(handlers));"
 
 #: ../../oneTBB/doc/main/reference/follows_and_precedes_functions.rst:75
 msgid "A sequence of nodes as an input"
-msgstr ""
+msgstr "Последовательность узлов в качестве входа"
 
 #: ../../oneTBB/doc/main/reference/follows_and_precedes_functions.rst:75
 msgid "broadcast_node<int> input(precedes(n1, n2, n3));"
-msgstr ""
+msgstr "broadcast_node<int> input(precedes(n1, n2, n3));"

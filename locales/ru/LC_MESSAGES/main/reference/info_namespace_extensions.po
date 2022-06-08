@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-23 15:47+0300\n"
+"PO-Revision-Date: 2022-05-03 11:06+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,31 +25,31 @@ msgstr "Расширения пространства имен oneapi::tbb::info
 
 #: ../../oneTBB/doc/main/reference/info_namespace_extensions.rst:7
 msgid "To enable this feature, set the ``TBB_PREVIEW_TASK_ARENA_CONSTRAINTS_EXTENSION`` macro to 1."
-msgstr ""
+msgstr "Чтобы включить эту функцию, установи макрос ``TBB_PREVIEW_TASK_ARENA_CONSTRAINTS_EXTENSION`` в значение 1."
 
 #: ../../oneTBB/doc/main/reference/info_namespace_extensions.rst:14
 msgid "Description"
-msgstr ""
+msgstr "Описание"
 
 #: ../../oneTBB/doc/main/reference/info_namespace_extensions.rst:16
 msgid "These extensions allow to query information about execution environment."
-msgstr ""
+msgstr "Эти расширения позволяют запрашивать информацию о среде выполнения."
 
 #: ../../oneTBB/doc/main/reference/info_namespace_extensions.rst:23
 msgid "API"
-msgstr ""
+msgstr "API"
 
 #: ../../oneTBB/doc/main/reference/info_namespace_extensions.rst:26
 msgid "Header"
-msgstr ""
+msgstr "Заголовок"
 
 #: ../../oneTBB/doc/main/reference/info_namespace_extensions.rst:28
 msgid "#include <oneapi/tbb/info.h>"
-msgstr ""
+msgstr "#include <oneapi/tbb/info.h>"
 
 #: ../../oneTBB/doc/main/reference/info_namespace_extensions.rst:33
 msgid "Syntax"
-msgstr ""
+msgstr "Синтаксис"
 
 #: ../../oneTBB/doc/main/reference/info_namespace_extensions.rst:35
 msgid ""
@@ -63,39 +63,48 @@ msgid ""
 "    }\n"
 "}"
 msgstr ""
+"namespace oneapi {\n"
+"    namespace tbb {\n"
+"        using core_type_id = /*implementation-defined*/;\n"
+"        namespace info {\n"
+"            std::vector<core_type_id> core_types();\n"
+"            int default_concurrency(task_arena::constraints c);\n"
+"        }\n"
+"    }\n"
+"}"
 
 #: ../../oneTBB/doc/main/reference/info_namespace_extensions.rst:48
 msgid "Types"
-msgstr ""
+msgstr "Типы"
 
 #: ../../oneTBB/doc/main/reference/info_namespace_extensions.rst:50
 msgid "``core_type_id`` - Represents core type identifier."
-msgstr ""
+msgstr "``core_type_id`` - Представляет собой идентификатор типа ядра."
 
 #: ../../oneTBB/doc/main/reference/info_namespace_extensions.rst:53
 msgid "Functions"
-msgstr ""
+msgstr "Функции"
 
 #: ../../oneTBB/doc/main/reference/info_namespace_extensions.rst:57
 msgid "Returns the vector of integral indexes that indicate available core types. The indexes are sorted from the least performant to the most performant core type."
-msgstr ""
+msgstr "Возвращает вектор интегральных индексов, которые указывают на доступные типы ядер. Индексы сортируются от наименее производительного к наиболее производительному типу ядра."
 
 #: ../../oneTBB/doc/main/reference/info_namespace_extensions.rst:61
 msgid "If error occurs during system topology parsing, returns vector containing single element that equals to ``task_arena::automatic``."
-msgstr ""
+msgstr "Если во время разбора топологии системы произошла ошибка, возвращается вектор, содержащий единственный элемент, равный ``task_arena::automatic``."
 
 #: ../../oneTBB/doc/main/reference/info_namespace_extensions.rst:66
 msgid "Returns concurrency level for the given constraints."
-msgstr ""
+msgstr "Возвращает уровень параллелизма для заданных ограничений."
 
 #: ../../oneTBB/doc/main/reference/info_namespace_extensions.rst:68
 msgid "See also:"
-msgstr ""
+msgstr "См. также"
 
 #: ../../oneTBB/doc/main/reference/info_namespace_extensions.rst:70
 msgid ":doc:`task_arena::constraints class preview extensions <constraints_extensions>`"
-msgstr ""
+msgstr ":doc:`расширения для классов предварительного просмотра task_arena::constraints <constraints_extensions>`"
 
 #: ../../oneTBB/doc/main/reference/info_namespace_extensions.rst:71
 msgid "`info namespace specification <https://spec.oneapi.com/versions/latest/elements/oneTBB/source/info_namespace.html>`_"
-msgstr ""
+msgstr "`спецификация информационного пространства имен <https://spec.oneapi.com/versions/latest/elements/oneTBB/source/info_namespace.html>`_"

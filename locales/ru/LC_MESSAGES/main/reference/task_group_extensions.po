@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-23 15:49+0300\n"
+"PO-Revision-Date: 2022-05-03 11:08+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,35 +25,35 @@ msgstr "Расширение task_group"
 
 #: ../../oneTBB/doc/main/reference/task_group_extensions.rst:7
 msgid "To enable these extensions, set the ``TBB_PREVIEW_TASK_GROUP_EXTENSIONS`` macro to 1."
-msgstr ""
+msgstr "Чтобы включить эти расширения, установи макрос ``TBB_PREVIEW_TASK_GROUP_EXTENSIONS`` в 1."
 
 #: ../../oneTBB/doc/main/reference/task_group_extensions.rst:14
 msgid "Description"
-msgstr ""
+msgstr "Описание"
 
 #: ../../oneTBB/doc/main/reference/task_group_extensions.rst:16
 msgid "|full_name| implementation extends the `tbb::task_group specification <https://spec.oneapi.com/versions/latest/elements/oneTBB/source/task_scheduler/task_group/task_group_cls.html>`_ with the following members:"
-msgstr ""
+msgstr "|full_name| расширяет спецификацию `tbb::task_group <https://spec.oneapi.com/versions/latest/elements/oneTBB/source/task_scheduler/task_group/task_group_cls.html>`_ со следующими членами:"
 
 #: ../../oneTBB/doc/main/reference/task_group_extensions.rst:18
 msgid "requirements for a user-provided function object"
-msgstr ""
+msgstr "требования к функциональному объекту, предоставляемому пользователем"
 
 #: ../../oneTBB/doc/main/reference/task_group_extensions.rst:22
 msgid "API"
-msgstr ""
+msgstr "API"
 
 #: ../../oneTBB/doc/main/reference/task_group_extensions.rst:25
 msgid "Header"
-msgstr ""
+msgstr "Заголовок"
 
 #: ../../oneTBB/doc/main/reference/task_group_extensions.rst:27
 msgid "#include <oneapi/tbb/task_group.h>"
-msgstr ""
+msgstr "#include <oneapi/tbb/task_group.h>"
 
 #: ../../oneTBB/doc/main/reference/task_group_extensions.rst:32
 msgid "Synopsis"
-msgstr ""
+msgstr "Описание"
 
 #: ../../oneTBB/doc/main/reference/task_group_extensions.rst:34
 msgid ""
@@ -79,42 +79,63 @@ msgid ""
 "    } // namespace tbb\n"
 "} // namespace oneapi"
 msgstr ""
+"namespace oneapi {\n"
+"    namespace tbb {\n"
+"\n"
+"       class task_group {\n"
+"       public:\n"
+"\n"
+"           //изменяются только требования к типу возврата функции F\n"
+"           template<typename F>\n"
+"           task_handle defer(F&& f);\n"
+"\n"
+"           //изменяются только требования к типу возврата функции F\n"
+"           template<typename F>\n"
+"           task_group_status run_and_wait(const F& f);\n"
+"\n"
+"           //изменяются только требования к типу возврата функции F\n"
+"           template<typename F>\n"
+"           void run(F&& f);\n"
+"       };\n"
+"\n"
+"    } // namespace tbb\n"
+"} // namespace oneapi"
 
 #: ../../oneTBB/doc/main/reference/task_group_extensions.rst:61
 msgid "Member Functions"
-msgstr ""
+msgstr "Функции-члены"
 
 #: ../../oneTBB/doc/main/reference/task_group_extensions.rst:65
 #: ../../oneTBB/doc/main/reference/task_group_extensions.rst:72
 #: ../../oneTBB/doc/main/reference/task_group_extensions.rst:80
 msgid "As an optimization hint, ``F`` might return a ``task_handle``, which task object can be executed next."
-msgstr ""
+msgstr "В качестве подсказки для оптимизации, ``F`` может вернуть ``task_handle``, объект задачи которого может быть выполнен следующим."
 
 #: ../../oneTBB/doc/main/reference/task_group_extensions.rst:68
 #: ../../oneTBB/doc/main/reference/task_group_extensions.rst:75
 msgid "The ``task_handle`` returned by the function must be created using ``*this`` ``task_group``. That is, the one for which the run method is called, otherwise it is undefined behavior."
-msgstr ""
+msgstr "Возвращаемая функцией ``task_handle`` должна быть создана с помощью ``*this`` ``task_group``. То есть той, для которой вызывается метод run, иначе это неопределенное поведение."
 
 #: ../../oneTBB/doc/main/reference/task_group_extensions.rst:83
 msgid "The ``task_handle`` returned by the function must be created with ``*this`` ``task_group``. It means, with the one for which run method is called, otherwise it is an undefined behavior."
-msgstr ""
+msgstr "Возвращаемая функцией ``task_handle`` должна быть создана с ``*this`` ``task_group``. Это значит, с той, для которой вызывается метод run, иначе это неопределенное поведение."
 
 #: ../../oneTBB/doc/main/reference/task_group_extensions.rst:87
 msgid "See also"
-msgstr ""
+msgstr "Смотри также"
 
 #: ../../oneTBB/doc/main/reference/task_group_extensions.rst:88
 msgid "`oneapi::tbb::task_group specification <https://spec.oneapi.com/versions/latest/elements/oneTBB/source/task_scheduler/task_group/task_group_cls.html>`_"
-msgstr ""
+msgstr "`Спецификация oneapi::tbb::task_group <https://spec.oneapi.com/versions/latest/elements/oneTBB/source/task_scheduler/task_group/task_group_cls.html>`_"
 
 #: ../../oneTBB/doc/main/reference/task_group_extensions.rst:89
 msgid "`oneapi::tbb::task_group_context specification <https://spec.oneapi.com/versions/latest/elements/oneTBB/source/task_scheduler/scheduling_controls/task_group_context_cls.html>`_"
-msgstr ""
+msgstr "`Спецификация oneapi::tbb::task_group_context <https://spec.oneapi.com/versions/latest/elements/oneTBB/source/task_scheduler/scheduling_controls/task_group_context_cls.html>`_"
 
 #: ../../oneTBB/doc/main/reference/task_group_extensions.rst:90
 msgid "`oneapi::tbb::task_group_status specification <https://spec.oneapi.com/versions/latest/elements/oneTBB/source/task_scheduler/task_group/task_group_status_enum.html>`_"
-msgstr ""
+msgstr "`Спецификация oneapi::tbb::task_group_status <https://spec.oneapi.com/versions/latest/elements/oneTBB/source/task_scheduler/task_group/task_group_status_enum.html>`_"
 
 #: ../../oneTBB/doc/main/reference/task_group_extensions.rst:91
 msgid ":doc:`oneapi::tbb::task_handle class <task_group_extensions/task_handle>`"
-msgstr ""
+msgstr ":doc:`Класс oneapi::tbb::task_handle <task_group_extensions/task_handle>`"

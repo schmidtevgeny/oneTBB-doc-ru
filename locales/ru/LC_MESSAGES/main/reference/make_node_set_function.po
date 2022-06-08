@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-23 15:49+0300\n"
+"PO-Revision-Date: 2022-05-03 11:09+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,46 +25,48 @@ msgstr "Шаблон функции ``make_node_set``"
 
 #: ../../oneTBB/doc/main/reference/make_node_set_function.rst:7
 msgid "To enable this feature, define the ``TBB_PREVIEW_FLOW_GRAPH_FEATURES`` macro to 1."
-msgstr ""
+msgstr "Чтобы включить эту функцию, определи макрос ``TBB_PREVIEW_FLOW_GRAPH_FEATURES`` в 1."
 
 #: ../../oneTBB/doc/main/reference/make_node_set_function.rst:14
 msgid "Description"
-msgstr ""
+msgstr "Описание"
 
 #: ../../oneTBB/doc/main/reference/make_node_set_function.rst:16
 msgid "The ``make_node_set`` function template creates a set of nodes that can be passed as arguments to ``make_edges``, ``follows`` and ``precedes`` functions."
-msgstr ""
+msgstr "Шаблон функции ``make_node_set`` создает набор узлов, которые могут быть переданы в качестве аргументов функциям ``make_edges``, ``follows`` и ``precedes``."
 
 #: ../../oneTBB/doc/main/reference/make_node_set_function.rst:20
 msgid "API"
-msgstr ""
+msgstr "API"
 
 #: ../../oneTBB/doc/main/reference/make_node_set_function.rst:23
 msgid "Header"
-msgstr ""
+msgstr "Заголовок"
 
 #: ../../oneTBB/doc/main/reference/make_node_set_function.rst:25
 msgid "#include <oneapi/tbb/flow_graph.h>"
-msgstr ""
+msgstr "#include <oneapi/tbb/flow_graph.h>"
 
 #: ../../oneTBB/doc/main/reference/make_node_set_function.rst:30
 msgid "Syntax"
-msgstr ""
+msgstr "Синтаксис"
 
 #: ../../oneTBB/doc/main/reference/make_node_set_function.rst:32
 msgid ""
 "template <typename Node, typename... Nodes>\n"
 "/*unspecified*/ make_node_set( Node& node, Nodes&... nodes );"
 msgstr ""
+"template <typename Node, typename... Nodes>\n"
+"/*unspecified*/ make_node_set( Node& node, Nodes&... nodes );"
 
 #: ../../oneTBB/doc/main/reference/make_node_set_function.rst:38
 msgid "See Also"
-msgstr ""
+msgstr "См. также"
 
 #: ../../oneTBB/doc/main/reference/make_node_set_function.rst:40
 msgid ":ref:`make_edges`"
-msgstr ""
+msgstr ":ref:`make_edges`"
 
 #: ../../oneTBB/doc/main/reference/make_node_set_function.rst:42
 msgid ":ref:`follows_precedes`"
-msgstr ""
+msgstr ":ref:`follows_precedes`"

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: oneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-23 15:49+0300\n"
+"PO-Revision-Date: 2022-05-03 11:02+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,35 +25,35 @@ msgstr "fixed_pool"
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools/fixed_pool_cls.rst:7
 msgid "To enable this feature, set the ``TBB_PREVIEW_MEMORY_POOL`` macro to 1."
-msgstr ""
+msgstr "Чтобы включить эту функцию, установи макрос ``TBB_PREVIEW_MEMORY_POOL`` в 1."
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools/fixed_pool_cls.rst:9
 msgid "A class for scalable memory allocation from a buffer of fixed size."
-msgstr ""
+msgstr "Класс для масштабируемого выделения памяти из буфера фиксированного размера."
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools/fixed_pool_cls.rst:16
 msgid "Description"
-msgstr ""
+msgstr "Описание"
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools/fixed_pool_cls.rst:18
 msgid "``fixed_pool`` allocates and frees memory in a way that scales with the number of processors. All the memory available for the allocation is initially passed through arguments of the constructor. ``fixed_pool`` meet the :doc:`Memory Pool named requirement<../scalable_memory_pools>`."
-msgstr ""
+msgstr "``fixed_pool`` выделяет и освобождает память таким образом, что масштабируется с количеством процессоров. Вся память, доступная для выделения, изначально передается через аргументы конструктора. ``fixed_pool`` отвечают требованию :doc:`Memory Pool named requirement<.../scalable_memory_pools>`."
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools/fixed_pool_cls.rst:23
 msgid "API"
-msgstr ""
+msgstr "API"
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools/fixed_pool_cls.rst:26
 msgid "Header"
-msgstr ""
+msgstr "Заголовок"
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools/fixed_pool_cls.rst:28
 msgid "#include \"oneapi/tbb/memory_pool.h\""
-msgstr ""
+msgstr "#include \"oneapi/tbb/memory_pool.h\""
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools/fixed_pool_cls.rst:33
 msgid "Synopsis"
-msgstr ""
+msgstr "Описание"
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools/fixed_pool_cls.rst:35
 msgid ""
@@ -74,22 +74,38 @@ msgid ""
 "    } // namespace tbb\n"
 "} // namespace oneapi"
 msgstr ""
+"namespace oneapi {\n"
+"    namespace tbb {\n"
+"        class fixed_pool {\n"
+"        public:\n"
+"            fixed_pool(void *buffer, size_t size);\n"
+"            fixed_pool(const fixed_pool& other) = delete;\n"
+"            fixed_pool& operator=(const fixed_pool& other) = delete;\n"
+"            ~fixed_pool();\n"
+"\n"
+"            void recycle();\n"
+"            void* malloc(size_t size);\n"
+"            void free(void* ptr);\n"
+"            void* realloc(void* ptr, size_t size);\n"
+"        };\n"
+"    } // namespace tbb\n"
+"} // namespace oneapi"
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools/fixed_pool_cls.rst:55
 msgid "Member Functions"
-msgstr ""
+msgstr "Функции-члены"
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools/fixed_pool_cls.rst:59
 msgid "**Effects**: Constructs a memory pool to manage the memory of size ``size`` pointed to by ``buffer``. Throws the ``bad_alloc`` exception if the library fails to construct an instance of the class."
-msgstr ""
+msgstr "**Эффекты**: Конструирует пул памяти для управления памятью размера ``size``, на которую указывает ``buffer``. Бросает исключение ``bad_alloc``, если библиотеке не удается построить экземпляр класса."
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools/fixed_pool_cls.rst:63
 msgid "Examples"
-msgstr ""
+msgstr "Примеры"
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools/fixed_pool_cls.rst:65
 msgid "The code below provides a simple example of allocation from a fixed pool."
-msgstr ""
+msgstr "В приведенном ниже коде представлен простой пример выделения из фиксированного пула."
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools/fixed_pool_cls.rst:67
 msgid ""
@@ -101,3 +117,10 @@ msgid ""
 "void* my_ptr = my_pool.malloc(10);\n"
 "my_pool.free(my_ptr);}"
 msgstr ""
+"#define TBB_PREVIEW_MEMORY_POOL 1\n"
+"#include \"oneapi/tbb/memory_pool.h\"\n"
+"...\n"
+"char buf[1024*1024];\n"
+"oneapi::tbb::fixed_pool my_pool(buf, 1024*1024);\n"
+"void* my_ptr = my_pool.malloc(10);\n"
+"my_pool.free(my_ptr);}"

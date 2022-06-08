@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ru_RUoneTBB\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-23 14:08+0300\n"
-"PO-Revision-Date: 2022-02-23 15:49+0300\n"
+"PO-Revision-Date: 2022-05-03 11:00+0300\n"
 "Last-Translator: Evgeny <schmidte@list.ru>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -25,64 +25,64 @@ msgstr "Масштабируемые пулы памяти"
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools.rst:7
 msgid "To enable this feature, set the ``TBB_PREVIEW_MEMORY_POOL`` macro to 1."
-msgstr ""
+msgstr "Чтобы включить эту функцию, установи макрос ``TBB_PREVIEW_MEMORY_POOL`` в 1."
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools.rst:9
 msgid "Memory pools allocate and free memory from a specified region or an underlying allocator using thread-safe, scalable operations. The  following table summarizes the Memory Pool named requirement. Here, ``P`` represents an instance of the memory pool class."
-msgstr ""
+msgstr "Пулы памяти выделяют и освобождают память из указанного региона или базового аллокатора, используя потокобезопасные, масштабируемые операции. В следующей таблице приведены требования к именованному пулу памяти. Здесь ``P`` представляет экземпляр класса пула памяти."
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools.rst:18
 msgid "Pseudo-Signature"
-msgstr ""
+msgstr "Псевдосигнатура"
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools.rst:19
 msgid "Semantics"
-msgstr ""
+msgstr "Семантика"
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools.rst:20
 msgid "\\ ``~P() throw();``"
-msgstr ""
+msgstr "\\ ``~P() throw();``"
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools.rst:21
 msgid "Destructor. Frees all the allocated memory."
-msgstr ""
+msgstr "Деструктор. Освобождает всю выделенную память."
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools.rst:22
 msgid "\\ ``void P::recycle();``"
-msgstr ""
+msgstr "\\ ``void P::recycle();``"
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools.rst:23
 msgid "Frees all the allocated memory."
-msgstr ""
+msgstr "Освобождает всю выделенную память."
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools.rst:24
 msgid "\\ ``void* P::malloc(size_t n);``"
-msgstr ""
+msgstr "\\ ``void* P::malloc(size_t n);``"
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools.rst:25
 msgid "Returns a pointer to ``n`` bytes allocated from the memory pool."
-msgstr ""
+msgstr "Возвращает указатель на ``n`` байт, выделенных из пула памяти."
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools.rst:26
 msgid "\\ ``void P::free(void* ptr);``"
-msgstr ""
+msgstr "\\ ``void P::free(void* ptr);``"
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools.rst:27
 msgid "Frees the memory object specified via ``ptr`` pointer."
-msgstr ""
+msgstr "Освобождает объект памяти, указанный через указатель ``ptr``."
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools.rst:28
 msgid "\\ ``void* P::realloc(void* ptr, size_t n);``"
-msgstr ""
+msgstr "\\ ``void* P::realloc(void* ptr, size_t n);``"
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools.rst:29
 msgid "Reallocates the memory object pointed by ``ptr`` to ``n`` bytes."
-msgstr ""
+msgstr "Перераспределяет объект памяти, на который указывает ``ptr``, на ``n`` байт."
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools.rst
 msgid "Model Types"
-msgstr ""
+msgstr "Типы моделей"
 
 #: ../../oneTBB/doc/main/reference/scalable_memory_pools.rst:36
 msgid "The ``memory_pool`` template class and the ``fixed_pool`` class meet the Memory Pool named requirement."
-msgstr ""
+msgstr "Шаблонный класс ``memory_pool`` и класс ``fixed_pool`` отвечают требованию именованного пула памяти."
